@@ -1,0 +1,81 @@
+
+\usepackage[inner=6pc,outer=6pc,bottom=6pc,top=5pc]{geometry}
+%\usepackage[inner=6pc,outer=6pc,bottom=6pc,top=5pc,headheight=13.6pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{mizar}
+\usepackage{amsmath}
+\usepackage{amssymb}
+% notation
+\usepackage{notation}
+\usepackage{paracol}
+
+\setlength\outermizarmargin{0em}
+\setlength\innermizarmargin{0em}
+\setlength\innermizarleftmargin{0.25em}
+\setlength{\columnsep}{2em}
+
+\pagestyle{headings}
+
+
+%\newcommand
+\DeclareRobustCommand\chunks[2]{%
+\begin{leftcolumn*}\nopagebreak\noindent{#1}\end{leftcolumn*}%
+\begin{rightcolumn}\nopagebreak\noindent{#2}\end{rightcolumn}%
+}
+
+\def\@makechapterhead#1{\vspace*{7.5pc}\relax%
+  \begingroup
+  \fontsize{\@xivpt}{18}\bfseries\centering
+    \ifnum\c@secnumdepth>\m@ne
+      \leavevmode \hskip-\leftskip
+      \rlap{\vbox to\z@{\vss
+          \centerline{\normalsize\mdseries
+              \uppercase\@xp{\chaptername}\enspace\thechapter}
+          \vskip 3pc}}\hskip\leftskip\fi
+     #1\par \endgroup
+  \skip@34\p@ \advance\skip@-\normalbaselineskip
+  \vskip\skip@ }
+\def\@makeschapterhead#1{\vspace*{7.5pc}\relax
+  \begingroup
+  \fontsize{\@xivpt}{18}\bfseries\centering
+  #1\par \endgroup
+  \skip@34\p@ \advance\skip@-\normalbaselineskip
+  \vskip\skip@ }
+
+% avoid making the page numbers reset in mainmatter
+% https://tex.stackexchange.com/a/61473/14751
+\def\pagenumbering#1{%
+  %\global\c@page \@ne
+  \gdef\thepage{\csname @#1\endcsname
+    \c@page}}
+
+% equation numbering
+\numberwithin{equation}{section}
+\ltx@IfUndefined{theHsection}{%
+  \renewcommand\theequation{\arabic{equation}}
+}{%
+  \renewcommand{\theequation}{\theHsection\arabic{equation}}
+}
+
+\newcounter{scheme}[section]
+\renewcommand\thescheme{Sch.~\arabic{scheme}}
+% multi-line scheme statement
+\newenvironment{scheme+}{\refstepcounter{scheme}\start@multline\st@rredtrue\tag{\thescheme}}{\endmultline\ignorespacesafterend}
+% single line scheme statement
+\newenvironment{scheme}{\refstepcounter{scheme}\begin{equation*}\tag{\thescheme}}{\end{equation*}\ignorespacesafterend}
+
+\newcounter{definition}[section]
+\renewcommand\thedefinition{Def.\arabic{definition}}
+% multi-line scheme statement
+\newenvironment{definition+}{\refstepcounter{definition}\start@multline\st@rredtrue\tag{\thedefinition}}{\endmultline\ignorespacesafterend}
+% single line scheme statement
+\newenvironment{definition}{\refstepcounter{definition}\begin{equation*}\tag{\thedefinition}}{\end{equation*}\ignorespacesafterend}
+
+
+\newcounter{theorem}[section]
+\renewcommand\thetheorem{\arabic{theorem}}
+% multi-line scheme statement
+\newenvironment{theorem+}{\refstepcounter{theorem}\start@multline\st@rredtrue\tag{\thetheorem}}{\endmultline\ignorespacesafterend}
+% single line scheme statement
+\newenvironment{theorem}{\refstepcounter{theorem}\begin{equation*}\tag{\thetheorem}}{\end{equation*}\ignorespacesafterend}

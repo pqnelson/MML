@@ -1,0 +1,37 @@
+% logical connectives
+\let\oldland\land
+\def\land{\mathrel{\&}}
+\let\oldlor\lor
+\def\lor{\mathrel{\textbf{or}}}
+\let\oldforall\forall
+\renewcommand\forall{\mathrel{\textbf{for}}}
+\newcommand\st{\mathrel{\textbf{st}}}
+\newcommand\ex{\mathrel{\textbf{ex}}}
+\newcommand\holds{\mathrel{\textbf{holds}}}
+\renewcommand\iff{\mathrel{\textbf{iff}}}
+\renewcommand\implies{\mathrel{\textbf{implies}}}
+\newcommand\is{\mathrel{\textbf{is}}}
+\newcommand\being{\mathrel{\textbf{being}}}
+\newcommand\THE{\mathrel{\textbf{the}}}
+\newcommand\IT{\mathop{\textbf{it}}}
+\let\oldneg\neg
+\def\neg{\mathrel{\textbf{not}}}
+
+% TARSKI
+\DeclareMathOperator\bool{bool}
+\let\equipotent\approx
+\let\propersubset\subset
+\let\subset\subseteq
+
+% XBOOLE_0
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+\newcommand\meets{\mathbin{\text{meets}}}
+\newcommand\misses{\mathbin{\text{misses}}}
+\newcommand\areComparable[2]{#1\mbox{ and }#2\mbox{ are comparable}}
+\newcommand\areNotComparable[2]{#1\mbox{ and }#2\mbox{ are not comparable}}
+
+% Thank you, egreg! https://tex.stackexchange.com/a/114269
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+

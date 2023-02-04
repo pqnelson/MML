@@ -1,0 +1,443 @@
+\section{Boolean Properties of Sets}
+
+Originally, this was the article for identifier \verb#BOOLE# which was
+refactored into \verb#XBOOLE_0# and \verb#XBOOLE_1#. In MML version
+\verb#7.10.01_4.111.1036#, the definition of the empty set $\emptyset$
+changed by introducing the empty adjective.
+
+\subsection{Boolean Properties of Sets: Definitions}
+\bigskip
+
+\begin{paracol}{2}
+        \sloppy
+For simplicity
+we adopt the following convention: $x$ will denote an object; $X$, $Y$,
+$Z$, $V$ will have denote sets.
+
+\switchcolumn
+
+\begin{mizar}
+reserve X, Y, Z for set,
+  x, y, z for object;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+
+The scheme \emph{Separation} concerns a constant $\mathcal{A}$ that has
+the type set and a unary predicate $\mathcal{P}$ and states that the
+following holds
+\begin{scheme+}
+  \ex X \st\ \forall x\\
+  \holds x\in X\iff x\in\mathcal{A}\land\mathcal{P}[x]
+\end{scheme+}
+for all values of the parameters.
+
+\switchcolumn
+
+\begin{mizar}
+scheme :: XBOOLE_0:sch 1
+  Separation { A()-> set, P[object] } :
+  ex X being set st
+  for x
+  holds x in X iff x in A() & P[x];      
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+
+We say that a set $X$ is \textit{empty} if and only if
+\begin{definition}
+\neg\ \ex x \st x\in X.
+\end{definition}
+%\[\neg\ \ex x \st x\in X.\]
+
+\switchcolumn
+
+\begin{mizar}
+definition
+  let X be set;
+  attr X is empty
+  means :: XBOOLE_0:def 1
+  not ex x st x in X;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+
+\noindent Let us observe there is an empty set.
+
+\switchcolumn
+
+\begin{mizar}
+registration
+  cluster empty for set;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+
+We now define several new constructions. The constant $\emptyset$ is a set, and is
+defined by
+\begin{definition}
+\emptyset\is\ \THE \mathrm{empty}\ \mathrm{set}.
+\end{definition}
+%\[\IT \is\ \THE \mathrm{empty}\ \mathrm{set} \]
+
+\switchcolumn
+
+\begin{mizar}
+definition
+  func {} -> set
+  equals :: XBOOLE_0:def 2
+  the empty set;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}\noindent%
+Let $X$, $Y$ be sets. The functor
+\[ X\cup Y,\]
+with values of type set, is defined by
+\begin{definition}
+x\in X\cup Y \iff x\in X\lor x\in Y. 
+\end{definition}
+We can verify this functor is commutative and idempotent.
+%\[ x\in\IT \iff x\in X\lor x\in Y. \]
+
+\switchcolumn
+
+\begin{mizar}
+  let X,Y be set;
+  func X \/ Y -> set
+  means :: XBOOLE_0:def 3
+  for x holds x in it
+  iff x in X or x in Y;
+  commutativity;
+  idempotence;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}\sloppy\noindent%
+The functor
+\[ X\cap Y,\]
+with values of type set, is defined by
+\begin{definition}
+x\in X\cap Y \iff x\in X\land x\in Y.
+\end{definition}
+We can verify this functor is commutative and idempotent.
+%\[ x\in\IT \iff x\in X\land x\in Y. \]
+
+\switchcolumn
+
+\begin{mizar}
+  func X /\ Y -> set
+  means :: XBOOLE_0:def 4
+  for x holds x in it
+  iff x in X & x in Y;
+  commutativity;
+  idempotence;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}\noindent%
+The functor
+\[ X\setminus Y,\]
+with values of type set, is defined by
+\begin{definition}
+x\in X\setminus Y\iff x\in X\land\ \neg x\in Y. 
+\end{definition}
+%\[ x\in\IT \iff x\in X\land\ \neg x\in Y. \]
+
+\switchcolumn
+
+\begin{mizar}
+  func X \ Y -> set
+  means :: XBOOLE_0:def 5
+  for x holds x in it
+  iff x in X & not x in Y;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+Let $X$, $Y$ be sets. The functor
+\[ X\dotminus Y\]
+yields a set and is defined by
+\begin{definition}
+X\dotminus Y = (X \setminus Y)\cup(Y \setminus X).
+\end{definition}
+We can verify this functor is commutative.
+%\[ \IT = (X \setminus Y)\cup(Y \setminus X).\]
+
+\switchcolumn
+\begin{mizar}
+definition
+  let X, Y be set;
+  func X \+\ Y -> set
+  equals :: XBOOLE_0:def 6
+  (X \ Y) \/ (Y \ X);
+  commutativity;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+\noindent The predicate
+\[ X\misses Y\]
+is defined by
+\begin{definition}
+X\cap Y = \emptyset. %\forall x\holds x\in X\implies\ \neg x\in Y.
+\end{definition}
+We can verify this predicate is symmetric.
+%\[\forall x\holds x\in X\implies\ \neg x\in Y.\]
+\switchcolumn
+\begin{mizar}
+  pred X misses Y
+  means :: XBOOLE_0:def 7
+  X /\ Y = {};
+  symmetry;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+\noindent The predicate
+\[ X \propersubset Y \]
+is defined by
+\begin{definition}
+X\subset Y\land X\neq Y.
+\end{definition}
+We can verify this predicate is irreflexive and antisymmetric.
+% \[ X\subset Y\land X\neq Y.\]
+\switchcolumn
+\begin{mizar}
+  pred X c< Y
+  means :: XBOOLE_0:def 8
+  X c= Y & X <> Y;
+  irreflexivity;
+  asymmetry;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+\noindent The predicate
+\[\areComparable{X}{Y}\]
+means
+\begin{definition}
+X\subset Y\lor Y\subset X.
+\end{definition}
+We can verify this predicate is reflexive and symmetric.
+%\[X\subset Y\lor Y\subset X.\]
+\switchcolumn
+\begin{mizar}
+  pred X,Y are_c=-comparable
+  means :: XBOOLE_0:def 9
+  X c= Y or Y c= X;
+  reflexivity;
+  symmetry;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+\noindent Let us note we can characterize the predicate
+\[ X = Y \]
+by the equivalent condition
+\begin{definition}
+X\subset Y\land Y\subset X.
+\end{definition}
+%\[ X\subset Y\land Y\subset X.\]
+\switchcolumn
+\begin{mizar}
+  redefine pred X = Y
+  means :: XBOOLE_0:def 10
+  X c= Y & Y c= X;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+Let $X$ and $Y$ be sets. We introduce the notation $X\meets Y$ as an
+antonym for $X\misses Y$.
+\switchcolumn
+\begin{mizar}
+notation
+  let X, Y be set;
+  antonym X meets Y for X misses Y;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+We now state couple of propositions:
+\begin{theorem}
+x\in X\dotminus Y \iff\ \neg(x\in X\iff x\in Y).
+\end{theorem}
+\begin{theorem+}
+(\forall x\holds\ \neg x\in X\iff (x\in Y\iff x\in Z))\\
+\implies X=Y\dotminus Z
+\end{theorem+}
+\switchcolumn
+\begin{mizar}
+theorem :: XBOOLE_0:1
+ x in X \+\ Y
+ iff not (x in X iff x in Y);
+theorem :: XBOOLE_0:2
+ (for x holds not x in X
+              iff (x in Y iff x in Z))
+  implies X = Y \+\ Z;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+Let us observe $\emptyset$ is empty.
+\switchcolumn
+\begin{mizar}
+registration
+  cluster {} -> empty;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+Let $x$ be an arbitrary object. Let us observe $\{x\}$ is nonempty.
+Further, let $y$ be an arbitrary object. We also observe $\{x,y\}$ is
+nonempty. 
+\switchcolumn
+\begin{mizar}
+registration
+  let x;
+  cluster { x } -> non empty;
+  let y;
+  cluster { x, y } -> non empty;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+We observe there exists a non-empty set.
+\switchcolumn
+\begin{mizar}
+registration
+  cluster non empty for set;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+Let $D$ be a non-empty set and let $X$ be an arbitrary set.
+We observe $D\cup X$ is non-empty, and that $X\cup D$ is non-empty.
+\switchcolumn
+\begin{mizar}
+registration
+  let D be non empty set, X be set;
+  cluster D \/ X -> non empty;
+  cluster X \/ D -> non empty;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+We will now state several propositions.
+\begin{theorem}
+X\meets Y\iff\ \ex x\st x\in X\land x\in Y.
+\end{theorem}
+\begin{theorem}
+X\meets Y\iff\ \ex x\st x\in X\cap Y.
+\end{theorem}
+\begin{theorem+}
+X\misses Y\land x\in X\cup Y \implies\\
+x\in X\land x\notin Y\;\;\lor\;\; x\in Y\land x\notin X.
+\end{theorem+}
+\switchcolumn
+\begin{mizar}
+theorem :: XBOOLE_0:3
+  X meets Y iff ex x st x in X & x in Y;
+
+theorem :: XBOOLE_0:4
+  X meets Y iff ex x st x in X /\ Y;
+
+theorem :: XBOOLE_0:5
+  X misses Y & x in X \/ Y implies
+          x in X & not x in Y
+          or x in Y & not x in X;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+The scheme \textit{Extensionality} deals with sets $\mathcal{X}$ and
+$\mathcal{Y}$ and a unary predicate $\mathcal{P}$ and states that:
+\begin{scheme}
+\mathcal{X} = \mathcal{Y}
+\end{scheme}
+provided
+\begin{itemize}
+\item $\forall x\holds x\in\mathcal{X}\iff\mathcal{P}[x]$ and
+\item $\forall x\holds x\in\mathcal{Y}\iff\mathcal{P}[x]$.
+\end{itemize}
+\switchcolumn
+\begin{mizar}
+scheme :: XBOOLE_0:sch 2
+  Extensionality { X,Y() -> set,
+                   P[object] } :
+  X() = Y()
+provided
+ for x holds x in X() iff P[x] and
+ for x holds x in Y() iff P[x];
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+The scheme \textit{SetEq} deals with a unary predicate $\mathcal{P}$ and
+states
+\begin{scheme+}
+\forall X_{1}, X_{2}\being\ \mbox{sets}\\
+\st(\forall x\holds x\in X_{1}\iff\mathcal{P}[x])\land\\
+   (\forall x\holds x\in X_{2}\iff\mathcal{P}[x])\\
+\holds X_{1} = X_{2}.
+\end{scheme+}
+\switchcolumn
+\begin{mizar}
+scheme :: XBOOLE_0:sch 3
+  SetEq { P[object] } :
+  for X1,X2 being set
+  st (for x holds x in X1 iff P[x])
+   & (for x holds x in X2 iff P[x])
+  holds X1 = X2;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+Now we shall state several more theorems.
+\begin{theorem}
+X\propersubset Y\implies\ \ex x\st x\in Y\land x\notin X.
+\end{theorem}
+\begin{theorem}
+X\neq\emptyset\implies\ \ex x\st x\in X
+\end{theorem}
+\begin{theorem}
+X\propersubset Y\implies\ \ex x\st x\in Y\land X\subset Y\setminus\{x\}.
+\end{theorem}
+\switchcolumn
+\begin{mizar}
+theorem :: XBOOLE_0:6
+  X c< Y implies ex x st x in Y
+                        & not x in X;
+theorem :: XBOOLE_0:7
+  X <> {} implies ex x st x in X;
+theorem :: XBOOLE_0:8
+ X c< Y implies ex x st x in Y 
+                      & X c= Y \ {x};
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+Let $x$, $y$ be arbitrary sets.
+We adopt the notation $x\nsubseteq y$ as the antonym for $x\subset y$.
+\switchcolumn
+\begin{mizar}
+notation
+  let x,y be set;
+  antonym x c/= y for x c= y;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+Let $x$ be an arbitrary object and let $y$ be a set.
+We shall adopt the notation $x\notin y$ as the antonym for $x\in y$.
+\switchcolumn
+\begin{mizar}
+notation
+  let x be object,y be set;
+  antonym x nin y for x in y;
+end;
+\end{mizar}
+
+%% \switchcolumn*
+%% \switchcolumn
+%% \begin{mizar}
+%% \end{mizar}
+\end{paracol}
+
+
+\subsection{Boolean Properties of Sets: Theorems}
+\bigskip
+
+\begin{paracol}{2}
+\end{paracol}

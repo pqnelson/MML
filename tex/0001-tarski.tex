@@ -1,0 +1,284 @@
+\section{Tarski Grothendieck Set Theory}
+
+\begin{paracol}{2}
+%\hbadness5000
+For simplicity we adopt the following convention: $x$, $y$,
+$z$, $u$ will denote objects of any type; $N$, $M$, $X$, $Y$, $Z$
+will denote objects of the type set.
+  
+Next we will state two axioms:
+\begin{theorem}
+x \is \textrm{set},
+\end{theorem}
+\begin{theorem}
+(\forall x\holds x\in X\iff x\in Y)\implies X=Y.
+\end{theorem}
+
+\switchcolumn
+
+\begin{mizar}
+ reserve x,y,z,u for object;
+ reserve N,M,X,Y,Z for set;
+
+:: Everything is a set
+theorem :: TARSKI:1
+  for x being object holds x is set;
+
+:: Extensionality
+theorem :: TARSKI:2 
+  (for x being object
+   holds x in X iff x in Y)
+  implies X = Y;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+
+We now introduce two functors. Let us consider $y$. The functor
+\[ \{\,y\,\} \]
+with values of the type set, is defined by
+\begin{definition}
+x\in\{\,y\,\}\iff x=y.
+\end{definition}
+%% \[ x\in\IT \iff x=y.\]
+Let us consider $z$. The functor
+\[ \{\,y,z\,\} \]
+with values of the type set, is defined by
+\begin{definition}
+x\in\{\,y,z\,\}\iff x=y \lor x=z.
+\end{definition}
+%% \[ x\in\IT \iff x=y \lor x=z.\]
+%% The following axioms hold:
+%% \begin{theorem}
+%% X=\{y\} \iff\ \forall x \holds x\in X \iff x=y,
+%% \end{theorem}
+%% \begin{theorem+}
+%% X=\{y,z\} \iff\ \forall x\holds x\in X\iff\\
+%% %\textbf{iff}~
+%% x=y\lor x=z.
+%% \end{theorem+}
+
+\switchcolumn
+
+\begin{mizar}
+definition
+  let y be object;
+  func { y } -> set means
+:: TARSKI:def 1
+    for x being object
+    holds x in it iff x = y;
+
+  let z be object;
+  func { y, z } -> set means
+:: TARSKI:def 2
+    x in it iff x = y or x = z;
+  commutativity;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+
+Let us consider $X$, $Y$. The predicate
+\[ X\subset Y\]
+is defined by
+\begin{definition}
+x\in X\implies x\in Y.
+\end{definition}
+Let us note the predicate $X\subset Y$ is reflexive.
+\switchcolumn
+\begin{mizar}
+definition 
+  let X,Y;
+  pred X c= Y
+  means :: TARSKI:def 3
+  for x being object 
+  holds x in X implies x in Y;
+  reflexivity;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+
+Let us consider $X$. The functor
+\[\bigcup X,\]
+with values of the type set, is defined by
+\begin{definition}
+x\in\bigcup X\iff\ \ex Y\st x\in Y\land Y\in X.
+\end{definition}
+%\[x\in\IT\ \iff\ \ex Y\st x\in Y\land Y\in X.\] 
+%% Then we get
+%% \begin{theorem+}
+%% X=\bigcup Y\iff\ \forall x\holds x\in
+%% X\iff\\
+%% \ex Z\st x\in Z\land Z\in Y,
+%% \end{theorem+}
+%% \begin{theorem}
+%% X=\bool Y\iff\ \forall Z\holds 
+%% Z\in X \iff Z\subset Y.
+%% \end{theorem}
+
+\switchcolumn
+
+\begin{mizar}
+definition 
+  let X;
+  func union X -> set means
+:: TARSKI:def 4
+    x in it iff ex Y st x in Y & Y in X;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+
+The regularity axiom states that
+\begin{theorem+}
+x\in X\implies\ \ex Y\st Y\in X\land\\
+\neg\ \ex x\st x\in X\land x\in Y.
+\end{theorem+}
+
+\switchcolumn
+
+\begin{mizar}
+:: Regularity
+theorem :: TARSKI:3
+  x in X implies
+   ex Y st Y in X &
+     not ex x st x in X & x in Y;
+\end{mizar}
+
+\switchcolumn*
+\noindent%
+Let us note that the predicate $x\in X$ is antisymmetric.
+
+\switchcolumn
+
+\begin{mizar}
+definition let x, X be set;
+  redefine pred x in X;
+  asymmetry;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+
+The scheme \textit{Fraenkel} deals with a constant $\mathcal{A}$ that
+has the type set and a binary predicate $\mathcal{P}$ and states that
+the following holds:
+\begin{scheme+}
+  \ex X\st\ \forall x\holds \\
+  x\in X\iff
+\ex y\st y\in\mathcal{A}\land\mathcal{P}[y,x]
+\end{scheme+}
+provided the parameters satisfy the following extra condition:
+\begin{itemize}
+\item $\forall$ $x$, $y$, $z$ $\st$ 
+  $\mathcal{P}[x,y]\land\mathcal{P}[x,z]$ $\holds$  $y=z$.
+\end{itemize}
+
+\switchcolumn
+
+\begin{mizar}
+scheme :: TARSKI:sch 1
+ Replacement{ A() -> set,
+              P[object,object] }:
+ ex X
+ st for x being object 
+    holds x in X iff
+          ex y being object 
+          st y in A() & P[y,x]
+provided
+ for x,y,z being object 
+ st P[x,y] & P[x,z]
+ holds y = z;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+Let $x$, $y$ be objects. The functor
+\[\langle x,y\rangle,\]
+is defined by
+\begin{definition}
+\langle x,y\rangle = \{\,\{x,y\,\},\{\,x\,\}\,\}.
+\end{definition}
+%% \[\IT = \{\,\{x,y\,\},\{\,x\,\}\,\}.\]
+%% According to the definition
+%% \begin{theorem}
+%% \langle x,y\rangle = \{\,\{x,y\,\},\{\,x\,\}\,\}.
+%% \end{theorem}
+
+\switchcolumn
+\begin{mizar}
+definition
+  let x,y be object;
+  func [x,y] -> object equals
+:: TARSKI:def 5
+    { { x,y }, { x } };
+end;
+\end{mizar}
+
+
+\switchcolumn*\ensurevspace{5cm}
+
+Let us consider $X$, $Y$. The predicate
+\[X\equipotent Y\]
+is defined by the condition:
+\begin{definition+}
+  \ex Z\st\\
+  (\forall x\st x\in X\ex y\st y\in Y\land\langle x,y\rangle\in Z)\land\\
+(\forall x\st x\in X\ex y\st y\in Y\land\langle x,y\rangle\in Z)\land\\
+\forall x,y,z,u\st \langle x,y\rangle\in Z\land\langle z,u\rangle\in Z\\
+\holds x=z\iff y=u.
+\end{definition+}
+%% \begin{multline*}
+%% \ex Z\st\!\! (\forall x\st x\in X\ex 
+%% y\st y\in Y\land\langle x,y\rangle\in Z)\land\\
+%% (\forall x\st x\in X\ex 
+%% y\st y\in Y\land\langle x,y\rangle\in Z)\land\\
+%% \forall x,y,z,u\st \langle x,y\rangle\in Z\land\langle z,u\rangle\in Z\\
+%% \holds x=z\iff y=u.
+%% \end{multline*}
+
+\switchcolumn
+
+\begin{mizar}
+definition let X,Y;
+  pred X,Y are_equipotent means
+:: TARSKI:def 6
+  ex Z st
+  (for x st x in X
+   ex y st y in Y & [x,y] in Z) &
+  (for y st y in Y
+   ex x st x in X & [x,y] in Z) &
+  for x,y,z,u st [x,y] in Z & [z,u] in Z
+  holds x = z iff y = u;
+end;
+\end{mizar}
+
+\switchcolumn*\ensurevspace{5cm}
+
+The Tarski's axiom A claims that
+\begin{theorem+}
+\ex  M \st  N\in M\land\\
+(\forall X,Y \holds  X\in M\land
+Y\subset X \implies Y\in M)\land\\
+(\forall X \holds  X\in M
+ \implies \bool X\in M)\land\\
+(\forall X \holds  X\subset M \implies 
+X\equipotent M \lor X\in M).
+\end{theorem+}
+
+\switchcolumn\nopagebreak
+
+\begin{mizar}
+theorem :: TARSKI_A:1
+ ex M st N in M &
+   (for X,Y holds X in M & Y c= X
+    implies Y in M) &
+   (for X st X in M
+    ex Z st Z in M &
+            for Y st Y c= X
+            holds Y in Z) &
+   (for X holds X c= M 
+    implies X,M are_equipotent
+            or X in M);
+\end{mizar}
+
+\end{paracol}
