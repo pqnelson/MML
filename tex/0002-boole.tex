@@ -1,18 +1,18 @@
-\section{Boolean Properties of Sets}
+\section{Boolean Properties of Sets: Definitions}
 
 Originally, this was the article for identifier \verb#BOOLE# which was
 refactored into \verb#XBOOLE_0# and \verb#XBOOLE_1#. In MML version
 \verb#7.10.01_4.111.1036#, the definition of the empty set $\emptyset$
 changed by introducing the empty adjective.
 
-\subsection{Boolean Properties of Sets: Definitions}
-\bigskip
+\bigbreak
 
 \begin{paracol}{2}
         \sloppy
 For simplicity
 we adopt the following convention: $x$ will denote an object; $X$, $Y$,
 $Z$, $V$ will have denote sets.
+
 
 \switchcolumn
 
@@ -23,7 +23,7 @@ reserve X, Y, Z for set,
 
 \switchcolumn*\ensurevspace{5cm}
 
-The scheme \emph{Separation} concerns a constant $\mathcal{A}$ that has
+The scheme \emph{Separation}\index{Separation Scheme} concerns a constant $\mathcal{A}$ that has
 the type set and a unary predicate $\mathcal{P}$ and states that the
 following holds
 \begin{scheme+}
@@ -44,7 +44,7 @@ scheme :: XBOOLE_0:sch 1
 
 \switchcolumn*\ensurevspace{5cm}
 
-We say that a set $X$ is \textit{empty} if and only if
+We say that a set $X$ is \textit{empty}\index{Empty (Set)} if and only if
 \begin{definition}
 \neg\ \ex x \st x\in X.
 \end{definition}
@@ -75,7 +75,7 @@ end;
 
 \switchcolumn*\ensurevspace{5cm}
 
-We now define several new constructions. The constant $\emptyset$ is a set, and is
+We now define several new constructions. The constant\index{$\emptyset$} $\emptyset$ is a set, and is
 defined by
 \begin{definition}
 \emptyset\is\ \THE \mathrm{empty}\ \mathrm{set}.
@@ -92,7 +92,7 @@ definition
 \end{mizar}
 
 \switchcolumn*\ensurevspace{5cm}\noindent%
-Let $X$, $Y$ be sets. The functor
+Let $X$, $Y$ be sets. The functor\index{$X\cup Y$}
 \[ X\cup Y,\]
 with values of type set, is defined by
 \begin{definition}
@@ -114,7 +114,7 @@ We can verify this functor is commutative and idempotent.
 \end{mizar}
 
 \switchcolumn*\ensurevspace{5cm}\sloppy\noindent%
-The functor
+The functor\index{$X\cap Y$}
 \[ X\cap Y,\]
 with values of type set, is defined by
 \begin{definition}
@@ -135,7 +135,7 @@ We can verify this functor is commutative and idempotent.
 \end{mizar}
 
 \switchcolumn*\ensurevspace{5cm}\noindent%
-The functor
+The functor\index{$X\setminus Y$}
 \[ X\setminus Y,\]
 with values of type set, is defined by
 \begin{definition}
@@ -154,7 +154,7 @@ end;
 \end{mizar}
 
 \switchcolumn*\ensurevspace{5cm}
-Let $X$, $Y$ be sets. The functor
+Let $X$, $Y$ be sets. The functor\index{$X\dotminus Y$}
 \[ X\dotminus Y\]
 yields a set and is defined by
 \begin{definition}
@@ -174,7 +174,7 @@ definition
 \end{mizar}
 
 \switchcolumn*\ensurevspace{5cm}
-\noindent The predicate
+\noindent The predicate\index{Misses}
 \[ X\misses Y\]
 is defined by
 \begin{definition}
@@ -191,7 +191,7 @@ We can verify this predicate is symmetric.
 \end{mizar}
 
 \switchcolumn*\ensurevspace{5cm}
-\noindent The predicate
+\noindent The predicate\index{$X \propersubset Y$}
 \[ X \propersubset Y \]
 is defined by
 \begin{definition}
@@ -209,7 +209,7 @@ We can verify this predicate is irreflexive and antisymmetric.
 \end{mizar}
 
 \switchcolumn*\ensurevspace{5cm}
-\noindent The predicate
+\noindent The predicate\index{$\areComparable{X}{Y}$}
 \[\areComparable{X}{Y}\]
 means
 \begin{definition}
@@ -243,7 +243,7 @@ end;
 \end{mizar}
 
 \switchcolumn*\ensurevspace{5cm}
-Let $X$ and $Y$ be sets. We introduce the notation $X\meets Y$ as an
+Let $X$ and $Y$ be sets. We introduce the notation\index{$X\meets Y$} $X\meets Y$ as an
 antonym for $X\misses Y$.
 \switchcolumn
 \begin{mizar}
@@ -366,7 +366,7 @@ provided
 \end{mizar}
 
 \switchcolumn*\ensurevspace{5cm}
-The scheme \textit{SetEq} deals with a unary predicate $\mathcal{P}$ and
+The scheme \textit{SetEq}\index{SetEq Scheme} deals with a unary predicate $\mathcal{P}$ and
 states
 \begin{scheme+}
 \forall X_{1}, X_{2}\being\ \mbox{sets}\\
@@ -409,7 +409,7 @@ theorem :: XBOOLE_0:8
 
 \switchcolumn*\ensurevspace{5cm}
 Let $x$, $y$ be arbitrary sets.
-We adopt the notation $x\nsubseteq y$ as the antonym for $x\subset y$.
+We adopt the notation\index{$x\nsubseteq y$} $x\nsubseteq y$ as the antonym for $x\subset y$.
 \switchcolumn
 \begin{mizar}
 notation
@@ -420,7 +420,7 @@ end;
 
 \switchcolumn*\ensurevspace{5cm}
 Let $x$ be an arbitrary object and let $y$ be a set.
-We shall adopt the notation $x\notin y$ as the antonym for $x\in y$.
+We shall adopt the notation\index{$x\notin y$} $x\notin y$ as the antonym for $x\in y$.
 \switchcolumn
 \begin{mizar}
 notation
@@ -428,11 +428,6 @@ notation
   antonym x nin y for x in y;
 end;
 \end{mizar}
-
-%% \switchcolumn*
-%% \switchcolumn
-%% \begin{mizar}
-%% \end{mizar}
 \end{paracol}
 
 \bigbreak
@@ -1414,12 +1409,6 @@ theorem :: XBOOLE_1:109
   X \cup Y \cup Z \cup V = X \cup (Y \cup Z \cup V).
 \end{theorem}
 
-\begin{theorem+}
-  \forall A,B,C,D \being \mbox{set}\\
-  \st A \misses D \land B \misses D \land C \misses D\\
-  \holds A \cup B \cup C \misses D.
-\end{theorem+}
-
 \switchcolumn
 
 \begin{mizar}
@@ -1434,15 +1423,17 @@ theorem :: XBOOLE_1:112
 
 theorem :: XBOOLE_1:113
   X \/ Y \/ Z \/ V = X \/ (Y \/ Z \/ V);
-
-theorem :: XBOOLE_1:114
-  for A,B,C,D being set
-  st A misses D & B misses D & C misses D
-  holds A \/ B \/ C misses D;
 \end{mizar}
 
 \switchcolumn*\ensurevspace{5cm}
 
+\begin{theorem+}
+  \forall A,B,C,D \being \mbox{set}\\
+  \st A \misses D \land B \misses D \land C \misses D\\
+  \holds A \cup B \cup C \misses D.
+\end{theorem+}
+
+\refstepcounter{theorem} % 115 was cancelled
 \begin{theorem}
   X \cap (Y \cap Z) = (X \cap Y) \cap (X \cap Z).
 \end{theorem}
@@ -1456,6 +1447,11 @@ theorem :: XBOOLE_1:114
 \switchcolumn
 
 \begin{mizar}
+theorem :: XBOOLE_1:114
+  for A,B,C,D being set
+  st A misses D & B misses D & C misses D
+  holds A \/ B \/ C misses D;
+
 theorem :: XBOOLE_1:116
   X /\ (Y /\ Z) = (X /\ Y) /\ (X /\ Z);
 

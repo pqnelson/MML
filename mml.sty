@@ -6,6 +6,7 @@
 \usepackage{mizar}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{enumitem}
 % notation
 \usepackage{notation}
 \usepackage{paracol}
@@ -67,15 +68,15 @@
 
 \newcounter{definition}[section]
 \renewcommand\thedefinition{Def.\arabic{definition}}
-% multi-line scheme statement
+% multi-line definition statement
 \newenvironment{definition+}{\refstepcounter{definition}\start@multline\st@rredtrue\tag{\thedefinition}}{\endmultline\ignorespacesafterend}
-% single line scheme statement
+% single line definition statement
 \newenvironment{definition}{\refstepcounter{definition}\begin{equation*}\tag{\thedefinition}}{\end{equation*}\ignorespacesafterend}
 
 
 \newcounter{theorem}[section]
 \renewcommand\thetheorem{\arabic{theorem}}
-% multi-line scheme statement
+% multi-line theorem statement
 \newenvironment{theorem+}{\refstepcounter{theorem}\start@multline\st@rredtrue\tag{\thetheorem}}{\endmultline\ignorespacesafterend}
-% single line scheme statement
+% single line theorem statement
 \newenvironment{theorem}{\refstepcounter{theorem}\begin{equation*}\tag{\thetheorem}}{\end{equation*}\ignorespacesafterend}

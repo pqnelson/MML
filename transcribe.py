@@ -5,13 +5,14 @@ import pathlib
 import re
 import sys
 
-# Reservation -- begins with "reserve", ends with ";"
-# Definition -- begins with "definition", ends with "end;"
-# Registration -- begins with "registration", ends with "end;"
-# Notation -- begins with "notation", ends with "end;"
-# Theorem -- begins with "theorem", ends with ";"
-# Scheme -- begins with "scheme", ends with ";"
-# Auxiliary item = statement ("lemmas") or private definitions (deffunc, defpred)
+# TODO: handle parsing the following items
+# [X] Reservation -- begins with "reserve", ends with ";"
+# [ ] Definition -- begins with "definition", ends with "end;"
+# [ ] Registration -- begins with "registration", ends with "end;"
+# [ ] Notation -- begins with "notation", ends with "end;"
+# [X] Theorem -- begins with "theorem", ends with ";"
+# [ ] Scheme -- begins with "scheme", ends with ";"
+# [ ] Auxiliary item = statement ("lemmas") or private definitions (deffunc, defpred)
 notation = {" \ ": ' \setminus ',
             ' \/ ': ' \cup ',
             " /\\ ": ' \cap ',
@@ -24,6 +25,9 @@ notation = {" \ ": ' \setminus ',
             " misses ": " \\misses ",
             ' {}': ' \emptyset',
             ' <> ': " \\neq ",
+            " in ": " \\in ",
+            " nin " : "\\notin ",
+            " c/= " : " \\nsubseteq ",
             " not ": " \\neg ",
             " & ": " \\land ",
             " for ": " \\forall ",
@@ -39,10 +43,21 @@ notation = {" \ ": ' \setminus ',
             " the " : " \\THE "
             }
 
+# Logical connective precedence:
+# for/ex < iff < implies < or < & < not
+
 class TextItem:
     def __str__(self):
         return "TextItem.__str__ not implemented"
 
+# "for x[1],..,x[n] be T1, ..., y[1], ..., y[k] being Tk st phi1 & ... & phi[m]
+# holds psi"
+# = "Let $x_{1}$, ..., $x_{n}$ be $T1$, ..., let $y_{1}$, ..., $y_{k}$
+# be T$_{k}$. Suppose $\phi_{1}$ and ... and $\phi_{m}$. Then $\psi$."
+
+# TODO:
+# - [ ] latexify should produce superior English translations of theorem
+# statements rather than the "literal" transliteration.
 class Theorem:
     def __init__(self, statement):
         self.statement = statement
