@@ -1,0 +1,95 @@
+%\section[Tarski Grothendieck Set Theory]{Tarski Grothendieck Set Theory (TARSKI)}
+\section{Tarski Grothendieck Set Theory (TARSKI)}
+
+We have the following theorems:
+
+\begin{thm}
+\item For any object $x$, we have $x$ is a set.
+\item Let $X$, $Y$ be sets. If every object $x$ satisfies $x\in X$ iff
+  $x\in Y$, then $X=Y$. 
+\end{thm}
+
+\begin{definition}
+Let $y$ be an object. We define $\{y\}$ (Mizar: ``\verb#{y}#'') to be the set satisfying
+\begin{defn}
+\item For any object $x$, we have $x\in\{y\}$ iff $x=y$.
+\end{defn}
+%% \end{definition}
+%%
+%% \begin{definition}
+Let $y$, $z$ be any objects. We define $\{y,z\}$ (Mizar: ``\verb#{x,y}#'') to be the set satisfying:
+\begin{defn}
+\item For any object $x$, we have $x\in\{y,z\}$ iff either $x=y$ or $x=z$.
+\end{defn}
+Observe $\{y,z\}=\{z,y\}$ is commutative.
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be sets. We define the predicate $X\subset Y$ (Mizar:
+``\verb#X c= Y#'') to mean:
+\begin{defn}
+\item For any object $x$ such that $x\in X$, we have $x\in Y$.
+\end{defn}
+Observe this is a reflexive relation (every set is a subset of itself,
+i.e., $X\subset X$ is always true)/
+\end{definition}
+
+\begin{definition}
+Let $\mathcal{F}$ be a set. We define the term $\bigcup\mathcal{F}$
+(Mizar: ``\verb#union F#'') to
+be the set satisfying:
+\begin{defn}
+\item For any object $x$, we have $x\in\bigcup\mathcal{F}$ if and only
+  if there exists some set $X$ such that $x\in X$ and $X\in\mathcal{F}$.
+\end{defn}
+\end{definition}
+
+We have the following theorem:
+
+\begin{thm}[resume]
+\item Let $X$ be a set. For any object $x$ such that $x\in X$,
+there exists a set $Y$ such that $Y\in X$ and there is no object $z$
+such that $z\in Y$ and $z\in X$.
+\end{thm}
+
+\begin{definition}
+Let $x$, $X$ be sets. We observe the membership predicate $x\in X$
+is asymmetric. This is a direct consequence of regularity.
+\end{definition}
+
+\begin{scheme}[Replacement]
+Let $P[-,-]$ be a binary predicate, and $\mathcal{F}_{1}$ be a set.
+Provided:
+\begin{itemize}
+\item For any objects $x$, $y$, $z$, if $P[x,y]$ and $P[x,z]$, then $y=z$;
+\end{itemize}
+Then there exists a set $X$ such that for any object $x$, $x\in X$ if
+and only if there exists some object $y$ such that $y\in\mathcal{F}_{1}$
+and $P[y,x]$.
+\end{scheme}
+
+\begin{definition}
+Let $x$, $y$ be objects.
+We define the \define{Ordered Pair} of $x$ and $y$ to be the term
+$(x,y)$ (Mizar: ``\verb#[x,y]#'') defined by:
+\begin{defn}
+\item $(x,y) = \{\{x,y\},\{x\}\}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+  Let $X$ and $Y$ be sets. We define the predicate $X\equipotent Y$,
+  (read ``$X$ and $Y$ are equipotent'', Mizar: ``\verb#X,Y are_equipotent#'')
+  by:
+\begin{defn}
+\item There exists a set $Z$ such that
+  \begin{enumerate}
+  \item For every object $x$, if $x\in X$, then there exists an object
+    $y$ such that $y\in Y$ and $(x,y)\in Z$; and
+  \item For every object y, if $y\in Y$, then there exists an object $x$
+    such that $x\in X$ and $(x,y)\in Z$; and
+  \item For any objects $x$, $y$, $z$, $u$ with $(x,y)\in Z$ and
+    $(z,u)\in Z$, we have $x=z$ if and only if $y=u$.
+  \end{enumerate}
+\end{defn}
+\end{definition}

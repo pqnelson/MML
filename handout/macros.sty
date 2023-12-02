@@ -1,0 +1,52 @@
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{mdframed}
+\usepackage{enumitem}
+%\usepackage[chapter]{tocbibind}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+
+\def\mizart{\relax}
+
+\def\thmprefix{}%\ifx\mizart\relax\else\mizart:\fi}
+
+\newlist{defn}{enumerate}{1}
+\newlist{thm}{enumerate}{1}
+\setlist[defn]{label=(Def.\ \arabic*), resume=defn}
+\setlist[thm]{label=(\arabic*),wide, labelwidth=!, labelindent=0pt, resume=thm}
+
+\preto\section{%
+  \let\enit@resume@series@defn\@empty
+  \let\enit@resume@series@thm\@empty
+}
+%\@addtoreset{thmi}{section}
+%\@addtoreset{defni}{section}
+%\renewcommand\thethmi{(\ifx\mizart\relax\else\mizart:\fi\arabic{thmi})}
+%\renewcommand\thedefni{(Def.~\arabic{defni})}
+
+\newtheorem{axiom}{Axiom}
+
+\newtheorem{scheme}{Scheme}
+\@addtoreset{scheme}{section}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{notation}{Notation}
+
+\newtheoremstyle{myrem}%name
+ {3pt}%Space above
+ {3pt}%Space below
+ {\small}%Body font
+ { }%Indent amount
+ {\itshape}% Theorem head font
+ {.}%Punctuation after theorem head
+ { }%Space after theorem head 2
+ {}%Theorem head spec (can be left empty, meaning 'normal')
+
+\theoremstyle{myrem}
+\newtheorem{remark}{Remark}
+\appto\remark{\leftskip\parindent}
+
+\def\define#1{\textbf{``#1''}}
+
+
+\counterwithout*{section}{chapter}

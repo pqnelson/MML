@@ -1,0 +1,155 @@
+\section{Boolean Properties of Sets: Theorems (XBOOLE-1)}
+
+Let $X$, $Y$, $Z$ be sets.
+\begin{thm}
+\item\label{xboole1:1} Transitivity of subset (``Modus Barbara''): If $X\subset Y$ and $Y\subset Z$, then $X\subset Z$.
+\item\label{xboole1:2} $\emptyset\subset X$
+\item\label{xboole1:3} If $X\subset\emptyset$, then $X=\emptyset$.
+\item\label{xboole1:4} Associativity of union: $(X\cup Y)\cup Z=X\cup(Y\cup Z)$
+\item\label{xboole1:5} $(X\cup Y)\cup Z=(X\cup Z)\cup(Y\cup Z)$
+\item\label{xboole1:6} $X\cup(X\cup Y)=X\cup Y$
+\item\label{xboole1:7} $X\subset X\cup Y$
+\item\label{xboole1:8} If $X\subset Z$ and $Y\subset Z$, then $X\cup Y\subset Z$
+\item\label{xboole1:9} If $X\subset Y$, then $X\cup Z\subset Y\cup Z$.
+\item\label{xboole1:10} If $X\subset Y$, then $X\cup Y=Z\cup Y$.
+\item\label{xboole1:11} If $X\cup Y\subset Z$, then $X\subset Z$.
+\item\label{xboole1:12} If $X\subset Y$, then $X\cup Y=Y$.
+\item\label{xboole1:13} For any set $V$, if $X\subset Y$ and $Z\subset V$,
+  then $X\cup Z\subset Y\cup V$.
+\item\label{xboole1:14} If $Y\subset X$ and $Z\subset X$ and every set $V$ containing
+  $Y\subset V$ and $Z\subset V$ also contains $X\subset V$,
+  then $X=Y\cup Z$.
+\item\label{xboole1:15} If $X\cup Y=\emptyset$, then $X=\emptyset$.
+\item\label{xboole1:16} Associativity of intersection: $(X\cap Y)\cap Z=X\cap(Y\cap Z)$.
+\item\label{xboole1:17} $X\cap Y\subset X$
+\item\label{xboole1:18} If $X\subset Y\cap Z$, then $X\subset Y$.
+\item\label{xboole1:19} If $Z\subset X$ and $Z\subset Y$, then $Z\subset X\cap Y$.
+\item\label{xboole1:20} If $X\subset Y$ and $X\subset Z$ and every set
+  $V$ contained in $V\subset Y$ and $V\subset Z$ is also contained in
+  $V\subset X$, then $X=Y\cap Z$.
+\item\label{xboole1:21} $X\cap(X\cup Y)=X$.
+\item\label{xboole1:22} $X\cup(X\cap Y)=X$.
+\item\label{xboole1:23} $X\cap(Y\cup Z)=(X\cap Y)\cup (X\cap Z)$.
+\item\label{xboole1:24} $X\cup(Y\cap Z)=(X\cup Y)\cap(X\cup Z)$.
+\item\label{xboole1:25} $((X \cap Y) \cup (Y \cap Z)) \cup (Z \cap X) = ((X \cup Y) \cap (Y \cup Z)) \cap (Z \cup X)$.
+\item\label{xboole1:26} If $X\subset Y$, then $X\cap Z\subset Y\cap Z$.
+\item\label{xboole1:27} Let $V$ be a set. If $X\subset Y$ and $Z\subset V$,
+  then $X\cap Z\subset Y\cap V$.
+\item\label{xboole1:28} If $X\subset Y$, then $X\cap Y=X$.
+\item\label{xboole1:29} $X\cap Y\subset X\cup Z$.
+\item\label{xboole1:30} If $X\subset Z$, then $X \cup (Y \cap Z) = (X \cup Y) \cap Z$.
+\item\label{xboole1:31} $(X \cap Y) \cup (X \cap Z) \subset Y \cup Z$.
+\item\label{xboole1:32} If $X\setminus Y=Y\setminus X$, then $X=Y$.
+\item\label{xboole1:33} If $X\subset Y$, then $X\setminus Z\subset Y\setminus Z$.
+\item\label{xboole1:34} If $X\subset Y$, then $Z\setminus Y\subset Z\setminus X$.
+\item\label{xboole1:35} For any set $V$, if $X\subset Y$ and $Z\subset V$,
+  then $X\setminus V\subset Y\setminus Z$.
+\item\label{xboole1:36} $X\setminus Y\subset X$
+\item\label{xboole1:37} $X\setminus Y=\emptyset$ if and only if
+  $X\subset Y$.
+\item\label{xboole1:38} If $X\subset Y\setminus X$, then $X=\emptyset$.
+\item\label{xboole1:39} $X \cup (Y \setminus X) = X \cup Y$
+\item\label{xboole1:40} $(X \cup Y) \setminus Y = X \setminus Y$
+\item\label{xboole1:41} $(X \setminus Y) \setminus Z = X \setminus (Y \cup Z)$
+\item\label{xboole1:42} $(X \cup Y) \setminus Z = (X \setminus Z) \cup (Y \setminus Z)$
+\item\label{xboole1:43} If $X\subset Y \cup Z$, then $X \setminus Y \subset Z$
+\item\label{xboole1:44} If $X\setminus Y\subset Z$, then $X \subset Y \cup Z$
+\item\label{xboole1:45} If $X \subset Y$, then $Y = X \cup (Y \setminus X)$
+\item\label{xboole1:46} $X \setminus (X \cup Y) = \emptyset$.
+\item\label{xboole1:47} $X \setminus (X \cap Y) = X \setminus Y$
+\item\label{xboole1:48} $X \setminus (X \setminus Y) = X \cap Y$
+\item\label{xboole1:49} $X \cap (Y \setminus Z) = (X \cap Y) \setminus Z$
+\item\label{xboole1:50} $X \cap (Y \setminus Z) = (X \cap Y) \setminus (X \cap Z)$
+\item\label{xboole1:51} $(X \cap Y) \cup (X \setminus Y) = X$
+\item\label{xboole1:52} $X \setminus (Y \setminus Z) = (X \setminus Y) \cup (X \cap Z)$
+\item\label{xboole1:53} $X \setminus (Y \cup Z) = (X \setminus Y) \cap (X \setminus Z)$
+\item\label{xboole1:54} $X \setminus (Y \cap Z) = (X \setminus Y) \cup (X \setminus Z)$
+\item\label{xboole1:55} $(X \cup Y) \setminus (X \cap Y) = (X \setminus Y) \cup (Y \setminus X)$
+\item\label{xboole1:56} Transitivity of proper subsets: If
+  $X\properSubset Y$ and $Y\properSubset Z$, then $X\properSubset Z$.
+\item\label{xboole1:57} Either $X\not\properSubset Y$ or
+  $Y\not\properSubset X$.
+\item\label{xboole1:58} If
+  $X\properSubset Y$ and $Y\subset Z$, then $X\properSubset Z$.
+\item\label{xboole1:59}  If
+  $X\subset Y$ and $Y\properSubset Z$, then $X\properSubset Z$.
+\item\label{xboole1:60} If $X\subset Y$, then $Y\not\properSubset X$.
+\item\label{xboole1:61} If $X\neq\emptyset$, then
+  $\emptyset\properSubset X$.
+\item\label{xboole1:62} There is no set $X$ such that $X\properSubset\emptyset$.
+\item\label{xboole1:63} (Modus Clarent) If $X\subset Y$ and $Y$ misses
+  $Z$, then $X$ misses $Z$.
+\item\label{xboole1:64} Let $A$ and $B$ be sets. If $A\subset X$ and
+  $B\subset Y$ and $X$ misses $Y$, then $A$ misses $B$.
+\item\label{xboole1:65} $X$ misses $\emptyset$.
+\item\label{xboole1:66} $X$ meets $X$ iff $X\neq\emptyset$.
+\item\label{xboole1:67} If $X\subset Y$ and $X\subset Z$ and $Y$ misses $Z$,
+  then $X=\emptyset$.
+\item\label{xboole1:68} (Modus Darapti) For any non-empty set $A$,
+  if $A\subset Y$ and $A\subset Z$, then $Y$ meets $Z$.
+\item\label{xboole1:69} For any non-empty set $A$, if $A\subset Y$, then
+  $A$ meets $Y$.
+\item\label{xboole1:70} $X$ meets $Y$ or $X$ meets $Z$ if and only if
+  $X$ meets $Y\cup Z$.
+\item\label{xboole1:71} If $X\cup Y=Z\cup Y$, $X$ misses $Y$, and $Z$
+  misses $Y$, then $X=Z$.
+\item\label{xboole1:72} For any sets $A$ and $B$, if $A\cup B=X\cup Y$
+  and $X$ misses $A$ and $Y$ misses $B$, then $X=B$.
+\item\label{xboole1:73} If $X\subset Y\cup Z$ and $X$ misses $Z$, then
+  $X\subset Z$.
+\item\label{xboole1:74} If $X$ meets $Y\cap Z$, then $X$ meets $Y$.
+\item\label{xboole1:75} If $X$ meets $Y$, then $X\cap Y$ meets $Y$.
+\item\label{xboole1:76} If $Y$ misses $Z$, then $X\cap Y$ misses $X\cap Z$.
+\item\label{xboole1:77} If $X$ meets $Y$ and $X\subset Z$, then $X$
+  meets $Y\cap Z$.
+\item\label{xboole1:78} If $X$ misses $Y$, then $X\cap(Y\cup Z)=X\cap Z$.
+\item\label{xboole1:79} $X\setminus Y$ misses $Y$.
+\item\label{xboole1:80} If $X$ misses $Y$, then $X$ misses $Y\setminus Z$.
+\item\label{xboole1:81} If $X$ misses $Y\setminus Z$, then $Y$ misses $X\setminus Z$.
+\item\label{xboole1:82} $X\setminus Y$ misses $Y\setminus X$.
+\item\label{xboole1:83} $X$ misses $Y$ if and only if $X\setminus Y=X$.
+\item\label{xboole1:84} If $X$ meets $Y$ and $X$ misses $Z$, then $X$
+  meets $Y\setminus Z$.
+\item\label{xboole1:85} If $X\subset Y$, then $X$ misses $Z\setminus Y$.
+\item\label{xboole1:86} If $X\subset Y$ and $X$ misses $Z$, then
+  $X\subset Y\setminus Z$.
+\item\label{xboole1:87} If $Y$ misses $Z$, then $(X\setminus Y)\cup Z=(X\cup Z)\setminus Y$.
+\item\label{xboole1:88} If $X$ misses $Y$, then $(X\cup Y)\setminus Y=X$.
+\item\label{xboole1:89} $X\cap Y$ misses $X\setminus Y$.
+\item\label{xboole1:90} $X\setminus(X\cap Y)$ misses $Y$.
+\item\label{xboole1:91} Associativity of symmetric difference:
+  $(X\symdiff Y)\symdiff Z=X\symdiff(Y\symdiff Z)$.
+\item\label{xboole1:92} $X\symdiff X=\emptyset$.
+\item\label{xboole1:93} $X\cup Y=(X\symdiff Y)\cup(X\cap Y)$.
+\item\label{xboole1:94} $X \cup Y = (X \symdiff Y) \symdiff (X \cap Y)$
+\item\label{xboole1:95} $X \cap Y = (X \symdiff Y) \symdiff (X \cup Y)$
+\item\label{xboole1:96} $X \setminus Y \subset X \symdiff Y$
+\item\label{xboole1:97} If $X \setminus Y \subset Z$ and $Y \setminus X \subset Z$, then $X \symdiff Y \subset Z$
+\item\label{xboole1:98} $X \cup Y = X \symdiff (Y \setminus X)$
+\item\label{xboole1:99} $(X \symdiff Y) \setminus Z = (X \setminus (Y \cup Z)) \cup (Y \setminus (X \cup Z))$
+\item\label{xboole1:100} $X \setminus Y = X \symdiff (X \cap Y)$
+\item\label{xboole1:101} $X \symdiff Y = (X \cup Y) \setminus (X \cap Y)$
+\item\label{xboole1:102} $X \setminus (Y \symdiff Z) = (X \setminus (Y \cup Z)) \cup ((X \cap Y) \cap Z)$
+\item\label{xboole1:103} $X \cap Y$ misses $X \symdiff Y$
+\item\label{xboole1:104} $X \properSubset  Y$ or $X = Y$ or $Y \properSubset  X$ if and only if
+  $X$ and $Y$ are $\subset$-comparable.
+\item\label{xboole1:105} If $X \properSubset  Y$, then $Y \setminus X \neq \emptyset$.
+\item\label{xboole1:106} Let $A$, $B$ be sets. If $X \subset A \setminus B$, then $X \subset A$ and $X$ misses $B$
+\item\label{xboole1:107} Let $A$, $B$ be sets. $X \subset A \symdiff B$ iff $X \subset A \cup B$ and $X$ misses $A \cap B$.
+\item\label{xboole1:108} For any set $A$, if $X \subset A$, then $X \cap Y \subset A$
+\item\label{xboole1:109} For any set $A$, if $X \subset A$, then $X \setminus Y \subset A$
+\item\label{xboole1:110} For any set $A$, if $X \subset A$ and $Y \subset A$, then
+$X \symdiff Y \subset A$.
+\item\label{xboole1:111} $(X \cap Z) \setminus (Y \cap Z) = (X \setminus Y) \cap Z$
+\item\label{xboole1:112} $(X \cap Z) \symdiff (Y \cap Z) = (X \symdiff Y) \cap Z$
+\item\label{xboole1:113} For any set $V$, we have $((X \cup Y) \cup Z) \cup V = X \cup ((Y \cup Z) \cup V)$.
+\item\label{xboole1:114} For any sets $A$, $B$, $C$, $D$, if $A$ misses
+  $D$ and $B$ misses $D$ and $C$ misses $D$, then $(A\cup B)\cup C$
+  misses $D$.
+\item\label{xboole1:115} (Cancelled)
+\item\label{xboole1:116} $X \cap (Y \cap Z) = (X \cap Y) \cap (X \cap Z)$
+\item\label{xboole1:117} Let $P$, $G$, $C$ be sets. If $C\subset G$,
+  then $P\setminus C = (P\setminus G)\cup (P\cap(G\setminus C))$.
+  %\item\label{xboole1:}
+\end{thm}
+

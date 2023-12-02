@@ -1,0 +1,147 @@
+%\section[Boolean Properties of Sets: Definitions]{Boolean Properties of Sets: Definitions (XBOOLE-0)}
+\section{Boolean Properties of Sets: Definitions (XBOOLE-0)}
+
+\begin{scheme}[Separation]
+  Let $P[-]$ be a unary predicate, $\mathcal{F}_{1}$ be a set.
+  Then there exists a set $X$ such that for any object $x$, we have
+  $x\in X$ if and only if $x\in\mathcal{F}_{1}$ and $P[x]$.
+\end{scheme}
+
+\begin{definition}
+  Let $X$ be a set. We define the attribute $X$ is \define{Empty} to mean:
+\begin{defn}
+\item for any object $x$, we have $x\notin X$.
+\end{defn}
+\end{definition}
+
+Observe there exists an empty set.
+
+\begin{definition}
+  We define the new term $\{\}$ or $\emptyset$ (Mizar: ``\verb#{}#'') to
+  be the set equal to
+  \begin{defn}
+  \item the empty set.
+  \end{defn}
+  Let $X$, $Y$ be sets. We define the term $X\cup Y$ to be the set
+  satisfying
+  \begin{defn}
+  \item for any object $x$, we have $x\in X\cup Y$ if and only if either
+    $x\in X$ or $x\in Y$.
+  \end{defn}
+  We define the new term $X\cap Y$ to be the set satisfying
+  \begin{defn}
+  \item for any object $x$, we have $x\in X\cap Y$ if and only if $x\in X$ and $x\in Y$.
+  \end{defn}
+  We define the new term $X\setminus Y$ to be the set satisfying
+  \begin{defn}
+  \item for any object $x$, we have $x\in X\setminus Y$
+    if and only if $x\in X$ and $x\notin Y$.
+  \end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be sets. We define the \define{Symmetric Difference} of $X$
+and $Y$ to be the new term $X\symdiff Y$ (Mizar: ``\verb#X \+\ Y#'') equal to
+\begin{defn}
+\item $(X\setminus Y)\cup(Y\setminus X)$
+\end{defn}
+Observe it is commutative $X\symdiff Y=Y\symdiff X$.
+
+We define the predicate $X$ \define{Misses} $Y$ (or $X$ \emph{is disjoint with} $Y$, Mizar: ``\verb#X misses Y#'')
+which means
+\begin{defn}
+\item $X\cap Y=\emptyset$
+\end{defn}
+Observe $X$ misses $Y$ iff $Y$ misses $X$, i.e., it is a symmetric predicate.
+
+We define the predicate $X\properSubset Y$ (Mizar: ``\verb#X c< Y#'')
+to mean
+\begin{defn}
+\item $X\subset Y$ and $X\neq Y$.
+\end{defn}
+Observe it is an irreflexive relation (there is no set $X$ which is a
+proper subset of itself) and asymmetric (if $X\properSubset Y$, then
+$\neg(Y\properSubset X)$).
+
+We define the predicate $X$ and $Y$ are \define{$\subset$-Comparable}
+(Mizar: ``\verb#X,Y are_c=-comparable#'') to mean:
+\begin{defn}
+\item $X\subset Y$ or $Y\subset X$.
+\end{defn}
+Observe it is reflexive ($X$ is always $\subset$-comparable to itself)
+and symmetric ($X$ and $Y$ are $\subset-comparable$ implies $Y$ and $X$
+are $\subset$-comparable).
+
+We redefine the predicate $X=Y$ to mean
+\begin{defn}
+\item $X\subset Y$ and $Y\subset X$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be sets. We define $X$ \define{meets} $Y$ (Mizar:
+``\verb#X meets Y#'') as the antonym of $X$ misses $Y$.
+\end{definition}
+
+We now have the following theorems. Let $X$, $Y$ be sets.
+
+\begin{thm}
+\item For any object $x$, we have $x\in X\symdiff Y$ if and only if
+  ($x\in X$ and $x\notin Y$) or ($x\notin X$ and $x\in Y$).
+\item Let $Z$ be a set. If every object $x$ is such that $x\notin X$ iff
+  ($x\in Y$ iff $x\in Z$), then $X=Y\symdiff Z$.
+\end{thm}
+
+Observe $\emptyset$ is empty, $\{x\}$ is non-empty, and $\{x,y\}$ is
+non-empty. We observe there exists a non-empty set.
+When $D$ is a non-empty set, and $X$ is any set, we observe $D\cup X$ is
+non-empty and $X\cup D$ is non-empty.
+
+Let $X$, $Y$ be sets. We have the following theorems:
+\begin{thm}[resume]
+\item $X$ meets $Y$ if and only if there exists an object $x$ such that
+  $x\in X$ and $x\in Y$.
+\item $X$ meets $Y$ if and only if there exists an object $x$ such that
+  $x\in X\cap Y$.
+\item Let $x$ be any object. If $X$ misses $Y$, $x\in X\cup Y$, but we
+  don't have both $x\in X$ and $x\notin Y$, then $x\in Y$ and $x\notin X$.
+\end{thm}
+
+\begin{scheme}[Extensionality]
+Let $\mathcal{F}_{1}$, $\mathcal{F}_{2}$ be sets, let $P[-]$ be a unary predicate.
+We have  $\mathcal{F}_{1}=\mathcal{F}_{2}$ provided:
+\begin{enumerate}
+\item Every object $x$ satisfies $x\in\mathcal{F}_{1}$ iff $P[x]$, and
+\item Every object $x$ satisfies $x\in\mathcal{F}_{2}$ iff $P[x]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[SetEq]
+Let $P[-]$ be a unary predicate.
+For any sets $X_{1}$ and $X_{2}$ such that every object $x$ satisfies
+$x\in X_{1}$ iff $P[x]$, and every object $x$ satisfies $x\in X_{2}$ iff $P[x]$,
+then we conclude $X_{1}=X_{2}$.
+\end{scheme}
+
+Let $X$, $Y$ be sets.
+\begin{thm}
+\item If $X\properSubset Y$, then there exists an object $x$ such that
+  $x\in Y$ and $x\notin X$.
+\item If $X\neq\emptyset$, then there exists an object $x$ such that
+  $x\in X$.
+\item If $X\properSubset Y$, then there exists an object $x$ such that
+  $x\in Y$ and $X\subset Y\setminus\{x\}$.
+\end{thm}
+
+\begin{notation}
+Let $X$, $Y$ be sets. We write $X\nsubset Y$ (Mizar: ``\verb#X C/= Y#'') as the antonym for
+$X\subset Y$.
+\end{notation}
+
+\begin{notation}\hypertarget{notation:xboole0:nin}{}%
+Let $x$ be an object, let $X$ be a set. We write $x\notin X$ (Mizar:
+``\verb#x nin X#'') for the
+antonym of $x\in X$.
+\end{notation}
+
+

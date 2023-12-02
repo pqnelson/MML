@@ -1,0 +1,14 @@
+\let\equipotent\approx
+\let\ogsubset\subset
+\let\properSubset\subset
+\let\subset\subseteq
+\let\nsubset\nsubseteq
+
+% https://tex.stackexchange.com/a/114269
+\newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
+
+\newcommand{\@dotminus}{%
+  \ooalign{\hidewidth\raise1ex\hbox{.}\hidewidth\cr$\m@th-$\cr}%
+}
+
+\let\symdiff\dotminus

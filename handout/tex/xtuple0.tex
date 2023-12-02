@@ -1,0 +1,215 @@
+\section{Kuratowski Pairs. Tuples and Projection (XTUPLE-0)}
+
+\begin{definition}
+Let $x$ be an object. We define the attribute that $x$ is a
+\define{pair} to mean
+\begin{defn}
+\item there exists objects $x_{1}$,$x_{2}$ such that $x=(x_{1},x_{2})$.
+\end{defn}
+Observe that $(x_{1},x_{2})$ is a pair.
+\end{definition}
+
+We have the following theorem:
+\begin{thm}
+\item\label{xtuple0:1} Let $x_{1}$, $x_{2}$, $y_{1}$, $y_{2}$ be objects. If
+  $(x_{1},x_{2})=(y_{1},y_{2})$, then $x_{1}=y_{1}$ and $x_{2}=y_{2}$.
+\end{thm}
+
+\begin{definition}
+Let $x$ be a pair. Then we define the term $x_{1}$ (Mizar:
+``\verb#x`1#'') to mean:
+\begin{defn}
+\item For any objects $y_{1}$, $y_{2}$, if $x=(y_{1},y_{2})$, then it is $y_{1}$.
+\end{defn}
+We define the term $x_{2}$ (Mizar: ``\verb#x`2#'') to mean:
+\begin{defn}
+\item For any objects $y_{1}$, $y_{2}$, if $x=(y_{1},y_{2})$, then it is $y_{2}$.
+\end{defn}
+\end{definition}
+
+
+We have the following theorem:
+\begin{thm}
+\item\label{xtuple0:2} For any pairs $a$ and $b$, if $a_{1}=b_{1}$ and
+  $a_{2}=b_{2}$, then $a=b$. 
+\end{thm}
+
+
+\begin{definition}
+Let $x_{1}$, $x_{2}$, $x_{3}$ be objects. We define the ordered triple
+$(x_{1},x_{2},x_{3})$ (Mizar: ``\verb#[x1,x2,x3]#'') to be the object
+\begin{defn}
+\item $((x_{1},x_{2}),x_{3})$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $x$ be an object. We define the attribute that $x$ is a
+\define{triple} to mean:
+\begin{defn}
+\item there exists objects $x_{1}$, $x_{2}$, and $x_{3}$ such that $x=(x_{1},x_{2},x_{3})$.
+\end{defn}
+\end{definition}
+
+
+We have the following theorem:
+\begin{thm}
+\item\label{xtuple0:3} For any objects $x_{1}$, $x_{2}$, $x_{3}$,
+  $y_{1}$, $y_{2}$, $y_{3}$, if $(x_{1},x_{2},x_{3}) = (y_{1},y_{2},y_{3})$,
+  then $x_{1}=y_{1}$ and $x_{2}=y_{2}$ and $x_{3}=y_{3}$.
+\end{thm}
+
+\begin{definition}
+Let $x$ be an object. We define the term $x_{\mathbf{1},3}$ (Mizar: ``\verb#x`1_3#'') to be
+\begin{defn}
+\item $(x_{1})_{1}$
+\end{defn}
+We define the term $x_{\mathbf{2},3}$ (Mizar: ``\verb#x`2_3#'') to be
+\begin{defn}
+\item $(x_{1})_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{notation}
+Let $x$ be an object. We define $x_{\mathbf{3},3}$ (Mizar: ``\verb#x`3_3#'') to be a synonym for $x_{2}$.
+\end{notation}
+
+We have the following theorem:
+\begin{thm}
+\item\label{xtuple0:4} Let $a$, $b$ be triples.
+If $a_{\mathbf{1},3}=b_{\mathbf{1},3}$ and
+$a_{\mathbf{2},3}=b_{\mathbf{2},3}$ and $a_{\mathbf{3},3}=b_{\mathbf{3},3}$,
+then $a=b$.
+\end{thm}
+
+\begin{definition}
+Let $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$ be objects. We define the ordered quadruple
+$(x_{1},x_{2},x_{3},x_{4})$ (Mizar: ``\verb#[x1,x2,x3,x4]#'') to be the object
+\begin{defn}
+\item $((x_{1},x_{2},x_{3}),x_{4})$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $x$ be an object. We define the attribute $x$ is a
+\define{quadruple} to mean
+\begin{defn}
+\item there exists objects $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$ such that $x=(x_{1},x_{2},x_{3},x_{4})$.
+\end{defn}
+\end{definition}
+
+
+
+We have the following theorem:
+\begin{thm}
+\item\label{xtuple0:5} Let $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$, $y_{1}$, $y_{2}$, $y_{3}$, $y_{4}$
+be objects. If $(x_{1},x_{2},x_{3},x_{4})=(y_{1},y_{2},y_{3},y_{4})$,
+then $x_{1}=y_{1}$ and $x_{2}=y_{2}$ and $x_{3}=y_{3}$ and $x_{4}=y_{4}$.
+\end{thm}
+
+\begin{definition}
+Let $x$ be an object. We define the term $x_{\mathbf{1},4}$ (Mizar: ``\verb#x`1_4#'') to be
+\begin{defn}
+\item $((x_{1})_{1})_{1}$
+\end{defn}
+We define the term $x_{\mathbf{2},4}$ (Mizar: ``\verb#x`2_4#'') to be
+\begin{defn}
+\item $((x_{1})_{1})_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{notation}
+Let $x$ be an object. We define $x_{\mathbf{3},4}$ (Mizar: ``\verb#x`3_4#'') to be a synonym for $x_{\mathbf{2},3}$.
+We also define $x_{\mathbf{4},4}$ (Mizar: ``\verb#x`4_4#'') to be a
+synonym for $x_{2}$.
+\end{notation}
+
+Let $x$, $y$ be objects, and let $X$ be a set. We have the following theorem:
+\begin{thm}
+\item\label{xtuple0:6} If $(x,y)\in X$, then $x\in\bigcup(\bigcup X)$.
+\item\label{xtuple0:7} If $(x,y)\in X$, then $y\in\bigcup(\bigcup X)$.
+\end{thm}
+
+\subsection{Projections}
+
+\begin{definition}
+  Let $X$ be a set.
+  We define the term $\pi_{1}(X)$ (Mizar: ``\verb#proj1 X#'') to be the
+  set satisfying
+  \begin{defn}
+  \item for any object $x$, $x\in\pi_{1}(X)$ if and only if there exists
+    some object $y$ such that $(x,y)\in X$.
+  \end{defn}
+  We define the term $\pi_{2}(X)$ (Mizar: ``\verb#proj2 X#'') to be the
+  set satisfying
+  \begin{defn}
+  \item for any object $y$, $y\in\pi_{2}(X)$ if and only if there exists
+    some object $x$ such that $(x,y)\in X$.
+  \end{defn}
+\end{definition}
+
+Let $X$, $Y$ be sets. Then we have the following theorems:
+\begin{thm}
+\item\label{xtuple0:8} If $X\subset Y$, then $\pi_{1}(X)\subset\pi_{1}(Y)$.
+\item\label{xtuple0:9} If $X\subset Y$, then $\pi_{2}(X)\subset\pi_{2}(Y)$.
+\end{thm}
+
+\begin{definition}
+  Let $X$ be a set.
+  We define the term $\pi_{\mathbf{1},3}(X)$ (Mizar: ``\verb#proj1_3 X#'') to be the
+  set equal to
+  \begin{defn}
+  \item $\pi_{1}(\pi_{1}(X))$.
+  \end{defn}
+  We define the term $\pi_{\mathbf{2},3}(X)$ (Mizar: ``\verb#proj2_3 X#'') to be the
+  set equal to
+  \begin{defn}
+  \item $\pi_{2}(\pi_{1}(X))$.
+  \end{defn}
+\end{definition}
+
+\begin{notation}
+Let $X$ be a set. We use the notation $\pi_{\mathbf{3},3}(X)$ (Mizar: ``\verb#proj3_3 X#'') to be a
+synonym for $\pi_{2}(X)$.
+\end{notation}
+
+Let $X$, $Y$ be sets, let $x$ be an object.
+\begin{thm}
+\item\label{xtuple0:10} If $X\subset Y$, then $\pi_{\mathbf{1},3}(X)\subset\pi_{\mathbf{1},3}(Y)$.
+\item\label{xtuple0:11} If $X\subset Y$, then $\pi_{\mathbf{2},3}(X)\subset\pi_{\mathbf{2},3}(Y)$.
+\item\label{xtuple0:12} If $x\in\pi_{\mathbf{1},3}(X)$, then there
+  exists objects $y$, $z$ such that $(x,y,z)\in X$.
+\item\label{xtuple0:13} For any objects $y$ and $z$, if $(x,y,z)\in X$,
+  then $x\in\pi_{\mathbf{1},3}(X)$.
+\item\label{xtuple0:14} If $x\in\pi_{\mathbf{2},3}(X)$, then there
+  exists objects $y$, $z$ such that $(y,x,z)\in X$.
+\item\label{xtuple0:15} For any objects $y$ and $z$, if $(y,x,z)\in X$,
+  then $x\in\pi_{\mathbf{2},3}(X)$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set.
+We define the term $\pi_{\mathbf{1},4}(X)$ (Mizar: ``\verb#proj1_4 X#'')
+to be the set equal to
+\begin{defn}
+\item $\pi_{1}(\pi_{\mathbf{1},3}(X))$.
+\end{defn}
+We define the term $\pi_{\mathbf{2},4}(X)$ (Mizar: ``\verb#proj2_4 X#'')
+to be the set equal to
+\begin{defn}
+\item $\pi_{2}(\pi_{\mathbf{1},3}(X))$.
+\end{defn}
+\end{definition}
+
+\begin{notation}
+Let $X$ be a set. We use the notation $\pi_{\mathbf{3},4}(X)$ (Mizar: ``\verb#proj3_4 X#'') to be a
+synonym for $\pi_{\mathbf{2},3}(X)$.
+We use the notation $\pi_{\mathbf{4},4}(X)$ (Mizar: ``\verb#proj4_4 X#'') to be a
+synonym for $\pi_{2}(X)$.
+\end{notation}
+
+Let $X$, $Y$ be sets. We have the following theorems:
+\begin{thm}
+\item\label{xtuple0:16} If $X\subset Y$, then $\pi_{\mathbf{1},4}(X)\subset\pi_{\mathbf{1},4}(Y)$.
+\item\label{xtuple0:17} If $X\subset Y$, then $\pi_{\mathbf{2},4}(X)\subset\pi_{\mathbf{2},4}(Y)$.
+\end{thm}
