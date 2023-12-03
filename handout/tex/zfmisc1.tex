@@ -1,0 +1,43 @@
+\section{Some Basic Properties of Sets (ZFMISC-1)}
+
+\begin{definition}
+Let $X$ be a set.
+We define the term $\bool(X)$ (Mizar: ``\verb#bool X#'') to be the set such that
+\begin{defn}
+\item for any set $Z$, we have $Z\in\bool(X)$ if and only if $Z\subset X$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X_{1}$, $X_{2}$ be sets.
+We define the term $X_{1}\times X_{2}$ (Mizar:
+``\verb#[:X1, X2:]#'') to be such that
+\begin{defn}
+\item for any object $z$, we have $z\in X_{1}\times X_{2}$ if and only
+  if there exists objects $x$, $y$ such that $x\in X_{1}$ and $y\in X_{2}$ and $z=(x_{1},x_{2})$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X_{1}$, $X_{2}$, $X_{3}$ be sets.
+We define the term $X_{1}\times X_{2}\times X_{3}$ (Mizar:
+``\verb#[:X1, X2, X3:]#'') to be equal to
+\begin{defn}
+\item $(X_{1}\times X_{2})\times X_{3}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X_{1}$, $X_{2}$, $X_{3}$, $X_{4}$ be sets.
+We define the term $X_{1}\times X_{2}\times X_{3}\times X_{4}$ (Mizar:
+``\verb#[:X1, X2, X3, X4:]#'') to be equal to
+\begin{defn}
+\item $(X_{1}\times X_{2}\times X_{3})\times X_{4}$.
+\end{defn}
+\end{definition}
+
+We have the following theorems concerning $\emptyset$.
+\begin{thm}
+\item\label{zfmisc1:1} $\bool(\emptyset)=\{\emptyset\}$.
+\item\label{zfmisc1:2} $\bigcup\emptyset=\emptyset$.
+\end{thm}

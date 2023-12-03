@@ -5,17 +5,17 @@ Let $X$ be a magma. We define the attribute $X$ is \define{unital} to
 mean
 \begin{defn}
 \item There exists $x$ being an element of $X$ such that for any element
-  $h$ of $X$ we have $he=h$ and $eh=h$.
+  $h$ of $X$ we have $h\cdot e=h$ and $e\cdot h=h$.
 \end{defn}
 We call $X$ \define{Group-like} to mean
 \begin{defn}
 \item There exists an element $e$ of $X$ such that for every element $h$
-  of $X$ we have $he=h$ and $eh=h$ and there exists an element $g$ of
-  $X$ such that $hg=e$ and $gh=e$.
+  of $X$ we have $h\cdot e=h$ and $e\cdot h=h$ and there exists an element $g$ of
+  $X$ such that $h\cdot g=e$ and $g\cdot h=e$.
 \end{defn}
 We call $X$ \define{associative} to mean
 \begin{defn}
-\item for any elements $x$, $y$, $z$ of $X$, we have $(xy)z=x(yz)$.
+\item for any elements $x$, $y$, $z$ of $X$, we have $(x\cdot y)\cdot z=x\cdot (y\cdot z)$.
 \end{defn}
 \end{definition}
 
@@ -24,4 +24,230 @@ non-empty  strict Group-like associative magma.
 
 \begin{definition}
 We define a \define{Group} to be a non-empty Group-like associative magma.
+\end{definition}
+
+Let $S$ be a non-empty magma. Then we have the following theorems:
+\begin{thm}
+\item\label{group1:1} If \begin{enumerate*}[label=(\roman*)]
+\item for every element $r$, $s$, $t$ of $S$ we have $(r\cdot s)\cdot t=r\cdot (s\cdot t)$,
+\item there exists some element $t$ of $S$ such that every element
+  $s_{1}$ of $S$ satisfies $s_{1}\cdot t=s_{1}$ and $t\cdot s_{1}=s_{1}$ and there
+  exists some corresponding element $s_{2}$ of $S$ such that $s_{1}\cdot s_{2}=t$ and $s_{2}\cdot s_{1}=t$;
+\end{enumerate*}
+  then $S$ is a group.
+\item\label{group1:2} If \begin{enumerate*}[label=(\roman*)]
+\item for every element $r$, $s$, $t$ of $S$ we have $(r\cdot s)\cdot t=r\cdot (s\cdot t)$,
+\item for every element $r$, $s$ of $S$ there exists an element $t$ of
+  $S$ such that $r\cdot t=s$,
+\item for every element $r$, $s$ of $S$ there exists an element $t$ of
+  $S$ such that $t\cdot r=s$;
+\end{enumerate*}
+  then $S$ is associative and Group-like.
+\item\label{group1:3} The magma $\langle \RR,+\rangle$ is associative
+  and Group-like.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a unital magma.
+We define the term $1_{G}$ (Mizar: ``\verb#1_ G#'') to be the element of $G$ such that
+\begin{defn}
+\item every element $h$ of $G$ satisfies $h\cdot 1_{G}=h$ and $1_{G}\cdot h=h$.
+\end{defn}
+\end{definition}
+  
+Let $G$ be a non-empty Group-like magma. We can prove the following proposition:
+\begin{thm}
+\item\label{group1:4} For any element $e$ of $G$, if every element $h$
+  of $G$ satisfies $h\cdot e=h$ and $e\cdot h=h$, then $e=1_{G}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a Group, let $h$ be an element of $G$.
+We define the term $h^{-1}$ (Mizar: ``\verb#h "#'') to be the Element of
+$G$ such that
+\begin{defn}
+\item $h\cdot h^{-1}=1_{G}$ and $h^{-1}\cdot h = 1_{G}$.
+\end{defn}
+Observe that $(h^{-1})^{-1}=h$, i.e., this is an involutive functor.
+\end{definition}
+
+Let $G$ be a Group, let $f$, $g$, $h$ be elements of $G$. Then we have
+the following theorems:
+\begin{thm}
+\item\label{group1:5} If $h\cdot g=1_{G}$ and $g\cdot h=1_{G}$, then $g=h^{-1}$.
+\item\label{group1:6} If $h\cdot g=h\cdot f$ or $g\cdot h=f\cdot h$,
+  then $g=f$.
+\item\label{group1:7} If $h\cdot g=h$ or $g\cdot h=h$, then $g=1_{G}$.
+\item\label{group1:8} $(1_{G})^{-1}=1_{G}$. 
+\item\label{group1:9} If $h^{-1}=g^{-1}$, then $h=g$.
+\item\label{group1:10} If $h^{-1}=1_{G}$, then $h=1_{G}$.
+\item\label{group1:11} (Cancelled)
+\item\label{group1:12} If $h\cdot g=1_{G}$, then $h=g^{-1}$ and $g=h^{-1}$.
+\item\label{group1:13} $h\cdot f=g$ iff $f=h^{-1}\cdot g$.
+\item\label{group1:14} $f\cdot h=g$ iff $f=g\cdot h^{-1}$.
+\item\label{group1:15} There exists some element $f$ of $G$ such that
+  $g\cdot f=h$.
+\item\label{group1:16} There exists some element $f$ of $G$ such that
+  $f\cdot g=h$.
+\item\label{group1:17} $(h\cdot g)^{-1}=g^{-1}\cdot h^{-1}$
+\item\label{group1:18} $g\cdot h=h\cdot g$ iff $(g\cdot h)^{-1}=g^{-1}\cdot h^{-1}$.
+\item\label{group1:19} $g\cdot h=h\cdot g$ iff $g^{-1}\cdot h^{-1}=h^{-1}\cdot g^{-1}$.
+\item\label{group1:20} $g\cdot h=h\cdot g$ iff $g\cdot h^{-1}=h^{-1}\cdot g$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a Group.
+We define $\cdot_{G}^{-1}$ (Mizar: ``\verb#inverse_op G#'') be the unary operator on $G$ such that
+\begin{defn}
+\item for any element $h$ of $G$, we have $\cdot_{G}^{-1}(h)=h^{-1}$.
+\end{defn}
+\end{definition}
+
+Observe for a non-empty associative magma, the binary operator of it is
+associative (in the sense of binary operators).
+
+Let $G$ be a non-empty unital magma. We have the following propositions:
+\begin{thm}
+\item\label{group1:21} $1_{G}$ is a unity with respect to the operation
+  of $G$.
+\item\label{group1:22} The unity with respect to the operation of $G$ is
+  equal to $1_{G}$.
+\end{thm}
+
+We observe that, for a non-empty unital magma, its operation has a
+unity.
+
+Let $G$ be a Group. We have the following two propositions:
+\begin{thm}
+\item\label{group1:23} $\cdot_{G}^{-1}$ is an inverse operator with
+  respect to the operation of $G$.
+\item\label{group1:24} The inverse operator with respect to
+  multiplication in $G$ is equal to $\cdot_{G}^{-1}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a non-empty magma. We define $\power_{G}$ (Mizar:
+``\verb#power G#'') to be a function of
+$G\times\NN\to G$ defined by
+\begin{defn}
+\item for $h$ being an element of $G$, $\power_{G}(h,0)=1_{G}$ and for
+  every natural number $n$ we have $\power_{G}(h,n+1)=h\cdot\power_{G}(h,n)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $G$ be a group, let $h$ be an element of $G$, let $n$ be an integer.
+We define the term $h^{n}$ (Mizar: ``\verb#h |^ n#'') to be the element
+of $G$ such that
+\begin{defn}
+\item if $0\leq n$ then $h^{n}=\power_{G}(h,n)$; otherwise, $h^{n}=\power_{G}(h^{-1},|n|)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $G$ be a group, let $h$ be an element of $G$, let $n$ be an natural
+number. Observe that $h^{n}$ equals
+\begin{defn}
+\item $\power_{G}(h,n)$.
+\end{defn}
+This is compatible with the previous definition.
+\end{definition}
+
+Let $G$ be a group, let $h$ be an element of $G$, let $k$ and $n$ be an integer.
+\begin{thm}
+\item\label{group1:25} $h^{0}=1_{G}$.
+\item\label{group1:26} $h^{1}=h$.
+\item\label{group1:27} $h^{2}=h\cdot h$.
+\item\label{group1:28} $h^{3}=(h\cdot h)\cdot h$.
+\item\label{group1:29} $h^{2}=1_{G}$ iff $h^{-1}=h$.
+\item\label{group1:30} When $n\leq0$, $h^{n}=(h^{-1})^{|n|}$.
+\item\label{group1:31} $1_{G}^{n}=1_{G}$.
+\item\label{group1:32} $h^{-1}=h^{-1}$ (Mizar: \verb#h |^ -1 = h"#)
+\item\label{group1:33} For any integers $i$, $j$, we have $h^{i+j}=(h^{i})\cdot(h^{j}$.
+\item\label{group1:34} $h^{n+1}=(h^{n})\cdot h$ and $h^{n+1}=h\cdot(h^{n})$.
+\item\label{group1:35} For any integers $i$, $j$, we have $h^{ij}=(h^{i})^{j}$.
+\item\label{group1:36} $h^{-n}=(h^{n})^{-1}$.
+\item\label{group1:37} $(h^{-1})^{n}=(h^{n})^{-1}$.
+\item\label{group1:38} For any element $g$ of $G$, if $g\cdot h=h\cdot g$,
+  then $(g\cdot h)^{n}=(g^{n})\cdot(h^{n})$.
+\item\label{group1:39} For any element $g$ of $G$, if $g\cdot h=h\cdot g$,
+  then $(g^{k})\cdot(h^{n})=(h^{n})\cdot (g^{k})$.
+\item\label{group1:40} For any element $g$ of $G$, if $g\cdot h=h\cdot g$,
+  then $g\cdot(h^{n})=(h^{n})\cdot g$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $h$ be an element of $G$.
+We say $h$ is \define{of order 0} (Mizar: ``\verb#being_of_order_0#'') if
+\begin{defn}
+\item for any natural number $n$, if $h^{n}=1_{G}$, then $n=0$.
+\end{defn}
+\end{definition}
+
+Observe $1_{G}$ is of order 0.
+
+\begin{definition}
+Let $G$ be a group, let $h$ be an element of $G$.
+We define the term $\ord(h)$ (Mizar: ``\verb#ord h#'') to be the natural
+number such that
+\begin{defn}
+\item $\ord(h)=0$ if $h$ is of order 0, otherwise $h^{\ord(h)}=1_{G}$
+  and $ord(h)\neq0$ and for any other natural number $m$ for which
+  $h^{m}=1_{G}$ and $m\neq0$ we have $\ord(h)\leq m$.
+\end{defn}
+\end{definition}
+
+Let $G$ be a group, let $h$ be an element of $G$. We have the following
+results:
+\begin{thm}
+\item\label{group1:41} $h^{\ord(h)}=1_{G}$
+\item\label{group1:42} $\ord(1_{G})=1$
+\item\label{group1:43} If $\ord(h)=1$, then $h=1_{G}$.
+\item\label{group1:44} For any natural number $n$, if $h^{n}=1_{G}$,
+  then $\ord(h)$ divides $n$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a finite 1-sorted gadget. Then $\card{G}$ is a natural number.
+\end{definition}
+
+We have the following result:
+\begin{thm}
+\item\label{group1:45} For any non-empty finite 1-sorted gadget $G$, we
+  have $\card{G}\geq1$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a magma. We define the attribute that $G$ is
+\define{commutative} to mean:
+\begin{defn}
+\item for any elements $x$, $y$ of $G$, we have $x\cdot y=y\cdot x$.
+\end{defn}
+\end{definition}
+
+Let $A$ be a commutative Group, let $a$, $b$ be elements of $A$. We have
+the following results:
+\begin{thm}
+\item\label{group1:46} The magma $\langle\RR,+\rangle$ is a commutative group.
+\item\label{group1:47} $(a\cdot b)^{-1}=(a^{-1})\cdot(b^{-1})$.
+\item\label{group1:48} For any integer $n$, we have $(a\cdot b)^{n}=(a^{n})\cdot(b^{n})$.
+\item\label{group1:49} The additive loop $\langle$ the carrier of $A$,
+  the operator of $A$, $1_{A}\rangle$ is Abelian right-zeroed
+  add-associative right-complementable.
+\end{thm}
+Let $L$ be a non-empty unital magma, let $x$, $y$ be elements of$L$.
+\begin{thm}
+\item\label{group1:50} $\power_{L}(x,1)=x$.
+\item\label{group1:51} $\power_{L}(x,2)=x\cdot x$.
+\item\label{group1:52} For any natural number $n$, if $L$ is
+  commutative, then we have
+  $\power_{L}(x\cdot y,n)=\power_{L}(x,n)\cdot\power_{L}(y,n)$.
+\end{thm}
+
+\begin{definition}
+Let $G$, $H$ be magmas. Let $\varphi$ be a function from $G$ to $H$.
+We call $\varphi$ \define{unity-preserving} if
+\begin{defn}
+\item $\varphi(1_{G})=1_{H}$.
+\end{defn}
 \end{definition}
