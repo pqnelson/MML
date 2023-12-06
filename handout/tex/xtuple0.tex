@@ -1,4 +1,14 @@
-\section{Kuratowski Pairs. Tuples and Projection (XTUPLE-0)}
+\documentclass{article}
+
+\title{Kuratowski Pairs. Tuples and Projection (XTUPLE-0)}
+\author{Grzegorz Bancerek, Artur Korni\l owicz and Andrzej Trybulec}
+%% \makeatletter
+%% \@ifclassloaded{combine}
+%%   {\let\@begindocumenthook\@empty}
+%%   {}
+%% \makeatother
+\begin{document}
+\maketitle
 
 \begin{definition}
 Let $x$ be an object. We define the attribute that $x$ is a
@@ -130,28 +140,28 @@ Let $x$, $y$ be objects, and let $X$ be a set. We have the following theorem:
 \item\label{xtuple0:7} If $(x,y)\in X$, then $y\in\bigcup(\bigcup X)$.
 \end{thm}
 
-\subsection{Projections}
+\section{Projections}
 
 \begin{definition}
   Let $X$ be a set.
-  We define the term $\pi_{1}(X)$ (Mizar: ``\verb#proj1 X#'') to be the
+  We define the term $\proj1(X)$ (Mizar: ``\verb#proj1 X#'') to be the
   set satisfying
-  \begin{defn}
-  \item for any object $x$, $x\in\pi_{1}(X)$ if and only if there exists
+  \begin{defn}\label{xtuple0:defn:proj1}
+  \item for any object $x$, $x\in\proj1(X)$ if and only if there exists
     some object $y$ such that $(x,y)\in X$.
   \end{defn}
-  We define the term $\pi_{2}(X)$ (Mizar: ``\verb#proj2 X#'') to be the
+  We define the term $\proj2(X)$ (Mizar: ``\verb#proj2 X#'') to be the
   set satisfying
-  \begin{defn}
-  \item for any object $y$, $y\in\pi_{2}(X)$ if and only if there exists
+  \begin{defn}\label{xtuple0:defn:proj2}
+  \item for any object $y$, $y\in\proj2(X)$ if and only if there exists
     some object $x$ such that $(x,y)\in X$.
   \end{defn}
 \end{definition}
 
 Let $X$, $Y$ be sets. Then we have the following theorems:
 \begin{thm}
-\item\label{xtuple0:8} If $X\subset Y$, then $\pi_{1}(X)\subset\pi_{1}(Y)$.
-\item\label{xtuple0:9} If $X\subset Y$, then $\pi_{2}(X)\subset\pi_{2}(Y)$.
+\item\label{xtuple0:8} If $X\subset Y$, then $\proj1(X)\subset\proj1(Y)$.
+\item\label{xtuple0:9} If $X\subset Y$, then $\proj2(X)\subset\proj2(Y)$.
 \end{thm}
 
 \begin{definition}
@@ -159,18 +169,18 @@ Let $X$, $Y$ be sets. Then we have the following theorems:
   We define the term $\pi_{\mathbf{1},3}(X)$ (Mizar: ``\verb#proj1_3 X#'') to be the
   set equal to
   \begin{defn}
-  \item $\pi_{1}(\pi_{1}(X))$.
+  \item $\proj1(\proj1(X))$.
   \end{defn}
   We define the term $\pi_{\mathbf{2},3}(X)$ (Mizar: ``\verb#proj2_3 X#'') to be the
   set equal to
   \begin{defn}
-  \item $\pi_{2}(\pi_{1}(X))$.
+  \item $\proj2(\proj1(X))$.
   \end{defn}
 \end{definition}
 
 \begin{notation}
 Let $X$ be a set. We use the notation $\pi_{\mathbf{3},3}(X)$ (Mizar: ``\verb#proj3_3 X#'') to be a
-synonym for $\pi_{2}(X)$.
+synonym for $\proj2(X)$.
 \end{notation}
 
 Let $X$, $Y$ be sets, let $x$ be an object.
@@ -192,12 +202,12 @@ Let $X$ be a set.
 We define the term $\pi_{\mathbf{1},4}(X)$ (Mizar: ``\verb#proj1_4 X#'')
 to be the set equal to
 \begin{defn}
-\item $\pi_{1}(\pi_{\mathbf{1},3}(X))$.
+\item $\proj1(\pi_{\mathbf{1},3}(X))$.
 \end{defn}
 We define the term $\pi_{\mathbf{2},4}(X)$ (Mizar: ``\verb#proj2_4 X#'')
 to be the set equal to
 \begin{defn}
-\item $\pi_{2}(\pi_{\mathbf{1},3}(X))$.
+\item $\proj2(\pi_{\mathbf{1},3}(X))$.
 \end{defn}
 \end{definition}
 
@@ -205,7 +215,7 @@ to be the set equal to
 Let $X$ be a set. We use the notation $\pi_{\mathbf{3},4}(X)$ (Mizar: ``\verb#proj3_4 X#'') to be a
 synonym for $\pi_{\mathbf{2},3}(X)$.
 We use the notation $\pi_{\mathbf{4},4}(X)$ (Mizar: ``\verb#proj4_4 X#'') to be a
-synonym for $\pi_{2}(X)$.
+synonym for $\proj2(X)$.
 \end{notation}
 
 Let $X$, $Y$ be sets. We have the following theorems:
@@ -213,3 +223,4 @@ Let $X$, $Y$ be sets. We have the following theorems:
 \item\label{xtuple0:16} If $X\subset Y$, then $\pi_{\mathbf{1},4}(X)\subset\pi_{\mathbf{1},4}(Y)$.
 \item\label{xtuple0:17} If $X\subset Y$, then $\pi_{\mathbf{2},4}(X)\subset\pi_{\mathbf{2},4}(Y)$.
 \end{thm}
+\end{document}

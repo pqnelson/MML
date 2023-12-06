@@ -1,5 +1,13 @@
-\section{Some Basic Properties of Sets (ZFMISC-1)}
-
+\documentclass{article}
+\title{Some Basic Properties of Sets (ZFMISC-1)}
+\author{Czes{\l}aw Byli\'nski}
+\makeatletter
+\@ifclassloaded{combine}
+  {\let\@begindocumenthook\@empty}
+  {}
+\makeatother
+\begin{document}
+\maketitle
 \begin{definition}
 Let $X$ be a set.
 We define the term $\bool(X)$ (Mizar: ``\verb#bool X#'') to be the set such that
@@ -41,3 +49,367 @@ We have the following theorems concerning $\emptyset$.
 \item\label{zfmisc1:1} $\bool(\emptyset)=\{\emptyset\}$.
 \item\label{zfmisc1:2} $\bigcup\emptyset=\emptyset$.
 \end{thm}
+
+Let $x$, $x_{1}$, $x_{2}$, $y_{1}$, $y_{2}$ be objects. We have the
+following results about singletons and unordered pairs:
+\begin{thm}
+\item\label{zfmisc1:3} If $\{x\}\subset\{y\}$, then $x=y$.
+\item\label{zfmisc1:4} If $\{x\}=\{y_{1},y_{2}\}$, then $x=y_{1}$.
+\item\label{zfmisc1:5} If $\{x\}=\{y_{1},y_{2}\}$, then $y_{1}=y_{2}$.
+\item\label{zfmisc1:6} $\{x_{1},x_{2}\}\neq\{y_{1},y_{2}\}$ or
+  $x_{1}=y_{1}$ or $x_{1}=y_{2}$.
+\item\label{zfmisc1:7} $\{x\}\subset\{x,y\}$.
+\item\label{zfmisc1:8} If $\{x\}\cup\{y\}=\{x\}$, then $x=y$.
+\item\label{zfmisc1:9} $\{x\}\cup\{x,y\}=\{x,y\}$.
+\item\label{zfmisc1:10} If $\{x\}$ misses $\{y\}$, then $x\neq y$.
+\item\label{zfmisc1:11} If $x\neq y$, then $\{x\}$ misses $\{y\}$.
+\item\label{zfmisc1:12} If $\{x\}\cap\{y\}=\{x\}$, then $x=y$.
+\item\label{zfmisc1:13} $\{x\}\cap\{x,y\}=\{x\}$.
+\item\label{zfmisc1:14} $\{x\}\setminus\{y\}=\{x\}$ iff $x\neq y$
+\item\label{zfmisc1:15} If $\{x\}\setminus\{y\}=\emptyset$, then $x=y$.
+\item\label{zfmisc1:16} $\{x\}\setminus\{x,y\}=\emptyset$
+\item\label{zfmisc1:17} If $x\neq y$, then $\{x,y\}\setminus\{y\}=\{x\}$.
+\item\label{zfmisc1:18} If $\{x\}\subset\{y\}$, then $x=y$.
+\item\label{zfmisc1:19} $\{z\}\nsubset\{x,y\}$ or $z=x$ or $z=y$.
+\item\label{zfmisc1:20} If $\{x,y\}\subset\{z\}$, then $x=z$.
+\item\label{zfmisc1:21} If $\{x,y\}\subset\{z\}$, then $\{x,y\}=\{z\}$.
+\item\label{zfmisc1:22} $\{x_{1},x_{2}\}\nsubset\{y_{1},y_{2}\}$ or $x_{1}=y_{1}$ or $x_{1}=y_{2}$.
+\item\label{zfmisc1:23} If $x\neq y$, then $\{x\}\symdiff\{y\}=\{x,y\}$.
+\item\label{zfmisc1:24} $\powerset(\{x\})=\{\emptyset,\{x\}\}$.
+\item\label{zfmisc1:25} $\bigcup\{x\}=x$
+\item\label{zfmisc1:26} $\bigcup\{\{x\},\{y\}\}=\{x,y\}$
+\item\label{zfmisc1:27} (Cancelled)
+\item\label{zfmisc1:28} $(x,y)\in\{x_{1}\}\times\{y_{1}\}$ iff $x=x_{1}$
+  and $y=y_{1}$.
+\item\label{zfmisc1:29} $\{x\}\times\{y\}=\{(x,y)\}$.
+\item\label{zfmisc1:30} $\{x\}\times\{y,z\}=\{(x,y), (x,z)\}$
+  and $\{x,y\}\times\{z\}=\{(x,z),(y,z)\}$.
+\end{thm}
+
+\medbreak
+We have the following two propositions:
+\begin{thm}
+\item\label{zfmisc1:31} For any set $X$, $\{x\}\subset X$ iff $x\in X$.
+\item\label{zfmisc1:32} For any set $Z$, $\{x_{1},x_{2}\}\subset Z$
+  iff $x_{1}\in Z$ and $x_{2}\in Z$.
+\end{thm}
+
+\medbreak
+We have the following results concerning sets included in singletons or
+unordered pairs. Let $X$, $Y$, $Z$ be sets.
+\begin{thm}
+\item\label{zfmisc1:33} $Y\subset\{x\}$ iff $Y=\emptyset$ or $Y=\{x\}$.
+\item\label{zfmisc1:34} If $Y\subset X$ and $x\notin Y$, then $Y\subset X\setminus\{x\}$.
+\item\label{zfmisc1:35} If $X\neq\{x\}$ and $X\neq\emptyset$, then there
+  exists an object $y$ such that $y\in X$ and $y\neq x$.
+\item\label{zfmisc1:36} $Z\subset\{x_{1},x_{2}\}$ iff $Z=\emptyset$ or
+  $Z=\{x_{1}\}$ or $Z=\{x_{2}\}$ or $Z=\{x_{1},x_{2}\}$.
+\end{thm}
+
+
+\medbreak
+We have the following results concerning the sum of an unordered pair
+(or singleton) and a set.
+\begin{thm}
+\item\label{zfmisc1:37} If $\{z\}=X \/ Y$, then one of the following holds:
+  \begin{enumerate*}[label=(\roman*)]
+  \item $X = \{z\}$ and $Y = \{z\}$, or
+  \item $X = \emptyset$ and $Y = \{z\}$, or
+  \item $X = \{z\}$ and $Y = \emptyset$
+  \end{enumerate*}
+\item\label{zfmisc1:38} If $\{z\} = X \cup Y$ and $X \neq Y$, then $X = \emptyset$ or
+  $Y = \emptyset$
+\item\label{zfmisc1:39} If $\{x\} \cup X\subset X$ implies $x in X$
+\item\label{zfmisc1:40} If $x\in X$, then $\{x\}\cup X=X$.
+\item\label{zfmisc1:41} If $\{x,y\}\cup Z\subset Z$, then $x\in Z$.
+\item\label{zfmisc1:42} If $x\in Z$ and $y\in Z$, then $\{x,y\}\cup Z=Z$.
+\item\label{zfmisc1:43} $\{x\}\cup X\neq\emptyset$.
+\item\label{zfmisc1:44} $\{x,y\}\cup X\neq\emptyset$.
+\end{thm}
+
+\medbreak
+We have the following results concerning the intersection of an
+unordered pair (or a singleton) and a set:
+
+\begin{thm}
+\item\label{zfmisc1:45} If $X\cap\{x\}=\{x\}$, then $x\in X$.
+\item\label{zfmisc1:46} If $x\in X$, then $X\cap\{x\}=\{x\}$.
+\item\label{zfmisc1:47} If $x\in Z$ and $y\in Z$, then $\{x,y\}\cap Z=\{x,y\}$.
+\item\label{zfmisc1:48} If $\{x\}$ misses $X$, then $x\notin X$.
+\item\label{zfmisc1:49} If $\{x,y\}$ misses $Z$, then $x\notin Z$.
+\item\label{zfmisc1:50} If $x\notin X$, then $\{x\}$ misses $X$.
+\item\label{zfmisc1:51} If $x\notin Z$ and $y\notin Z$, then $\{x,y\}$ misses $Z$.
+\item\label{zfmisc1:52} Either $\{x\}$ misses $X$ or $\{x\}\cap X=\{x\}$.
+\item\label{zfmisc1:53} If $\{x,y\}\cap X=\{x\}$, then $y\notin X$ or $x=y$.
+\item\label{zfmisc1:54} If $x\in X$ and either $y\notin X$ or $x=y$,
+  then $\{x,y\}\cap X=\{x\}$.
+\item\label{zfmisc1:55} If $\{x,y\}\cap X=\{x,y\}$, then $x\in X$.
+\end{thm}
+
+\medbreak
+Let $z$ be any object.
+We have the following results concerning the difference of an unordered
+pair (or a singleton) and a set:
+\begin{thm}
+\item\label{zfmisc1:56} $z\in X\setminus\{x\}$ iff $z\in X$ and $z\neq y$.
+\item\label{zfmisc1:57} $X\setminus\{x\}=X$ iff $x\notin X$. 
+\item\label{zfmisc1:58} $X\setminus\{x\}=\emptyset$ iff either $X=\emptyset$
+  $X=\{x\}$.
+\item\label{zfmisc1:59} $\{x\}\setminus X=\{x\}$ iff $x\notin X$.
+\item\label{zfmisc1:60} $\{x\}\setminus X=\emptyset$ iff $x\in X$.
+\item\label{zfmisc1:61} Either $\{x\}\setminus X=\emptyset$ or $\{x\}\setminus X=\{x\}$.
+\item\label{zfmisc1:62} $\{x,y\}\setminus X=\{x\}$ iff $x\notin X$ and
+  either $y\in X$ or $x=y$.
+\item\label{zfmisc1:63} $\{x,y\}\setminus X=\{x,y\}$ iff $x\notin X$ and
+  $y\notin X$.
+\item\label{zfmisc1:64} $\{x,y\}\setminus X=\emptyset$ iff $x\in X$ and
+  $y\in X$.
+\item\label{zfmisc1:65} $\{x,y\}\setminus X=\emptyset$ or
+  $\{x,y\}\setminus X=\{x\}$ or $\{x,y\}\setminus X=\{y\}$ or $\{x,y\}\setminus X=\{x,y\}$.
+\item\label{zfmisc1:66} $\{x,y\}\setminus X=\emptyset$ iff $X=\emptyset$
+  or $X=\{x\}$ or $X=\{y\}$ or $X=\{x,y\}$.
+\end{thm}
+
+\medbreak
+Let $A$, $B$ be sets.
+We have the following results concerning the power set:
+\begin{thm}
+\item\label{zfmisc1:67} If $A\subset B$, then $\powerset(A)\subset\powerset(B)$.
+\item\label{zfmisc1:68} $\{A\}\subset\powerset(A)$.
+\item\label{zfmisc1:69} $\powerset(A)\cup\powerset(B)\subset\powerset(A\cup B)$.
+\item\label{zfmisc1:70} If $\powerset(A)\cup\powerset(B)=\powerset(A\cup B)$,
+  then $A$ and $B$ are $\subset$-comparable.
+\item\label{zfmisc1:71} $\powerset(A\cap B)=\powerset(A)\cap\powerset(B)$
+\item\label{zfmisc1:72} $\powerset(A\setminus B)\subset\{\emptyset\}\cup(\powerset(A)\setminus\powerset(B))$ 
+\item\label{zfmisc1:73} $\powerset(A\setminus B)\cup\powerset(B\setminus A)\subset\powerset(A\symdiff B)$
+\end{thm}
+
+\medbreak
+Let $A$, $B$ be sets.
+We have the following results concerning the union of a set:
+\begin{thm}
+\item\label{zfmisc1:74} If $X\in A$, then $X\subset\union A$.
+\item\label{zfmisc1:75} $\union\{X,Y\}=X\cup Y$.
+\item\label{zfmisc1:76} Assume every set $X$ for which $X\in A$ we have
+  $X\subset Z$. Then $\union A\subset Z$.
+\item\label{zfmisc1:77} If $A\subset B$, then $\union A\subset\union B$.
+\item\label{zfmisc1:78} $\union(A\cup B)= (\union A)\cup(\union B)$.
+\item\label{zfmisc1:79} $\union(A\cap B)\subset(\union A)\cap(\union B)$.
+\item\label{zfmisc1:80} Assume every set $X$ for which $X\in A$ we have
+  $X$ misses $B$. Then $\union A$ misses $B$.
+\item\label{zfmisc1:81} $\union\powerset(A)=A$.
+\item\label{zfmisc1:82} $A\subset\powerset(\union A)$.
+\item\label{zfmisc1:83} Suppose for every distinct sets $X\neq Y$ such that
+  $X\in A\cup B$ and $Y\in A\cup B$ implies $X$ misses $Y$.
+  Then $\union(A\cap B)=(\union A)\cap(\union B)$.
+\end{thm}
+
+
+\medbreak
+Let $X_{1}$, $X_{2}$, $Y_{1}$, $Y_{2}$ be sets.
+We have the following results concerning the Cartesian product:
+\begin{thm}
+\item\label{zfmisc1:84} If $A\subset X\times Y$ and $z\in A$,
+  then there exists objects $x$ and $y$ such that $x\in X$ and $y\in Y$
+  and $z=(x,y)$.
+\item\label{zfmisc1:85} If $z\in(X_{1}\times Y_{1})\cap(X_{2}\times Y_{2})$,
+  then there exists objects $x$ and $y$ such that $z=(x,y)$ and $x\in X_{1}\cap X_{2}$
+  and $y\in Y_{1}\cap Y_{2}$.
+\item\label{zfmisc1:86} $X\times Y\subset\powerset\bigl(\powerset(X\cup Y)\bigr)$.
+\item\label{zfmisc1:87} $(x,y)\in X\times Y$ iff $x\in X$ and $y\in Y$.
+\item\label{zfmisc1:88} If $(x,y)\in X\times Y$, then $(y,x)\in Y\times X$.
+\item\label{zfmisc1:89} If $(x,y)\in X_{1}\times Y_{1}$ iff $(x,y)\in X_{2}\times Y_{2}$,
+  then $X_{1}\times Y_{1} = X_{2}\times Y_{2}$.
+\item\label{zfmisc1:90} $X\times Y=\emptyset$ iff $X=\emptyset$ or $Y=\emptyset$.
+\item\label{zfmisc1:91} If $X\neq\emptyset$ and $Y\neq\emptyset$ and
+  $X\times Y=Y\times X$, then $X=Y$.
+\item\label{zfmisc1:92} If $X\times X=Y\times Y$, then $X=Y$.
+\item\label{zfmisc1:93} If $X\subset X\times Y$, then $X=\emptyset$.
+\item\label{zfmisc1:94} If $Z\neq\emptyset$ and either $X\times Z\subset Y\times Z$
+  or $Z\times X\subset Z\times Y$, then $X\subset Y$.
+\item\label{zfmisc1:95} If $X\subset Y$, then $X\times Z\subset Y\times Z$
+  and $Z\times X\subset Z\times Y$.
+\item\label{zfmisc1:96} If $X_{1}\subset Y_{1}$ and $X_{2}\subset Y_{2}$,
+  then $X_{1}\times X_{2}\subset Y_{1}\times Y_{2}$.
+\item\label{zfmisc1:97} $(X\cup Y)\times Z=(X\times Z)\cup(Y\times Z)$
+  and $Z\times(X\cup Y)=(Z\times X)\cup(Z\times Y)$.
+\item\label{zfmisc1:98}
+  $(X_{1}\cup X_{2})\times(Y_{1}\cup Y_{2}) = (X_{1}\times Y_{1})\cup(X_{1}\times Y_{2})\cup(X_{2}\times Y_{1})\cup(X_{2}\times Y_{2})$
+\item\label{zfmisc1:99} $(X\cap Y)\times Z=(X\times Z)\cap(Y\times Z)$
+  and $Z\times(X\cap Y)=(Z\times X)\cap(Z\times Y)$.
+\item\label{zfmisc1:100}
+  $(X_{1}\cap X_{2})\times(Y_{1}\cap Y_{2}) = (X_{1}\times Y_{1})\cap(X_{2}\times Y_{2})$
+\item\label{zfmisc1:101} If $A\subset X$ and $B\subset Y$,
+  then $(A\times Y)\cap(X\times B)=A\times B$.
+\item\label{zfmisc1:102} $(X\setminus Y)\times Z=(X\times Z)\setminus(Y\times Z)$
+  and $Z\times(X\setminus Y)=(Z\times X)\setminus(Z\times Y)$
+\item\label{zfmisc1:103} $(X_{1}\times X_{2})\setminus(Y_{1}\times Y_{2})=((X_{1}\setminus Y_{1})\times X_{2})\cup(X_{1}\times (X_{2}\setminus Y_{2}))$.
+\item\label{zfmisc1:104} If either $X_{1}$ misses $X_{2}$ or $Y_{1}$
+  misses $Y_{2}$, then $X_{1}\times Y_{1}$ misses $X_{2}\times Y_{2}$.
+\item\label{zfmisc1:105} $(x,y)\in\{z\}\times Y$ iff $x=z$ and $y\in Y$.
+\item\label{zfmisc1:106} $(x,y)\in X\times\{z\}$ iff $x\in X$ and $y=z$.
+\item\label{zfmisc1:107} If $X\neq\emptyset$, then $\{x\}\times X\neq\emptyset$
+  and $X\times\{x\}\neq\emptyset$.
+\item\label{zfmisc1:108} If $x\neq y$, then $\{x\}\times X$ misses
+  $\{y\}\times Y$ and $X\times\{x\}$ misses $Y\times\{y\}$.
+\item\label{zfmisc1:109} $\{x,y\}\times X=(\{x\}\times X)\cup(\{y\}\times X)$
+  and $X\times\{x,y\}=(X\times\{x\})\cup(X\times\{y\})$
+\item\label{zfmisc1:110} If $X_{1}\neq\emptyset$ and $Y_{1}\neq\emptyset$
+  and $X_{1}\times Y_{1}=X_{2}\times Y_{2}$, then $X_{1}=X_{2}$ and $Y_{1}=Y_{2}$.
+\item\label{zfmisc1:111} If $X\subset X\times Y$ or $X\subset Y\times X$,
+  then $X=\emptyset$.
+\item\label{zfmisc1:112} (``Every set is contained in a universe'') For each set $N$ there exists a set $M$ such
+  that
+  \begin{enumerate*}[label=(\roman*)]
+  \item $N\in M$, and
+  \item $X\in M$ and $Y\subset X$ implies $Y\in M$, and
+  \item $X\in M$ implies $\powerset(X)\in M$, and
+  \item $X\nsubset M$ or $X\equipotent M$ or $X\in M$.
+  \end{enumerate*}
+\item\label{zfmisc1:113} If $z\in X_{1}\times Y_{1}$ and $z\in X_{2}\times Y_{2}$,
+  then $z\in(X_{1}\cap X_{2})\times(Y_{1}\cap Y_{2})$.
+\end{thm}
+
+We have the following addenda. Let $A$, $B$, $C$, $D$ be sets.
+\begin{thm}
+\item\label{zfmisc1:114} If $X_{1}\times X_{2}\subset Y_{1}\times Y_{2}$
+  and $X_{1}\times X_{2}\neq\emptyset$, then $X_{1}\subset Y_{1}$ and
+  $X_{2}\subset Y_{2}$.
+\item\label{zfmisc1:115} If $A$ is non-empty and either $A\times B\subset C\times D$
+  or $B\times A\subset D\times C$, then $B\subset D$.
+\item\label{zfmisc1:116} If $x\in X$, then $(X\setminus\{x\})\cup\{x\}=X$.
+\item\label{zfmisc1:117} If $x\notin X$, then $(X\cup\{x\})\setminus\{x\}=X$.
+\item\label{zfmisc1:118} $Z\subset\{x,y,z\}$ iff
+  $Z=\emptyset$ or
+  $Z=\{x\}$ or $Z=\{y\}$ or $Z=\{z\}$
+  $Z=\{x,y\}$ or $Z=\{y,z\}$ or $Z=\{x,z\}$ or
+  $Z=\{x,y,z\}$.
+\item\label{zfmisc1:119} Let $M$, $N$ be sets.
+  If $N\subset X_{1}\times Y_{1}$ and $M\subset X_{2}\times Y_{2}$,
+  then $N\cup M\subset(X_{1}\cup X_{2})\times(Y_{1}\cup Y_{2})$.
+\item\label{zfmisc1:120} If $x\notin X$ and $y\notin X$, then $X=X\setminus\{x,y\}$.
+\item\label{zfmisc1:121} If $x\notin X$ and $y\notin X$, then $X=(X\cup\{x,y\})\setminus\{x,y\}$.
+\end{thm}
+
+\begin{definition}
+Let $x_{1}$, $x_{2}$, $x_{3}$ be objects.
+We say that $x_{1}$, $x_{2}$, $x_{3}$ \define{are mutually distinct}
+(Mizar: ``\verb#are_mutually_distinct#'') to mean:
+\begin{defn}
+\item $x_{1}\neq x_{2}$ and $x_{1}\neq x_{3}$ and  $x_{2}\neq x_{3}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$ be objects.
+We say that $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$ \define{are mutually distinct}
+(Mizar: ``\verb#are_mutually_distinct#'') to mean:
+\begin{defn}
+\item $x_{1}\neq x_{2}$ and $x_{1}\neq x_{3}$ and $x_{1}\neq x_{4}$ and
+  $x_{2}\neq x_{3}$ and $x_{2}\neq x_{4}$ and $x_{3}\neq x_{4}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$, $x_{5}$ be objects.
+We say that $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$, $x_{5}$ \define{are mutually distinct}
+(Mizar: ``\verb#are_mutually_distinct#'') to mean:
+\begin{defn}
+\item $x_{1}\neq x_{2}$ and $x_{1}\neq x_{3}$ and $x_{1}\neq x_{4}$ and
+  $x_{1}\neq x_{5}$ and $x_{2}\neq x_{3}$ and $x_{2}\neq x_{4}$ and $x_{2}\neq x_{5}$
+  and $x_{3}\neq x_{4}$ and $x_{3}\neq x_{5}$ and $x_{4}\neq x_{5}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$, $x_{5}$, $x_{6}$ be objects.
+We say that $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$, $x_{5}$, $x_{6}$ \define{are mutually distinct}
+(Mizar: ``\verb#are_mutually_distinct#'') to mean:
+\begin{defn}
+\item $x_{1}\neq x_{2}$ and $x_{1}\neq x_{3}$ and $x_{1}\neq x_{4}$ and $x_{1}\neq x_{5}$ and $x_{1}\neq x_{6}$ and
+  $x_{2}\neq x_{3}$ and $x_{2}\neq x_{4}$ and $x_{2}\neq x_{5}$ and $x_{2}\neq x_{6}$ and
+  $x_{3}\neq x_{4}$ and $x_{3}\neq x_{5}$ and $x_{3}\neq x_{6}$ and
+  $x_{4}\neq x_{5}$ and $x_{4}\neq x_{6}$ and
+  $x_{5}\neq x_{6}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$, $x_{5}$, $x_{6}$, $x_{7}$ be objects.
+We say that $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$, $x_{5}$, $x_{6}$, $x_{7}$ \define{are mutually distinct}
+(Mizar: ``\verb#are_mutually_distinct#'') to mean:
+\begin{defn}
+\item $x_{1}\neq x_{2}$ and $x_{1}\neq x_{3}$ and $x_{1}\neq x_{4}$ and $x_{1}\neq x_{5}$ and $x_{1}\neq x_{6}$ and $x_{1}\neq x_{7}$ and
+  $x_{2}\neq x_{3}$ and $x_{2}\neq x_{4}$ and $x_{2}\neq x_{5}$ and $x_{2}\neq x_{6}$ and $x_{2}\neq x_{7}$ and
+  $x_{3}\neq x_{4}$ and $x_{3}\neq x_{5}$ and $x_{3}\neq x_{6}$ and $x_{3}\neq x_{7}$ and
+  $x_{4}\neq x_{5}$ and $x_{4}\neq x_{6}$ and $x_{4}\neq x_{7}$ and
+  $x_{5}\neq x_{6}$ and $x_{5}\neq x_{7}$ and
+  $x_{6}\neq x_{7}$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{zfmisc1:122} $\{x_{1},x_{2}\}\times\{y_{1},y_{2}\}=\{(x_{1},y_{1}), (x_{1},y_{2}),(x_{2},y_{1}),(x_{2},y_{2})\}$.
+\item\label{zfmisc1:123} If $x\neq y$, then $(A\cup\{x\})\setminus\{y\}=(A\setminus\{y\})\cup\{x\}$.
+\end{thm}
+
+\begin{definition}\label{zfmisc1:defn10:trivial}
+Let $X$ be a set. We say $X$ is \define{trivial} to mean
+\begin{defn}
+\item for all objects $x$ and $y$, if $x\in X$ and $y\in X$, then $x=y$.
+\end{defn}
+\end{definition}
+
+Observe if a set is empty, then it is trivial. Observe that nontrivial
+implies non-empty for a set. We also see $\{x\}$ is a trivial set, and
+that there exists a non-empty trivial set.
+
+Let $p$ be an object. We have the following results:
+\begin{thm}
+\item\label{zfmisc1:124} If $A\subset B$ and $B\cap C=\{p\}$ and $p\in A$,
+  then $A\cap C=\{p\}$.
+\item\label{zfmisc1:125} If $A\cap B\subset\{p\}$ and $p\in C$ and $C$
+  misses $B$, then $A\cup C$ misses $B$.
+\item\label{zfmisc1:126} If every set $x$ and $y$ for which $x\in A$ and
+  $y\in B$ has $x$ misses $y$, then $\union A$ misses $\union B$. 
+\end{thm}
+
+Observe when $X$ is any set and $Y$ is empty, $X\times Y$ is empty.
+When $X$ is empty and $Y$ is any set, $X\times Y$ is empty.
+
+\begin{thm}
+\item\label{zfmisc1:127} $A\notin(A\times B)$.
+\item\label{zfmisc1:128} If $B=(x,\{x\})$, then $B\in\{x\}\times B$.
+\item\label{zfmisc1:129} If $B\in A\times B$, then there exists an object $x$
+  such that $x\in A$ and $B=(x,\{x\})$.
+\item\label{zfmisc1:130} If $B\subset A$ and $A$ is trivial, then $B$ is trivial.
+\end{thm}
+
+Observe there exists a nontrivial set.
+
+Let $a$, $b$, $c$ be sets.
+\begin{thm}
+\item\label{zfmisc1:131} If $X$ is non-empty and $X$ is trivial, then
+  there exists an object $x$ such that $X=\{x\}$.
+\item\label{zfmisc1:132} If $X$ is trivial and $x\in X$, then $X=\{x\}$.
+\item\label{zfmisc1:133} If $a\in X$ and $b\in X$ and $c\in X$, then
+  $\{a,b,c\}\subset X$.
+\item\label{zfmisc1:134} If $(x,y)\in X$, then $x\in\union(\union X)$
+  and $y\in\union(\union X)$.
+\item\label{zfmisc1:135} $X\nsubset Y\cup\{x\}$ or $x\in X$ or $X\subset Y$.
+\item\label{zfmisc1:136} $x\in X\cup\{y\}$ iff $x\in X$ or $x=y$.
+\item\label{zfmisc1:137} $X\cup\{x\}\subset Y$ iff $x\in Y$ and
+  $X\subset Y$.
+\item\label{zfmisc1:138} If $A\subset B$ and $B\subset A\cup\{a\}$ and
+  $A\cup\{a\}\neq B$, then $A=B$.
+\end{thm}
+
+Observe when $A$ and $B$ are trivial sets, $A\times B$ is trivial.
+
+\begin{thm}
+\item\label{zfmisc1:139} $X$ is nontrivial iff $X\setminus\{x\}$ is
+  never empty for any $x$.
+\item\label{zfmisc1:140} $\{X\}\neq X$.
+\item\label{zfmisc1:141} $\powerset(X)\neq X$.
+\end{thm}
+\end{document}

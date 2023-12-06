@@ -1,0 +1,146 @@
+\documentclass{article}
+
+\title{Relations and Their Basic Properties (RELAT-1)}
+\author{Edmund Woronowicz}
+%% \makeatletter
+%% \@ifclassloaded{combine}
+%%   {\let\@begindocumenthook\@empty}
+%%   {}
+%% \makeatother
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $X$ be a set.
+We define the attribute $X$ is \define{Relation-like} to mean:
+\begin{defn}
+\item for any object $x$, if $x\in X$, then there exists objects $y$ and
+  $z$ such that $x=(y,z)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+We define the new mode \define{Relation} is a Relation-like set.
+\end{definition}
+
+%% \begin{remark}
+%% Observe that we do not have
+%% \end{remark}
+
+\begin{scheme}[RelExistence]
+Let $\mathcal{A}$, $\mathcal{B}$ be sets and $P[-,-]$ be a binary
+predicate of objects. There exists a relation $R$ such that for any
+objects $x$ and $y$, we have $(x,y)\in R$ iff $x\in\mathcal{A}$ and
+$y\in\mathcal{B}$ and $P[x,y]$.
+\end{scheme}
+
+\begin{definition}
+  Let $P$, $R$ be relations. We redefine the predicate $P=R$ to mean
+  \begin{defn}
+  \item for any objects $a$ and $b$, we have $(a,b)\in P$ iff $(a,b)\in R$.
+  \end{defn}
+  This is compatible with our existing notion of equality.
+\end{definition}
+
+\begin{definition}
+Let $P$ be a relation, let $A$ be any set.
+We redefine the predicate $P\subset A$ to mean
+\begin{defn}
+\item for any objects $a$ and $b$, if $(a,b)\in P$, then $(a,b)\in A$.
+\end{defn}
+\end{definition}
+
+\begin{notation}
+Let $R$ be a relation. We introduce the synonym $\dom(R)$ (Mizar:
+``\verb#dom R#'') for $\proj1(R)$ (from XTUPLE-0 \eqref{xtuple0:defn:proj1}).
+\end{notation}
+
+\begin{notation}
+Let $R$ be a relation. We introduce the synonym $\rng(R)$ (Mizar:
+``\verb#rng R#'') for $\proj2(R)$ (from XTUPLE-0 \eqref{xtuple0:defn:proj2}).
+\end{notation}
+
+The first six theorems have been cancelled.
+
+Let $P$, $R$ be relations, let $a$, $b$, $x$, $y$ be objects.
+We have the following eight theorems concerning domains and ranges:
+\begin{thm}\setcounter{thmi}{6}
+\item\label{relat1:7} $R\subset\dom(R)\times\rng(R)$
+\item\label{relat1:8} $R\cap\dom(R)\times\rng(R)=R$
+\item\label{relat1:9} $\dom\{(x,y)\}=\{x\}$ and
+  $\rng\{(x,y)\}=\{y\}$.
+\item\label{relat1:10} $\dom\{(a,b), (x,y)\}=\{a,x\}$ and
+  $\rng\{(a,b),(x,y)\}=\{b,y\}$.
+\item\label{relat1:11} If $P\subset R$, then $\dom(P)\subset\dom(R)$ and
+  $\rng(P)\subset\rng(R)$. 
+\item\label{relat1:12} $\rng(P\cup R)=\rng(P)\cup\rng(R)$
+\item\label{relat1:13} $\rng(P\cap R)\subset\rng(P)\cap\rng(R)$
+\item\label{relat1:14} $\rng(P)\setminus\rng(R)\subset\rng(P\setminus R)$
+\end{thm}
+
+\begin{definition}
+Let $R$ be a relation.
+\begin{defn}
+\item (Cancelled)
+\item (Cancelled)
+\end{defn}
+We define the term $\field\ R$ (Mizar: ``\verb#field R#'') to be the set
+equal to
+\begin{defn}
+\item $\field R=\dom(R)\cup\rng(R)$.
+\end{defn}
+\end{definition}
+
+We have the following theorems:
+\begin{thm}
+\item\label{relat1:15} If $(a,b)\in R$, then $a\in\field(R)$ and $b\in\field(R)$.
+\item\label{relat1:16} If $P\subset R$, then $\field(P)\subset\field(R)$.
+\item\label{relat1:17} $\field\{(x,y)\}=\{x,y\}$.
+\item\label{relat1:18} $\field(P\cup R)=\field(P)\cup\field(R)$.
+\item\label{relat1:19} $\field(P\cap R)=\field(P)\cap\field(R)$.
+\end{thm}
+
+\begin{definition}
+Let $R$ be a relation. We define the \define{converse relation} of $R$
+to be the relation denoted $\converse R$ (Mizar: ``\verb#R ~#'') such that
+\begin{defn}
+\item $(x,y)\in\converse R$ iff $(y,x)\in R$.
+\end{defn}
+Observe this is involutive (i.e., $\converse{(\converse R)}=R$).
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{relat1:20} $\rng(R)=\dom(\converse R)$ and
+  $\dom(R)=\rng(\converse R)$.
+\item\label{relat1:21} $\field(R)=\field(\converse R)$.
+\item\label{relat1:22} $\converse{(P\cap R)}=\converse P\cap\converse R$.
+\item\label{relat1:23} $\converse{(P\cup R)}=\converse P\cup\converse R$.
+\item\label{relat1:24} $\converse{(P\setminus R)}=\converse P\setminus\converse R$.
+\end{thm}
+
+\begin{definition}
+Let $P$ and $R$ be sets. We define the composition of relations to be
+the term $P\cdot R$ (Mizar: ``\verb|P (#) R|'') to be the relation satisfying:
+\begin{defn}
+\item for any objects $x$, $y$, we have $(x,y)\in P\cdot R$ if and only
+  if there exists an object $z$ such that $(x,z)\in P$ and $(z,y)\in R$.
+\end{defn}
+\end{definition}
+
+\begin{notation}
+Let $P$, $R$ be relations. We introduce the synonym $P\circ R$ (Mizar:
+``\verb#P * R#'') for $P\cdot R$.
+\end{notation}
+
+\begin{remark}
+CAUTION: modern mathematics appears to have changed conventions for
+composing relations, since composing functions is read from right-to-left.
+Mizar follows modern conventions for composing functions (see FUNCT-1
+after theorem 9).
+\end{remark}
+
+\begin{thm}
+\item\label{relat1:2}
+\end{thm}
+\end{document}

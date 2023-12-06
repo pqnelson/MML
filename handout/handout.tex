@@ -1,39 +1,35 @@
 \documentclass{amsbook}
+
+\usepackage{ifthen}
 \usepackage{macros}
 \usepackage{notation}
+\setcounter{tocdepth}{0}
 
 \title{Mizar Mathematical Library}
+\author{Many}
+\date{\today}
+
 \begin{document}
+
 \frontmatter
 \maketitle
+\input{hack}
+\include{tex/preface}
 \tableofcontents
-
 \mainmatter
-\chapter{Set Theory}
-\input{tex/axioms}
-\input{tex/tarski}
-\input{tex/xboole0}
-\input{tex/xboole1}
-\input{tex/xtuple0}
-\input{tex/zfmisc1}
+\part{Set Theory}
+\begin{papers}
+  \import{tex/axioms}
+  \import{tex/tarski}
+  \import{tex/xboole0}
+  \import{tex/xboole1}
+  \import{tex/xtuple0}
+  \import{tex/zfmisc1}
+  \import{tex/subset1}
+  \import{tex/setfam1}
+  \import{tex/relat1}
 
-\chapter{Group Theory}
-\input{tex/group1}
-%% enumset1
-%% xtuple_0
-%% xfamily
-%% xregular
-%% zfmisc_1
-%% subset_1
-%% subset
-%% setfam_1
-%% relat_1
-%% funct_1
-%% grfunc_1
-%% relat_2
-%% ordinal1
-%% wellord1
-%% relset_1
-%% partfun1
-
+\part{Group Theory}
+  \import{tex/group1}
+\end{papers}
 \end{document}

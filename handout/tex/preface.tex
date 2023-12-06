@@ -1,0 +1,50 @@
+\chapter*{Preface}
+
+This is an attempt to organize the results of the Mizar Mathematical
+Library in conventional notation, in the order which the Mizar computer
+program reads the contents of the library. The library is presented as a
+series of articles, the table of contents should be read as if it were a
+collection of articles presented at a hypothetical conference. The
+authors of each article has been credited with their work, except in the
+case when the ``Encyclopedia of Mathematics'' entries are credited to
+the Library Committee (whomever they may be).
+
+I have taken the liberty to insert remarks, which are asides to clarify
+matters which confounded me when I started learning Mizar. With the
+exception of the first article, the contents are precisely that which
+could be found in the MML article as distributed with Mizar. The first
+article discusses the axiomatization of set theory, which most students
+are not really familiar with in the first place. Since the article
+\verb#TARSKI_0# (and \verb#TARSKI_A#) is fairly spartan, I have included more
+commentary \emph{outside} of remarks, reordered the axioms, and
+explicitly compared it to the usual \textsf{ZF} axiomatization.
+
+The numbering of theorems, definitions, and schemes are faithful to the
+numbering found in the Mizar Mathematical Library. Proofs are omitted,
+because the reader may consult the MML to find the proofs in
+surprisingly readable format. When definitions are introduced, I almost
+always include a parenthetic to note what the Mizar code looks like. The
+only exceptions are when ``\verb#snake_case#'' is used by the Mizar code
+which reflects a sequence of words that should be separated by spaces
+--- e.g., ``\verb#being_of_order_0#'' clearly encodes the mathematical
+notion ``being of order $0$'' and that's how Mizar formalizes it.
+
+I have omitted registrations haphazardly. This is done out of laziness
+and taste, rather than anything else.
+
+The goal of this handout is to accelerate the reader's familiarization
+with the vast Mathematical Library. As I mentioned, the articles are
+presented in linear order. Mostly. There is some important exception
+when I deviated with this principle, and that's when different fields
+``branch'' into their own. For example, Group Theory is formalized
+largely independent of Point-set Topology. Therefore, I separated the
+Group Theory articles from the Topology articles, so the content may be
+``fresh'' in the reader's mind. These are separated into their own
+parts, and within each part the library is presented linearly (as
+ordered by the contents of the \verb#mml.lar# file).
+
+I hope this will prove useful to inquiring minds.
+
+\aufm{Alex Nelson\\
+  Los Angeles, California\\
+  6 December 2023}

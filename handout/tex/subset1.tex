@@ -1,0 +1,336 @@
+\documentclass{article}
+  
+  \title{Properties of Subsets (SUBSET-1)}
+  \author{Zinaida Trybulec}
+%% \makeatletter
+%% \@ifclassloaded{combine}
+%%   {\let\@begindocumenthook\@empty}
+%%   {}
+%% \makeatother
+\begin{document}
+\maketitle
+
+Observe $\powerset(X)$ is non-empty. Also observe the enumerated sets
+$\{x_{1},x_{2},\dots,x_{n}\}$ are non-empty for $n=3,\dots,10$.
+
+\begin{definition}
+Let $X$ be a set.
+We define the new type \define{Element of $X$} (Mizar: \verb#Element of X#)
+to mean a set such that:
+\begin{defn}
+\item it is in $X$ if $X$ is not empty, otherwise it is empty.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a set. We define the expandable mode \define{Subset of $X$}
+(Mizar: \verb#Subset of X#)
+to be an Element of $\powerset(X)$.
+\end{definition}
+
+\begin{remark}
+Observe that ``Subset of $X$'' is a type for a term, whereas $A\subset X$
+is a formula (``proposition'').
+\end{remark}
+
+\begin{definition}
+Let $D$ be a non-empty set. Let $X$ be a non-empty subset of $D$.
+We redefine the type ``Element of $X$'' to refer to a term with type
+``Element of $D$''.
+\end{definition}
+
+\begin{remark}
+Following standard mathematical practice, we will informally write in
+these summary of results things like ``For any element $x$ of $E$, \dots''
+or ``Let $x$ be an element of $E$'', placing the variable $x$ before or
+after the word ``element''. In Mizar, we place the identifier \emph{before}
+the `esti' keyword \verb#being# (or \verb#be#).
+\end{remark}
+
+\begin{definition}
+Let $E$ be a set.
+\begin{enumerate}
+\item We define the term $\emptyset_{E}$ (Mizar: ``\verb#{} E#'') to be
+  the Subset of $E$ equal to
+  \begin{defn}
+  \item $\emptyset$
+  \end{defn}
+\item We define the term $\Omega_{E}$ (Mizar: ``\verb|[#] E|'') to be
+  the Subset of $E$ equal to
+  \begin{defn}
+  \item $E$
+  \end{defn}
+\end{enumerate}
+\end{definition}
+
+Observe $\emptyset_{E}$ is empty.
+
+Let $E$ and $X$ be sets, $A$, $B$ be subsets of $E$. Then we have the
+following four propositions:
+\begin{thm}
+\item\label{subset1:1} $\emptyset$ is a subset of $X$
+\item\label{subset1:2} If every element $x$ of $E$ such that $x\in A$
+  implies $x\in B$, then $A\subset B$.
+\item\label{subset1:3} Suppose every element $x$ of $E$ satisfies $x\in A$
+  iff $x\in B$. Then $A=B$.
+\item\label{subset1:4} If $A\neq\emptyset$, then there exists an element
+  $x$ of $E$ such that $x\in A$.
+\end{thm}
+
+\begin{definition}
+Let $E$ be a set, let $A$ be a subset of $E$.
+We define the term $A^{\complement}$ (Mizar: \verb#A `#) to be the
+Subset of $E$ equal to
+\begin{defn}
+\item $E\setminus A$.
+\end{defn}
+Let $B$ be a subset of $E$, and let $X$ be any arbitrary set.
+We redefine the following terms to be of
+type ``Subset of $E$'':
+\begin{enumerate}
+\item $A\cup B$ is a subset of $E$
+\item $A\symdiff B$ is a subset of $E$
+\item $E\setminus X$ is a Subset of $E$
+\item $A\setminus X$ is a Subset of $E$
+\item $A\cap X$ and $X\cap A$ are both Subsets of $E$
+\end{enumerate}
+\end{definition}
+
+\medbreak
+
+Let $A$, $B$, $C$ be subsets of $E$ and let $X$ be an arbitrary set.
+Now we have the following theorems.
+\begin{thm}
+\item\label{subset1:5} Suppose for every element $x$ of $E$ we have
+  $x\in A$ iff $x\in B$ or $x\in C$. Then $A=B\cup C$.
+\item\label{subset1:6} Suppose for every element $x$ of $E$ we have
+  $x\in A$ iff $x\in B$ and $x\in C$. Then $A=B\cap C$.
+\item\label{subset1:7} Suppose for every element $x$ of $E$ we have
+  $x\in A$ iff $x\in B$ but $x\notin C$. Then $A=B\setminus C$.
+\item\label{subset1:8} Suppose for every element $x$ of $E$ we have
+  $x\in A$ iff we do not have ($x\in B$ iff $x\in C$). Then $A=B\symdiff C$.
+\item\label{subset1:9} $\Omega_{E} = (\emptyset_{E})^{\complement}$
+\item\label{subset1:10} $A\cup A^{\complement}=\Omega_{E}$.
+\item\label{subset1:11} $A\cup\Omega_{E}=\Omega_{E}$
+\item\label{subset1:12} $A\subset B$ iff $B^{\complement}\subset A^{\complement}$.
+\item\label{subset1:13} $A\setminus B = A\cap B^{\complement}$ 
+\item\label{subset1:14} $(A\setminus B)^{\complement} = A^{\complement}\cup B$
+\item\label{subset1:15} $(A\symdiff B)^{\complement} = (A\cap B)\cup(A^{\complement}\cap B^{\complement})$.
+\item\label{subset1:16} If $A\subset B^{\complement}$, then $B\subset A^{\complement}$.
+\item\label{subset1:17} If $A^{\complement}\subset B$, then
+  $B^{\complement}\subset A$.
+\item\label{subset1:18} $A\subset A^{\complement}$ iff $A=\emptyset_{E}$.
+\item\label{subset1:19} $A^{\complement}\subset A$ iff $A=\Omega_{E}$.
+\item\label{subset1:20} If $X\subset A$ and $X\subset A^{\complement}$,
+  then $X=\emptyset$.
+\item\label{subset1:21} $(A\cup B)^{\complement}\subset A^{\complement}$.
+\item\label{subset1:22} $A^{\complement}\subset(A\cap B)^{\complement}$.
+\item\label{subset1:23} $A$ misses $B$ iff $A\subset B^{\complement}$.
+\item\label{subset1:24} $A$ misses $B^{\complement}$ iff $A\subset B$. 
+\item\label{subset1:25} If $A$ misses $B$ and $A^{\complement}$ misses
+  $B^{\complement}$, then $A=B^{\complement}$.
+\item\label{subset1:26} If $A\subset B$ and $C$ misses $B$, then
+  $A\subset C^{\complement}$.
+\end{thm}
+
+\medbreak
+We have the following six propositions:
+\begin{thm}
+\item\label{subset1:27} Suppose every element $a$ of $A$ also belongs to
+  $a\in B$. Then $A\subset B$.
+\item\label{subset1:28} Suppose every element $x$ of $E$ also belongs to
+  $x\in A$. Then $E=A$.
+\item\label{subset1:29} Assume $E\neq\emptyset$.
+  For each subset $B$ of $E$ and every element $x$ of $E$, if $x\notin B$,
+  then $x\in B^{\complement}$.
+\item\label{subset1:30} For every element $x$ of $E$,
+  if $x\in A$ iff $x\notin B$, then $A=B^{\complement}$.
+\item\label{subset1:31} For every element $x$ of $E$,
+  if $x\notin A$ iff $x\in B$, then $A=B^{\complement}$.
+\item\label{subset1:32} For every element $x$ of $E$,
+  if we do not have $x\in A$ iff $x\in B$, then $A=B^{\complement}$.
+\end{thm}
+
+Let $x_{i}$ be an element of $X$ for $i=1,\dots,10$. We have the
+following results when $X\neq\emptyset$:
+\begin{thm}
+\item\label{subset1:33} $\{x_{1}\}$ is Subset of $X$
+\item\label{subset1:34} $\{x_{1},x_{2}\}$ is Subset of $X$
+\item\label{subset1:35} $\{x_{1},x_{2},x_{3}\}$ is Subset of $X$
+\item\label{subset1:36} $\{x_{1},x_{2},x_{3},x_{4}\}$ is Subset of $X$
+\item\label{subset1:37} $\{x_{1},x_{2},x_{3},x_{4},x_{5}\}$ is Subset of $X$
+\item\label{subset1:38} $\{x_{1},x_{2},x_{3},x_{4},x_{5},x_{6}\}$ is Subset of $X$
+\item\label{subset1:39} $\{x_{1},x_{2},x_{3},x_{4},x_{5},x_{6},x_{7}\}$ is Subset of $X$
+\item\label{subset1:40} $\{x_{1},x_{2},x_{3},x_{4},x_{5},x_{6},x_{7},x_{8}\}$ is Subset of $X$
+\item\label{subset1:41} For any set $X$, if $x\in X$, then $\{x\}$ is a
+  Subset of $X$.
+\end{thm}
+
+\medbreak
+We have the following two schemes:
+
+\begin{scheme}[SubsetEx]
+Let $\mathcal{A}$ be a set, let $P[-]$ be a unary predicate of objects.
+Then there exists a subset $X$ of $\mathcal{A}$ such that for any set
+$x$ we have $x\in X$ if and only if $x\in\mathcal{A}$ and $P[x]$.
+\end{scheme}
+
+\begin{scheme}[SubsetEq]
+Let $\mathcal{X}$ be a set, let $\mathcal{X}_{1}$ and $\mathcal{X}_{2}$ be
+subsets of $\mathcal{X}$, and let $P[-]$ be a unary predicate of sets.
+We have $\mathcal{X}_{1}=\mathcal{X}_{2}$ provided:
+\begin{enumerate}
+\item for every element $y$ of $\mathcal{X}$, we have $y\in\mathcal{X}_{1}$
+  if and only if $P[y]$, and
+\item for every element $y$ of $\mathcal{X}$, we have $y\in\mathcal{X}_{2}$
+  if and only if $P[y]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{definition}
+  Let $X$ and $Y$ be non-empty sets. Observe:
+  \begin{enumerate}
+  \item The predicate ``$X$ misses $Y$'' is irreflexive (i.e., $X$ never
+    misses itself), and
+  \item The predicate ``$X$ meets $Y$'' is reflexive (i.e., $X$ always
+    meets itself).
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}
+\begin{defn}
+\item Cancelled.
+\end{defn}
+\end{definition}
+
+We have the following two schemes:
+
+\begin{scheme}[SubsetEx]
+Let $\mathcal{A}$ be a non-empty set, let $P[-]$ be a unary predicate of objects.
+Then there exists a subset $B$ of $\mathcal{A}$ such that for every
+element $x$ of $\mathcal{A}$, we have $x\in B$ iff $P[x]$.
+\end{scheme}
+
+\begin{scheme}[SubComp]
+Let $\mathcal{A}$ be a set, $\mathcal{F}_{1}$ and $\mathcal{F}_{2}$
+be subsets of $\mathcal{A}$, and let $P[-]$ be a unary predicate of sets.
+We have $\mathcal{F}_{1}=\mathcal{F}_{2}$, provided:
+\begin{enumerate}
+\item For every element $x$ of $\mathcal{A}$, we have $x\in\mathcal{F}_{1}$
+iff $P[x]$; and
+\item For every element $x$ of $\mathcal{A}$, we have $x\in\mathcal{F}_{2}$
+iff $P[x]$.
+\end{enumerate}
+\end{scheme}
+
+We have the following proposition:
+\begin{thm}
+\item\label{subset1:42} If $A^{\complement}=B^{\complement}$, then $A=B$.
+\end{thm}
+
+Observe every element of $\powerset(\emptyset)$ is empty.
+
+\begin{definition}
+Let $E$ be a set, let $A$ be a subset of $E$. We define the attribute
+$A$ is \define{proper} to mean
+\begin{defn}
+\item $A\neq E$.
+\end{defn}
+In these notes, we will use the term ``improper'' as the antonym for
+``proper'', but Mizar uses ``non proper''.
+\end{definition}
+
+Observe $\Omega_{E}$ is improper, and then there exists a improper
+subset of $E$. When $E$ is non-empty, improper implies non-empty and
+empty implies proper for subsets of $E$. We observe there exists a
+proper subset of non-empty sets.
+
+We have the following two propositions:
+\begin{thm}
+\item\label{subset1:43} For any sets $X$, $Y$, and $A$, and for any set $z$,
+if $z\in A$ and $A\subset X\times Y$, then there exists an element $x$
+of $X$ and an element $y$ of $Y$ such that $z=(x,y)$.
+\item\label{subset1:44} For any non-empty set $X$, for any non-empty
+  subsets $A$ and $B$ of $X$ such that $A\properSubset B$, there exists
+  an element $p$ of $X$ such that $p\in B$ and $A\subset B\setminus\{p\}$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set. We redefine the attribute $X$ is \define{trivial}
+(from \textsc{zfmisc-1} \eqref{zfmisc1:defn10:trivial}) to mean:
+\begin{defn}
+\item for any elements $x$ and $y$ of $X$ we have $x=y$.
+\end{defn}
+\end{definition}
+
+
+Observe there exists a non-empty trivial subset of any non-empty set.
+Also observe subsets of a trivial set are always trivial. We also
+observe there exists a non-trivial subset of non-trivial sets.
+
+We have the following four propositions:
+\begin{thm}
+\item\label{subset1:45} For any set $D$ and any subset $A$ of $D$, if
+  $A$ is nontrivial, then there exist elements $d_{1}$ and $d_{2}$ of
+  $D$ such that $d_{1}\in A$ and $d_{2}\in A$ and $d_{1}\neq d_{2}$.
+\item\label{subset1:46} For any trivial non-empty set $X$, there exists
+  an element $x$ of $X$ such that $X=\{x\}$.
+\item\label{subset1:47} For any non-empty set $X$ and any non-empty
+  subset $A$ of $X$, if $A$ is trivial, then there exists an element $x$
+  of $X$ such that $A=\{x\}$.
+\item\label{subset1:48} For any nontrivial set $X$ and element $x$ of $X$,
+  there exists an object $y$ such that $y\in X$ and $x\neq y$.
+\end{thm}
+
+\begin{definition}
+Let $x$ be an object, let $X$ be a set. Assume $x\in X$. We define the
+term $x(\in X)$ (Mizar: ``\verb#In(x, X)#'') to equal
+\begin{defn}
+\item $x$.
+\end{defn}
+We can reduce $x(\in X)$ to $x$ when $X$ is a non-empty set and $x$ is
+an element of $X$.
+\end{definition}
+
+Let $x$ be an object. We have the following three theorems:
+\begin{thm}
+\item\label{subset1:49} If $x\in X\cap Y$, then $x(\in X)=x(\in Y)$.
+\item\label{subset1:50} For any nontrivial set $X$ and any set $p$,
+  there exists an element $q$ of $X$ such that $q\neq p$.
+\item\label{subset1:51} For any nontrivial set $T$, nontrivial subset
+  $X$ of $T$, and any set $p$, there exists an element $q$ of $T$ such
+  that $q\in X$ and $q\neq p$. 
+\end{thm}
+
+We have the following two schemes:
+\begin{scheme}[Union1]
+Let $\mathcal{A}$ be a set, $\mathcal{B}$ be an element of $\mathcal{A}$,
+and $\mathcal{F}(-)$ a set parametrized by an object.
+Then $\union\{F(j)~\mbox{where}~j~\mbox{is an Element of}~\mathcal{A}\mid j\in\{\mathcal{B}\}\}=\mathcal{F}(\mathcal{B})$.
+\end{scheme}
+\begin{scheme}[Union2]
+Let $\mathcal{A}$ be a set, $\mathcal{B}$ and $\mathcal{C}$ be elements of $\mathcal{A}$,
+and $\mathcal{F}(-)$ a set parametrized by an object.
+Then $\union\{F(j)~\mbox{where}~j~\mbox{is an Element of}~\mathcal{A}\mid j\in\{\mathcal{B},\mathcal{C}\}\}=\mathcal{F}(\mathcal{B})\cup\mathcal{F}(\mathcal{C})$.
+\end{scheme}
+We have the following two propositions:
+\begin{thm}
+\item\label{subset1:52} $\{x_{1},x_{2},x_{3},x_{4},x_{5},x_{6},x_{7},x_{8},x_{9}\}$ is Subset of $X$
+\item\label{subset1:53} $\{x_{1},x_{2},x_{3},x_{4},x_{5},x_{6},x_{7},x_{8},x_{9},x_{10}\}$ is Subset of $X$
+\end{thm}
+
+\section{Basic Properties of Subsets} The requirements of
+``\verb#SUBSET#'' will treat the following statements as obvious:
+\begin{thm}[start=1]
+\item\label{subset:1} For any sets $a$ and $b$,
+  if $a\in b$, then $a$ is an element of $b$.
+\item\label{subset:2} For any sets $a$ and $b$,
+  if $a$ is an element of $b$ and $b$ is non-empty, then $a\in b$.
+\item\label{subset:3} For any sets $a$ and $b$,
+  if $a$ is a subset of $b$, then $a\subset b$.
+\item\label{subset:4} For any sets $a$, $b$, and $c$,
+  if $a\in b$ and $b$ is a subset of $c$, then $a$ is an element of $c$.
+\item\label{subset:5} For any sets $a$, $b$, and $c$,
+  if $a\in b$ and $b$ is a subset of $c$, then $c$ is non-empty.
+\end{thm}
+\end{document}

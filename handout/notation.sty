@@ -4,6 +4,8 @@
 \let\subset\subseteq
 \let\nsubset\nsubseteq
 
+\let\union\bigcup
+
 % https://tex.stackexchange.com/a/114269
 \newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
 
@@ -25,3 +27,20 @@
 \DeclareMathOperator{\power}{power}
 
 \def\card#1{|#1|}
+
+\def\proj#1{\pi_{#1}}
+%\def\proj2{\pi_{2}}
+
+% setfam1
+\let\meet\bigcap
+\DeclareMathOperator\UNION{UNION}
+\DeclareMathOperator\INTERSECTION{INTERSECTION}
+\DeclareMathOperator\DIFFERENCE{DIFFERENCE}
+\DeclareMathOperator\Intersect{Intersect}
+%\DeclareMathOperator\COMPLEMENT{COMPLEMENT}
+\def\COMPLEMENT#1{#1^{\complement}}
+\DeclareMathOperator\dom{dom}
+\DeclareMathOperator\rng{rng}
+\DeclareMathOperator\field{field}
+
+\def\converse#1{#1^{\,\sim}}

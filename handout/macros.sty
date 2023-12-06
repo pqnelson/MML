@@ -1,23 +1,76 @@
 \usepackage{amssymb,amsmath,amsthm}
-\usepackage{mdframed}
+\@ifclassloaded{amsbook}{}{
+  \usepackage[left=6pc,textwidth=30pc]{geometry}
+}
 \usepackage[inline]{enumitem}
 %\usepackage[chapter]{tocbibind}
+\RequirePackage[dvipsnames]{xcolor}
 \usepackage{etoolbox}
-\usepackage{hyperref}
+\@ifclassloaded{combine}{
+  \def\hyperlink#1#2{}
+  \def\hypertarget#1#2{}
+  \let\frontmatter\relax
+  \let\mainmatter\relax
+  \let\backmatter\relax
+  \let\chapter\part
+}{
+  \usepackage{hyperref}
+% eTeX uses this color for links, it's better than BrickRed imho
+\definecolor{linkRed}{cmyk}{0.28, 1, 1, 0.35}
+\hypersetup{colorlinks=true,
+    linkcolor=linkRed,
+    citecolor=linkRed,
+    filecolor=linkRed,
+    urlcolor=linkRed
+    %% pdfinfo={
+    %%   Title={Formalizing Finite Groups in Mizar},
+    %%   Author={Alex Nelson},
+    %%   CreationDate={D:20211214152256},
+    %%   ModDate={D:\pdfdate}
+    %% }
+}
+}
 
-\def\mizart{\relax}
-
-\def\thmprefix{}%\ifx\mizart\relax\else\mizart:\fi}
 
 \newlist{defn}{enumerate}{1}
 \newlist{thm}{enumerate}{1}
-\setlist[defn]{label=(Def.\ \arabic*), resume=defn}
-\setlist[thm]{label=(\arabic*),wide, labelwidth=!, labelindent=0pt, resume=thm}
-
-\preto\section{%
-  \let\enit@resume@series@defn\@empty
-  \let\enit@resume@series@thm\@empty
+% AMSbook sets:
+% \setlength{\smallskipamount}{2.09999pt plus 2.09999pt}
+\setlist[defn]{label=(Def.\ \arabic*),wide,
+  resume=defn, labelwidth=!, labelindent=0pt,
+  % just follow AMSbook's conventions
+  parsep=0pt,
+  itemsep=0pt,
+  topsep=\smallskipamount
 }
+\setlist[thm]{label=(\arabic*),
+  wide,
+  labelwidth=!,
+  labelindent=0pt,
+  resume=thm,
+  % just follow AMSbook's conventions
+  topsep=\smallskipamount,
+  itemsep=0pt,
+  parsep=0pt
+}
+\@ifclassloaded{amsbook}{
+  \preto\section{%
+    \let\enit@resume@series@defn\@empty
+    \let\enit@resume@series@thm\@empty
+  }
+}{}
+\newcounter{article}
+\setcounter{article}{-1}
+\@ifclassloaded{combine}{
+  \let\og@import\import
+  \def\import{
+    \refstepcounter{article}
+    \restartlist{defn}\let\enit@resume@series@thm\@empty
+    \restartlist{thm}\let\enit@resume@series@defn\@empty
+    \PatchEtocOpenOut
+    \og@import}
+}{}
+
 %\@addtoreset{thmi}{section}
 %\@addtoreset{defni}{section}
 %\renewcommand\thethmi{(\ifx\mizart\relax\else\mizart:\fi\arabic{thmi})}
@@ -26,7 +79,6 @@
 \newtheorem{axiom}{Axiom}
 
 \newtheorem{scheme}{Scheme}
-\@addtoreset{scheme}{section}
 
 \theoremstyle{definition}
 \newtheorem*{definition}{Definition}
@@ -43,10 +95,48 @@
  {}%Theorem head spec (can be left empty, meaning 'normal')
 
 \theoremstyle{myrem}
-\newtheorem{remark}{Remark}
-\appto\remark{\leftskip\parindent}
+\newtheorem{remark}{Remark}[article]
+\appto\remark{\leftskip2\parindent}
+
+\@ifclassloaded{combine}{
+  \@addtoreset{remark}{article}
+  \@addtoreset{axiom}{article}
+  \@addtoreset{scheme}{article}
+}{
+  \@addtoreset{scheme}{section}
+}
+
 
 \def\define#1{\textbf{``#1''}}
 
 
-\counterwithout*{section}{chapter}
+
+% page numbering should never reset
+\def\pagenumbering#1{%
+  \gdef\thepage{\csname @#1\endcsname
+   \c@page}}
+
+\@ifclassloaded{amsbook}{
+  %\counterwithout*{section}{chapter}
+  
+  % Add the contents to the TOC
+  \def\@starttoc#1#2{%
+    \begingroup
+    \setTrue{#1}%
+    \let\secdef\@gobbletwo \chapter
+    \let\@secnumber\@empty % for \@tocwrite and \chaptermark
+    %\@tocwrite{chapter}{#2}
+    \phantomsection\@tocwriteb\tocchapter{chapter}{#2}%
+    \typeout{#2}\@xp\chaptermark\@xp{#2}%
+    \@makeschapterhead{#2}\@afterheading
+    \parskip\z@skip
+    \makeatletter
+    \@input{\jobname.#1}%
+    \if@filesw
+    \@xp\newwrite\csname tf@#1\endcsname
+    \immediate\@xp\openout\csname tf@#1\endcsname \jobname.#1\relax
+    \fi
+    \global\@nobreakfalse \endgroup
+    \newpage
+  }
+}{}

@@ -1,0 +1,280 @@
+\documentclass{article}
+\title{Families of Sets (SETFAM-1)}
+\author{Beata Padlewska}
+%% \makeatletter
+%% \@ifclassloaded{combine}
+%%   {\let\@begindocumenthook\@empty}
+%%   {}
+%% \makeatother
+\begin{document}
+\maketitle
+\begin{definition}
+Let $X$ be a set.
+We define the term $\meet X$ (Mizar: ``\verb#meet X#'') to be the set satisfying:
+\begin{defn}
+\item if $X\neq\emptyset$ we have for any object $x$, we have $x\in\meet X$ if and only if 
+  every set $Y$ such that $Y\in X$ satisfies $x\in Y$; and otherwise
+  (when $X$ is empty) $\meet X=\emptyset$.
+\end{defn}
+\end{definition}
+
+Let $X$, $Y$, $Z$, $Z_{1}$ be sets. We have the following results:
+\begin{thm}
+\item\label{setfam1:1} $\meet\emptyset=\emptyset$
+\item\label{setfam1:2} $\meet X\subset\union X$
+\item\label{setfam1:3} If $Z\in X$, then $\meet X\subset Z$.
+\item\label{setfam1:4} If $\emptyset\in X$, then $\meet X=\emptyset$.
+\item\label{setfam1:5} If $X\neq\emptyset$ and every set $Z_{1}\in X$ contains
+  $Z\subset Z_{1}$, then $Z\subset\meet X$.
+\item\label{setfam1:6} If $X\neq\emptyset$ and $X\subset Y$, then $\meet Y\subset\meet X$.
+\item\label{setfam1:7} If $X\in Y$ and $X\subset Z$, then $\meet Y\subset Z$.
+\item\label{setfam1:8} If $X\in Y$ and $X$ misses $Z$,
+  then $\meet Y$ misses $Z$.
+\item\label{setfam1:9} If $X\neq\emptyset$ and $Y\neq\emptyset$,
+  then $\meet(X\cup Y)=(\meet X)\cap(\meet Y$.
+\item\label{setfam1:10} $\meet\{X\}=X$.
+\item\label{setfam1:11} $\meet\{X,Y\}=X\cap Y$.
+\end{thm}
+
+\begin{definition}
+Let $F_{x}$ and $F_{y}$ be sets.
+\begin{itemize}
+\item We define the predicate $F_{x}$ \define{is finer than} $F_{y}$ to mean
+\begin{defn}
+\item for each set $X$ with $X\in F_{x}$, there exists a set $Y$ such
+  that $Y\in F_{y}$ and $X\subset Y$.
+\end{defn}
+Observe this is a reflexive predicate.
+\item We define the predicate $F_{y}$ \define{is coarser than} $F_{x}$ to mean
+\begin{defn}
+\item for each set $Y$ with $Y\in F_{y}$, there exists a set $X$ such
+  that $X\in F_{x}$ and $X\subset Y$.
+\end{defn}
+Observe this is a reflexive predicate.
+\end{itemize}
+\end{definition}
+
+Let $F_{x}$, $F_{y}$, $F_{z}$ be sets. We have the following eight theorems:
+\begin{thm}
+\item\label{setfam1:12} If $F_{x}\subset F_{y}$, then $F_{x}$ is finer
+  than $F_{y}$.
+\item\label{setfam1:13} If $F_{x}$ is finer than $F_{y}$, then $\union F_{x}\subset \union F_{y}$.
+\item\label{setfam1:14} If $F_{y}\neq\emptyset$ and $F_{y}$ is coarser
+  than $F_{x}$, then $\meet F_{x}\subset\meet F_{y}$.
+\item\label{setfam1:15} $\emptyset$ is finer than $F_{x}$.
+\item\label{setfam1:16} If $F_{x}$ is finer than $\emptyset$, then $F_{x}=\emptyset$.
+\item\label{setfam1:17} If $F_{x}$ is finer than $F_{y}$ and $F_{y}$ is
+  finer than $F_{z}$, then $F_{x}$ is finer than $F_{z}$.
+\item\label{setfam1:18} If $F_{x}$ is finer than $\{Y\}$, then every set $X$
+  if $X\in F_{x}$ then $X\subset Y$. 
+\item\label{setfam1:19} If $F_{x}$ is finer than $\{X,Y\}$, then for any
+  set $Z$ if $Z\in F_{x}$ then either $Z\subset X$ or $Z\subset Y$.
+\end{thm}
+
+\begin{definition}
+  Let $F_{x}$, $F_{y}$ be sets.
+We define the new term $\UNION(F_{x},F_{y})$ (Mizar:
+  ``\verb#UNION(FX, FY)#'')
+to be the set satisfying
+\begin{defn}
+\item for any set $Z$, $Z\in\UNION(F_{x},F_{y})$ if and only if there
+  exists sets $X$ and $Y$ such that $X\in F_{x}$ and $Y\in F_{y}$
+  and $Z=X\cup Y$.
+\end{defn}
+Observe this is commutative in its arguments.
+
+We define the new term $\INTERSECTION(F_{x},F_{y})$ (Mizar:
+  ``\verb#INTERSECTION(FX, FY)#'') to be the set satisfying
+to be the set satisfying
+\begin{defn}
+\item for any set $Z$, $Z\in\UNION(F_{x},F_{y})$ if and only if there
+  exists sets $X$ and $Y$ such that $X\in F_{x}$ and $Y\in F_{y}$
+  and $Z=X\cap Y$.
+\end{defn}
+Observe this is commutative in its arguments.
+
+We lastly define the new term $\DIFFERENCE(F_{x},F_{y})$ (Mizar:
+  ``\verb#DIFFERENCE(FX, FY)#'') to be the set
+  satisfying
+\begin{defn}
+\item for any set $Z$, $Z\in\UNION(F_{x},F_{y})$ if and only if there
+  exists sets $X$ and $Y$ such that $X\in F_{x}$ and $Y\in F_{y}$
+  and $Z=X\setminus Y$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+These definitions amount to $\{X~\langle op\rangle~Y\mid X\in F_{x},Y\in F_{y}\}$
+where $\langle op\rangle$ is $\cup$, $\cap$, $\setminus$ for UNION,
+INTERSECTION, DIFFERENCE.
+\end{remark}
+
+Now we can prove the following results:
+\begin{thm}
+\item\label{setfam1:20} $F_{x}$ is finer than $\UNION(F_{x},F_{x})$.
+\item\label{setfam1:21} $\INTERSECTION(F_{x},F_{x})$ is finer than $F_{x}$.
+\item\label{setfam1:22} $\DIFFERENCE(F_{x},F_{x})$ is finer than $F_{x}$.
+\item\label{setfam1:23} If $F_{x}$ meets $F_{y}$,
+  then $(\meet F_{x})\cap(\meet F_{y}) = \meet\INTERSECTION(F_{x},F_{y})$
+\item\label{setfam1:24} If $F_{y}\neq\emptyset$, then
+  $X\cup\meet F_{y}=\meet\UNION(\{X\},F_{y})$.
+\item\label{setfam1:25} $X\cap\union(F_{y})=\union\INTERSECTION(\{X\},F_{y})$.
+\item\label{setfam1:26} If $F_{y}\neq\emptyset$,
+  then $X\setminus(\union F_{y})=\meet\DIFFERENCE(\{X\},F_{y})$.
+\item\label{setfam1:27} If $F_{y}\neq\emptyset$,
+  then $X\setminus(\meet F_{y})=\union\DIFFERENCE(\{X\},F_{y})$.
+\item\label{setfam1:28} $\union\INTERSECTION(F_{x},F_{y})=(\union F_{x})\cap(\union F_{y})$.
+\item\label{setfam1:29} If $F_{x}\neq\emptyset$ and
+  $F_{y}\neq\emptyset$, then
+  $(\meet F_{x})\cup(\meet F_{y})\subset\meet\UNION(F_{x},F_{y})$.
+\item\label{setfam1:30}
+  $\meet\DIFFERENCE(F_{x},F_{y})\subset(\meet F_{x})\setminus(\meet F_{y})$.
+\end{thm}
+
+\begin{definition}
+Let $D$ be a set. We define the new mode \define{Subset-Family of $D$}
+(Mizar: ``\verb#Subset-Family of D#'')
+is a Subset of $\powerset(D)$.
+\end{definition}
+
+Let $D$ be a set.
+Let $F$, $G$ be a Subset-Family of $D$. Let $P$ be a subset of $D$.
+
+\begin{definition}
+Let $D$ be a set and $F$ a subset-family of $D$.
+We redefine the types of terms $\union F$ and $\meet F$ to be a subset of $D$.
+\end{definition}
+
+\begin{thm}
+\item\label{setfam1:31} If every subset $P$ of $D$ satisfies $P\in F$
+  iff $P\in G$, then $F=G$.
+\end{thm}
+
+\begin{definition}
+Let $D$ be a set and $F$ a subset-family of $D$.
+We define the new term $\COMPLEMENT{F}$ (Mizar: ``\verb#COMPLEMENT(F)#'') to be the subset-family of $D$ satisfying
+\begin{defn}
+\item for every subset $P$ of $D$, we have $P\in\COMPLEMENT{F}$ iff
+  $P^{\complement}\in F$.
+\end{defn}
+Observe this is involutive (i.e., $\COMPLEMENT{(\COMPLEMENT{F})}=F$).
+\end{definition}
+
+We have the following three theorems, assuming $F\neq\emptyset$.
+\begin{thm}
+\item\label{setfam1:32} $\COMPLEMENT{F}\neq\emptyset$.
+\item\label{setfam1:33} $\Omega_{D}\setminus(\union F)=\meet\COMPLEMENT{F}$.
+\item\label{setfam1:34} $\union\COMPLEMENT{F}=\Omega_{D}\setminus\meet F$.
+\end{thm}
+
+Let $X$ be a set, let $F$ and $G$ be subset-families of $X$.
+\begin{thm}
+\item\label{setfam1:35} Let $P$ be a subset of $X$. Then
+  $P^{\complement}\in\COMPLEMENT{F}$ iff $P\in F$.
+\item\label{setfam1:36} If $\COMPLEMENT{F}\subset\COMPLEMENT{G}$, then
+  $F\subset G$.
+\item\label{setfam1:37} $\COMPLEMENT{F}\subset G$ iff $F\subset\COMPLEMENT{G}$.
+\item\label{setfam1:38} If $\COMPLEMENT{F}=\COMPLEMENT{G}$, then $F=G$.
+\item\label{setfam1:39} $\COMPLEMENT{F\cup G}=(\COMPLEMENT{F})\cup(\COMPLEMENT{G})$.
+\item\label{setfam1:40} If $F=\{X\}$, then $\COMPLEMENT{F}=\{\emptyset\}$.
+\end{thm}
+
+Observe the complement of an empty subset-family is empty.
+
+\begin{definition}
+Let $X$ be a set. We define the attribute $X$ is \define{with non-empty elements}
+to mean
+\begin{defn}
+\item $\emptyset\notin X$.
+\end{defn}
+\end{definition}
+
+Observe there exists a non-empty `with non-empty elements' set.
+Also observe the enumerated sets $\{x_{1},\dots,x_{n}\}$ are with
+non-empty elements for $n=1,\dots,9$.
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{setfam1:41} If $\union Y\subset Z$ and $X\in Y$, then
+  $X\subset Z$.
+\item\label{setfam1:42} For any sets $A$, $B$, and $X$, if
+  $X\subset\union(A\cup B)$ and every set $Y$ in $Y\in B$ has $Y$ misses $X$,
+  then $X\subset\union A$.
+\end{thm}
+
+\begin{definition}
+Let $M$ be a set. Let $B$ be a subset-family of $M$.
+We define the term $\Intersect\ B$ (Mizar: ``\verb#Intersect B#'') to be
+the subset of $M$ equal to
+\begin{defn}
+\item $\meet B$ if $B\neq\emptyset$, otherwise $M$.
+\end{defn}
+\end{definition}
+
+We have the following two theorems:
+\begin{thm}
+\item\label{setfam1:43} Let $X$ and $x$ be sets, let $R$ be a
+  subset-family of $X$. If $x\in X$, then $x\in\Intersect\ R$ iff every
+  set $Y$ with $Y\in R$ has $x\in Y$.
+\item\label{setfam1:44} Let $X$ be a set, $H$ and $J$ be subset-families
+  of $X$. If $H\subset J$, then $\Intersect\ J\subset\Intersect\ H$.
+\end{thm}
+
+\begin{definition}
+Let $E$ be a set. We define the attribute $E$ is \define{empty-membered}
+to mean:
+\begin{defn}
+\item there does not exist a non-empty set $x$ with $x\in E$.
+\end{defn}
+\end{definition}
+
+\begin{notation}
+Observe the antonym of $E$ is empty-membered is $E$ is with non-empty element.
+\end{notation}
+
+\begin{definition}
+Let $X$ be a set.
+We define a new mode \define{Cover of $X$} (Mizar:
+``\verb#Cover of X#'') to be the set satisfying
+\begin{defn}
+\item $X\subset\union(\mbox{it})$.
+\end{defn}
+\end{definition}
+
+We can prove the following two theorems:
+\begin{thm}
+\item\label{setfam1:45} Let $X$ be a set, $F$ be a subset-family of $X$.
+Then $F$ is a cover of $X$ if and only if $\union F=X$.
+\item\label{setfam1:46} $\{\emptyset\}$ is a subset-family of $X$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set, $F$ a subset-family of $X$.
+We define the attribute $F$ is \define{with proper subsets} to mean
+\begin{defn}
+\item $X\notin F$.
+\end{defn}
+\end{definition}
+
+We can prove the following couple of theorems:
+\begin{thm}
+\item\label{setfam1:47} Let $T$ be a set, let $F$ and $G$ be
+  subset-families of $T$. If $F$ is with proper subsets and $G\subset F$,
+  then $G$ is with proper subsets.
+\item\label{setfam1:48} Let $T$ be a non-empty set, let $A$ and $B$ be
+  `with proper subsets' subset-families of $T$. Then $A\cup B$ is with
+  proper subsets.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set. We redefine the type of $\powerset(X)$ to be a
+subset-family of $X$.
+\end{definition}
+
+We conclude by stating we can prove the following theorem:
+\begin{thm}
+\item\label{setfam1:49} Let $A$ be a non-empty set, let $b$ be any object.
+If $A\neq\{b\}$, then there exists an element $a$ of $A$ such that
+$a\neq b$.
+\end{thm}
+\end{document}
