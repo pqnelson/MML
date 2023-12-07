@@ -1,0 +1,165 @@
+\documentclass{article}
+
+\title{Properties of Binary Relations}
+\author{Edmund Woronowicz and Anna Zalewska}
+\begin{document}
+\maketitle
+
+Let $x$, $y$, $z$ be objects.
+
+\begin{definition}
+Let $R$ be a relation, let $X$ be a set.
+
+We say that $R$ \define{is reflexive in $X$} to mean
+\begin{defn}
+\item If $x\in X$, then $(x,x)\in R$.
+\end{defn}
+We say that $R$ \define{is irreflexive in $X$} to mean
+\begin{defn}
+\item If $x\in X$, then $(x,x)\notin R$.
+\end{defn}
+We say that $R$ \define{is symmetric in $X$} to mean
+\begin{defn}
+\item If $x,y\in X$ and $(x,y)\in R$, then $(y,x)\in R$.
+\end{defn}
+We say that $R$ \define{is antisymmetric in $X$} to mean
+\begin{defn}
+\item If $x,y\in X$ and $(x,y)\in R$ and $(y,x)\in R$, then $x=y$.
+\end{defn}
+We say that $R$ \define{is asymmetric in $X$} to mean
+\begin{defn}
+\item If $x,y\in X$ and $(x,y)\in R$, then $(y,x)\notin R$.
+\end{defn}
+We say that $R$ \define{is connected in $X$} to mean
+\begin{defn}
+\item If $x,y\in X$ are distinct $x\neq y$, then either $(x,y)\in R$ or $(y,x)\in R$.
+\end{defn}
+We say that $R$ \define{is strongly connected in $X$} to mean
+\begin{defn}
+\item If $x,y\in X$, then either $(x,y)\in R$ or $(y,x)\in R$.
+\end{defn}
+We say that $R$ \define{is transitive in $X$} to mean
+\begin{defn}
+\item If $x,y,z\in X$ and $(x,y)\in R$ and $(y,z)\in R$, then $(x,z)\in R$.
+\end{defn}
+\end{definition}
+
+
+\begin{definition}
+Let $R$ be a relation.
+
+We define the attribute $R$ is \define{reflexive} to mean
+\begin{defn}
+\item $R$ is reflexive in the field of $R$.
+\end{defn}
+We define the attribute $R$ is \define{irreflexive} to mean
+\begin{defn}
+\item $R$ is irreflexive in the field of $R$.
+\end{defn}
+We define the attribute $R$ is \define{symmetric} to mean
+\begin{defn}
+\item $R$ is symmetric in the field of $R$.
+\end{defn}
+We define the attribute $R$ is \define{antisymmetric} to mean
+\begin{defn}
+\item $R$ is antisymmetric in the field of $R$.
+\end{defn}
+We define the attribute $R$ is \define{asymmetric} to mean
+\begin{defn}
+\item $R$ is asymmetric in the field of $R$.
+\end{defn}
+We define the attribute $R$ is \define{connected} to mean
+\begin{defn}
+\item $R$ is connected in the field of $R$.
+\end{defn}
+We define the attribute $R$ is \define{strongly connected} to mean
+\begin{defn}
+\item $R$ is strongly connected in the field of $R$.
+\end{defn}
+We define the attribute $R$ is \define{transitive} to mean
+\begin{defn}
+\item $R$ is transitive in the field of $R$.
+\end{defn}
+\end{definition}
+
+Let $X$ be a set, let $P$ and $R$ be relations.
+We have the following results:
+\begin{thm}
+\item\label{relat2:1} $R$ is reflexive iff $\id_{\field(R)}\subset R$.
+\item\label{relat2:2} $R$ is irreflexive if $\id_{\field(R)}$ misses $R$.
+\item\label{relat2:3} $R$ is antisymmetric in $X$ if and only if
+  $R\setminus\id_{X}$ is asymmetric in $X$.
+\item\label{relat2:4} If $R$ is asymmetric in $X$, then $R\cup\id_{X}$
+  is antisymmetric in $X$.
+\item\label{relat2:5} (Cancelled)
+\item\label{relat2:6} (Cancelled)
+\item\label{relat2:7} (Cancelled)
+\item\label{relat2:8} (Cancelled)
+\item\label{relat2:9} (Cancelled)
+\item\label{relat2:10} (Cancelled)
+\item\label{relat2:11} (Cancelled)
+\end{thm}
+
+Observe $\id_{X}$ is symmetric, transitive, and antisymmetric.
+We see that an irreflexive transitive Relation is automatically asymmetric,
+and an asymmetric relation is automatically irreflexive and antisymmetric.
+
+We have the following results.
+\begin{thm}
+\item\label{relat2:12} If $R$ is reflexive, then
+  $\dom(R)=\dom(\converse{R})$ and $\rng(R)=\rng(\converse{R})$.
+\item\label{relat2:13} $R$ is symmetric if and only if $R=\converse{R}$.
+\item\label{relat2:14} (Cancelled)
+\item\label{relat2:15} (Cancelled)
+\item\label{relat2:16} (Cancelled)
+\item\label{relat2:17} (Cancelled)
+\item\label{relat2:18} (Cancelled)
+\item\label{relat2:19} (Cancelled)
+\item\label{relat2:20} (Cancelled)
+\item\label{relat2:21} (Cancelled)
+\end{thm}
+
+The union and intersection of reflexive relations are reflexive relations.
+The union and intersection of irreflexive relations are irreflexive relations.
+When $P$ is irreflexive and $R$ is any relation, $P\setminus R$ is irreflexive.
+The converse of a symmetric relation is symmetric.
+The union, intersection, and difference of symmetric relations is
+symmetric.
+The converse of asymmetric relations are also asymmetric.
+When $R$ is asymmetric and $P$ is any relation, $P\cap R$ and $R\cap P$
+are both asymmetric, and $R\setminus P$ is asymmetric.
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{relat2:22} $R$ is antisymmetric if and only if $R\cap\converse{R}\subset\id_{\dom(R)}$.
+\end{thm}
+
+The converse of an antisymmetric relation is antisymmetric. When $P$ is
+antisymmetric, we see $P\cap R$, $R\cap P$, and $P\setminus R$ are all
+antisymmetric. The converse of a transitive relation is transitive, the
+intersection of transitive relations is a transitive relation.
+
+We have the following results:
+\begin{thm}
+\item\label{relat2:23} (Cancelled)
+\item\label{relat2:24} (Cancelled)
+\item\label{relat2:25} (Cancelled)
+\item\label{relat2:26} (Cancelled)
+\item\label{relat2:27} $R$ is transitive if and only if $R\cdot R\subset R$.
+\item\label{relat2:28} $R$ is connected if and only if
+  $(\field(R)\times\field(R))\setminus\id_{\field(R)}\subset R\cup\converse{R}$.
+\end{thm}
+
+Observe strongly connected relations are automatically connected and reflexive.
+
+We can prove the following three propositions:
+\begin{thm}
+\item\label{relat2:29} (Cancelled)
+\item\label{relat2:30} $R$ is strongly connected if and only if
+  $(\field(R)\times\field(R))=R\cup\converse{R}$.
+\item\label{relat2:31} $R$ is transitive if and only if for every
+  objects $x$, $y$, $z$ has $(x,y)\in R$ and $(y,z)\in R$ implies
+  $(x,z)\in R$.
+\end{thm}
+
+\end{document}

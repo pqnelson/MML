@@ -1,0 +1,127 @@
+\documentclass{article}
+\title{The Well Ordering Relations}
+\author{Grzegorz Bancerek}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $R$ be a Relation, let $a$ be an object.
+We define the term $R-\Seg(a)$ to be the set equal to
+\begin{defn}
+\item $\Coim{R}{a}\setminus\{a\}$.
+\end{defn}
+\end{definition}
+
+Let $R$ be a Relation, let $a$ and $x$ be objects. We have the following
+two theorems:
+\begin{thm}
+\item\label{wellord1:1} $x\in R-\Seg(a)$ iff $x\neq a$ and $(x,a)\in R$.
+\item\label{wellord1:2} $x\in\field(R)$ or $R-\Seg(x)=\emptyset$.
+\end{thm}
+
+\begin{definition}
+Let $R$ be a Relation. We define the attribute $R$ is \define{well founded}
+to mean
+\begin{defn}
+\item for every set $Y$, if $Y\subset\field(R)$ and $Y\neq\emptyset$,
+  then there exists an object $a$ such that $a\in Y$ and $R-\Seg(a)$
+  misses $Y$.
+\end{defn}
+Let $X$ be a set. We define the predicate $R$ \define{is well founded in $X$}
+to mean
+\begin{defn}
+\item For all sets $Y$, if $Y\subset X$ and $Y\neq\emptyset$,
+  then there exists an object $a$ such that $a\in Y$ and $R-\Seg(a)$
+  misses $Y$.
+\end{defn}
+\end{definition}
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{wellord1:3} $R$ is well founded iff $R$ is well founded in
+  the field of $R$.
+\end{thm}
+
+\begin{definition}
+Let $R$ be a Relation. We define the attribute $R$ is \define{well-ordering}
+to mean
+\begin{defn}
+\item $R$ is reflexive, transitive, antisymmetric, connected, and well founded.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $R$ be a relation, let $X$ be a set. We define the predicate $R$
+\define{well orders} $X$ to mean
+\begin{defn}
+\item $R$ is reflexive in $X$,
+  $R$ is transitive in $X$,
+  $R$ is antisymmetric in $X$,
+  $R$ is connected in $X$, and
+  $R$ is well founded in $X$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{wellord1:4} $R$ well orders the field of $R$ iff $R$ is well-ordering.
+\item\label{wellord1:5} If $R$ well orders $X$,
+  then for any set $Y$ such that $Y\subset X$ and $Y\neq\emptyset$
+  there exists an object $a$ such that $a\in Y$ and $(a,b)\in R$ for every object $b\in Y$.
+\item\label{wellord1:6} If $R$ is well-ordering,
+  then for any set $Y$ such that $Y\subset\field(R)$ and $Y\neq\emptyset$,
+  there exists an object $a$ such that $a\in Y$ and $(a,b)\in R$ for every object $b\in Y$.
+\item\label{wellord1:7} If $R$ is well-ordering and $\field(R)\neq\emptyset$,
+  then there exists an object $a$ such that $a\in\field(R)$ and
+  $(a,b)\in R$ for every object $b\in\field(R)$.
+\item\label{wellord1:8} If $R$ is a well-ordering and $a\in\field(R)$,
+  then \begin{enumerate*}[label=(\roman*)]
+  \item $(b,a)\in R$ for every $b\in\field(R)$ or
+  \item there exists an object $b\in\field(R)$ such that $(a,b)\in R$
+    and for every object $c\in\field(R)$ if $(a,c)\in R$ then $c=a$ or
+    $(b,c)\in R$.
+  \end{enumerate*}
+\item\label{wellord1:9} $R-\Seg(a)\subset\field(R)$.
+\end{thm}
+
+\begin{definition}
+Let $R$ be a relation, let $Y$ be a set.
+We define the term $R|^{2}Y$ to be the relation equal to
+\begin{defn}
+\item $R\cap(Y\times Y)$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{wellord1:10} $R|^{2}X=(R|^{X})|_{X}$.
+\item\label{wellord1:11} $R|^{2}X=(R|_{X})|^{X}$.
+\item\label{wellord1:12} If $x\in\field(R|^{2}X)$, then $x\in\field(R)$
+  and $x\in X$.
+\item\label{wellord1:13} $\field(R|^{2}X)\subset\field(R)$ and
+  $\field(R|^{2}X)\subset X$.
+\item\label{wellord1:14} $(R|^{2}X)-\Seg(a)\subset R-\Seg(a)$.
+\item\label{wellord1:15} If $R$ is reflexive, then $R|^{2}X$ is reflexive.
+\item\label{wellord1:16} If $R$ is connected, then $R|^{2}X$ is connected.
+\item\label{wellord1:17} If $R$ is transitive, then $R|^{2}X$ is transitive.
+\item\label{wellord1:18} If $R$ is antisymmetric, then $R|^{2}X$ is antisymmetric.
+\item\label{wellord1:19} $(R|^{2}X)|^{2}Y=R|^{2}(X\cap Y)$.
+\item\label{wellord1:20} $(R|^{2}X)|^{2}Y=(R|^{2}Y)|^{2}X$.
+\item\label{wellord1:21} $(R|^{2}Y)|^{2}Y=R|^{2}Y$.
+\item\label{wellord1:22} If $Z\subset Y$, then $(R|^{2}Y)|^{2}Z=R|^{2}Z$.
+\item\label{wellord1:23} $R|^{2}\field(R)=R$.
+\item\label{wellord1:24} If $R$ is well found, then $R|^{2}X$ is well founded.
+\item\label{wellord1:25} If $R$ is well-ordering, then $R|^{2}X$ is well-ordering.
+\item\label{wellord1:26} If $R$ is well-ordering, then $R-\Seg(a)$ is
+  $\subset$-comparable to $R-\Seg(b)$.
+\item\label{wellord1:27} If $R$ is well-ordering and $b\in R-\Seg(a)$,
+  then $(R|^{2}(R-\Seg(a)))-\Seg(b)=R-\Seg(b)$.
+\item\label{wellord1:28}%%  If $R$ is well-ordering and $Y\subset\field(R)$,
+  %% then the following are logically equivalent:
+  %% \begin{enumerate}[label=(\roman*)]
+  %% \item $Y=\field(R)$
+  %% \end{enumerate}
+\item\label{wellord1:29}
+\item\label{wellord1:3}
+\end{thm}
+
+\end{document}

@@ -6,15 +6,7 @@
 %\usepackage[chapter]{tocbibind}
 \RequirePackage[dvipsnames]{xcolor}
 \usepackage{etoolbox}
-\@ifclassloaded{combine}{
-  \def\hyperlink#1#2{}
-  \def\hypertarget#1#2{}
-  \let\frontmatter\relax
-  \let\mainmatter\relax
-  \let\backmatter\relax
-  \let\chapter\part
-}{
-  \usepackage{hyperref}
+\usepackage{hyperref}
 % eTeX uses this color for links, it's better than BrickRed imho
 \definecolor{linkRed}{cmyk}{0.28, 1, 1, 0.35}
 \hypersetup{colorlinks=true,
@@ -28,7 +20,6 @@
     %%   CreationDate={D:20211214152256},
     %%   ModDate={D:\pdfdate}
     %% }
-}
 }
 
 
@@ -53,23 +44,14 @@
   itemsep=0pt,
   parsep=0pt
 }
-\@ifclassloaded{amsbook}{
-  \preto\section{%
-    \let\enit@resume@series@defn\@empty
-    \let\enit@resume@series@thm\@empty
-  }
-}{}
+%% \@ifclassloaded{amsbook}{
+%%   \preto\section{%
+%%     \let\enit@resume@series@defn\@empty
+%%     \let\enit@resume@series@thm\@empty
+%%   }
+%% }{}
 \newcounter{article}
 \setcounter{article}{-1}
-\@ifclassloaded{combine}{
-  \let\og@import\import
-  \def\import{
-    \refstepcounter{article}
-    \restartlist{defn}\let\enit@resume@series@thm\@empty
-    \restartlist{thm}\let\enit@resume@series@defn\@empty
-    \PatchEtocOpenOut
-    \og@import}
-}{}
 
 %\@addtoreset{thmi}{section}
 %\@addtoreset{defni}{section}
@@ -98,16 +80,11 @@
 \newtheorem{remark}{Remark}[article]
 \appto\remark{\leftskip2\parindent}
 
-\@ifclassloaded{combine}{
-  \@addtoreset{remark}{article}
-  \@addtoreset{axiom}{article}
-  \@addtoreset{scheme}{article}
-}{
-  \@addtoreset{scheme}{section}
-}
+\@addtoreset{scheme}{article}
 
 
-\def\define#1{\textbf{``#1''}}
+
+\def\define#1{\textbf{``#1''}\index{#1}}
 
 
 

@@ -2,11 +2,8 @@
 
 \title{Relations and Their Basic Properties (RELAT-1)}
 \author{Edmund Woronowicz}
-%% \makeatletter
-%% \@ifclassloaded{combine}
-%%   {\let\@begindocumenthook\@empty}
-%%   {}
-%% \makeatother
+\date{March 15, 1989}
+
 \begin{document}
 \maketitle
 
@@ -50,12 +47,12 @@ We redefine the predicate $P\subset A$ to mean
 \end{defn}
 \end{definition}
 
-\begin{notation}
+\begin{notation}\index{Domain!of Relation}\index{Relation!Domain}
 Let $R$ be a relation. We introduce the synonym $\dom(R)$ (Mizar:
 ``\verb#dom R#'') for $\proj1(R)$ (from XTUPLE-0 \eqref{xtuple0:defn:proj1}).
 \end{notation}
 
-\begin{notation}
+\begin{notation}\index{Range!Relation}\index{Relation!Range}
 Let $R$ be a relation. We introduce the synonym $\rng(R)$ (Mizar:
 ``\verb#rng R#'') for $\proj2(R)$ (from XTUPLE-0 \eqref{xtuple0:defn:proj2}).
 \end{notation}
@@ -100,7 +97,7 @@ We have the following theorems:
 \item\label{relat1:19} $\field(P\cap R)=\field(P)\cap\field(R)$.
 \end{thm}
 
-\begin{definition}
+\begin{definition}\index{Relation!Converse}
 Let $R$ be a relation. We define the \define{converse relation} of $R$
 to be the relation denoted $\converse R$ (Mizar: ``\verb#R ~#'') such that
 \begin{defn}
@@ -119,7 +116,9 @@ We can prove the following results:
 \item\label{relat1:24} $\converse{(P\setminus R)}=\converse P\setminus\converse R$.
 \end{thm}
 
-\begin{definition}
+\section{Composition of Relations}
+
+\begin{definition}\index{Composition!Relations}
 Let $P$ and $R$ be sets. We define the composition of relations to be
 the term $P\cdot R$ (Mizar: ``\verb|P (#) R|'') to be the relation satisfying:
 \begin{defn}
@@ -136,11 +135,378 @@ Let $P$, $R$ be relations. We introduce the synonym $P\circ R$ (Mizar:
 \begin{remark}
 CAUTION: modern mathematics appears to have changed conventions for
 composing relations, since composing functions is read from right-to-left.
-Mizar follows modern conventions for composing functions (see FUNCT-1
-after theorem 9).
+Mizar follows modern conventions for composing functions (see
+\hyperlink{notation:funct1:composition}{FUNCT-1} after theorem 9).
+\textbf{Because of this}, I will write all the results concerning
+composition of relations using $R\cdot P$, and reserve $\circ$ for the
+usual ``right-to-left'' situations.
+\end{remark}
+
+Let $P$, $Q$, $R$, $S$ be relations.
+\begin{thm}
+\item\label{relat1:25} $\dom(P\cdot R)\subset\dom P$
+\item\label{relat1:26} $\rng(P\cdot R)\subset\rng(R)$
+\item\label{relat1:27} If $\rng(R)\subset\dom(P)$, then $\dom(R\cdot P)=\dom(R)$.
+\item\label{relat1:28} If $\dom(P)\subset\rng(R)$, then $\rng(R\cdot P)=\rng(R)$.
+\item\label{relat1:29} If $P\subset R$, then $Q\cdot P\subset Q\cdot R$.
+\item\label{relat1:30} If $P\subset Q$, then $P\cdot R\subset Q\cdot R$.
+\item\label{relat1:31} If $P\subset R$ and $Q\subset S$,
+  then $P\cdot Q\subset R\cdot S$.
+\item\label{relat1:32} $P\cdot(R\cup Q)=(P\cdot R)\cup(P\cdot Q)$
+\item\label{relat1:33} $P*(R \cap Q) c= (P\cdot R) \cap (P\cdot Q)$
+\item\label{relat1:34} $(P\cdot R) \setminus (P\cdot Q) \subset P\cdot(R \setminus Q)$
+\item\label{relat1:35} $\converse{(P\cdot R)} = \converse R\cdot\converse P$.
+\item\label{relat1:36}\index{Composition!Transitivity}%
+Associativity of composition:
+  $(P\cdot R)\cdot Q = P\cdot(R\cdot Q)$
+\end{thm}
+
+Let $x$, $y$ be objects.
+We have some results concerning the empty relation:
+\begin{thm}
+\item\label{relat1:37} Assume every objects $x$ and $y$, we have
+  $(x,y)\notin R$. Then $R=\emptyset$.
+\item\label{relat1:38} $\dom\emptyset=\emptyset$ and $\rng\emptyset=\emptyset$.
+\item\label{relat1:39} $\emptyset\cdot R=\emptyset$ and $R\cdot\emptyset=\emptyset$.
+\item\label{relat1:40} $\field\emptyset=\emptyset$
+\item\label{relat1:41} If either $\dom R=\emptyset$ or
+  $\rng(R)=\emptyset$, then $R=\emptyset$.
+\item\label{relat1:42} $\dom(R)=\emptyset$ iff  $\rng(R)=\emptyset$.
+\item\label{relat1:43} $\converse\emptyset=\emptyset$.
+\item\label{relat1:44} If $\rng(R)$ misses $\dom(P)$, then $R\cdot P=\emptyset$.
+\end{thm}
+
+\begin{definition}
+Let $R$ be a relation.
+We define the attribute $R$ is \define{non-empty} to mean:
+\begin{defn}
+\item $\emptyset\notin\rng(R)$.
+\end{defn}
+\end{definition}
+
+
+\section{Identity Relation}
+
+\begin{definition}\index{$\id_{X}$}\index{Identity Relation}
+Let $X$ be a set. We define the term $\id_{X}$ (Mizar: ``\verb#id X#'')
+to be the relation satisfying
+\begin{defn}
+\item $(x,y)\in\id_{X}$ iff $x\in X$ and $x=y$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{relat1:45} $\dom(\id_{X})=X$ and $\rng(\id_{X})=X$.
+\item\label{relat1:46} $\converse{(\id_{X})}=\id_{X}$.
+\item\label{relat1:47} If every object $x$ such that $x\in X$ has
+  $(x,x)\in R)$, then $\id_{X}\subset R$.
+\item\label{relat1:48} $(x,y)\in\id_{X}\cdot R$ if and only if $x\in X$
+  and $(x,y)\in R$.
+\item\label{relat1:49} $(x,y)\in R\cdot\id_{Y}$ if and only if $y\in Y$
+  and $(x,y)\in R$.
+\item\label{relat1:50} $R\cdot\id_{X}\subset R$ and $\id_{X}\cdot R\subset R$.
+\item\label{relat1:51} If $\dom(R)\subset X$, then $\id_{X}\cdot R=R$.
+\item\label{relat1:52} $\id_{\dom(R)}\cdot R=R$.
+\item\label{relat1:53} If $\rng(R)\subset Y$, then $R\cdot\id_{Y}=R$.
+\item\label{relat1:54} $R\cdot\id_{\rng(R)}=R$.
+\item\label{relat1:55} $\id_{\emptyset}=\emptyset$.
+\item\label{relat1:56} Let $P_{1}$, $P_{2}$ be relations.
+  If $\rng(P_{2})\subset X$ and $P_{2}\cdot R = \id_{\dom(P_{1})}$
+  and $R\cdot P_{1}=\id_{X}$,
+  then $P_{1}=P_{2}$.
+\end{thm}
+
+\section{Restriction of Relations}
+
+\begin{definition}\index{Restriction!Relation}\index{Relation!Restriction}
+Let $R$ be a relation, $X$ be a set.
+We define the term $R|_{X}$ to be the relation satisfying
+\begin{defn}
+\item $(x,y)\in R|_{X}$ if and only if $x\in X$ and $(x,y)\in R$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{relat1:57} $x \in \dom(R|_{X})$ iff $x \in X$ and $x \in \dom(R)$
+\item\label{relat1:58} $\dom(R|_{X})\subset X$.
+\item\label{relat1:59} $R|_{X}\subset R$
+\item\label{relat1:60} $\dom(R|_{X})\subset\dom(R)$.
+\item\label{relat1:61} $\dom(R|_{X})=\dom(R)\cap X$.
+\item\label{relat1:62} If $X\subset\dom(R)$, then $\dom(R|_{X})=X$.
+\item\label{relat1:63} $(R|_{X})\cdot P\subset R\cdot P$.
+\item\label{relat1:64} $P\cdot(R|_{X})\subset P\cdot R$.
+\item\label{relat1:65} $R|_{X}=(\id X)\cdot R$.
+\item\label{relat1:66} $R|_{X}=\emptyset$ if and only if $\dom(R)$ misses $X$.
+\item\label{relat1:67} $R|_{X}=R\cap(X\times\rng(R))$.
+\item\label{relat1:68} If $\dom(R)\subset X$, then $R|_{X}=R$.
+\item\label{relat1:69} $R|_{\dom(R)}=R$.
+\item\label{relat1:70} $\rng(R|_{X})\subset\rng(R)$.
+\item\label{relat1:71} $(R|_{X})|_{Y} = R|_{X\cap Y}$
+\item\label{relat1:72} $(R|_{X})|_{X}=R|_{X}$.
+\item\label{relat1:73} If $X\subset Y$, then $(R|_{X})|_{Y}=R|_{X}$.
+\item\label{relat1:74} If $Y\subset X$, then $(R|_{X})|_{Y}=R|_{Y}$.
+\item\label{relat1:75} If $X\subset Y$, then $R|_{X}\subset R|_{Y}$.
+\item\label{relat1:76} If $P\subset R$, then $P|_{X}\subset R|_{X}$.
+\item\label{relat1:77} If $P\subset R$ and $X\subset Y$,
+  then $P|_{X}\subset R|_{Y}$.
+\item\label{relat1:78} $R|_{X\cup Y}=R|_{X}\cup R|_{Y}$.
+\item\label{relat1:79} $R|_{X\cap Y}=R|_{X}\cap R|_{Y}$.
+\item\label{relat1:80} $R|_{X\setminus Y}=R|_{X}\setminus R|_{Y}$.
+\item\label{relat1:81} $R|_{\emptyset}=\emptyset$
+\item\label{relat1:82} $\emptyset|_{X}=\emptyset$.
+\item\label{relat1:83} $(P\cdot R)|_{X}=(P|_{X})\cdot R$.
+\end{thm}
+
+\begin{definition}\index{Restriction!Range}\index{Range!Restriction}
+Let $Y$ be a set, let $R$ be a relation.
+We define the term $R|^{Y}$ (Mizar: ``\verb#Y |` R#'') to be the
+relation satisfying:
+\begin{defn}
+\item $(x,y)\in R|^{Y}$ if and only if $y\in Y$ and $(x,y)\in R$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+There is no standard terminology in the literature for this, but it
+seems ``range restriction'' is the best choice. The notation seems to be
+all over the place, so I picked what seemed to be aesthetically pleasing
+and sensible.
 \end{remark}
 
 \begin{thm}
-\item\label{relat1:2}
+\item\label{relat1:84} $y\in\rng(R|^{Y})$ if and only if $y\in Y$ and $y\in\rng(R)$.
+\item\label{relat1:85} $\rng(R|^{Y})\subset Y$.
+\item\label{relat1:86} $R|^{Y}\subset R$.
+\item\label{relat1:87} $\rng(R|^{Y})\subset\rng(R)$.
+\item\label{relat1:88} $\rng(R|^{Y})=\rng(R)\cap Y$.
+\item\label{relat1:89} If $Y\subset\rng(R)$, then $\rng(R|^{Y})=Y$.
+\item\label{relat1:90} $R|^{Y}\cdot P\subset R\cdot P$.
+\item\label{relat1:91} $P\cdot R|^{Y}\subset P\cdot R$.
+\item\label{relat1:92} $R|^{Y}=R\cdot\id_{Y}$.
+\item\label{relat1:93} $R|^{Y}=R\cap(\dom(R)\times Y)$.
+\item\label{relat1:94} If $\rng(R)\subset Y$, then $R|^{Y}=R$.
+\item\label{relat1:95} $R|^{\rng(R)}=R$.
+\item\label{relat1:96} $(R|^{X})|^{Y} = R|^{X\cap Y}$
+\item\label{relat1:97} $(R|^{Y})|^{Y}=R|^{Y}$
+\item\label{relat1:98} If $X\subset Y$, then $(R|^{X})|^{Y}=R|^{X}$
+\item\label{relat1:99} If $Y\subset X$, then
+  $(R|^{X})|^{Y}=R|^{Y}$.
+\item\label{relat1:100} If $X\subset Y$, then
+  $R|^{X}\subset R|^{Y}$.
+\item\label{relat1:101} If $P_{1}\subset P_{2}$ are relations,
+  then $P_{1}|^{Y}\subset P_{2}|^{Y}$.
+\item\label{relat1:102} If $P_{1}\subset P_{2}$ and $Y_{1}\subset Y_{2}$,
+  then $P_{1}|^{Y_{1}}\subset P_{2}|^{Y_{2}}$.
+\item\label{relat1:103} $R|^{X\cup Y}=R|^{X}\cup R|^{Y}$
+\item\label{relat1:104} $R|^{X\cap Y}=R|^{X}\cap R|^{Y}$
+\item\label{relat1:105} $R|^{X\setminus Y}=R|^{X}\setminus R|^{Y}$
+\item\label{relat1:106} $R|^{\emptyset}=\emptyset$.
+\item\label{relat1:107} $\emptyset|^{Y}=\emptyset$
+\item\label{relat1:108} $(P\cdot R)|^{Y}=P\cdot(R|^{Y})$
+\item\label{relat1:109} $(R|^{Y})|_{X}=(R|_{X})|^{Y}$.
 \end{thm}
+
+\section{Image of Set in Relation}
+
+\begin{definition}\index{Relation!Image of set in}\index{Image!of set in Relation}
+Let $R$ be a relation, let $X$ be a set.
+We define the term $R(X)$ (Mizar: ``\verb#R .: X#'') to be the set such
+that
+\begin{defn}
+\item $y\in R(X)$ if and only if there exists some object $x$ such that
+  $(x,y)\in R$ and $x\in X$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{relat1:110} $y\in R(X)$ if and only if there exists some
+  object $x$ such that $x\in\dom(R)$ and $(x,y)\in R$ and $x\in X$.
+\item\label{relat1:111} $R(X)\subset\rng(R)$.
+\item\label{relat1:112} $R(X)=R(\dom(R)\cap X)$.
+\item\label{relat1:113} $R(\dom(R))=\rng(R)$.
+\item\label{relat1:114} $R(X)\subset R(\dom(R))$
+\item\label{relat1:115} $\rng(R|_{X})=R(X)$.
+\item\label{relat1:116} (Cancelled)
+\item\label{relat1:117} (Cancelled)
+\item\label{relat1:118} $R(X)=\emptyset$ if and only if $\dom(R)$ misses $X$.
+\item\label{relat1:119} If $X\neq\emptyset$ and $X\subset\dom(R)$, then $R(X)\neq\emptyset$.
+\item\label{relat1:120} $R(X\cup Y)=R(X)\cup R(Y)$.
+\item\label{relat1:121} $R(X\cap Y)\subset R(X)\cap R(Y)$.
+\item\label{relat1:122} $R(X)\setminus R(Y)\subset R(X\setminus Y)$.
+\item\label{relat1:123} If $X\subset Y$, then $R(X)\subset R(Y)$.
+\item\label{relat1:124} If $P\subset R$, then $P(X)\subset R(X)$.
+\item\label{relat1:125} If $P\subset R$ and $X\subset Y$, then
+  $P(X)\subset R(Y)$.
+\item\label{relat1:126} $(P\cdot R)(X)=R\bigl(P(X)\bigr)$.
+\item\label{relat1:127} $\rng(P\cdot R)=R(\rng(P))$.
+\item\label{relat1:128} $(R|_{X})(Y)\subset R(Y)$.
+\item\label{relat1:129} If $X\subset Y$, then $(R|_{Y})(X)=R(X)$.
+\item\label{relat1:130} $\dom(R)\cap X\subset\converse{R}(R(X))$.
+\end{thm}
+
+\section{Inverse Image of Set in Relation}
+
+\begin{definition}\index{Inverse Image|seeonly{Preimage}}\index{Relation!Preimage of Set}\index{Preimage!Relation}%
+\index{Preimage!of Set in Relation}\label{defn:relat1:preimage}%
+Let $R$ be a relation, let $Y$ be a set.
+We define the term $R^{-1}(Y)$ (Mizar: ``\verb#R " Y#'') to be the set satisfying
+\begin{defn}
+\item $x\in R^{-1}(Y)$ if and only if there exists some object $y$ such
+  that $(x,y)\in R$ and $y\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{relat1:131} $x\in R^{-1}(Y)$ if and only if there exists
+  some object $y$ such that $y\in\rng(R)$ and $(x,y)\in R$ and $y\in Y$.
+\item\label{relat1:132} $R^{-1}(Y)\subset\dom(R)$.
+\item\label{relat1:133} $R^{-1}(Y)=R^{-1}(\rng(R)\cap Y)$.
+\item\label{relat1:134} $R^{-1}(\rng(R)) = \dom(R)$.
+\item\label{relat1:135} $R^{-1}(Y)\subset R^{-1}(\rng(R))$.
+\item\label{relat1:136} (Cancelled)
+\item\label{relat1:137} (Cancelled)
+\item\label{relat1:138} $R^{-1}(Y)=\emptyset$ if and only if $\rng(R)$
+  misses $Y$.
+\item\label{relat1:139} If $Y\neq\emptyset$ and $Y\subset\rng(R)$,
+  then $R^{-1}(Y)\neq\emptyset$.
+\item\label{relat1:140} $R^{-1}(X\cup Y)=R^{-1}(X)\cup R^{-1}(Y)$
+\item\label{relat1:141} $R^{-1}(X\cap Y)\subset R^{-1}(X)\cap R^{-1}(Y)$
+\item\label{relat1:142} $R^{-1}(X)\setminus R^{-1}(Y)\subset R^{-1}(X\setminus Y)$
+\item\label{relat1:143} If $X\subset Y$, then $R^{-1}(X)\subset R^{-1}(Y)$.
+\item\label{relat1:144} If $P\subset R$, then $P^{-1}(Y)\subset R^{-1}(Y)$.
+\item\label{relat1:145} If $P\subset R$ and $X\subset Y$, then
+  $P^{-1}(X)\subset R^{-1}(Y)$.
+\item\label{relat1:146} $(P\cdot R)^{-1}(Y)=P^{-1}(R^{-1}(Y))$.
+\item\label{relat1:147} $\dom(P\cdot R)=P^{-1}(\dom(R))$.
+\item\label{relat1:148} $\rng(R)\cap Y\subset (\converse{R})^{-1}(R^{-1}(Y))$.
+\end{thm}
+
+\section{Addenda}
+
+\begin{definition}
+Let $R$ be a relation. We define the attribute $R$ is \define{empty-yielding}
+to mean:
+\begin{defn}
+\item $\rng(R)\subset\{\emptyset\}$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{relat1:149} $R$ is empty-yielding if and only if every set
+  $X$ such that $X\in\rng(R)$ has $X=\emptyset$.
+\item\label{relat1:150} Let $f$, $g$ be relations, let $A$ and $B$ be sets.
+  If $f|_{A}=g|_{A}$ and $f|_{B}=g|_{B}$, then $f|_{A\,\cup B}=g|_{A\cup B}$.
+\item\label{relat1:151} Let $f$ and $g$ be relations. If $\dom(g)\subset X$
+  and $g\subset f$, then $g\subset f|_{X}$.
+\item\label{relat1:152} Let $f$ be a relation, let $X$ be a set. If $X$
+  misses $\dom(f)$, then $f|_{X}=\emptyset$.
+\item\label{relat1:153} Let $f$ and $g$ be relations, let $A$ and $B$ be
+  sets. If $A\subset B$ and $f|_{B}=g|_{B}$, then $f|_{A}=g|_{A}$.
+\item\label{relat1:154} $R|_{\dom(S)}=R|_{\dom(S|_{\dom(R)})}$.
+\item\label{relat1:155} If $R|_{X}$ is not empty-yielding, then $R$ is
+  not empty-yielding.
+\end{thm}
+
+\begin{definition}
+Let $R$ be a relation, let $x$ be a set.
+We define the term $\RelIm{R}{x}$ (Mizar: ``\verb#Im( R , x )#'') to be
+the set equal to
+\begin{defn}
+\item $R(\{x\})$.
+\end{defn}
+\end{definition}
+
+\begin{scheme}[ExtensionalityR]
+Let $\mathcal{A}$, $\mathcal{B}$ be relations, let $P[-,-]$ be a binary
+predicate of objects.
+We have $\mathcal{A}=\mathcal{B}$ provided:
+\begin{enumerate}
+\item for every object $a$ and $b$ we have $(a,b)\in\mathcal{A}$ if and
+  only if $P[a,b]$; and
+\item for every object $a$ and $b$ we have $(a,b)\in\mathcal{B}$ if and
+  only if $P[a,b]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{thm}
+\item\label{relat1:156} $\dom(R|_{\dom(R)\setminus X})=\dom(R)\setminus X$.
+\item\label{relat1:157} $R|_{X}=R|_{\dom(R)\cap X}$.
+\item\label{relat1:158} $\dom(X\times Y)\subset X$.
+\item\label{relat1:159} $\rng(X\times Y)\subset Y$.
+\item\label{relat1:160} If $X\neq\emptyset$ and $Y\neq\emptyset$,
+  then $\dom(X\times Y)=X$ and $\rng(X\times Y)=Y$.
+\item\label{relat1:161} If $\dom(R)=\emptyset$ and
+  $\dom(Q)=\emptyset$, then $R=Q$.
+\item\label{relat1:162}  If $\rng(R)=\emptyset$ and
+  $\rng(Q)=\emptyset$, then $R=Q$.
+\item\label{relat1:163} If $\dom(R)=\dom(Q)$, then $\dom(S\cdot R)=\dom(S\cdot Q)$.
+\item\label{relat1:164} If $\rng(R)=\rng(Q)$, then $\rng(R\cdot S)=\rng(Q\cdot S)$.
+\end{thm}
+
+\begin{definition}
+Let $R$ be a relation, let $x$ be an object.
+We define the term $R^{-1}(x)$ (Mizar: ``\verb#Coim(R, x)#'') to be the
+set equal to
+\begin{defn}
+\item $R^{-1}(\{x\})$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{relat1:165} If $\rng(R)\subset\dom(S|_{X})$, then
+  $R\cdot(S|_{X})=R\cdot S$.
+\item\label{relat1:166} If $Q|_{A}=R|_{A}$, then $Q(A)=R(A)$.
+\end{thm}
+
+\begin{definition}\index{Relation!$X$-defined}\index{Relation!$X$-valued}
+  Let $X$ be a set, $R$ be a relation.
+
+  We define the attribute $R$ is \define{$X$-defined} to mean
+  \begin{defn}
+  \item $\dom(R)\subset X$.
+  \end{defn}
+  We define the attribute $R$ is \define{$X$-valued} to mean
+  \begin{defn}
+  \item $\rng(R)\subset X$.
+  \end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{relat1:167} Let $D$ be a set, let $R$ be a $D$-valued relation.
+  Every object $y$ in the range of $R$, $y\in\rng(R)$, also belongs to
+  $y\in D$.
+\item\label{relat1:168} If $x\in X$, then $\RelIm{X\times Y}{x}=Y$.
+\item\label{relat1:169} $(x,y)\in R$ if and only if $y\in\RelIm{R}{x}$. 
+\item\label{relat1:170} $x\in\dom(R)$ if and only if $\RelIm{R}{x}\neq\emptyset$.
+\item\label{relat1:171} $\emptyset$ is $X$-defined $Y$-valued.
+\item\label{relat1:172} If $X$ misses $Y$, then $(R|_{X})|_{Y}=\emptyset$.
+\item\label{relat1:173} $\field(\{(x,x)\})=\{x\}$.
+\item\label{relat1:174} Let $R$ be an $X$-defined relation. Then $R=R|_{X}$.
+\item\label{relat1:175} Let $S$ be a relation, let $R$ be an $X$-defined relation.
+  If $R\subset S$, then $R\subset S|_{X}$.
+\item\label{relat1:176} If $\dom(R)\subset X$, then $R\setminus R|_{A}=R|_{X\setminus A}$.
+\item\label{relat1:177} $\dom(R\setminus(R|_{A}))=\dom(R)\setminus A$.
+\item\label{relat1:178} $\dom(R)\setminus\dom(R|_{A})=\dom(R\setminus R|_{A})$.
+\item\label{relat1:179} If $\dom(R)$ misses $\dom(S)$,
+  then $R$ misses $S$.
+\item\label{relat1:180} If $\rng(R)$ misses $\rng(S)$,
+  then $R$ misses $S$.
+\item\label{relat1:181} If $X\subset Y$, then $(R\setminus R|_{Y})|_{X}=\emptyset$.
+\item\label{relat1:182} If $X\subset Y$,
+  then every $X$-defined relation is a $Y$-defined relation.
+\item\label{relat1:183} If $X\subset Y$,
+  then every $X$-valued relation is a $Y$-valued relation.
+\item\label{relat1:184} $R\subset S$ if and only if $R\subset S|_{\dom(R)}$
+\item\label{relat1:185} Let $R$ be an $X$-defined $Y$-valued relation.
+  Then $R\subset X\times Y$.
+\item\label{relat1:186} $\dom(R|^{X})\subset\dom(R)$.
+\item\label{relat1:187} Let $X$ and $Y$ be sets, let $P$ and $R$ be
+  relations.
+  If $X$ misses $Y$, then $P|_{X}$ misses $R|_{Y}$.
+\item\label{relat1:188} Let $Y$ be a set, let $R$ be a relation. Then
+  $R|^{Y}\subset R|_{R^{-1}(Y)}$.
+\item\label{relat1:189} Let $f$ be a relation, let $x$ and $y$ be objects.
+  If $\dom(f)=\{x\}$ and $\rng(f)=\{y\}$, then $f=\{(x,y)\}$.
+\end{thm}
+
 \end{document}

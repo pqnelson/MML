@@ -37,10 +37,22 @@
 \DeclareMathOperator\INTERSECTION{INTERSECTION}
 \DeclareMathOperator\DIFFERENCE{DIFFERENCE}
 \DeclareMathOperator\Intersect{Intersect}
-%\DeclareMathOperator\COMPLEMENT{COMPLEMENT}
 \def\COMPLEMENT#1{#1^{\complement}}
 \DeclareMathOperator\dom{dom}
 \DeclareMathOperator\rng{rng}
 \DeclareMathOperator\field{field}
 
+% RELAT_1
 \def\converse#1{#1^{\,\sim}}
+\DeclareMathOperator\id{id}
+\def\RelIm#1#2{[#2]_{#1}}
+\def\Coim#1#2{#1^{-1}(#2)}
+
+% ORDINAL_1
+\let\og@succ\succ
+\let\succ\relax
+\DeclareMathOperator\succ{succ}
+\DeclareMathOperator\On{On}
+\DeclareMathOperator\Lim{Lim}
+\DeclareMathOperator\Segm{Segm}
+\DeclareMathOperator\Seg{Seg}

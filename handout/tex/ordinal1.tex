@@ -1,0 +1,367 @@
+\documentclass{article}
+
+\title{The Ordinal Numbers. Transfinite Induction and Defining by Transfinite Induction}
+\author{Grzegorz Bancerek}
+\begin{document}
+
+\maketitle
+
+Let $X$, $Y$ be sets. We can prove the following results:
+\begin{thm}
+\item\label{ordinal1:1} (Cancelled)
+\item\label{ordinal1:2} (Cancelled)
+\item\label{ordinal1:3} (Cancelled)
+\item\label{ordinal1:4} (Cancelled)
+\item\label{ordinal1:5} If $Y\in X$, then $X\nsubset Y$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set. We define the term $\succ(X)$ to be the set satisfying
+\begin{defn}
+\item $\succ(X)=X\cup\{X\}$.
+\end{defn}
+\end{definition}
+
+Observe $\succ(X)$ is nonempty.
+
+Let $X$, $Y$ be sets, let $x$ and $y$ be objects.
+We have the following results.
+\begin{thm}
+\item\label{ordinal1:6} $X\in\succ(X)$.
+\item\label{ordinal1:7} If $\succ(X)=\succ(Y)$, then $X=Y$.
+\item\label{ordinal1:8} $x\in\succ(X)$ if and only if $x\in X$ or $x=X$.
+\item\label{ordinal1:9} $X\neq\succ(X)$.
+\end{thm}
+
+\section*{Epsilon-Transitivity and Epsilon-Connectedness}
+
+\begin{definition}
+Let $X$ be a set.
+We define the attribute $X$ is \define{$\in$-Transitive} (Mizar: ``\verb#epsilon-transitive#'')
+to mean
+\begin{defn}
+\item for every object $x$, if $x\in X$ then $x\subset X$.
+\end{defn}
+We define the attribute $X$ is \define{$\in$-Connected} (Mizar: ``\verb#epsilon-connected#'')
+to mean
+\begin{defn}
+\item For all objects $x$ and $y$, if $x\in X$ and $y\in X$, then $x\in y$
+  or $x=y$ or $y\in x$.
+\end{defn}
+\end{definition}
+We observe there exists an $\in$-transitive $\in$-connected set.
+
+\section*{Definition of Ordinal Numbers --- Ordinal}
+
+\begin{definition}
+Let $X$ be an object. We say $X$ is \define{ordinal} to mean
+\begin{defn}
+\item $X$ is $\in$-transitive $\in$-connected set.
+\end{defn}
+\end{definition}
+
+Observe ordinal automatically implies $\in$-transitive $\in$-connected
+for sets, and vice-versa.
+
+\begin{notation}\index{Number}
+We introduce the synonym \define{Number} (Mizar: ``\verb#Number#'') for
+objects, and \define{number} (Mizar: ``\verb#number#'') for sets.
+\end{notation}
+
+We observe there exists an ordinal number, and there exists an ordinal Number.
+
+\begin{definition}
+We define the new mode \define{Ordinal} which is an ordinal number.
+\end{definition}
+
+Let $a$, $b$, $c$ be objects. Let $X$, $Y$, $Z$, $x$, $y$, $z$ be sets.
+Let $A$, $B$, $C$, $D$ be Ordinals.
+
+\begin{thm}
+\item\label{ordinal1:10} For any $\in$-transitive set $Z$, if $X\in Y$ and
+  $Y\in Z$, then $X\in Z$.
+\item\label{ordinal1:11} For any $\in$-transitive set $X$ and Ordinal $A$,
+  if $X\properSubset A$, then $X\in A$.
+\item\label{ordinal1:12} For any $\in$-transitive set $A$, for any
+  Ordinals $B$ and $C$, if $A\subset B$ and $B\in C$, then $A\in C$.
+\item\label{ordinal1:13} If $a\in A$, then $a$ is an Ordinal.
+\item\label{ordinal1:14} Either $A\in B$ or $A=B$ or $B\in A$.
+\end{thm}
+
+\begin{definition}
+Let $A$, $B$ be Ordinals. We redefine the predicate $A\subset B$ to mean
+\begin{defn}
+\item For every Ordinal $C$, if $C\in A$, then $C\in B$.
+\end{defn}
+\end{definition}
+
+Observe if a number is empty, then it is ordinal. We observe there
+exists a nonempty Ordinal. Also $\succ(A)$ is a nonempty ordinal, and
+$\union A$ is ordinal.
+
+We can prove the following results:
+\begin{thm}
+\item\label{ordinal1:15} $A$, $B$ are $\subset$-comparable.
+\item\label{ordinal1:16} $A\subset B$ or $B\in A$.
+\item\label{ordinal1:17} If $x$ is Ordinal, then $\succ(x)$ is Ordinal.
+\item\label{ordinal1:18} If $x$ is ordinal, then $\union x$ is
+  $\in$-transitive $\in$-connected.
+\item\label{ordinal1:19} If every $x$ such that $x\in X$ satisfies $x$
+  is Ordinal and $x\subset X$,
+  then $X$ is $\in$-transitive $\in$-connected.
+\item\label{ordinal1:20} If $X\subset A$ and $X\neq\emptyset$,
+  then there exists an Ordinal $C$ such that $C\in X$ and every Ordinal
+  $B\in X$ also contains $C\subset B$.
+\item\label{ordinal1:21} $A\in B$ iff $\succ(A)\subset B$.
+\item\label{ordinal1:22} $A\in\succ(C)$ iff $A\subset C$.
+\end{thm}
+
+\section*{Transfinite Induction and Principle of Minimum Ordinals}
+
+\begin{scheme}[OrdinalMin]
+Let $P[-]$ be a unary predicate of ordinals.
+There exists an ordinal $A$ such that $P[A]$ and every Ordinal $B$ such
+that $P[B]$ contains $A\subset B$, provided
+\begin{enumerate}
+\item There exists an Ordinal $A$ such that $P[A]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[Transfinite Induction]
+Let $P[-]$ be a unary predicate of Ordinals.
+Every Ordinal $A$ satisfies $P[A]$, provided
+\begin{enumerate}
+\item for every Ordinal $A$, if every ordinal $C$ has $C\in A$ implies $P[C]$,
+  then $P[A]$.
+\end{enumerate}
+\end{scheme}
+
+\section*{Properties of sets of ordinals}
+
+\begin{thm}
+\item\label{ordinal1:23} If every $a\in X$ is an Ordinal,
+  then $\union X$ is $\in$-transitive $\in$-connected.
+\item\label{ordinal1:24} If every $a\in X$ is an ordinal,
+  then there exists an Ordinal $A$ such that $X\subset A$.
+\item\label{ordinal1:25} There is no set $X$ such that, for all objects
+  $x$ having $x\in X$ iff $x$ is Ordinal.
+\item\label{ordinal1:26} There is no set $X$ such that every Ordinal $A$
+  belongs to it, $A\in X$.
+\item\label{ordinal1:27} For each set $X$ there exists an Ordinal $A$
+  such that $A\notin X$ and every Ordinal $B$ if $B\notin X$ then
+  $A\subset B$.
+\end{thm}
+
+\section*{Limit Ordinals}
+
+\begin{definition}
+Let $A$ be a set.
+We define the attribute $A$ is \define{limit ordinal} to mean
+\begin{defn}
+\item $A=\union A$.
+\end{defn}
+\end{definition}
+
+We then have the following results:
+\begin{thm}
+\item\label{ordinal1:28} $A$ is a limit ordinal if and only if every
+  Ordinal $C\in A$ has $\succ(C)\in A$.
+\item\label{ordinal1:29} $A$ is not a limit ordinal if and only if there
+  exists an Ordinal $B$ such that $A=\succ(B)$.
+\end{thm}
+
+\section*{Transfinite Sequences}
+
+\begin{definition}
+Let $X$ be a set.
+We define the attribute $X$ is \define{Sequence-like} to mean
+\begin{defn}
+\item $\proj1(X)$ is $\in$-transitive $\in$-connected.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+A \define{Sequence} is a Sequence-like Function.
+\end{definition}
+
+Observe for any set $Z$, there exists a $Z$-valued Sequence.
+
+\begin{definition}
+Let $Z$ be a set.
+We define the mode a \define{Sequence of $Z$} is a $Z$-valued Sequence.
+\end{definition}
+
+Let $F$ be a Function.
+\begin{thm}
+\item\label{ordinal1:30} $\emptyset$ is a Sequence of $Z$.
+\item\label{ordinal1:31} If $\dom(F)$ is Ordinal, then $F$ is a Sequence
+  of $\rng(F)$.
+\item\label{ordinal1:32} If $X\subset Y$, then every Sequence $L$ of $X$
+  is also a Sequence of $Y$.
+\item\label{ordinal1:33} Let $L$ be a Sequence of $X$. Then $L|_{A}$ is
+  a Sequence of $X$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set. We define the attribute $X$ is \define{$\subset$-linear}
+(Mizar: ``\verb#c=-linear#'') to mean:
+\begin{defn}
+\item for all sets $x$ and $y$, if $x\in X$ and $y\in X$, then $x$ and
+  $y$ are $\subset$-comparable.
+\end{defn}
+\end{definition}
+
+We have the following result.
+\begin{thm}
+\item\label{ordinal1:34} If every object $a$ has $a\in X$ imply $a$ is a
+  Sequence, and if $X$ is $\subset$-linear, then $\union X$ is a Sequence.
+\end{thm}
+
+\section*{Schemes of definability by transfinite induction}
+
+\begin{scheme}[TSUniq]
+Let $\mathcal{A}$ be an Ordinal, $\mathcal{H}(-)$ be a set parametrized
+by Sequences, let $\mathcal{L}_{1}$ and $\mathcal{L}_{2}$ be Sequence.
+We have $\mathcal{L}_{1}=\mathcal{L}_{2}$, provided:
+\begin{enumerate}
+\item $\dom(\mathcal{L}_{1})=\mathcal{A}$, and for every Ordinal $B$ and
+  Seuqence $L$ if $B\in\mathcal{A}$ and $L=\mathcal{L}_{1}|_{B}$ then $\mathcal{L}_{1}(B)=\mathcal{H}(L)$
+\item $\dom(\mathcal{L}_{2})=\mathcal{A}$, and for every Ordinal $B$ and
+  Seuqence $L$ if $B\in\mathcal{A}$ and $L=\mathcal{L}_{2}|_{B}$ then $\mathcal{L}_{2}(B)=\mathcal{H}(L)$
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[TSExist]
+Let $\mathcal{A}$ be an Ordinal, $\mathcal{H}(-)$ be a set parametrized
+by Sequences. There exists a Sequence $L$ such that $\dom(L)=\mathcal{A}$
+and for every Ordinal $A$ and Sequence $L_{1}$ such that
+$B\in\mathcal{A}$ and $L_{1}=L|_{B}$ we have $L_{B}=\mathcal{H}(L_{1})$.
+\end{scheme}
+
+\begin{scheme}[FunctTS]
+Let $\mathcal{L}$ be a Sequence, let $\mathcal{F}(-)$ be a set
+parametrized by an Ordinal, let $\mathcal{H}(-)$ be a set parametrized
+by a Sequence.
+For every Ordinal $B$, if $B\in\dom(\mathcal{L})$, then $\mathcal{L}(B)=\mathcal{H}(\mathcal{L}|_{B})$,
+provided:
+\begin{enumerate}
+\item For every Ordinal $A$ and object $a$, $a=\mathcal{F}(A)$ iff there
+  exists a Sequence $L$ such that $a=\mathcal{H}(L)$ and $\dom(L)=A$ and
+  every Ordinal $B\in A$ satisfies $L(B)=\mathcal{H}(L|_{B})$; and
+\item For every Ordinal $A$, if $A\in\dom(\mathcal{L})$, then $\mathcal{L}(A)=\mathcal{F}(A)$.
+\end{enumerate}
+\end{scheme}
+
+We have the following proposition:
+\begin{thm}
+\item\label{ordinal1:35} $A\properSubset B$ or $A=B$ or $B\properSubset A$.
+\end{thm}
+
+
+\section*{Addenda}
+
+\begin{definition}\index{$\On~X$}\index{$\Lim~X$}
+Let $X$ be a set. We define the term $\On~X$ (Mizar: ``\verb#On X#'') to be the set such that
+\begin{defn}
+\item For every object $x$, we have $x\in\On~X$ iff $x\in X$ and $x$ is Ordinal.
+\end{defn}
+We define the term $\Lim~X$ (Mizar: ``\verb#Lim X#'') to be the set such
+that
+\begin{defn}
+\item For every object $x$, $x\in\Lim~X$ iff $x\in X$ and there exists
+  an Ordinal $A$ such that $x=A$ and $A$ is a limit ordinal.
+\end{defn}
+\end{definition}
+
+We can prove the generalized axiom of infinity:
+\begin{thm}
+\item\label{ordinal1:36}\index{Axiom of Infinity!Generalized}%
+For any Ordinal $D$, there exists an Ordinal
+$A$ such that $D\in A$ and $A$ is a limit ordinal.
+\end{thm}
+
+\begin{definition}\index{$\omega$}
+We define the constant $\omega$ to be the set such that
+\begin{defn}
+\item $\emptyset\in\omega$ and $\omega$ is a limit ordinal and $\omega$
+  is ordinal and contains every Ordinal $A$ which contains $\emptyset\in A$ and $A$
+  is a limit ordinal (i.e., $A\in\omega$).
+\end{defn}
+\end{definition}
+
+Observe $\omega$ is nonempty ordinal.
+
+\begin{definition}
+Let $A$ be an object. We define the attribute $A$ is \define{natural} to
+mean
+\begin{defn}
+\item $A\in\omega$.
+\end{defn}
+\end{definition}
+
+Observe there exists a natural Number, and there exists a natural set.
+
+\begin{definition}
+We define the mode \define{Nat} which is a natural number.
+\end{definition}
+
+\begin{scheme}[ALFA]
+Let $\mathcal{D}$ be a nonempty set, let $P[-,-]$ be a binary predicate
+of objects.
+There exists a function $F$ such that $\dom(F)=\mathcal{D}$ and
+every element $f$ of $\mathcal{D}$ there exists an Ordinal $A$ such that
+$A=F(d)$ and $P[d,A]$ and every Ordinal $B$ satisfying $P[d,B]$ contains
+$A\subset B$; provided
+\begin{enumerate}
+\item For every element $d$ of $\mathcal{D}$ there exists an Ordinal $A$
+  such that $P[d,A]$.
+\end{enumerate}
+\end{scheme}
+
+We have the following result:
+\begin{thm}
+\item\label{ordinal1:37} $\succ(X)\setminus \{X\}=X$.
+\end{thm}
+
+\begin{definition}
+We define the constant $0$ to be the number 
+\begin{defn}
+\item $0 = \emptyset$.
+\end{defn}
+\end{definition}
+Observe $0$ is natural.
+
+\begin{definition}
+Let $x$ be a Number. We define the attribute $x$ is \define{zero} to
+mean
+\begin{defn}
+\item $x=0$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $R$ be a Relation. We define the attribute $R$ is \define{non-zero}
+to mean
+\begin{defn}
+\item $0\notin\rng(R)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a set. We define the attribute $X$ is \define{with zero} to
+mean
+\begin{defn}
+\item $0\in X$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $o$ be an object. We define the term $\Segm(o)$ to be the set equal
+to
+\begin{defn}
+\item $o$.
+\end{defn}
+\end{definition}
+Observe when $n$ is an Ordinal, $\Segm(n)$ is ordinal.
+
+\end{document}

@@ -1,0 +1,81 @@
+\documentclass{article}
+
+\title{Graphs of Functions}
+\author{Czes{\l}aw Byli\'nski}
+\begin{document}
+\maketitle
+
+Let $f$, $g$ be functions. Let $x$, $y$, $z$ be objects. Then we have
+the following results:
+\begin{thm}
+\item\label{grfunc1:1} Let $G$ be a set. If $G\subset f$, then $G$ is a function.
+\item\label{grfunc1:2} $f\subset g$ if and only if
+  $\dom(f)\subset\dom(g)$ and for every object $x\in\dom(f)$ we have $f(x)=g(x)$.
+\item\label{grfunc1:3} If $\dom(f)=\dom(g)$ and $f\subset g$, then $f=g$.
+\item\label{grfunc1:4} If $(x,z)\in(g\circ f)$, then $(x,f(x))\in f$ and
+  $(f(x),z)\in g$.
+\item\label{grfunc1:5} $\{(x,y)\}$ is a function.
+\item\label{grfunc1:6} If $f=\{(x,y)\}$, then $f(x)=y$.
+\item\label{grfunc1:7} $\dom(f)=\{x\}$, then $f=\{(x,f(x)\}$.
+\item\label{grfunc1:8} $\{(x_{1},y_{1}),(x_{2},y_{2})\}$ is a function
+  if and only if $x_{1}=x_{2}$ implies $y_{1}=y_{2}$.
+\item\label{grfunc1:9} $f$ is one-to-one if and only if for an objects
+  $x_{1}$, $x_{2}$, $y$ such that $(x_{1},y)\in f$ and $(x_{2},y)\in f$
+  we have $x_{1}=x_{2}$.
+\item\label{grfunc1:10} If $g\subset f$ and $f$ is one-to-one, then $g$
+  is one-to-one.
+\end{thm}
+
+We observe that, when $f$ is a function and $X$ is a set, $f\cap X$ is a function.
+
+We can prove the following results:
+\begin{thm}
+\item\label{grfunc1:11} If $x\in\dom(f\cap g)$, then $(f\cap g)(x)=f(x)$.
+\item\label{grfunc1:12} If $f$ is one-to-one, then $f\cap g$ is one-to-one.
+\item\label{grfunc1:13} If $\dom(f)$ misses $\dom(g)$, then $f\cup g$ is
+  a function.
+\item\label{grfunc1:14} If $f\subset h$ and $g\subset h$,then $f\cup g$
+  is a function.
+\item\label{grfunc1:15} If $x\in\dom(g)$ and $h=f\cup g$, then $h(x)=g(x)$.
+\item\label{grfunc1:16} If $x\in\dom(h)$ and $h=f\cup g$, then either
+  $h(x)=f(x)$ or $h(x)=g(x)$.
+\item\label{grfunc1:17} If $f$ and $g$ are both one-to-one, $h=f\cup g$,
+  and $\rng(f)$ misses $\rng(g)$, then $h$ is one-to-one.
+\item\label{grfunc1:18} (Cancelled)
+\item\label{grfunc1:19} (Cancelled)
+\item\label{grfunc1:20} If $f$ is one-to-one, then for every objects $x$
+  and $y$ we have $(y,x)\in f^{-1}$ iff $(x,y)\in f$.
+\item\label{grfunc1:21} If $f=\emptyset$, then $f^{-1}=\emptyset$.
+\item\label{grfunc1:22} $x\in\dom(f)$ and $x\in X$ if and only if
+  $(x,f(x))\in f|_{X}$. 
+\item\label{grfunc1:23} If $g\subset f$, then $f|_{\dom(g)}=g$.
+\item\label{grfunc1:24} $x\in\dom(f)$ and $f(x)\in Y$ if and only if
+  $(x,f(x))\in f|^{Y}$.
+\item\label{grfunc1:25} If $g\subset f$ and $f$ is one-to-one, then $f|^{\rng(g)}=g$.
+\item\label{grfunc1:26}  $x\in f^{-1}(Y)$ if and only if $(x,f(x))\in f$
+  and $f(x)\in Y$.
+\item\label{grfunc1:27} Let $X$ be a set. If $X\subset\dom(f)$ and
+  $f\subset g$, then $f|_{X}=g|_{X}$.
+\item\label{grfunc1:28} Let $x$ be a set. If $x\in\dom(f)$, then $f|_{\{x\}}=\{(x,f(x))\}$.
+\item\label{grfunc1:29} If $\dom(f)=\dom(g)$ and $f(x)=g(x)$, then
+  $f|_{\{x\}}=g|_{\{x\}}$
+\item\label{grfunc1:30} If $\dom(f)=\dom(g)$, $f(x)=g(x)$, and
+  $f(y)=g(y)$, then $f|_{\{x,y\}}=g|_{\{x,y\}}$.
+\item\label{grfunc1:31} If $\dom(f)=\dom(g)$, $f(x)=g(x)$, $f(y)=g(y)$, and
+  $f(z)=g(z)$, then $f|_{\{x,y,z\}}=g|_{\{x,y,z\}}$
+\end{thm}
+
+Observe when $f$ is a function and $A$ is a set, $f\setminus A$ is function-like.
+
+We can prove the following results:
+\begin{thm}
+\item\label{grfunc1:32} If $x\in\dom(f)\setminus\dom(g)$, then
+  $(f\setminus g)(x)=f(x)$.
+\item\label{grfunc1:33} If $f\subset g$ and $f\subset h$,
+  then $g|_{\dom(f)}=h|_{\dom(f)}$.
+\item\label{grfunc1:34} If $g\subset f$, then $g=f|_{\dom(g)}$.
+\item\label{grfunc1:35} If $g\subset f$, $x\in X$, and $X\cap\dom(f)=\dom(g)$,
+  then $f(x)=g(x)$.
+\end{thm}
+
+\end{document}

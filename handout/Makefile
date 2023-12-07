@@ -1,6 +1,10 @@
 TEX=pdflatex
 FILE=handout
 
-all:
+all: index
 	$(TEX) $(FILE)
 	$(TEX) $(FILE)
+
+index:
+	$(TEX) $(FILE)
+	makeindex $(FILE)

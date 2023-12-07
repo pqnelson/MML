@@ -1,0 +1,488 @@
+\documentclass{article}
+
+\title{Functions and Their Basic Properties (FUNCT-1)}
+\author{Czes{\l}aw Byli\'nski}
+\date{March 3, 1989}
+
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $X$ be a set. We define the attribute $X$ is \define{Function-like}
+to mean
+\begin{defn}
+\item for all objects $x$, $y_{1}$, $y_{2}$, if $(x,y_{1})\in X$
+  and $(x,y_{2})\in X$, then $y_{1}=y_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+We define the mode \define{Function} is a Function-like Relation.
+\end{definition}
+
+\begin{scheme}[GraphFunc]
+Let $\mathcal{A}$ be a set, let $P[-,-]$ be a binary predicate of objects.
+There exists a function $f$ such that for objects $x$ and $y$ we have
+$(x,y)\in f$ if and only if $x\in\mathcal{A}$ and $P[x,y]$; provided
+\begin{enumerate}
+\item for all objects $x$, $y_{1}$, and $y_{2}$, if $P[x,y_{1}]$ and $P[x,y_{2}]$,
+  then $y_{1}=y_{2}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{definition}
+Let $f$ be a function, let $x$ be an object.
+We define the term $f(x)$ (Mizar: ``\verb#f . x#'') to mean:
+\begin{defn}
+\item $(x,f(x))\in f$ if $x\in\dom(f)$, otherwise $f(x)=\emptyset$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+The ``otherwise'' clause is needed for Mizar to be happy, we never run
+across it ``in the wild''.
+\end{remark}
+
+Let $f$, $g$ be functions, let $x$ and $y$ be objects. We have the
+following two theorems:
+\begin{thm}
+\item\label{funct1:1} $(x,y)\in f$ if and only if $x\in\dom(f)$ and $y=f(x)$.
+\item\label{funct1:2} If $\dom(f)=\dom(g)$ and
+  every $x$ such that $x\in\dom(f)$ has $f(x)=g(x)$,
+  then $f=g$.
+\end{thm}
+
+\begin{definition}\index{Range!of a Function}
+Let $f$ be a function. We redefine the term $\rng(f)$ to mean
+\begin{defn}
+\item for every object $y$, we have $y\in\rng(f)$ if and only if there
+  exists some object $x$ such that $x\in\dom(f)$ and $y=f(x)$.
+\end{defn}
+\end{definition}
+
+We have the following two results:
+\begin{thm}
+\item\label{funct1:3} If $x\in\dom(f)$, then $f(x)\in\rng(f)$.
+\item\label{funct1:4} If $\dom(f)=\{x\}$, then $\rng(f)=\{f(x)\}$.
+\end{thm}
+
+\begin{scheme}[FuncEx]
+Let $\mathcal{A}$ be a set, let $P[-,-]$ be a binary predicate of objects.
+There exists a function $f$ such that $\dom(f)=\mathcal{A}$
+and for every object $x$ such that $x\in\mathcal{A}$ we have $P[x,f(x)]$;
+provided:
+\begin{enumerate}
+\item If $x\in\mathcal{A}$ and $P[x,y_{1}]$ and $P[x,y_{2}]$, then $y_{1}=y_{2}$;
+and
+\item If $x\in\mathcal{A}$, then there exists an object $y$ such that $P[x,y]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[Lambda]
+Let $\mathcal{A}$ be a set, $\mathcal{F}(-)$ be some unary functor.
+There exists a function $f$ such that $\dom(f)=\mathcal{A}$ and for
+every object $x$ such that $x\in\mathcal{A}$ we have $f(x)=\mathcal{F}(x)$.
+\end{scheme}
+
+Let $X$ and $Y$ be sets.
+\begin{thm}
+\item\label{funct1:5} If $X\neq\emptyset$, then for every object $y$
+  there exists a function $f$ such that $\dom(f)=X$ and $\rng(f)=\{y\}$.
+\item\label{funct1:6} If every functions $f$ and $g$ such that
+  $\dom(f)=X$ and $\dom(g)=X$ implies $f=g$, then $X=\emptyset$.
+\item\label{funct1:7} If $\dom(f)=\dom(g)$ and $\rng(f)=\{y\}$ and
+  $\rng(g)=\{y\}$, then $f=g$.
+\item\label{funct1:8} If either $Y\neq\emptyset$ or $X=\emptyset$,
+  then there exists a function $f$ such that $X=\dom(f)$ and
+  $\rng(f)\subset Y$.
+\item\label{funct1:9} If for every object $y$ such that $y\in Y$ there
+  exists an object $x$ with $x\in\dom(f)$ and $y=f(x)$,
+  then $Y\subset\rng(f)$.
+\end{thm}
+
+\begin{notation}\hypertarget{notation:funct1:composition}{}\index{Composition!Functions}\index{Function!Composition}
+Let $f$ and $g$ be functions. We introduce the synonym $g\circ f$
+(Mizar: ``\verb#g * f#'') for $f\cdot g$.
+\end{notation}
+
+Observe that $g\circ f$ is Function-like.
+
+Let $f$, $g$, and $h$ be functions. Let $x$, $y$, $z$ be objects. We have the following results:
+\begin{thm}
+\item\label{funct1:10} If \begin{enumerate*}[label=(\roman*)] 
+\item every object $x$ has $x\in\dom(h)$ iff $x\in\dom(f)$ and $f(x)\in\dom(g)$,
+and
+\item every object $x$ such that $x\in\dom(h)$ has $h(x)=g\bigl(f(x)\bigr)$;
+\end{enumerate*}
+  then $h=g\circ f$.
+\item\label{funct1:11} $x\in\dom(g\circ f)$ if and only if $f\in\dom(f)$
+  and $f(x)\in\dom(g)$.
+\item\label{funct1:12} If $x\in\dom(g\circ f)$, then $(g\circ f)(x)=g\bigl(f(x)\bigr)$.
+\item\label{funct1:13} If $x\in\dom(f)$, then $(g\circ f)(x)=g\bigl(f(x)\bigr)$.
+\item\label{funct1:14} If $z\in\rng(g\circ f)$, then $z\in\rng(g)$.
+\item\label{funct1:15} If $\dom(g\circ f)=\dom(f)$, then $\rng(f)\subset\dom(g)$.
+\item\label{funct1:16} If $\rng(f)\subset Y$
+  and for all functions $g$ and $h$ such that $\dom(g)=Y$ and
+  $\dom(h)=Y$ and $g\circ f=h\circ f$ implies $g=h$,
+  then $Y=\rng(f)$.
+\end{thm}
+
+Observe $\id_{X}$ is Function-like (and therefore a Function).
+
+\begin{thm}
+\item\label{funct1:17} $f=\id_{X}$ iff $\dom(f)=X$ and every object $x$
+  with $x\in X$ has $f(x)=x$.
+\item\label{funct1:18} If $x\in X$, then $\id_{X}(x)=x$.
+\item\label{funct1:19} $\dom(f\circ\id_{X})=\dom(f)\cap X$.
+\item\label{funct1:20} If $x\in\dom(f)\cap X$, then $f(x)=(f\circ\id_{X})(x)$.
+\item\label{funct1:21} $x\in\dom(\id_{Y}\circ f)$ iff $x\in\dom(f)$ and
+  $f(x)\in Y$.
+\item\label{funct1:22} $\id_{X}\circ\id_{Y}=\id_{X\cap Y}$.
+\item\label{funct1:23} If $\rng(f)=\dom(g)$ and $g\circ f=f$, then $g=\id_{\dom(g)}$.
+\end{thm}
+
+\begin{definition}\index{Injective!Function}\index{Function!Injective}\index{Function!one-to-one}
+Let $f$ be a function. We define the attribute $f$ is \define{one-to-one}
+to mean
+\begin{defn}
+\item for all objects $x_{1}$ and $x_{2}$ such that $x_{1}\in\dom(f)$
+  and $x_{2}\in\dom(f)$ and $f(x_{1})=f(x_{2})$, then $x_{1}=x_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+I may use the term ``injective'' interchangeably with ``one-to-one'',
+since it is the modern convention (thanks to Bourbaki and co-opted by
+category theorists).
+\end{remark}
+
+We have the following six propositions:
+\begin{thm}
+\item\label{funct1:24} If $f$ is one-to-one and $g$ is one-to-one, then
+  $g\circ f$ is one-to-one.
+\item\label{funct1:25} If $g\circ f$ is one-to-one and $\rng(f)\subset\dom(g)$,
+  then $f$ is one-to-one.
+\item\label{funct1:26} If $g\circ f$ is one-to-one and $\rng(f)=\dom(g)$,
+  then $f$ is one-to-one and $g$ is one-to-one.
+\item\label{funct1:27} $f$ is one-to-one if and only if for all
+  functions $g$ and $h$ such that $\rng(g)\subset\dom(f)$ and
+  $\rng(h)\subset\dom(f)$ and $\dom(g)=\dom(h)$ and $f\circ g=f\circ h$
+  implies $g=h$.
+\item\label{funct1:28} If $\dom(f)=X$ and $\dom(g)=X$ and
+  $\rng(g)\subset X$ and $f$ is one-to-one and $f\circ g=f$, then $g=\id_{X}$.
+\item\label{funct1:29} If $\rng(g\circ f)=\rng(g)$ and $g$ is
+  one-to-one, then $\dom(g)\subset\rng(f)$.
+\item\label{funct1:30} (Cancelled)
+\item If there exists a function $g$ such that $g\circ f=\id_{\dom(f)}$,
+  then $f$ is one-to-one.
+\end{thm}
+
+Observe $\id_{X}$ is one-to-one. Also observe when $f$ is a one-to-one
+function, $\converse{f}$ is a Function-like [relation] (and hence
+$\converse{f}$ is a function).
+
+\begin{definition}
+Let $f$ be a one-to-one function. We define the term $f^{-1}$ (Mizar:
+``\verb#f " #'') to equal
+\begin{defn}
+\item $\converse{f}$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+It is idiomatic Mizar to use `\verb#"#' for inverses of various kinds.
+\end{remark}
+
+\begin{thm}
+\item\label{funct1:32} When $f$ is one-to-one,
+  then for any function $g$ we have $g=f^{-1}$ if and only if
+  \begin{enumerate*}[label=(\roman*)]
+  \item $\dom(g)=\rng(f)$ and
+  \item for any objects $x$ and $y$ we have
+  $y\in\rng(f)$ and $x=g(y)$ iff $x\in\dom(f)$ and $y=f(x)$.
+  \end{enumerate*}
+\item\label{funct1:33} If $f$ is one-to-one, then $\rng(f)=\dom(f^{-1})$
+  and $\dom(f)=\rng(f^{-1})$.
+\item\label{funct1:34} If $f$ is one-to-one and $x\in\dom(f)$,
+  then $x=f^{-1}\bigl(f(x)\bigr)$ and $x=(f^{-1}\circ f)(x)$.
+\item\label{funct1:35} If $f$ is one-to-one and $y\in\rng(f)$,
+  then $y=f\bigl(f^{-1}(y)\bigr)$ and $y=(f\circ f^{-1})(y)$.
+\item\label{funct1:36} If $f$ is one-to-one, then $\dom(f^{-1}\circ f)=\dom(f)$
+  and $\rng(f^{-1}\circ f)=\dom(f)$.
+\item\label{funct1:37} If $f$ is one-to-one, then $\dom(f\circ f^{-1})=\rng(f)$
+  and $\rng(f\circ f^{-1})=\rng(f)$.
+\item\label{funct1:38} If $f$ is one-to-one, $\dom(f)=\rng(g)$,
+  $\rng(f)=\dom(g)$, and every $x$ and $y$ such that $x\in\dom(f)$ and
+  $y\in\dom(g)$ has $f(x)=y$ iff $g(y)=x$, then $g=f^{-1}$.
+\item\label{funct1:39} If $f$ is one-to-one, then $f^{-1}\circ f=\id_{\dom(f)}$
+  and $f\circ f^{-1}=\id_{\rng(f)}$.
+\item\label{funct1:40} If $f$ is one-to-one, then $f^{-1}$ is one-to-one.
+\item\label{funct1:41} If $f$ is one-to-one, $\rng(f)=\dom(g)$, and
+  $g\circ f=\id_{\dom(f)}$, then $g=f^{-1}$.
+\item\label{funct1:42} If $f$ is one-to-one, $\rng(g)=\dom(f)$, and
+  $f\circ g=\id_{\rng(f)}$, then $g=f^{-1}$.
+\item\label{funct1:43} If $f$ is one-to-one, then $(f^{-1})^{-1}$.
+\item\label{funct1:44} If $f$ and $g$ are both one-to-one, then $(g\circ f)^{-1}=f^{-1}\circ g^{-1}$.
+\item\label{funct1:45} $\id_{X}^{-1}=\id_{X}$.
+\item\label{funct1:46} If $\dom(g)=\dom(f)\cap X$ and every object $x$
+  such that $x\in\dom(g)$ satisfies $g(x)=f(x)$, then $g=f|_{X}$.
+\item\label{funct1:47} If $x\in\dom(f|_{X})$, then $f|_{X}(x)=f(x)$.
+\item\label{funct1:48} If $x\in\dom(f)\cap X$, then $f|_{X}(x)=f(x)$.
+\item\label{funct1:49} If $x\in X$, then $f|_{X}(x)=f(x)$.
+\item\label{funct1:50} If $x\in\dom(f)$ and $x\in X$, then $f(x)\in\rng(f|_{X})$.
+\item\label{funct1:51} If $X\subset Y$, then $(f|_{X})|_{Y}=f|_{X}$ and $(f|_{Y})|_{X}=f|_{X}$.
+\item\label{funct1:52} If $f$ is one-to-one, then $f|_{X}$ is one-to-one.
+\end{thm}
+
+Observe $f|^{Y}$ is Function-like.
+
+We now may prove the following six propositions:
+\begin{thm}
+\item\label{funct1:53} $g=f|^{Y}$ if and only if
+  \begin{enumerate*}[label=(\roman*)]
+  \item every object $x$ satisfies $x\in\dom(g)$ iff $x\in\dom(f)$ and
+    $f(x)\in Y$; and
+  \item every object $x$ such that $x\in\dom(g)$ satisfies $g(x)=f(x)$.
+  \end{enumerate*}
+\item\label{funct1:54} $x\in\dom(f|^{Y})$ if and only if $x\in\dom(f)$
+  and $f(x)\in Y$.
+\item\label{funct1:55} If $x\in\dom(f|^{Y})$, then $(f|^{Y})(x)=f(x)$.
+\item\label{funct1:56} $\dom(f|^{Y})\subset\dom(f)$.
+\item\label{funct1:57} If $X\subset Y$, then $(f|^{X})|^{Y}=f|^{X}$ and $(f|^{Y})|^{X}=f|^{X}$.
+\item\label{funct1:58} If $f$ is one-to-one, then $f|^{Y}$ is one-to-one.
+\end{thm}
+
+\begin{definition}\index{Function!Image of set in}\index{Image!of set in Function}
+Let $f$ be a function, let $X$ be a set.
+We redefine the term $f(X)$ to mean
+\begin{defn}
+\item $y\in f(X)$ iff there exists an object $x$ such that $x\in\dom(f)$
+  and $x\in X$ and $y=f(x)$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{funct1:59} If $x\in\dom(f)$, then $\RelIm{f}{x}=\{f(x)\}$.
+\item\label{funct1:60} If $x_{1}\in\dom(f)$ and $x_{2}\in\dom(f)$,
+  then $f(\{x_{1},x_{2}\})=\{f(x_{1}),f(x_{2})\}$.
+\item\label{funct1:61} $f|^{Y}(X)\subset f(X)$.
+\item\label{funct1:62} If $f$ is one-to-one, then $f(X_{1}\cap X_{2})=f(X_{1})\cap f(X_{2})$
+\item\label{funct1:63} Suppose every sets $X_{1}$ and $X_{2}$ has
+  $f(X_{1}\cap X_{2})=f(X_{1})\cap f(X_{2})$.
+  Then $f$ is one-to-one.
+\item\label{funct1:64} If $f$ is one-to-one, then $f(X_{1}\setminus X_{2})=f(X_{1})\setminus f(X_{2})$
+\item\label{funct1:65} Suppose every sets $X_{1}$ and $X_{2}$ has
+  $f(X_{1}\setminus X_{2})=f(X_{1})\setminus f(X_{2})$.
+  Then $f$ is one-to-one.
+\item\label{funct1:66} If $X$ misses $Y$ and $f$ is one-to-one, then
+  $f(X)$ misses $f(Y)$.
+\item\label{funct1:67} $f|^{Y}(X)=Y\cap f(X)$.
+\end{thm}
+
+\begin{definition}\index{Function!Preimage of Set}\index{Preimage!Function}
+Let $f$ be a function, let $Y$ be a set. We redefine the term
+$f^{-1}(Y)$ (Mizar: ``\verb# f " Y #'') to mean
+\begin{defn}
+\item $x\in f^{-1}(Y)$ iff $x\in\dom(f)$ and $f(x)\in Y$.
+\end{defn}
+\end{definition}
+
+Let $R$ be a relation, let $A$ and $B$ be sets. Then we have the following results:
+\begin{thm}
+\item\label{funct1:68} $f^{-1}(Y_{1}\cap Y_{2})=f^{-1}(Y_{1})\cap f^{-1}(Y_{2})$
+\item\label{funct1:69} $f^{-1}(Y_{1}\setminus Y_{2})=f^{-1}(Y_{1})\setminus f^{-1}(Y_{2})$
+\item\label{funct1:70} $R|_{X}^{-1}(Y)=X\cap R^{-1}(Y)$. 
+\item\label{funct1:71} If $A$ misses $B$, then $f^{-1}(A)$ misses $f^{-1}(B)$.
+\item\label{funct1:72} $y\in\rng(R)$ iff $R^{-1}(\{y\})\neq\emptyset$.
+\item\label{funct1:73} If for any object $y$ when $y\in Y$ we have
+  $R^{-1}(\{y\})\neq\emptyset$, then $Y\subset\rng(R)$.
+\item\label{funct1:74} The following are logically equivalent:
+  \begin{enumerate}[label=(\roman*)]
+  \item for each object $y$ such that $y\in\rng(f)$ there exists an
+    object $x$ such that $f^{-1}(\{y\})=\{x\}$;
+  \item $f$ is one-to-one.
+  \end{enumerate}
+\item\label{funct1:75} $f\bigl(f^{-1}(Y)\bigr)\subset Y$
+\item\label{funct1:76} If $X\subset\dom(R)$, then $X\subset R^{-1}\bigl(R(X)\bigr)$.
+\item\label{funct1:77} If $Y\subset\rng(f)$,
+  then $f\bigl(f^{-1}(Y)\bigr)$.
+\item\label{funct1:78} $f\bigl(f^{-1}(Y)\bigr)=Y\cap f(\dom(f))$.
+\item\label{funct1:79} $f\bigl(X\cap f^{-1}(Y)\bigr)\subset f(X)\cap Y$.
+\item\label{funct1:80} $f\bigl(X\cap f^{-1}(Y)\bigr)= f(X)\cap Y$.
+\item\label{funct1:81} $X\cap R^{-1}(Y)\subset R^{-1}\bigl(R(X)\cap Y\bigr)$.
+\item\label{funct1:82} If $f$ is one-to-one, then $f^{-1}\bigl(f(X)\bigr)\subset X$.
+\item\label{funct1:83} If $f^{-1}\bigl(f(X)\bigr)\subset X$ for every
+  set $X$, then $f$ is one-to-one.
+\item\label{funct1:84} If $f$ is one-to-one, then $f(X)=(f^{-1})^{-1}(X)$.
+\item\label{funct1:85} (Compatibility of preimage with inverse function.) If $f$ is one-to-one, then $f^{-1}(Y)=f^{-1}(Y)$
+(Mizar: ``\verb# f"Y = (f").:Y #'').
+\end{thm}
+
+\begin{thm}
+\item\label{funct1:86} If $Y=\rng(f)$, $\dom(g)=Y$, $\dom(h)=Y$, and
+  $g\circ f=h\circ f$, then $g=h$.
+\item\label{funct1:87} If $f(X_{1})\subset f(X_{2})$, $X_{1}\subset\dom(f)$,
+  and $f$ is one-to-one, then $X_{1}\subset X_{2}$.
+\item\label{funct1:88} If $f^{-1}(Y_{1})\subset f^{-1}(Y_{2})$ and $Y_{1}\subset\rng(f)$,
+  then $Y_{1}\subset Y_{2}$.
+\item\label{funct1:89} $f$ is one-to-one iff for each object $y$ there
+  exists an object $x$ such that $f^{-1}(\{y\})=\{x\}$.
+\item\label{funct1:90} Let $R$ and $S$ be relations. If $\dom(R)\subset\dom(S)$,
+  then $R^{-1}(X)\subset(R\circ S)^{-1}\bigl(S(X)\bigr)$.
+\item\label{funct1:91} If $f^{-1}(X)=f^{-1}(Y)$, $X\subset\rng(f)$, and
+  $Y\subset\rng(f)$, then $X=Y$.
+\end{thm}
+
+\section*{Addenda}
+
+\begin{thm}
+\item\label{funct1:92} Let $A$ be a subset of $X$. Then $\id_{X}(A)=A$.
+\end{thm}
+
+\begin{definition}
+Let $f$ be a function. We redefine the attribute $f$ is
+\define{empty-yielding} to mean
+\begin{defn}
+\item for any object $x$ such that $x\in\dom(f)$, we have $f(x)$ is empty.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $F$ be a function. We redefine the attribute $F$ is \define{non-empty}
+to mean
+\begin{defn}
+\item for each object $x$ such that $x\in\dom(F)$, we have $F(x)$ is non-empty.
+\end{defn}
+\end{definition}
+
+\begin{scheme}[LambdaB]
+Let $\mathcal{D}$ be a nonempty set, let $\mathcal{F}(-)$ be a functor.
+There exists a function $f$ such that $\dom(f)=\mathcal{D}$
+and for each element $d$ of $\mathcal{D}$ we have $f(d)=\mathcal{F}(d)$.
+\end{scheme}
+
+\begin{definition}\index{Function!Constant}
+Let $f$ be a function. We define the attribute $f$ is \define{constant}
+to mean
+\begin{defn}
+\item If $x\in\dom(f)$ and $y\in\dom(f)$, then $f(x)=f(y)$.
+\end{defn}
+\end{definition}
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{funct1:93} Let $A$, $B$ be sets, let $f$ be a function.
+  If $A\subset\dom(f)$ and $f(A)\subset B$, then $A\subset f^{-1}(B)$.
+\item\label{funct1:94} Let $f$ be a function. If $X\subset\dom(f)$ and
+  $f$ is one-to-one, then $f^{-1}\bigl(f(X)\bigr)=X$.
+\end{thm}
+
+\begin{definition}\index{Function!Equality of}\index{Equality!of Functions}
+Let $f$ and $g$ be functions. We redefine the predicate $f=g$ to mean
+\begin{defn}
+\item $\dom(f)=\dom(g)$ and every object $x$ with $x\in\dom(f)$
+  satisfies $f(x)=g(x)$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{funct1:95} Let $D$ be a set. If $D\subset\dom(f)$ and
+  $D\subset\dom(g)$, then $f|_{D}=g|_{D}$ iff every set $x\in D$
+  satisfies $f(x)=g(x)$.
+\item\label{funct1:96} If $\dom(f)=\dom(g)$ and every set $x\in X$
+  satisfies $f(x)=g(x)$, then $f|_{X}=g|_{X}$.
+\item\label{funct1:97} $\rng(f|_{\{X\}})\subset\{f(X)\}$.
+\item\label{funct1:98} If $X\in\dom(f)$, then $\rng(f|_{\{X\}})=\{f(X)\}$.
+\end{thm}
+
+Let $F$, $G$ be functions. We have the following three propositions:
+\begin{thm}
+\item\label{funct1:99} $G|_{F(X)}\circ F|_{X}=(G\circ F)|_{X}$.
+\item\label{funct1:100} $G|_{X_{1}}\circ F|_{X}=(G\circ F)|_{X\cap F^{-1}(X_{1})}$.
+\item\label{funct1:101} $X\subset\dom(G\circ F)$ iff $X\subset\dom(F)$
+  and $F(X)\subset\dom(G)$.
+\end{thm}
+
+\begin{definition}
+Let $f$ be a function. Assume $f$ is nonempty constant.
+We define the term \define{the value of $f$} to be the object satisfying
+\begin{defn}
+\item there exists a set $x$ such that $x\in\dom(f)$ and the value of
+  $f$ = $f(x)$.
+\end{defn}
+\end{definition}
+
+We have the following result:
+\begin{thm}
+\item\label{funct1:102} Let $f$ be an $X$-valued function.
+  For every set $x$, if $x\in\dom(f)$, then $f(x)\in X$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set. We call $X$ \define{functional} to mean
+\begin{defn}
+\item for each object $x$, if $x\in X$, then $x$ is a function.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $g$, $f$ be functions. We say $f$ is \define{$g$-compatible} to mean
+\begin{defn}
+\item If $x\in\dom(f)$, then $f(x)\in g(x)$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{funct1:103} If $f$ is $g$-compatible and $\dom(f)=\dom(g)$,
+  then $g$ is non-empty.
+\item\label{funct1:104} $\emptyset$ is $f$-compatible.
+\item\label{funct1:105} If $g$ is $f$-compatible, then $\dom(g)\subset\dom(f)$.
+\item\label{funct1:106} Let $f$ be an $X$-valued function.
+  If $x\in\dom(f)$, then $f(x)$ is an element of $X$.
+\item\label{funct1:107} Let $A$ be a set. If $f$ is one-to-one and
+  $A\subset\dom(f)$, then $f^{-1}\bigl(f(A)\bigr)=A$.
+\item\label{funct1:108} If $x\in X$ and $x\in\dom(f)$, then $f(x)\in f(X)$.
+\item\label{funct1:109} If $X\neq\emptyset$ and $X\subset\dom(f)$,
+  then $f(X)\neq\emptyset$.
+\item\label{funct1:110} Let $B$ be a non-empty functional set, let $f$
+  be a function. If $f=\union B$, then $\dom(f)=\union\{\dom(g)\mid g\in B\}$
+  and $\rng(f)=\union\{\rng(g)\mid g\in B\}$
+\end{thm}
+
+\begin{scheme}[LambdaS]
+Let $\mathcal{A}$ be a set, let $\mathcal{F}$ be a unary functor.
+There exists a function $f$ such that $\dom(f)=\mathcal{A}$ and for each
+set $X$ if $X\in\mathcal{A}$, then $f(X)=\mathcal{F}(X)$.
+\end{scheme}
+
+We have the following result.
+\begin{thm}
+\item\label{funct1:111} Let $M$ be a set. If every set $X$ such that
+  $X\in M$ satisfies $X\neq\emptyset$,
+  then there exists a function $f$ such that $\dom(f)=M$ and every set
+  $X\in M$ satisfies $f(X)\in X$.
+\end{thm}
+
+\begin{scheme}[NonUniqBoundFuncEx]
+Let $\mathcal{X}$ be a set, let $\mathcal{Y}$ be a set, let $P[-,-]$ be
+a binary predicate of objects.
+There exists a function $f$ such that $\dom(f)=\mathcal{X}$ and
+$\rng(f)\subset\mathcal{Y}$ and for every object $x$ if
+$x\in\mathcal{X}$ then $P[x,f(x)]$; provided
+\begin{enumerate}
+\item for each object $x$, if $x\in\mathcal{X}$, then there exists an
+  object $y$ such that $y\in\mathcal{Y}$ and $P[x,y]$.
+\end{enumerate}
+\end{scheme}
+
+We have the following three propositions:
+\begin{thm}
+\item\label{funct1:112} Let $f$, $g$, $h$ be functions. If $f\subset h$,
+  $g\subset h$, and $f$ misses $g$, then $\dom(f)$ misses $\dom(g)$.
+\item\label{funct1:113} $f|^{Y}=f|_{f^{-1}(Y)}$.
+\item\label{funct1:114} If $\rng(f)\subset\rng(g)$, then for each object
+  $x\in\dom(f)$ there exists an object $y$ such that $y\in\dom(g)$ and $f(x)=g(y)$.
+\end{thm}
+
+\end{document}
