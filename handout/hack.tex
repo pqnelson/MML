@@ -1,0 +1,59 @@
+% This code includes small pieces from combine.cls and some other sources.
+% No guarantees of any kind given. Use at your own discretion.
+% Feel free to modify and distribute in any way you see fit.
+%
+% Cobbled together from
+% https://pastcounts.wordpress.com/2010/12/20/how-to-construct-a-collection-of-articles-with-latex/
+\long\def\symbolfootnote[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
+
+\makeatletter
+\@addtoreset{remark}{article}
+\@addtoreset{axiom}{article}
+\@addtoreset{scheme}{article}
+\@ifundefined{@title}{\newcommand\@title{}}{}
+\newenvironment{papers}{\renewcommand{\documentclass}[2][]{}%
+  \newcommand{\@@title}{}%
+  \newcommand{\@@subtitle}{}%
+  
+  \renewcommand{\usepackage}[2][]{}%
+  \renewenvironment{document}{\begingroup}{\endgroup}%
+  
+  \newcommand{\title}[1]{\renewcommand{\@title}{##1}\begingroup%
+    \renewcommand{\thanks}[1]{}\protected@xdef\@@title{##1}
+    \endgroup}
+  \newcommand{\subtitle}[1]{\newcommand{\@@subtitle}{##1}}%
+  \newcommand{\author}[1]{\renewcommand{\@author}{##1}}
+  \newcommand{\thanks}[1]{\symbolfootnote[1]{##1}}
+  \newcommand{\maketitle}{
+    % \thispagestyle{empty}
+    %\vspace*{5\baselineskip}
+    \vspace*{1\baselineskip}
+    \smallbreak
+    \begin{center}\sf
+      \footnotesize Article~\thearticle\smallbreak%
+      \LARGE\@title%
+      \ifthenelse{\equal{\@@subtitle}{}}{%empty subtitle
+      }{%not empty subtitle
+        \bigskip
+        \Large\@@subtitle
+      }
+      \bigbreak
+      \large\@author%
+      \medbreak%
+    \end{center}%
+    \markboth{\@@title}{\@@title}%
+%    \markboth{\@@title}{\@author}%
+%    \addcontentsline{toc}{chapter}{\MakeUppercase{\@author}\\\@@title}%
+    \addcontentsline{toc}{chapter}{{\@author} \\\@@title}%
+    \setcounter{footnote}{0}\noindent%
+    \ignorespacesafterend}
+}{
+}
+
+\def\import{\refstepcounter{article}\refstepcounter{chapter}
+  \restartlist{defn}\let\enit@resume@series@thm\@empty
+  \restartlist{thm}\let\enit@resume@series@defn\@empty
+  \input}
+%\let\import\include
+
