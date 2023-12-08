@@ -1,0 +1,211 @@
+\documentclass{article}
+
+\title{Relations Defined on Sets}
+\author{Edmund Woronowicz}
+\begin{document}
+\maketitle
+
+Let $X$, $Y$ be sets.
+
+\begin{definition}
+Let $X$ and $Y$ be sets. We define the new mode \define{Relation of $X$, $Y$}
+is a Subset of $X\times Y$.
+\end{definition}
+
+Observe every subset of $X\times Y$ is relation-like, and every Relation
+of $X$, $Y$ is $X$-defined and $Y$-valued.
+
+Let $P$, $R$ be relations of $X$, $Y$.
+
+\begin{definition}
+Let $X$, $Y$ be sets, let $R$ be a relation of $X$, $Y$. Let $Z$ be a set.
+We redefine the predicate $R\subset Z$ to mean
+\begin{defn}
+\item For each element $x$ of $X$, for each element $y$ of $Y$, if
+  $(x,y)\in R$, then $(x,y)\in Z$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be sets. Let $P$ and $R$ be relations of $X$, $Y$.
+We redefine the predicate $P=R$ to mean
+\begin{defn}
+\item For all elements $x$ of $X$ and $y$ of $Y$, we have $(x,y)\in P$
+  iff $(x,y)\in R$.
+\end{defn}
+\end{definition}
+
+
+Let $A$, $X_{1}$, $Y_{1}$ be sets; let $a$, $x$, $y$, $z$ be objects. Then we have the following results:
+\begin{thm}
+\item\label{relset1:1} If $A\subset R$, then $A$ is a relation of $X$, $Y$.
+\item\label{relset1:2} If $a\in R$, then there exists objects $x$ and
+  $y$ such that $a=(x,y)$ and $x\in X$ and $y\in Y$.
+\item\label{relset1:3} If $x\in X$ and $y\in Y$, then $\{(x,y)\}$ is a
+  Relation of $X$, $Y$.
+\item\label{relset1:4} Every relation $R$ with $\dom(R)\subset X$ and
+  $\rng(R)\subset Y$ is also a Relation of $X$, $Y$.
+\item\label{relset1:5} If $\dom(R)\subset X_{1}$, then $R$ is a Relation
+  of $X_{1}$, $Y$.
+\item\label{relset1:6} If $\rng(R)\subset Y_{1}$, then $R$ is a Relation
+  of $X$, $Y_{1}$.
+\item\label{relset1:7} If $X\subset X_{1}$ and $Y\subset Y_{1}$, then
+  $R$ is a relation of $X_{1}$, $Y_{1}$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set, let $R$ be an $X$-defined relation. We redefine
+$\dom(R)$ to be a subset of $X$.
+\end{definition}
+
+\begin{definition}
+Let $X$ be a set, let $R$ be an $X$-valued relation. We redefine
+$\rng(R)$ to be a subset of $X$.
+\end{definition}
+
+\begin{thm}
+\item\label{relset1:8} $\field(R)\subset X\cup Y$.
+\item\label{relset1:9} $\dom(R)=X$ iff for each object $x\in X$ there exists an object
+  $y$ with $(x,y)\in R$.
+\item\label{relset1:10} $\rng(R)=Y$ iff for each object $y\in Y$ there
+  exists an object $x$ such that $(x,y)\in R$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$ be sets. Let $R$ be a relation of $X$, $Y$. We redefine
+$\converse{R}$ to have its type be Relation of $Y$, $X$.
+\end{definition}
+
+\begin{definition}
+Let $P$ be a relation of $X$, $Y_{1}$; let $R$ be a relation of $Y_{2}$, $Z$.
+We redefine $P\cdot R$ to have its type be a relation of $X$, $Z$.
+\end{definition}
+
+\begin{thm}
+\item\label{relset1:11} $\dom(\converse R)=\rng(R)$ and $\rng(\converse R)=\dom(R)$.
+\item\label{relset1:12} $\emptyset$ is a Relation of $X$, $Y$.
+\item\label{relset1:13} $\id_{X}\subset X\times X$.
+\item\label{relset1:14} $\id_{X}$ is a relation of $X$, $X$.
+\item\label{relset1:15} If $\id_{A}\subset R$, then $A\subset\dom(R)$
+  and $A\subset\rng(R)$.
+\item\label{relset1:16} If $\id_{X}\subset R$, then $X=\dom(R)$ and $X\subset\rng(R)$.
+\item\label{relset1:17} If $\id_{Y}\subset R$, then $Y\subset\dom(R)$
+  and $Y\subset\rng(R)$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$ be sets. Let $R$ be a relation of $X$, $Y$. Let $A$ be a set.
+We redefine the term $R|_{A}$ to have its type be relation of $X$, $Y$.
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be sets. Let $R$ be a relation of $X$, $Y$. Let $B$ be a set.
+We redefine the term $R|^{B}$ to have its type be relation of $X$, $Y$.
+\end{definition}
+
+\begin{thm}
+\item\label{relset1:18} $R|_{X_{1}}$ is a relation of $X_{1}$, $Y$.
+\item\label{relset1:19} If $X\subset X_{1}$, then $R|_{X_{1}}=R$.
+\item\label{relset1:20} $R|^{Y_{1}}$ is a relation of $X$, $Y_{1}$.
+\item\label{relset1:21} If $Y\subset Y_{1}$, then $R|^{Y_{1}}=R$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$ be sets; let $R$ be a relation of $X$, $Y$; let $A$ be a set.
+We redefine the term $R(A)$ to be of type Subset of $Y$; and we redefine
+the term $R^{-1}(A)$ to be of type Subset of $X$.
+\end{definition}
+
+We have the following three propositions:
+\begin{thm}
+\item\label{relset1:22} $R(X)=\rng(R)$ and $R^{-1}(Y)=\dom(R)$.
+\item\label{relset1:23} $R\bigl(R^{-1}(Y)\bigr)$ and $R^{-1}\bigl(R(X)\bigr)=\dom(R)$.
+\end{thm}
+
+\begin{scheme}[RelOnSetEx]
+Let $\mathcal{A}$ be a set, let $\mathcal{B}$ be a set, let $P[-,-]$ be
+a binary predicate of objects.
+Then there exists a relation $R$ of $\mathcal{A}$, $\mathcal{B}$ such
+that for all objects $x$, $y$ we have $(x,y)\in R$ iff $x\in\mathcal{A}$
+and $y\in\mathcal{B}$ and $P[x,y]$.
+\end{scheme}
+
+\begin{definition}
+Let $X$ be a set. We define a new mode \define{Relation of $X$} to be a
+Relation of $X$, $X$.
+\end{definition}
+
+Let $D$, $E$, $F$ be non-empty sets. Let $R$ be a relation of $D$,
+$E$. Let $x$ be an element of $D$, and $y$ be an element of $E$.
+\begin{thm}
+\item\label{relset1:24} For each element $x$ of $D$, we have
+  $x\in\dom(R)$ iff there exists an element $y$ of $E$ such that
+  $(x,y)\in R$.
+\item\label{relset1:25} For all objects $y$, we have $y\in\rng(R)$ iff
+  there exists an element $x$ of $D$ such that $(x,y)\in R$.
+\item\label{relset1:26} If $\dom(R)\neq\emptyset$,
+  then there exists an element $y$ of $E$ such that $y\in\rng(R)$.
+\item\label{relset1:27} If $\rng(R)\neq\emptyset$,
+  then there exists an element $x$ of $D$ such that $x\in\dom(R)$.
+\item\label{relset1:28} Let $P$ be a relation of $D$, $E$; let $R$ be a
+  relation of $E$, $F$.
+  For all objects $x$ and $z$, we have $(x,z)\in P\cdot R$ iff there
+  exists an element $y$ of $E$ such that $(x,y)\in P$ and $(y,z)\in R$.
+\item\label{relset1:29} $y\in R(D_{1})$ if and only if there exists an
+  element $x$ of $D$ such that $(x,y)\in R$ and $x\in D_{1}$.
+\item\label{relset1:30} $x\in R^{-1}(D_{2})$ if and only if there exists
+  an element $y$ of $E$ such that $(x,y)\in R$ and $y\in D_{2}$.
+\end{thm}
+
+\begin{scheme}[RelOnDomEx]
+Let $\mathcal{A}$, $\mathcal{B}$ be nonempty sets, let $P[-,-]$ be a
+binary predicate of objects.
+There exists a relation $R$ of $\mathcal{A}$, $\mathcal{B}$
+such that for all elements $x$ of $\mathcal{A}$ and elements $y$ of $\mathcal{B}$
+we have $(x,y)\in R$ if and only if $P[x,y]$.
+\end{scheme}
+
+\begin{scheme}
+  Let $\mathcal{N}$ be a set, let $\mathcal{M}$ be a subset of $\mathcal{N}$,
+  let $\mathcal{F}(-)$ be a set parametrized by objects.
+  There exists a relation $R$ of $\mathcal{M}$
+  such that for each element $i$ of $\mathcal{N}$ if $i\in\mathcal{M}$
+  then $\RelIm{R}{i}=\mathcal{F}(i)$; provided
+  \begin{enumerate}
+  \item for each element $i$ of $\mathcal{N}$, if $i\in\mathcal{M}$,
+    then $\mathcal{F}(i)\subset\mathcal{M}$.
+  \end{enumerate}
+\end{scheme}
+
+\begin{thm}
+\item\label{relset1:31} Let $N$ be a set. Let $R$ and $S$ be relations
+  of $N$.
+  If for each set $i$ has $i\in N$ implies $\RelIm{R}{i}=\RelIm{S}{i}$, then $R=S$.
+\end{thm}
+
+\begin{scheme}
+Let $\mathcal{A}$, $\mathcal{B}$ be sets.
+Let $P[-,-]$ be a binary predicate of objects.
+Let $\mathcal{Q}$, $\mathcal{R}$ be relations of $\mathcal{A}$, $\mathcal{B}$.
+We have $\mathcal{Q} = \mathcal{R}$, provided:
+\begin{enumerate}
+\item for each element $p$ of $\mathcal{A}$, for each element $q$ of $\mathcal{B}$,
+  we have $(p,q)\in\mathcal{Q}$ iff $P[p,q]$; and
+\item for each element $p$ of $\mathcal{A}$, for each element $q$ of $\mathcal{B}$,
+  we have $(p,q)\in\mathcal{R}$ iff $P[p,q]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{thm}
+\item\label{relset1:32} If $A$ misses $X$, then $P|_{A}=\emptyset$.
+\end{thm}
+
+\begin{scheme}
+Let $\mathcal{A}$, $\mathcal{B}$ be sets.
+Let $P[-,-]$ be a binary predicate of objects.
+There exists a relation $R$ of $\mathcal{A}$, $\mathcal{B}$ such that
+for every set $x$ and $y$, we have $(x,y)\in R$ iff
+$x\in\mathcal{A}$ and $y\in\mathcal{B}$ and $P[x,y]$.
+\end{scheme}
+
+\end{document}

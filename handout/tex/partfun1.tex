@@ -1,0 +1,46 @@
+\documentclass{article}
+
+
+\title{Partial Functions}
+\author{Czes{\l}aw Byli\'nski}
+\begin{document}
+\maketitle
+
+\begin{thm}
+\item\label{partfun1:1} Let $f$, $g$ be functions.
+  Suppose for any object $x$ if $x\in\dom(f)\cap\dom(g)$, then
+  $f(x)=g(x)$.
+  Then $f\cup g$ is a function.
+\item\label{partfun1:2} Let $f$, $g$, $h$ be Functions, and suppose
+  $f\cup g=h$.
+  For all objects $x$, if $x\in\dom(f)\cap\dom(g)$, then $f(x)=g(x)$.
+\end{thm}
+
+\begin{scheme}[LambdaC]
+Let $\mathcal{A}$ be a set, let $C[-]$ be a unary predicate of objects,
+and let $\mathcal{F}(-)$, $\mathcal{G}(-)$ be objects parametrized by
+one object.
+There exists a function $f$ such that $\dom(f)=\mathcal{A}$
+and for each object $x$ such that $x\in\mathcal{A}$,
+then we have $f(x)=\mathcal{F}(x)$ when $C[x]$ holds,
+and we have $f(x)=\mathcal{G}(x)$ when $C[x]$ does not hold.
+\end{scheme}
+
+\begin{definition}
+Let $X$ and $Y$ be sets. We define a new mode \define{Partial Function of $X$, $Y$}
+(Mizar: ``\verb#PartFunc of X,Y#'') to be a Function-like Relation of
+$X$, $Y$.
+\end{definition}
+
+\begin{thm}
+\item\label{partfun1:3}
+\item\label{partfun1:4}
+\item\label{partfun1:5}
+\item\label{partfun1:6}
+\item\label{partfun1:7}
+\item\label{partfun1:8}
+\item\label{partfun1:9}
+\item\label{partfun1:1}
+\end{thm}
+
+\end{document}

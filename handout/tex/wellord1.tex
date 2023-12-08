@@ -115,13 +115,139 @@ We define the term $R|^{2}Y$ to be the relation equal to
   $\subset$-comparable to $R-\Seg(b)$.
 \item\label{wellord1:27} If $R$ is well-ordering and $b\in R-\Seg(a)$,
   then $(R|^{2}(R-\Seg(a)))-\Seg(b)=R-\Seg(b)$.
-\item\label{wellord1:28}%%  If $R$ is well-ordering and $Y\subset\field(R)$,
-  %% then the following are logically equivalent:
-  %% \begin{enumerate}[label=(\roman*)]
-  %% \item $Y=\field(R)$
-  %% \end{enumerate}
-\item\label{wellord1:29}
-\item\label{wellord1:3}
+\item\label{wellord1:28} Suppose $R$ is well-ordering and $Y\subset\field(R)$.
+  then the following are logically equivalent:
+  \begin{enumerate}[label=(\roman*)]
+  \item $Y=\field(R)$ or there exists an object $a\in\field(R)$ such
+    that $Y=R-\Seg(a)$.
+  \item For all objects $a\in Y$ and for all objects $b$, if $(b,a)\in R$,
+    then $b\in Y$
+  \end{enumerate}
+\item\label{wellord1:29} Suppose $R$ is well-ordering, $a\in\field(R)$, and
+  $b\in\field(R)$. Then $(a,b)\in R$ if and only if $R-\Seg(a)\subset R-\Seg(b)$.
+\item\label{wellord1:30} Suppose $R$ is well-ordering, $a\in\field(R)$, and
+  $b\in\field(R)$. Then $R-\Seg(a)\subset R-\Seg(b)$ if and only if
+  either $a=b$ or $a\in R-\Seg(b)$.
+\item\label{wellord1:31} If $R$ is well-ordering and
+  $X\subset\field(R)$, then $\field(R|^{2}X)=X$.
+\item\label{wellord1:32} If $R$ is well-ordering, then $\field(R|^{2}R-\Seg(a))=R-\Seg(a)$.
+\item\label{wellord1:33} Suppose $R$ is well-ordering. If every object
+  $a\in\field(R)$ has $R-\Seg(a)\subset Z$ imply $a\in Z$, then
+  $\field(R)\subset Z$.
+\item\label{wellord1:34} Suppose $R$ is well-ordering, $a\in\field(R)$,
+  and $b\in\field(R)$. If every object $c\in R-\Seg(a)$ has $(c,b)\in R$
+  and $c\neq b$, then $(a,b)\in R$.
+\item\label{wellord1:35} Suppose $R$ is well-ordering,
+  $\dom(F)=\field(R)$, and $\rng(F)\subset\field(R)$.
+  If all distinct objects $a\neq b$ has $(a,b)\in R$ imply
+  $(F(a),F(b))\in R$ with $F(a)\neq F(b)$,
+  then every object $a\in\field(R)$ has $(a,F(a))\in R$.
 \end{thm}
+
+\begin{definition}
+Let $R$, $S$ be relations, let $F$ be a function.
+We define the predicate $f$ \define{is isomorphism of} $R$, $S$ mean
+\begin{defn}
+\item $\dom(F)=\field(R)$, $\rng(F)=\field(S)$, $F$ is one-to-one,
+  and for any objects $a$, $b$ we have $(a,b)\in R$ iff $a\in\field(R)$
+  and $b\in\field(R)$ and $(F(a),F(b))\in S$.
+\end{defn}
+\end{definition}
+
+We have the following result:
+\begin{thm}
+\item\label{wellord1:36} Suppose $F$ is an isomorphism of $R$, $S$.
+  For all objects $a$ and $b$, if $(a,b)\in R$ and $a\neq b$,
+  then $(F(a),F(b))\in S$ and $F(a)\neq F(b)$.
+\end{thm}
+
+\begin{definition}
+Let $R$, $S$ be relations. We define the predicate $R$ and $S$
+\define{are isomorphic} to mean
+\begin{defn}
+\item There exists a function $F$ such that $F$ is an isomorphism of
+  $R$, $S$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{wellord1:37} $\id_{\field(R)}$ is an isomorphism of $R$, $R$.
+\item\label{wellord1:38} $R$, $R$ are isomorphic.
+\item\label{wellord1:39} If $F$ is an isomorphism of $R$, $S$, then
+  $F^{-1}$ is an isomorphism of $S$, $R$.
+\item\label{wellord1:40} If $R$ and $S$ are isomorphic, then $S$ and $R$
+  are isomorphic.
+\item\label{wellord1:41} If $F$ is an isomorphism of $R$ with $S$, and
+  $G$ is an isomorphism of $S$ with $T$, then $G\circ F$ is an
+  isomorphism of $R$ with $T$.
+\item\label{wellord1:42} If $R$ and $S$ are isomorphic, and $S$ and $T$
+  are isomorphic, then $R$ and $T$ are isomorphic.
+\item\label{wellord1:43} Suppose $F$ is an isomorphism of $R$ with
+  $S$. Then
+  \begin{enumerate}[label=(\roman*)]
+  \item If $R$ is reflexive, then $S$ is reflexive; and
+  \item If $R$ is transitive, then $S$ is transitive; and
+  \item If $R$ is connected, then $S$ is connected; and
+  \item If $R$ is antisymmetric, then $S$ is antisymmetric; and
+  \item If $R$ is well founded, then $S$ is well founded.
+  \end{enumerate}
+\item\label{wellord1:44} If $R$ is well-ordering and $F$ is an
+  isomorphism of $R$ with $S$, then $S$ is a well-ordering.
+\item\label{wellord1:45} Suppose $R$ is a well-ordering. Then every
+  functions $F$ and $G$ such that $F$ is an isomorphism of $R$ with $S$,
+  and $G$ is an isomorphism of $R$ with $S$, implies $F=G$.
+\end{thm}
+
+\begin{definition}
+Let $R$ and $S$ be isomorphic relations. Assume $R$ is well-ordering.
+We define the term \define{canonical isomorphism of $R$, $S$}
+(Mizar: ``\verb#canonical_isomorphism_of(R,S)#'') to be the function
+such that
+\begin{defn}
+\item it is an isomorphism of $R$, $S$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{wellord1:46} Suppose $R$ is well-ordering.
+  Then for any object $a\in\field(R)$, we have $R$ is not isomorphic to $R|^{2}(R-\Seg(a))$.
+\item\label{wellord1:47} If $R$ is well-ordering, $a\in\field(R)$,
+  $b\in\field(R)$, and $a\neq b$, then $R|^{2}(R-\Seg(a))$ is not
+  isomorphic with $R|^{2}(R-\Seg(b))$.
+\item\label{wellord1:48} Suppose $R$ is well-ordering,
+  $Z\subset\field(R)$, and $F$ is an isomorphism of $R$ with $S$.
+  Then $F|_{Z}$ is an isomorphism of $R|^{2}Z$ with $S|^{2}F(Z)$, and in
+  particular $R|^{2}Z$ is isomorphic to $S|^{2}F(Z)$.
+\item\label{wellord1:49} Suppose $F$ is an isomorphism of $R$ with $S$.
+  Then for each object $a\in\field(R)$, there exists an object
+  $b\in\field(S)$ such that $F(R-\Seg(a))=S-\Seg(b)$.
+\item\label{wellord1:50} Suppose $R$ is well-ordering and $F$ is
+  isomorphism of $R$ with $S$.
+  Then for each object $a\in\field(R)$ there exists an object $b\in\field(S)$
+  such that $R |^{2} (R-\Seg(a))$ is isomorphic with $S |^2 (S-\Seg(b))$.
+\item\label{wellord1:51} Suppose $R$ is well-ordering,
+  $S$ is well-ordering, $a\in\field(R)$, $b\in\field(S)$, and
+  $c\in\field(S)$.
+  If $R$ is isomorphic with $S |^{2} (S-\Seg(b))$,
+  $R |^{2} (R-\Seg(a))$ is isomorphic with $S|^{2} (S-\Seg(c))$
+  then $S-\Seg(c) \subset S-\Seg(b)$ and $(c,b)\in S$.
+\item\label{wellord1:52} If $R$ is well-ordering and $S$ is
+  well-ordering, then one of the following holds:
+  \begin{enumerate}[label=(\roman*)]
+  \item $R$ is isomorphic with $S$, or
+  \item There exists an object $a\in\field(R)$ such that $R |^{2} (R-\Seg(a))$
+    is isomorphic to $S$, or
+  \item There exists an object $a\in\field(S)$ such that $R$ is
+    isomorphic with $S |^{2} (S-\Seg(a))$.
+  \end{enumerate}
+\item\label{wellord1:53} Suppose $Y\subset\field(R)$ and $R$ is
+  well-ordering.
+  Then either $R$ is isomorphic with $R |^{2} Y$, or
+  there is an object $a\in\field(R)$ such that
+  $R |^{2} (R-\Seg(a))$ is isomorphic with $R |^{2} Y$.
+\item\label{wellord1:54} If $R$ and $S$ are isomorphic and $R$ is well-ordering, then
+  $S$ is well-ordering.
+\end{thm}
+
 
 \end{document}
