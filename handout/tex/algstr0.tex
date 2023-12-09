@@ -1,0 +1,433 @@
+\documentclass{article}
+
+\title{Basic Algebraic Structures (ALGSTR-0)}
+\author{Library Committee}
+\date{December 8, 2007}
+\begin{document}
+\maketitle
+
+\section{Additive structures}
+
+\begin{definition}\index{addMagma}
+We define the structure \define{additive Magma} (Mizar: ``\verb#addMagma#'')
+which extends 1-sorted structures as
+\[\langle\mbox{carrier}, \mbox{an addF}\rangle\]
+where addF is a binary operator of the carrier.
+\end{definition}
+
+\begin{definition}
+Let $M$ be an additive magma, let $x$ and $y$ be elements of $M$.
+We define the term $x+y$ to be an element of $M$ meaning
+\begin{defn}
+\item $x+y = (\mbox{the addF of $M$})(x,y)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+We define the \define{Trivial additive magma}  (Mizar: ``\verb#Trivial-addMagma#'')
+to be the additive magma such that
+\begin{defn}
+\item it is the additive magma $\langle\{0\},\mbox{op2}\rangle$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+Remember, there is only one binary operator on the set $\{0\}$ which is
+named in FUNCT-5 as ``op2''.
+\end{remark}
+
+\begin{definition}
+Let $M$ be an additive magma, let $x$ be an element of $M$.
+We define the attribute $x$ is \define{left add-cancelable}  (Mizar: ``\verb#left_add-cancelable#'')
+to mean
+\begin{defn}
+\item for all elements $y$ and $z$ of $M$, if $x+y=x+z$, then $y=z$.
+\end{defn}
+We define the attribute $x$ is \define{right add-cancelable}  (Mizar: ``\verb#right_add-cancelable#'')
+to mean
+\begin{defn}%def4
+\item for all elements $y$ and $z$ of $M$, if $y+x=z+x$, then $y=z$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be an additive magma, let $x$ be an element of $M$. We define
+the attribute $x$ is \define{add-cancelable} (Mizar: ``\verb#add-cancelable#'')
+to mean
+\begin{defn}%def5
+\item $x$ is both right and left add-cancelable.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be an additive magma.
+We define the attribute $M$ is \define{left add-cancelable} (Mizar:
+``\verb#left_add-cancelable#'') to mean
+\begin{defn}%def6
+\item every element of $M$ is left add-cancelable.
+\end{defn}
+We define the attribute $M$ is \define{right add-cancelable} (Mizar:
+``\verb#right_add-cancelable#'') to mean
+\begin{defn}%def7
+\item every element of $M$ is right add-cancelable.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be an additive magma.
+We define the attribute $M$ is \define{add-cancelable} (Mizar:
+``\verb#add-cancelable#'') to mean
+\begin{defn}%def8
+\item $M$ is both left and right add-cancelable.
+\end{defn}
+\end{definition}
+
+\begin{definition}\index{addLoopStr}%
+We define the system of \define{additive loop structures} (Mizar: ``\verb#addLoopStr#'') which extends
+the system of ZeroStr and additive magmas to consist of
+\[\langle\mbox{carrier},\mbox{addF},\mbox{ZeroF}\rangle\]
+where carrier is a set, addF is a binary operator of the carrier, and
+ZeroF is an element of the carrier.
+\end{definition}
+
+\begin{remark}
+Mizar uses the term ``addLoopStr'', but consulting Wanda Szmielew's
+\textit{From Affine to Euclidean Geometry: An Axiomatic Approach} (PWN
+Polish Scientific Publishers, 1983) we find footnote 5 on page 4
+justifying the terminology.
+\end{remark}
+
+\begin{definition}\index{Trivial-addLoopStr}%
+We define the constant \define{Trivial additive loop structure}
+(Mizar: ``\verb#Trivial-addLoopStr#'') to be the additive loop equal to
+\begin{defn}%def9
+\item it = $\langle\{0\},\mbox{op2},\mbox{op0}\rangle$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+Recall from FUNCT-5 that ``op0'' is a synonym for 0, considered as an
+element of $\{0\}$.
+\end{remark}
+
+\begin{definition}
+Let $M$ be an additive loop structure, let $x$ be an element of $M$.
+We define the attribute $x$ is \define{left complementable}
+(Mizar: ``\verb#left_complementable#'') to mean
+\begin{defn}
+\item there exists an element $y$ of $M$ such that $x+y=0_{M}$.
+\end{defn}
+We define the attribute $x$ is \define{right complementable}
+(Mizar: ``\verb#right_complementable#'') to mean
+\begin{defn}
+\item there exists an element $y$ of $M$ such that $y+x=0_{M}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be an additive loop structure, let $x$ be an element of $M$.
+We define the attribute $x$ is \define{complementable} (Mizar: ``\verb#complementable#'')
+to mean
+\begin{defn}
+\item $x$ is both right and left complementable.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be an additive loop structure, let $x$ be an element of $M$.
+Assume $x$ is left complementable and right add-cancelable.
+We define the term $-x$ (Mizar: ``\verb#-x#'') to be an element of $M$
+such that
+\begin{defn}
+\item $(-x) + x=0_{M}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $V$ be an additive loop structure, let $v$ and $w$ be elements of $V$.
+We define the term $v-w$ (Mizar: ``\verb#v - w#'') to be an element of $V$
+such that
+\begin{defn}
+\item $v-w=v+(-w)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be an additive loop structure.
+We define the attribute $M$ is \define{left complementable}
+(Mizar: ``\verb#left_complementable#'') to mean
+\begin{defn}
+\item every element $x$ of $M$ is left cancelable.
+\end{defn}
+We define the attribute $M$ is \define{right complementable}
+(Mizar: ``\verb#right_complementable#'') to mean
+\begin{defn}
+\item every element $x$ of $M$ is right cancelable.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be an additive loop structure.
+We define the attribute $M$ is \define{complementable}
+(Mizar: ``\verb#complementable#'') to mean
+\begin{defn}
+\item $M$ is both right and left complementable.
+\end{defn}
+\end{definition}
+
+\section{Multiplicative structures}
+
+\begin{definition}
+We define the system of \define{multiplicative magma} structures to
+extend 1-sorted structures as
+\[\langle\mbox{a carrier}, \mbox{a multF}\rangle\]
+where the carrier is a set, and the multF is a binary operator of the
+carrier.
+\end{definition}
+
+\begin{definition}
+Let $M$ be a multiplicative magma, let $x$ and $y$ be elements of $M$.
+We define the term $x\cdot y$ (Mizar: ``\verb#x * y#'')
+to be an element of $M$ meaning
+\begin{defn}%def18
+\item $x\cdot y=(\mbox{the multF of $M$})(x,y)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+We define the \define{trivial multiplicative magma} (Mizar: ``\verb#Trivial-multMagma#'')
+to be a multiplicative magma equal to
+\begin{defn}
+\item $\langle\{0\}, op2\rangle$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be a multiplicative magma, let $x$ be an element of $M$.
+We define the attribute $x$ is \define{left multiplicative-cancelable} (Mizar: ``\verb#left_mult-cancelable#'')
+to mean
+\begin{defn}%def20
+\item for all elements $y$ and $z$ of $M$, if $x\cdot y=x\cdot z$,
+  then $y=z$.
+\end{defn}
+We define the attribute $x$ is \define{right multiplicative-cancelable} (Mizar: ``\verb#right_mult-cancelable#'')
+to mean
+\begin{defn}%def21
+\item for all elements $y$ and $z$ of $M$, if $y\cdot x=z\cdot x$,
+  then $y=z$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be a multiplicative magma, let $x$ be an element of $M$.
+We define the attribute $x$ is \define{multiplicative-cancelable} (Mizar: ``\verb#mult-cancelable#'')
+to mean
+\begin{defn}%def22
+\item $x$ is right and left multiplicative-cancelable.
+\end{defn}
+\end{definition}
+
+\begin{definition}\index{left\textunderscore mult-cancelable}\index{right\textunderscore mult-cancelable}%
+Let $M$ be a multiplicative magma.
+We define the attribute $M$ is \define{left multiplicative-cancelable} (Mizar: ``\verb#left_mult-cancelable#'')
+to mean
+\begin{defn}%def23
+\item every element of $M$ is left multiplicative-cancelable.
+\end{defn}
+We define the attribute $M$ is \define{right multiplicative-cancelable} (Mizar: ``\verb#right_mult-cancelable#'')
+to mean
+\begin{defn}%def24
+\item every element of $M$ is right multiplicative-cancelable.
+\end{defn}
+\end{definition}
+
+\begin{definition}\index{mult-cancelable}
+Let $M$ be a multiplicative magma.
+We define the attribute $M$ is \define{multiplicative-cancelable} (Mizar: ``\verb#mult-cancelable#'')
+to mean
+\begin{defn}
+\item $M$ is left and right multiplicative-cancelable.
+\end{defn}
+\end{definition}
+
+\begin{definition}\index{multLoopStr}
+We define the system of \define{multiplicative loop structures}
+(Mizar: ``\verb#multLoopStr#'') extending the OneStr and multiplicative
+magma structures as
+\[\langle\mbox{a carrier},\mbox{a multF},\mbox{a OneF}\rangle\]
+where the carrier is a set, the multF is a binary operator of the
+carrier, and the OneF is an element of the carrier.
+\end{definition}
+
+\begin{definition}
+We define the constant term \define{trivial multiplicative loop structure}
+(Mizar: ``\verb#Trivial-multLoopStr#'')
+to be the multiplicative loop equal to
+\begin{defn}
+\item $\langle\{0\},\mbox{op2},\mbox{op0}\rangle$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be a multiplicative loop structure, let $x$ be an element of $M$.
+We define the attribute $x$ is \define{left invertible}
+(Mizar: ``\verb#left_invertible#'')
+to mean
+\begin{defn}
+\item there exists an element $y$ of $M$ such that $y\cdot x=1_{M}$.
+\end{defn}
+We define the attribute $x$ is \define{right invertible}
+(Mizar: ``\verb#right_invertible#'')
+to mean
+\begin{defn}
+\item there exists an element $y$ of $M$ such that $x\cdot y=1_{M}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be a multiplicative loop structure, let $x$ be an element of $M$.
+We define the attribute $x$ is \define{invertible}
+(Mizar: ``\verb#invertible#'')
+to mean
+\begin{defn}
+\item $x$ is both left and right invertible.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be a multiplicative loop structure, let $x$ be an element of $M$.
+Assume $x$ is left invertible and right multiplicative-cancelable.
+We define the term $/x$ (Mizar: ``\verb#/x#'')
+to be an element of $M$ such that
+\begin{defn}%def30
+\item $(/x)\cdot x=1_{M}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be a multiplicative loop structure.
+We define the attribute $M$ is \define{left invertible}
+(Mizar: ``\verb#left_invertible#'')
+\begin{defn}%def31
+\item every element of $M$ is left invertible.
+\end{defn}
+We define the attribute $M$ is \define{right invertible}
+(Mizar: ``\verb#right_invertible#'')
+\begin{defn}%def32
+\item every element of $M$ is right invertible.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be a multiplicative loop structure.
+We define the attribute $M$ is \define{invertible}
+(Mizar: ``\verb#invertible#'')
+to mean
+\begin{defn}
+\item $M$ is both left and right invertible.
+\end{defn}
+\end{definition}
+
+\section{Almost Cancellable Structures}
+
+\begin{definition}
+We define the system of \define{multiplicative loop structures with zero}
+(Mizar: ``\verb#multLoopStr_0#'') to extend the multiplicative loop
+structure and the ZeroOneStr structure, consisting of
+\[\langle \mbox{a carrier}, \mbox{a multF}, \mbox{a ZeroF}, \mbox{a OneF}\rangle\]
+where the carrier is a set, the multF is a binary operator of the
+carrier, and the ZeroF and OneF are elements of the carrier.
+\end{definition}
+
+\begin{definition}
+We define the constant \define{trivial multiplicative loop structure
+  with zero} (Mizar: ``\verb#Trivial-multLoopStr_0#'') to be equal to
+\begin{defn}%def34
+\item $\langle\{0\},\mbox{op2},\mbox{op0},\mbox{op0}\rangle$.
+\end{defn}
+\end{definition}
+
+\skipdefn{}%The \thedefni\ definition was cancelled.
+
+\begin{definition}
+Let $M$ be a multiplicative structure with zero.
+We define the attribute $M$ is \define{almost left cancelable}
+(Mizar: ``\verb#almost_left_cancelable#'')
+to mean
+\begin{defn}\stepcounter{defni}
+\item for all elements $x$ of $M$, if $x\neq0_{M}$, then $x$ is left multiplicative-cancelable.
+\end{defn}
+We define the attribute $M$ is \define{almost right cancelable}
+(Mizar: ``\verb#almost_right_cancelable#'')
+to mean
+\begin{defn}
+\item for all elements $x$ of $M$, if $x\neq0_{M}$, then $x$ is right multiplicative-cancelable.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be a multiplicative structure with zero.
+We define the attribute $M$ is \define{almost cancelable} (Mizar: ``\verb#almost_cancelable#'')
+to mean
+\begin{defn}
+\item $M$ is almost left cancelable and almost right cancelable.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be a multiplicative structure with zero.
+We define the attribute $M$ is \define{almost left invertible}
+(Mizar: ``\verb#almost_left_invertible#'')
+to mean
+\begin{defn}%def39
+\item for all elements $x$ of $M$, if $x\neq0_{M}$, then $x$ is left invertible.
+\end{defn}
+We define the attribute $M$ is \define{almost right invertible}
+(Mizar: ``\verb#almost_right_invertible#'')
+to mean
+\begin{defn}%def40
+\item for all elements $x$ of $M$, if $x\neq0_{M}$, then $x$ is right invertible.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be a multiplicative structure with zero.
+We define the attribute $M$ is \define{almost invertible}
+(Mizar: ``\verb#almost_invertible#'')
+to mean
+\begin{defn}
+\item $M$ is almost right invertible and almost left invertible.
+\end{defn}
+\end{definition}
+
+\section{Double Loop Structures}
+
+\begin{definition}\index{\texttt{doubleLoopStr}}
+We define the system of \define{double loop structures}
+(Mizar: ``\verb#doubleLoopStr#'') extending additive loop structures and
+multiplicative loop structures with zero, consisting of
+\[\langle\mbox{a carrier}, \mbox{an addF}, \mbox{a multF}, \mbox{a ZeroF}, \mbox{a OneF}\rangle\]
+where the carrier is a set, the addF and multF are binary operators of
+the carrier, and the ZeroF and OneF are elements of the carrier.
+\end{definition}
+
+\begin{definition}
+We define the constant term \define{trivial double loop structure} (Mizar: ``\verb#Trivial-doubleLoopStr#'')
+to be equal to
+\begin{defn}%def42
+\item $\langle\{0\},\mbox{op2},\mbox{op2},\mbox{op0},\mbox{op0}\rangle$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $M$ be a multiplicative loop structure, let $x$ and $y$ be elements
+of $M$.
+We define the term $x/y$
+(Mizar: ``\verb#x / y#'')
+ to be an element of $M$ such that
+\begin{defn}%def43
+\item $x/y = x\cdot(/y)$.
+\end{defn}
+\end{definition}
+
+\end{document}

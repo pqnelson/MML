@@ -105,11 +105,11 @@ the following theorems:
 \item\label{group1:20} $g\cdot h=h\cdot g$ iff $g\cdot h^{-1}=h^{-1}\cdot g$.
 \end{thm}
 
-\begin{definition}
+\begin{definition}\index{$\inverseop{G}$}\index{Group!Inverse operator}
 Let $G$ be a Group.
-We define $\cdot_{G}^{-1}$ (Mizar: ``\verb#inverse_op G#'') be the unary operator on $G$ such that
+We define $\inverseop{G}$ (Mizar: ``\verb#inverse_op G#'') be the unary operator on $G$ such that
 \begin{defn}
-\item for any element $h$ of $G$, we have $\cdot_{G}^{-1}(h)=h^{-1}$.
+\item for any element $h$ of $G$, we have $\inverseop{G}(h)=h^{-1}$.
 \end{defn}
 \end{definition}
 
@@ -129,13 +129,13 @@ unity.
 
 Let $G$ be a Group. We have the following two propositions:
 \begin{thm}
-\item\label{group1:23} $\cdot_{G}^{-1}$ is an inverse operator with
+\item\label{group1:23} $\inverseop{G}$ is an inverse operator with
   respect to the operation of $G$.
 \item\label{group1:24} The inverse operator with respect to
-  multiplication in $G$ is equal to $\cdot_{G}^{-1}$.
+  multiplication in $G$ is equal to $\inverseop{G}$.
 \end{thm}
 
-\begin{definition}
+\begin{definition}\index{$\power_{G}$}\index{Group!Power of element}
 Let $G$ be a non-empty magma. We define $\power_{G}$ (Mizar:
 ``\verb#power G#'') to be a function of
 $G\times\NN\to G$ defined by

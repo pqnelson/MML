@@ -1,7 +1,7 @@
 \documentclass{article}
 
 
-\title{Partial Functions}
+\title{Partial Functions (PARTFUN1)}
 \author{Czes{\l}aw Byli\'nski}
 \begin{document}
 \maketitle
@@ -32,15 +32,358 @@ Let $X$ and $Y$ be sets. We define a new mode \define{Partial Function of $X$, $
 $X$, $Y$.
 \end{definition}
 
+Let $X$, $Y$ be sets; let $x$, $y$ be objects. Then we have the
+following results: 
 \begin{thm}
-\item\label{partfun1:3}
-\item\label{partfun1:4}
-\item\label{partfun1:5}
-\item\label{partfun1:6}
-\item\label{partfun1:7}
-\item\label{partfun1:8}
-\item\label{partfun1:9}
-\item\label{partfun1:1}
+\item\label{partfun1:3} Let $f$ be a partial function of $X$, $Y$.
+  If $y\in\rng(f)$, then there exists an element $x$ of $X$ such that
+  $x\in\dom(f)$ and $y=f(x)$.
+\item\label{partfun1:4} Let $f$ be a $Y$-valued function.
+  If $x\in\dom(f)$, then $f(x)\in Y$.
+\item\label{partfun1:5} Let $f_{1}$, $f_{2}$ be partial functions of
+  $X$, $Y$. Suppose $\dom(f_{1})=\dom(f_{2})$.
+  If every element $x$ of $X$ such that $x\in\dom(f_{1})$ satisfies
+  $f_{1}(x)=f_{2}(x)$, then $f_{1}=f_{2}$.
 \end{thm}
+
+\begin{scheme}[PartFuncEx]
+Let $\mathcal{X}$, $\mathcal{Y}$ be sets, let $P[-,-]$ be a binary
+predicate of objects.
+
+There exists a partial function $f$ of $\mathcal{X}$, $\mathcal{Y}$ such
+that
+\begin{enumerate*}[label=(\roman*)]
+\item every object $x$ satisfies $x\in\dom(f)$ if and only if
+  $x\in\mathcal{X}$ and there exists an object $y$ such that $P[x,y]$; and
+\item every object $x\in\dom(f)$ satisfies $P[x,f(x)]$;
+\end{enumerate*}
+provided
+\begin{enumerate}
+\item For all objects $x$ and $y$, if $x\in\mathcal{X}$ and $P[x,y]$,
+  then $y\in\mathcal{Y}$; and
+\item For all objects $x$, $y_{1}$, $y_{2}$, if $x\in\mathcal{X}$ and
+  $P[x,y_{1}]$ and $P[x,y_{2}]$, then $y_{1}=y_{2}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[LambdaR]
+Let $\mathcal{X}$, $\mathcal{Y}$ be sets, let $\mathcal{F}(-)$ be an
+object parametrized by object, let $P[-]$ be a unary predicate of objects.
+There exists a partial function $f$ of $\mathcal{X}$, $\mathcal{Y}$ such
+that
+\begin{enumerate}[label=(\alph*)]
+\item for all objects $x$, we have $x\in\dom(f)$ iff $x\in\mathcal{X}$
+  and $P[x]$; and
+\item for all objects $x$, if $x\in\dom(f)$, then $f(x)=\mathcal{F}(x)$.
+\end{enumerate}
+Provided:
+\begin{enumerate}
+\item for all objects $x$, if $P[x]$, then $\mathcal{F}(x)\in\mathcal{Y}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{definition}
+Let $X$, $Y$, $V$, $Z$ be sets. Let $f$ be a partial function from $X$
+to $Y$, let $g$ be a partial function from $V$ to $Z$.
+We redefine the term $g\circ f$ to change its type to be a partial
+function from $X$ to $Z$.
+\end{definition}
+
+\begin{thm}
+\item\label{partfun1:6} Let $f$ be a relation of $X$ and $Y$. Then
+  $\id_{X}\cdot f=f$.
+\item\label{partfun1:7} Let $f$ be a relation of $X$ and $Y$. Then
+  $f\cdot\id_{Y}=f$.
+\item\label{partfun1:8} Let $f$ be a partial function from $X$ to $Y$.
+  Suppose for all elements $x_{1}$, $x_{2}$ of $X$, if $x_{1}\in\dom(f)$
+  and $x_{2}\in\dom(f)$ and $f(x_{1})=f(x_{2})$, then $x_{1}=x_{2}$.
+  Then $f$ is one-to-one.
+\item\label{partfun1:9} Let $f$ be a partial function from $X$ to $Y$.
+  If $f$ is one-to-one, then $f^{-1}$ is a partial function from $Y$ to $X$.
+\item\label{partfun1:10}  Let $f$ be a partial function from $X$ to $Y$.
+  Then $f|_{Z}$ is a partial function from $Z$ to $Y$.
+\item\label{partfun1:11} Let $f$ be a partial function from $X$ to $Y$.
+  Then $f|_{Z}$ is a partial function from $X$ to $Y$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$ be sets. Let $f$ be a partial function from $X$ to $Y$.
+Let $Z$ be a set.
+We redefine the term $f|_{Z}$ to change its type to be a partial
+function from $X$ to $Y$.
+\end{definition}
+
+\begin{thm}
+\item\label{partfun1:12} Let $f$ be a partial function from $X$ to $Y$.
+  Then $f|^{Z}$ is a partial function from $X$ to $Z$.
+\item\label{partfun1:13} Let $f$ be a partial function from $X$ to $Y$.
+  Then $f|^{Z}$ is a partial function from $X$ to $Y$.
+\item\label{partfun1:14} Let $f$ be a function.
+  Then $f|^{Y}_{X}$ is a partial function from $X$ to $Y$.
+\item\label{partfun1:15} Let $f$ be a partial function from $X$ to $Y$.
+  If $y\in f(X)$, then there exists an element $x$ of $X$ such that
+  $x\in\dom(f)$ and $y=f(x)$.
+\end{thm}
+
+\section{Partial functions from a singleton into a set}
+
+\begin{thm}
+\item\label{partfun1:16} Let $f$ be a partial function from $\{x\}$ to $Y$.
+  Then $\rng(f)\subset\{f(x)\}$.
+\item\label{partfun1:17} Let $f$ be a partial function from $\{x\}$ to $Y$.
+  Then $f$ is one-to-one.
+\item\label{partfun1:18} Let $f$ be a partial function from $\{x\}$ to $Y$.
+  Then $f(P)\subset\{f(x)\}$.
+\item\label{partfun1:19} Let $f$ be a function.
+  If $\dom(f)=\{x\}$ and $x\in X$ and $f(x)\in Y$,
+  then $f$ is a partial function from $X$ to $Y$.
+\end{thm}
+
+\section{Partial functions from a set into a singleton}
+
+\begin{thm}
+\item\label{partfun1:20} Let $f$ be a partial function from $X$ to $\{y\}$.
+  If $x\in\dom(f)$, then $f(x)=y$.
+\item\label{partfun1:21} Let $f_{1}$ and $f_{2}$ be partial functions from $X$ to $\{y\}$.
+  If $\dom(f_{1})=\dom(f_{2})$, then $f_{1}=f_{2}$.
+\end{thm}
+
+\section{Construction of a Partial Function from a Function}
+
+\begin{definition}\index{$f_{|X\to Y}$}
+Let $f$ be a function, let $X$ and $Y$ be sets.
+We define the term $f_{|X\to Y}$ (Mizar: ``\verb#<: f, X, Y :>#'')
+to be a partial function from $X$ to $Y$ meaning:
+\begin{defn}
+\item $f_{|X\to Y} = f|^{Y}_{X}$.
+\end{defn}
+\end{definition}
+
+Let $f$, $g$ be functions. Then we have the following results:
+\begin{thm}
+\item\label{partfun1:22} $f_{|X\to Y}\subset f$
+\item\label{partfun1:23} $\dom(f_{|X\to Y})\subset\dom(f)$ and $\rng(f_{|X\to Y})\subset\rng(f)$.
+\item\label{partfun1:24} $x\in\dom(f_{|X\to Y})$ if and only if
+  $x\in\dom(f)$ and $x\in X$ and $f(x)\in Y$.
+\item\label{partfun1:25} If $x\in\dom(f)$ and $x\in X$ and $f(x)\in Y$,
+  then $f_{|X\to Y}(x)=f(x)$.
+\item\label{partfun1:26} If $x\in\dom(f_{|X\to Y})$, then $f_{|X\to Y}(x)=f(x)$.
+\item\label{partfun1:27} If $f\subset g$, then $f_{|X\to Y}\subset g_{|X\to Y}$.
+\item\label{partfun1:28} If $Z\subset X$, then
+  $f_{|Z\to Y}\subset f_{|X\to Y}$.
+\item\label{partfun1:29} If $Z\subset Y$, then
+  $f_{|X\to Z}\subset f_{|X\to Y}$.
+\item\label{partfun1:30} If $X_{1}\subset X_{2}$ and $Y_{1}\subset Y_{2}$,
+  then $f_{|X_{1}\to Y_{1}}\subset f_{|X_{2}\to Y_{2}}$.
+\item\label{partfun1:31} If $\dom(f)\subset X$ and $\rng(f)\subset Y$,
+  then $f=f_{|X\to Y}$.
+\item\label{partfun1:32} $f=f_{|\dom(f)\to\rng(f)}$.
+\item\label{partfun1:33} Let $f$ be a partial function from $X$ to $Y$,
+  then $f_{|X\to Y}=f$.
+\item\label{partfun1:34} $\emptyset_{|X\to Y}=\emptyset$.
+\item\label{partfun1:35} $g_{|Y\to Z}\circ f_{|X\to Y}\subset(g\circ f)_{|X\to Z}$
+\item\label{partfun1:36} If $\rng(f)\cap\dom(g)=Y$, then
+  $g_{|Y\to Z}\circ f_{|X\to Y}=(g\circ f)_{|X\to Z}$.
+\item\label{partfun1:37} If $f$ is one-to-one,
+  then $f_{|X\to Y}$ is one-to-one.
+\item\label{partfun1:38} If $f$ is one-to-one,
+  then $(f_{|X\to Y})^{-1}=(f^{-1})_{|X\to Y}$.
+\item\label{partfun1:39} $(f_{|X\to Y})|^{Z}=f_{|X\to Z\cap Y}$.
+\end{thm}
+
+\section{Total Functions}
+
+\begin{definition}
+Let $X$ be a set, let $f$ be an $X$-defined relation.
+We define the attribute $f$ is \define{total} to mean
+\begin{defn}
+\item $\dom(f)=X$.
+\end{defn}
+\end{definition}
+
+Let $f$ be a function. We have the following results:
+\begin{thm}
+\item\label{partfun1:40} If $f_{|X\to Y}$ is total, then $X\subset\dom(f)$.
+\item\label{partfun1:41} If $\emptyset_{|X\to Y}$ is total, then $X=\emptyset$.
+\item\label{partfun1:42} If $X\subset\dom(f)$ and $\rng(f)\subset Y$,
+  then $f_{|X\to Y}$ is total.
+\item\label{partfun1:43} If $f_{|X\to Y}$ is total, then $f(X)\subset Y$.
+\item\label{partfun1:44} If $X\subset\dom(f)$ and $f(X)\subset Y$,
+  then $f_{|X\to Y}$ is total.
+\end{thm}
+
+\begin{definition}\index{$\PFuncs(X,Y)$}
+Let $X$, $Y$ be sets.
+We define the term $\PFuncs(X,Y)$ to be a set such that
+\begin{defn}
+\item for all objects $x$, $x\in\PFuncs(X,Y)$ if and only if there
+  exists a function $f$ such that $x=f$ and $\dom(f)\subset X$ and
+  $\rng(f)\subset Y$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{partfun1:45} Let $f$ be any partial function from $X$ to
+  $Y$.
+  Then $f\in\PFuncs(X,Y)$.
+\item\label{partfun1:46} Let $f$ be a set. If $f\in\PFuncs(X,Y)$,
+  then $f$ is a partial function from $X$ to $Y$.
+\item\label{partfun1:47} Let $f$ be an element of $\PFuncs(X,Y)$.
+  Then $f$ is a partial function from $X$ to $Y$.
+\item\label{partfun1:48} $\PFuncs(\emptyset,Y)=\{\emptyset\}$.
+\item\label{partfun1:49} $\PFuncs(X,\emptyset)=\{\emptyset\}$.
+\item\label{partfun1:50} If $X_{1}\subset X_{2}$ and
+  $Y_{1}\subset Y_{2}$, then $\PFuncs(X_{1},Y_{1})\subset\PFuncs(X_{2},Y_{2})$.
+\end{thm}
+
+\section{Relation of Tolerance on Functions}
+
+\begin{definition}
+Let $f$, $g$ be functions.
+We define the predicate $f$ \define{tolerates} $g$ to mean
+\begin{defn}
+\item for any object $x$, if $x\in\dom(f)\cap\dom(g)$, then $f(x)=g(x)$.
+\end{defn}
+Observe it is reflexive ($f$ tolerates $f$) and symmetric (if $f$
+tolerates $g$, then $g$ tolerates $f$).
+\end{definition}
+
+\begin{thm}
+\item\label{partfun1:51} $f$ tolerates $g$ if and only if $f\cup g$ is a function.
+\item\label{partfun1:52} $f$ tolerates $g$ if and only if there exists a
+  function $h$ such that $f\subset h$ and $g\subset h$.
+\item\label{partfun1:53} Suppose $\dom(f)\subset\dom(g)$.
+  Then $f$ tolerates $g$ if and only if for every object $x\in\dom(f)$
+  we have $f(x)=g(x)$.
+\item\label{partfun1:54} If $f\subset g$, then $f$ tolerates $g$.
+\item\label{partfun1:55} If $\dom(f)=\dom(g)$ and $f$ tolerates $g$,
+  then $f=g$.
+\item\label{partfun1:56} If $\dom(f)$ misses $\dom(g)$,
+  then $f$ tolerates $g$.
+\item\label{partfun1:57} Let $h$ be a function.
+  If $f\subset h$ and $g\subset h$, then $f$ tolerates $g$.
+\item\label{partfun1:58} Let $f$, $g$ be partial functions from $X$ to $Y$.
+  Let $h$ be a function.
+  If $f$ tolerates $h$ and $g\subset f$, then $g$ tolerates $h$.
+\item\label{partfun1:59} $\emptyset$ tolerates $f$.
+\item\label{partfun1:60} $\emptyset_{|X\to Y}$ tolerates $f$.
+\item\label{partfun1:61} Let $f$, $g$ be partial functions from $X$ to
+  $\{y\}$. Then $f$ tolerates $g$.
+\item\label{partfun1:62} $f|_{X}$ tolerates $f$.
+\item\label{partfun1:63} $f|^{Y}$ tolerates $f$.
+\item\label{partfun1:64} $f|^{Y}_{X}$ tolerates $f$.
+\item\label{partfun1:65} $f_{|X\to Y}$ tolerates $f$.
+\item\label{partfun1:66} Let $f$, $g$ be partial functions from $X$ to
+  $Y$.
+  If $f$ is total, $g$ is total, and $f$ tolerates $g$,
+  then $f=g$.
+\item\label{partfun1:67} Let $f$, $g$, $h$ be partial functions from $X$
+  to $Y$. If $f$ tolerates $h$, $g$ tolerates $h$, and $h$ is total,
+  then $f$ tolerates $g$.
+\item\label{partfun1:68} Let $f$, $g$ be partial functions from $X$ to $Y$.
+  Suppose $Y=\emptyset$ implies $X=\emptyset$, and $f$ tolerates $g$.
+  Then there exists a partial function $h$ from $X$ to $Y$ such that
+  $h$ is total, $f$ tolerates $h$, and $g$ tolerates $h$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$ be sets.
+Let $f$ be a partial function from $X$ to $Y$.
+We define the term $\TotFuncs(f)$ (Mizar: ``\verb#TotFuncs f#'') to be a set 
+such that
+\begin{defn}
+\item for all objects $x$, we have $x\in\TotFuncs(f)$ if and only if
+  there exists a partial function $g$ from $X$ to $Y$ such that $g=x$
+  and $g$ is total and $f$ tolerates $g$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{partfun1:69} Let $f$ be a partial function from $X$ to $Y$,
+  let $g$ be a set. If $g\in\TotFuncs(f)$, then $g$ is a partial
+  function from $X$ to $Y$.
+\item\label{partfun1:70} Let $f$, $g$ be partial functions from $X$ to $Y$.
+  If $g\in\TotFuncs(f)$, then $g$ is total.
+\item\label{partfun1:71} Let $f$ be a partial function from $X$ to $Y$,
+  let $g$ be a function. If $g\in\TotFuncs(f)$, then $f$ tolerates $g$.
+\item\label{partfun1:72} Let $f$ be a partial function from $X$ to $Y$.
+  Then $f$ is total if and only if $\TotFuncs(f)=\{f\}$.
+\item\label{partfun1:73} Let $f$ be a partial function from
+  $\emptyset$ to $Y$. Then $\TotFuncs(f)=\{f\}$.
+\item\label{partfun1:74} Let $f$ be a partial function from $\emptyset$
+  to $Y$. Then $\TotFuncs(f)=\{\emptyset\}$.
+\item\label{partfun1:75} Let $f$, $g$ be partial functions from $X$ to $Y$.
+  If $\TotFuncs(f)$ meets $\TotFuncs(g)$, then $f$ tolerates $g$.
+\item\label{partfun1:76} Let $f$, $g$ be partial functions from $X$ to $Y$.
+  If $f$ tolerates $g$ and either $Y\neq\emptyset$ or $X=\emptyset$,
+  then $\TotFuncs(f)$ meets $\TotFuncs(g)$.
+\end{thm}
+
+\begin{definition}
+We redefine the term $\id_{X}$ to have its type be a total Relation of $X$.
+\end{definition}
+
+\begin{scheme}[LambdaC9]
+Let $\mathcal{A}$ be a nonempty set, let $C[-]$ be a unary predicate of
+objects, let $\mathcal{F}(-)$ and $\mathcal{G}(-)$ be objects
+parametrized by objects.
+There exists a function $f$ such that $\dom(f)=\mathcal{A}$
+and for each element $x$ of $\mathcal{A}$ we have
+\begin{enumerate}[label=(\roman*)]
+\item If $C[x]$, then $f(x)=\mathcal{F}(x)$; and
+\item If not $C[x]$, then $f(x)=\mathcal{G}(x)$.
+\end{enumerate}
+\end{scheme}
+
+Let $A$ be a set, let $f$, $g$, $h$ be functions.
+\begin{thm}
+\item\label{partfun1:77} Let $x$, $y$, $z$ be objects.
+  If $f$ tolerates $g$, $(x,y)\in f$, and $(x,z)\in g$,
+  then $y=z$.
+\item\label{partfun1:78} Suppose $A$ is functional.
+  If all functions $f\in A$ and $g\in A$ have $f$ tolerates $g$,
+  then $\union A$ is a function.
+\end{thm}
+\begin{definition}
+Let $D$ be a set, $p$ be a $D$-valued function, let $i$ be an object.
+Assume $i\in\dom(p)$.
+We define the term $p(i)$ (Mizar: ``\verb#p /. i#'') to be an element of
+$D$ such that
+\begin{defn}
+\item $p(i)=p(i)$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{partfun1:79} Let $f_{1}$, $f_{2}$, $g$ be functions.
+  If $\rng(g)\subset\dom(f_{1})$, $\rng(g)\subset\dom(f_{2})$,
+  and $f_{1}$ tolerates $f_{2}$,
+  then $f_{1}\circ g = f_{2}\circ g$.
+\item\label{partfun1:80} Let $f$ be a $Y$-valued function.
+  If $x\in\dom(f|_{X})$, then $(f|_{X})(x)=f(x)$.
+\item\label{partfun1:81} Let $f$, $g$ be functions.
+  If $f(x)=g(x)$, then $f|_{\{x\}}$ tolerates $g|_{\{x\}}$.
+\item\label{partfun1:82} Let $f$, $g$ be functions.
+  If $f(x)=g(x)$ and $f(y)=g(y)$, then $f|_{\{x,y\}}$ tolerates
+  $g|_{\{x,y\}}$.
+\end{thm}
+
+\begin{scheme}[LambdaCS]
+Let $\mathcal{A}$ be a set, let $C[-]$ be a unary predicate of objects,
+let $\mathcal{F}(-)$ and $\mathcal{G}(-)$ be objects parametrized by objects.
+There exists a function $f$ such that
+\begin{enumerate}[label=(\roman*)]
+\item $\dom(f)=\mathcal{A}$; and
+\item for every set $x$, if $x\in\mathcal{A}$, then
+  when $C[x]$ implies $f(x)=\mathcal{F}(x)$
+  and when not $C[x]$ implies $f(x)=\mathcal{G}(x)$.
+\end{enumerate}
+\end{scheme}
+
+\begin{definition}
+Let $A$, $B$ be sets. Let $F$ be a $\PFuncs(A,B)$-valued function.
+Let $i$ be an object.
+We redefine the type of $F(i)$ to be a partial function from $A$ to $B$.
+\end{definition}
 
 \end{document}

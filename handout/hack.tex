@@ -52,8 +52,9 @@
 }
 
 \def\import{\refstepcounter{article}\refstepcounter{chapter}
-  \restartlist{defn}\let\enit@resume@series@thm\@empty
-  \restartlist{thm}\let\enit@resume@series@defn\@empty
+  \restartlist{thm}\restartlist{defn}
+  \let\enit@resume@series@thm\@empty
+  \let\enit@resume@series@defn\@empty
   \input}
 %\let\import\include
 

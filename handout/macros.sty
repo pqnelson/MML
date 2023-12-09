@@ -29,6 +29,7 @@
 % \setlength{\smallskipamount}{2.09999pt plus 2.09999pt}
 \setlist[defn]{label=(Def.\ \arabic*),wide,
   resume=defn, labelwidth=!, labelindent=0pt,
+  itemindent=!,
   % just follow AMSbook's conventions
   parsep=0pt,
   itemsep=0pt,
@@ -37,6 +38,7 @@
 \setlist[thm]{label=(\arabic*),
   wide,
   labelwidth=!,
+  itemindent=!,
   labelindent=0pt,
   resume=thm,
   % just follow AMSbook's conventions
@@ -57,6 +59,9 @@
 %\@addtoreset{defni}{section}
 %\renewcommand\thethmi{(\ifx\mizart\relax\else\mizart:\fi\arabic{thmi})}
 %\renewcommand\thedefni{(Def.~\arabic{defni})}
+
+\newcommand\skipdefn{\addtocounter{defni}{1}Definition \thedefni\ was cancelled.\addtocounter{defni}{2}}
+%    {\stepcounter{defni}}%\addtocounter{}{}}
 
 \newtheorem{axiom}{Axiom}
 
@@ -117,3 +122,9 @@
     \newpage
   }
 }{}
+
+% I dislike overriding making the article titles as the header
+\def\gobble#1{}
+\let\partmark\gobble
+\let\chaptermark\gobble
+\let\sectionmark\gobble

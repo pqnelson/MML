@@ -1,0 +1,533 @@
+\documentclass{article}
+
+\title{Subgroup and Cosets of Subgroups. Lagrange theorem (GROUP-2)}
+\author{Wojciech A. Trybulec}
+\begin{document}
+
+\maketitle
+
+\begin{thm}
+\item\label{group2:1} Let $G$ be a nonempty 1-sorted, let $A$ be a subset of $G$.
+  If $G$ is finite, then $A$ is finite.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $A$ be a subset of $G$.
+We define the new term $A^{-1}$ to be the subset of $G$ equal to
+\begin{defn}
+\item $\{g^{-1}~\mbox{where $g$ is element of $G$}\mid g\in A\}$.
+\end{defn}
+\end{definition}
+
+Now, let $G$ be a Group, let $A$ be a subset of $G$. Let $x$ be an
+object. Let $g$, $g_{1}$, $g_{2}$, $h$ be Elements of $G$.
+\begin{thm}
+\item\label{group2:2} $x\in A^{-1}$ if and only if there exists an
+  element $g$ of $G$ such that $x=g^{-1}$ and $g\in A$.
+\item\label{group2:3} $\{g\}^{-1}=\{g^{-1}\}$.
+\item\label{group2:4} $\{g,h\}^{-1}=\{g^{-1},h^{-1}\}$.
+\item\label{group2:5} $(\emptyset_{\carrier{G}})^{-1}=\emptyset$.
+\item\label{group2:6} $(\Omega_{\carrier{G}})^{-1}=\carrier{G}$.
+\item\label{group2:7} $A\neq\emptyset$ iff $A^{-1}\neq\emptyset$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $A$ and $B$ be subsets of $G$.
+We define the term $A\cdot B$ (Mizar: ``\verb#A * B#'') to be the subset of
+$G$ equal to
+\begin{defn}
+\item $\{gh\mid g\in A,h\in B\}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $G$ be a commutative nonempty magma, let $A$ and $B$ be subsets of $G$.
+We redefine the term $A\cdot B$ to be commutative
+(i.e., $A\cdot B=B\cdot A$).
+\end{definition}
+
+Let $G$ be a nonempty magma.
+\begin{thm}
+\item\label{group2:8} $x\in A\cdot B$ if and only if there exists elements
+  $g$, $h$ of $G$ such that $x=gh$ and $g\in A$ and $h\in B$.
+\item\label{group2:9} $A\neq\emptyset$ and $B\neq\emptyset$ if and only
+  if $A\cdot B\neq\emptyset$.
+\item\label{group2:10} If $G$ is associative, then $A\cdot B\cdot C=A\cdot (B\cdot C)$.
+\item\label{group2:11} Let $G$ be a group, let $A$ and $B$ be subsets of
+  $G$. Then $(A\cdot B)^{-1}=B^{1}\cdot A^{-1}$.
+\item\label{group2:12} $A\cdot(B\cup C)=A\cdot B\cup A\cdot C$.
+\item\label{group2:13} $(A\cup B)\cdot C=A\cdot C\cup B\cdot C$
+\item\label{group2:14} $A\cdot(B\cap C)=A\cdot B\cap A\cdot C$.
+\item\label{group2:15} $(A\cap B)\cdot C=A\cdot C\cap B\cdot C$
+\item\label{group2:16} $\emptyset_{\carrier{G}}\cdot A=\emptyset$ and
+  $A\cdot\emptyset_{\carrier{G}}=\emptyset$.
+\item\label{group2:17} Let $G$ be a group. If $A\neq\emptyset$ is a
+  subset of $G$, then
+  $\Omega_{\carrier{G}}\cdot A=\carrier{G}$ and $A\cdot\Omega_{\carrier{G}}=\carrier{G}$.
+\item\label{group2:18} $\{g\}\cdot\{h\}=\{gh\}$.
+\item\label{group2:19} $\{g\}\cdot\{g_{1},g_{2}\}=\{gg_{1},gg_{2}\}$.
+\item\label{group2:20} $\{g_{1},g_{2}\}\cdot\{g\}=\{g_{1}g,g_{2}g\}$
+\item\label{group2:21} $\{g,h\}\cdot\{g_{1},g_{2}\}=\{gg_{1},gg_{2},hg_{1},hg_{2}\}$.
+\item\label{group2:22} Let $G$ be a group. Suppose $A$ is a subset of $G$ such that
+  if $g_{1}\in A$ and $g_{2}\in A$ then $g_{1}g_{2}\in A$,
+  and if $g\in A$ then $g^{-1}\in A$.
+  Then $A\cdot A=A$.
+\item\label{group2:23} Let $G$ be a group, let $A$ be a subset of $G$.
+  Suppose every element $g$ of $G$, if $g\in A$,
+  then $g^{-1}\in A$. Then $A^{-1}=A$.
+\item\label{group2:24} Suppose every element $a$ and $b$ of $G$ such
+  that $a\in A$ and $b\in B$ has $ab=ba$. Then $A\cdot B=B\cdot A$.
+\item\label{group2:25} If $G$ is a commutative group, then $A\cdot B=B\cdot A$.
+\item\label{group2:26} Let $G$ be a commutative group, let $A$ and $B$
+  be subsets of $G$. Then $(A\cdot B)^{-1}=A^{-1}\cdot B^{-1}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $g$ be an element of $G$, let $A$ be a subset of $G$.
+We define the term $g\cdot A$ to be the subset of $G$ equal to
+\begin{defn}
+\item $g\cdot A=\{g\}\cdot A$.
+\end{defn}
+We define the term $A\cdot g$ to be the subset of $G$ defined as
+\begin{defn}
+\item $A\cdot g=A\cdot\{g\}$.
+\end{defn}
+\end{definition}
+
+Let $G$ be a nonempty magma, let $A$ be a subset of $G$.
+We now have the following 9 propositions:
+\begin{thm}
+\item\label{group2:27} $x\in g\cdot A$ if and only if there exists some
+  element $h$ of $G$ such that $x=gh$ and $h\in A$.
+\item\label{group2:28} $x\in A\cdot g$ if and only if there exists some
+  element $h$ of $G$ such that $x=hg$ and $h\in A$.
+\item\label{group2:29} If $G$ is associative, then $g\cdot A\cdot B=g\cdot (A\cdot B)$.
+\item\label{group2:30} If $G$ is associative, then $A\cdot g\cdot B=A\cdot(g\cdot B)$.
+\item\label{group2:31} If $G$ is associative, then $A\cdot B\cdot g=A\cdot(B\cdot g)$.
+\item\label{group2:32} If $G$ is associaative, then $g\cdot h\cdot A=g\cdot(h\cdot A)$.
+\item\label{group2:33} If $G$ is associaative, then $g\cdot A\cdot h=g\cdot(A\cdot h)$.
+\item\label{group2:34} If $G$ is associaative, then $A\cdot g\cdot h=A\cdot(g\cdot h)$.
+\item\label{group2:35} $\emptyset_{\carrier{G}}\cdot a=\emptyset$
+  and $a\cdot\emptyset_{\carrier{G}}=\emptyset$.
+\item\label{group2:36} Let $G$ be a group, let $a$ be an element of $G$.
+  Then $\Omega_{\carrier{G}}\cdot a=\carrier{G}$
+  and $a\cdot\Omega_{\carrier{G}}=\carrier{G}$.
+\item\label{group2:37} $1_{G}\cdot A=A$ and $A\cdot 1_{G}=A$.
+\item\label{group2:38} If $G$ is a commutative group, then $g\cdot A=A\cdot g$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be $G$ be a nonempty Group-like magma.
+We define a new mode \define{Subgroup of $G$} to be a nonempty
+Group-like magma such that
+\begin{defn}
+\item its carrier $\subset\carrier{G}$ and the operation of it = (the
+  operation of $G)|_{\carrier{it}\times\carrier{it}}$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+We will register the fact that if $G$ is a Group, then all subgroups of
+$G$ are automatically groups.
+\end{remark}
+
+Let $H$ be a subgroup of $G$, let $h$, $h_{1}$, $h_{2}$ be elements of $H$.
+We have the following results
+\begin{thm}
+\item\label{group2:39} If $G$ is finite, then $H$ is finite.
+\item\label{group2:40} If $x\in H$, then $x\in G$.
+\item\label{group2:41} $h\in G$
+\item\label{group2:42} $h$ is an element of $G$.
+\item\label{group2:43} If $h_{1}=g_{1}$ and $h_{2}=g_{2}$, then $h_{1}h_{2}=g_{1}g_{2}$.
+\end{thm}
+
+From now on, let $G$, $G_{1}$, $G_{2}$, $G_{3}$ be groups.
+Let $a$, $a_{1}$, $a_{2}$, $b$, $b_{1}$, $b_{2}$, $g$, $g_{1}$, $g_{2}$
+be elements of $G$.
+Let $A$, $B$ be subsets of $G$.
+Let $H$, $H_{1}$, $H_{2}$, $H_{3}$ be subgroups of $G$.
+Let $h$, $h_{1}$, $h_{2}$ be elements of $H$.
+We have the following results:
+\begin{thm}
+\item\label{group2:44} $1_{H}=1_{G}$.
+\item\label{group2:45} $1_{H_{1}}=1_{H_{2}}$.
+\item\label{group2:46} $1_{G}\in H$.
+\item\label{group2:47} $1_{H_{1}}\in H_{2}$.
+\item\label{group2:48} If $h=g$, then $h^{-1}=g^{-1}$.
+\item\label{group2:49} $\inverseop{H}=\inverseop{G}|_{\carrier{H}}$.
+\item\label{group2:50} If $g_{1}\in H$ and $g_{2}\in H$, then
+  $g_{1}g_{2}\in H$.
+\item\label{group2:51} If $g\in H$, then $g^{-1}\in H$.
+\item\label{group2:52} Let $A\neq\emptyset$.
+  If every $g_{1}\in A$ and $g_{2}\in A$ has $g_{1}g_{2}\in A$,
+  if every $g\in A$ has $g^{-1}\in A$,
+  then there exists a strict subgroup $H$ of $G$ such that the carrier
+  of $H$ is equal to $A$.
+\item\label{group2:53} If $G$ is a commutative group, then $H$ is a
+  commutative group. (Observe: all subgroups of commutative groups are commutative.)
+\item\label{group2:54} $G$ is a subgroup of $G$.
+\item\label{group2:55} If $G_{1}$ is a subgroup of $G_{2}$ and $G_{2}$
+  is a subgroup of $G_{1}$, then the magma underlying $G_{1}$ = the
+  magma underlying $G_{2}$.
+\item\label{group2:56} (Transitivity of subgroups) If $G_{1}$ is a
+  subgroup of $G_{2}$, if $G_{2}$ is a subgroup of $G_{3}$, then $G_{1}$
+  is a subgroup of $G_{3}$.
+\item\label{group2:57} If $\carrier{H_{1}}\subset\carrier{H_{2}}$,
+  then $H_{1}$ is a subgroup of $H_{2}$.
+\item\label{group2:58} Suppose for every element $g$ of $G$, if $g\in H_{1}$,
+  then $g\in H_{2}$.
+  Then $H_{1}$ is a subgroup of $H_{2}$.
+\item\label{group2:59} Suppose $\carrier{H_{1}}=\carrier{H_{2}}$.
+  Then the magma underlying $H_{1}$ = the magma underlying $H_{2}$.
+\item\label{group2:60} Suppose every element $g$ of $G$ satisfies $g\in H_{1}$
+  iff $g\in H_{2}$. Then the magma underlying $H_{1}$ is equal to the
+  magma underlying $H_{2}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group. Let $H_{1}$ and $H_{2}$ be strict subgroups of $G$.
+We redefine the predicate $H_{1}=H_{2}$ to mean
+\begin{defn}
+\item for all elements $g$ of $G$, we have $g\in H_{1}$ iff $g\in H_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{group2:61} If $\carrier{G}\subset\carrier{H}$, then the
+  magma of $H$ is equal to the magma of $G$.
+\item\label{group2:62} Suppose every element $g$ of $G$ is such that
+  $g\in H$.
+  Then the magma of $H$ is equal to the magma of $G$.
+\end{thm}
+
+\begin{definition}\index{$\trivialSubgroup{G}$}
+Let $G$ be a group. We define the term $\trivialSubgroup{G}$ to be the
+strict subgroup of $G$ such that
+\begin{defn}
+\item the carrier of $\trivialSubgroup{G}$ = $\{1_{G}\}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}\index{$\Omega_{G}$}
+Let $G$ be a group. We define the term $\Omega_{G}$ to be the
+strict subgroup of $G$ such that
+\begin{defn}
+\item $\Omega_{G}$ is equal to the magma underlying $G$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{group2:63} $\trivialSubgroup{H}=\trivialSubgroup{G}$
+\item\label{group2:64} $\trivialSubgroup{H_{1}}=\trivialSubgroup{H_{2}}$
+\item\label{group2:65} $\trivialSubgroup{G}$ is a Subgroup of $H$.
+\item\label{group2:66} Let $G$ be a strict group, let $H$ be a subgroup
+  of $H$. Then $H$ is a subgroup of $\Omega_{G}$.
+\item\label{group2:67} If $G$ is a strict group, then $G$ is a subgroup
+  of $\Omega_{G}$.
+\item\label{group2:68} $\trivialSubgroup{G}$ is finite.
+\item\label{group2:69} $\card{\trivialSubgroup{G}}=1$.
+\item\label{group2:70} Let $H$ be a strict finite subgroup of $G$. If
+  $\card{H}=1$, then $H=\trivialSubgroup{G}$.
+\item\label{group2:71} $\card{H}\subset\card{G}$.
+\item\label{group2:72} Let $G$ be a finite group, let $H$ be a subgroup
+  of $G$. Then $\card{H}\leq\card{G}$.
+\item\label{group2:73} Let $G$ be a finite group, let $H$ be a subgroup
+  of $G$. If $\card{G}=\card{H}$, then the magma underlying $H$ is equal
+  to the magma underlying $G$.
+\end{thm}
+
+\begin{definition}\index{$\carr(H)$}
+Let $G$ be a group, let $H$ be a subgroup of $G$.
+We define the term $\carr(H)$ to be the subset of $G$ such that
+\begin{defn}
+\item $\carr(H)=\carrier{H}$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+This is used specifically for typing the underlying set of $H$
+\emph{as a subset of $G$}.
+\end{remark}
+
+We now can prove the following results:
+\begin{thm}
+\item\label{group2:74} If $g_{1}\in\carr(H)$ and $g_{2}\in\carr(H)$,
+  then $g_{1}\cdot g_{2}\in\carr(H)$.
+\item\label{group2:75} If $g\in\carr(H)$, then $g^{-1}\in\carr(H)$.
+\item\label{group2:76} $\carr(H)\cdot\carr(H)=\carr(H)$.
+\item\label{group2:77} $\carr(H)^{-1}=\carr(H)$.
+\item\label{group2:78} \begin{enumerate}[label=(\roman*)]
+\item If $\carr(H_{1})\cdot\carr(H_{2})=\carr(H_{2})\cdot\carr(H_{1})$,
+  then there exists a strict Subgroup $H$ of $G$ such that $\carrier{H}=\carr(H_{1})\cdot\carr(H_{2})$.
+\item If there exists a subgroup $H$ of $G$ such that $\carrier{H}=\carr(H_{1})\cdot\carr(H_{2})$,
+  then $\carr(H_{1})\cdot\carr(H_{2})=\carr(H_{2})\cdot\carr(H_{1})$.
+\end{enumerate}
+\item\label{group2:79} Let $G$ be a commutative group. Then for each
+  subgroup $H_{1}$, $H_{2}$ of $G$, there always exists a strict
+  subgroup $H$ of $G$ such that $\carrier{H}=\carr(H_{1})\cdot\carr(H_{2})$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H_{1}$ and $H_{2}$ be subgroups of $G$.
+We define the term $H_{1}\cap H_{2}$ to be a strict subgroup of $G$
+satisfying
+\begin{defn}
+\item $\carrier{H}=\carr(H_{1})\cap\carr(H_{2})$.
+\end{defn}
+\end{definition}
+
+We now can prove the following results:
+\begin{thm}
+\item\label{group2:80} \begin{enumerate}[label=(\roman*)]
+\item For all subgroups $H$ of $G$, if $H= H_{1}\cap H_{2}$, then $\carrier{H}=\carrier{H_{1}}\cap\carrier{H_{2}}$.
+\item For all strict Subgroups $H$ of $G$, if
+  $\carrier{H}=\carrier{H_{1}}\cap\carrier{H_{2}}$,
+  then $H=H_{1}\cap H_{2}$.
+\end{enumerate}
+\item\label{group2:81} $\carr(H_{1}\cap H_{2})=\carr(H_{1})\cap\carr(H_{2})$.
+\item\label{group2:82} $x\in H_{1}\cap H_{2}$ if and only if $x\in H_{1}$ and $x\in H_{2}$.
+\item\label{group2:83} Every strict subgroup $H$ of $G$ satisfies $H\cap H=H$.
+\end{thm}
+
+\begin{definition}
+We redefine $H_{1}\cap H_{2}$ to note it is commutative (i.e., $H_{1}\cap H_{2}=H_{2}\cap H_{1}$).
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{group2:84} (Associativity of $\cap$)
+  $H_{1}\cap H_{2}\cap H_{3}=H_{1}\cap(H_{2}\cap H_{3})$.
+\item\label{group2:85} $\trivialSubgroup{G}\cap H=\trivialSubgroup{G}$
+  and $H\cap\trivialSubgroup{G}=\trivialSubgroup{G}$.
+\item\label{group2:86} Let $G$ be a strict group, let $H$ be a strict
+  subgroup of $G$. Then $H\cap\Omega_{G}=H$ and $\Omega_{G}\cap H=H$.
+\item\label{group2:87} For any strict group $G$, we have $\Omega_{G}\cap\Omega_{G}=G$.
+\item\label{group2:88} $H_{1}\cap H_{2}$ is a subgroup of $H_{1}$, and
+  $H_{1}\cap H_{2}$ is a subgroup of $H_{2}$.
+\item\label{group2:89} $H_{1}$ is a subgroup of $H_{2}$ if and only if
+  the magma underlying $H_{1}\cap H_{2}$ is equal to the magma
+  underlying $H_{1}$.
+\item\label{group2:90} If $H_{1}$ is a subgroup of $H_{2}$,
+  then $H_{1}\cap H_{3}$ is a subgroup of $H_{2}$.
+\item\label{group2:91} If $H_{1}$ is a subgroup of $H_{2}$ and $H_{1}$
+  is a subgroup of $H_{3}$, then $H_{1}$ is a subgroup of $H_{2}\cap H_{3}$.
+\item\label{group2:92} If $H_{1}$ is a subgroup of $H_{2}$,
+  then $H_{1}\cap H_{3}$ is a subgroup of $H_{2}\cap H_{3}$.
+\item\label{group2:93} If $H_{1}$ is finite or $H_{2}$ is finite, then
+  $H_{1}\cap H_{2}$ is finite.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H$ be a subgroup of $G$, let $A$ be a subset of $G$.
+We define the term $A\cdot H$ to be the subset of $G$ equal to
+\begin{defn}
+\item $A\cdot H=A\cdot\carr(H)$.
+\end{defn}
+We define the term $H\cdot A$ to be the subset of $G$ equal to
+\begin{defn}
+\item $H\cdot A=\carr(H)\cdot A$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+Multiplication in Mizar is left associative, so $A\cdot H\cdot B$
+is interpreted as $(A\cdot H)\cdot B$.
+\end{remark}
+
+We now can prove the following results:
+\begin{thm}
+\item\label{group2:94} $x\in A\cdot H$ if and only if there exists
+  elements $g_{1}$, $g_{2}$ of $G$ such that $x=g_{1}\cdot g_{2}$ and
+  $g_{1}\in A$ and $g_{2}\in H$.
+\item\label{group2:95} $x\in H\cdot A$ if and only if there exists
+  elements $g_{1}$, $g_{2}$ of $G$ such that $x=g_{1}\cdot g_{2}$ and
+  $g_{1}\in H$ and $g_{2}\in A$.
+\item\label{group2:96} $(A\cdot B)\cdot H=A\cdot(B\cdot H)$.
+\item\label{group2:97} $(A\cdot H)\cdot B=A\cdot(H\cdot B)$.
+\item\label{group2:98} $(H\cdot A)\cdot B=H\cdot(A\cdot B)$.
+\item\label{group2:99} $(A\cdot H_{1})\cdot H_{2}=A\cdot(H_{1}\cdot\carr(H_{2}))$
+\item\label{group2:100} $(H_{1}\cdot A)\cdot H_{2}=H_{1}\cdot(A\cdot H_{2})$
+\item\label{group2:101} $(H_{1}\cdot\carr(H_{2})\cdot A=H_{1}\cdot(H_{2}\cdot A)$
+\item\label{group2:102} If $G$ is a commutative group, then $A\cdot H=H\cdot A$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H$ be a subgroup of $G$, let $a$ be an element
+of $G$.
+We define the term $a\cdot H$ (Mizar: ``\verb#a * H#'') to be a subset
+of $G$ meaning
+\begin{defn}
+\item $a\cdot H=a\cdot\carr(H)$.
+\end{defn}
+We define the term $H\cdot a$ (Mizar: ``\verb#H * a#'') to be a subset
+of $G$ meaning
+\begin{defn}
+\item $H\cdot a=\carr(H)\cdot a$.
+\end{defn}
+\end{definition}
+
+We now can prove the following results:
+\begin{thm}
+\item\label{group2:103} $x\in a\cdot H$ if and only if there exists some
+  element $g$ of $G$ such that $x=a\cdot g$ and $g\in H$.
+\item\label{group2:104} $x\in H\cdot a$ if and only if there exists some
+  element $g$ of $G$ such that $x=g\cdot a$ and $g\in H$.
+\item\label{group2:105} $(a\cdot b)\cdot H=a\cdot(b\cdot H)$.
+\item\label{group2:106} $(a\cdot H)\cdot b=a\cdot(H\cdot b)$.
+\item\label{group2:107} $(H\cdot a)\cdot b=H\cdot(a\cdot b)$.
+\item\label{group2:108} $a\in a\cdot H$ and $a\in H\cdot a$.
+\item\label{group2:109} $1_{G}\cdot H=\carr(H)$ and $H\cdot1_{G}=\carr(H)$.
+\item\label{group2:110} $\trivialSubgroup{G}\cdot a=\{a\}$ and $a\cdot\trivialSubgroup{G}=\{a\}$.
+\item\label{group2:111} $a\cdot\Omega_{G}=\carrier{G}$, and
+  $\Omega_{G}\cdot a=\carrier{G}$.
+\item\label{group2:112} If $G$ is a commutative group, then $a\cdot H=H\cdot a$.
+\item\label{group2:113} $a\in H$ if and only if $a\cdot H=\carr(H)$.
+\item\label{group2:114} $a\cdot H=b\cdot H$ if and only if $b^{-1}\cdot a\in H$.
+\item\label{group2:115} $a\cdot H=b\cdot H$ if and only if $a\cdot H$
+  meets $b\cdot H$.
+\item\label{group2:116} $(a\cdot b)\cdot H\subset(a\cdot H)\cdot(b\cdot H)$.
+\item\label{group2:117} $\carr(H)\subset(a\cdot H)\cdot(a^{-1}\cdot H)$
+  and $\carr(H)\subset(a^{-1}\cdot H)\cdot(a\cdot H)$.
+\item\label{group2:118} $a^{2}\cdot H\subset(a\cdot H)\cdot(a\cdot H)$.
+\item\label{group2:119} $a\in H$ if and only if $H\cdot a=\carr(H)$.
+\item\label{group2:120} $H\cdot a=H\cdot b$ if and only if $b\cdot a^{-1}\in H$
+\item\label{group2:121} $H\cdot a=H\cdot b$ if and only if $H\cdot a$
+  meets $H\cdot b$.
+\item\label{group2:122} $(H\cdot a)\cdot b\subset (H\cdot a)\cdot(H\cdot b)$.
+\item\label{group2:123} $\carr(H)\subset(H\cdot a)\cdot(H\cdot a^{-1})$
+  and $\carr(H)\subset(H\cdot a^{-1})\cdot(H\cdot a)$.
+\item\label{group2:124} $H\cdot(a^{2})\subset(H\cdot a)\cdot(H\cdot a)$
+\item\label{group2:125} $a\cdot(H_{1}\cap H_{2})=(a\cdot H_{1})\cap(a\cdot H_{2})$
+\item\label{group2:126} $(H_{1}\cap H_{2})\cdot a=(H_{1}\cdot a)\cap(H_{2}\cdot a)$
+\item\label{group2:127} For any subgroup $H_{2}$ of $G$,
+  there exists a strict subgroup $H_{1}$ of $G$
+  such that $\carrier{H_{1}}=a\cdot H_{2}\cdot a^{-1}$.
+\item\label{group2:128} $a\cdot H\equipotent b\cdot H$
+\item\label{group2:129} $a\cdot H\equipotent H\cdot b$
+\item\label{group2:130} $H\cdot a\equipotent H\cdot b$
+\item\label{group2:131} $\carr(H)\equipotent a\cdot H$ and
+  $\carr(H)\equipotent H\cdot a$.
+\item\label{group2:132} $\card{H}=\card{a\cdot H}$ and
+  $\card{H}=\card{H\cdot a}$.
+\item\label{group2:133} For any finite subgroup $H$ of $G$, there exists
+  finite sets $B$ and $C$ such that $B=a\cdot H$ and $C=H\cdot a$ and
+  $\card{H}=\card{B}$ and $\card{H}=\card{C}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H$ be a subgroup of $G$.
+We define the term \define{Left Cosets of $H$} (Mizar: ``\verb#Left_Cosets H#'')
+to be a subset-family of $G$ such that
+\begin{defn}
+\item $A$ is in the left cosets of $H$ if and only if there exists an
+  element $a$ of $G$ such that $A=a\cdot H$.
+\end{defn}
+We define the term \define{Right Cosets of $H$} (Mizar: ``\verb#Right_Cosets H#'')
+to be a subset-family of $G$ such that
+\begin{defn}
+\item $A$ is in the right cosets of $H$ if and only if there exists an
+  element $a$ of $G$ such that $A=H\cdot a$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+I will use conventional mathematical jargon and call $A$ a left coset of
+$H$ (or right coset of $H$) instead of stating it is in left cosets of $H$
+(resp., right cosets of $H$).
+\end{remark}
+
+Now we have the following results:
+\begin{thm}
+\item\label{group2:134} If $G$ is finite, then the right cosets of $H$
+  is finite and the left cosets of $H$ is finite.
+\item\label{group2:135} $\carr(H)$ is a left coset of $H$, and
+  $\carr(H)$ is a right coset of $H$.
+\item\label{group2:136} The set of left cosets of $H$ is equipotent to
+  the set of right cosets of $H$.
+\item\label{group2:137} $\union(\mbox{The left cosets of }H)=\carrier{G}$
+  and $\union(\mbox{the right cosets of }H)=\carrier{G}$.
+\item\label{group2:138} The set of left cosets of $\trivialSubgroup{G}$
+  is equal to $\{\{a\} \mbox{ where } a \mbox{ is an element of } G\}$.
+\item\label{group2:139} The set of right cosets of $\trivialSubgroup{G}$
+  is equal to $\{\{a\} \mbox{ where } a \mbox{ is an element of } G\}$. 
+\item\label{group2:140} Let $H$ be a strict subgroup of $G$.
+  If the set of left cosets of H
+  is equal to $\{\{a\} \mbox{ where } a \mbox{ is an element of } G\}$,
+  then $H=\trivialSubgroup{G}$.
+\item\label{group2:141} Let $H$ be a strict subgroup of $G$.
+  If the set of right cosets of H
+  is equal to $\{\{a\} \mbox{ where } a \mbox{ is an element of } G\}$,
+  then $H=\trivialSubgroup{G}$.
+\item\label{group2:142} The set of left cosets of $\Omega_{G}$ is the
+  carrier of $G$. Similarly, the set of right cosets of $\Omega_{G}$ is
+  the carrier of $G$.
+\item\label{group2:143} Let $G$ be a strict group, let $H$ be a strict
+  subgroup of $G$.
+  If the set of left cosets of $H$ is $\{\carrier{G}\}$, then $H=G$.
+\item\label{group2:144} Let $G$ be a strict group, let $H$ be a strict
+  subgroup of $G$.
+  If the set of right cosets of $H$ is $\{\carrier{G}\}$, then $H=G$.
+\end{thm}
+
+\begin{definition}\index{Index!of subgroup}
+Let $G$ be a group, let $H$ be a subgroup of $G$.
+We define the term \define{Index $H$} (Mizar: ``\verb#Index H#'')
+to be the Cardinal denoted $\Index{G}{H}$ equal to
+\begin{defn}
+\item $\Index{G}{H}=\card{\mbox{the left cosets of $H$}}$.
+\end{defn}
+\end{definition}
+We have the following result:
+\begin{thm}
+\item\label{group2:145} $\Index{G}{H}=\card{\mbox{the left cosets of $H$}}$,
+  and $\Index{G}{H}=\card{\mbox{the right cosets of $H$}}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H$ be a subgroup of $H$. Assume the set of left
+cosets of $H$ is finite. We then define the \define{index} of $H$
+(Mizar: ``\verb#index H#'') to be the element of $\NN$ denoted $\Index{G}{H}_{\NN}$ such that
+\begin{defn}
+\item There exists a finite set $B$ such that $B$ is equal to the left
+  cosets of $H$ and $\Index{G}{H}_{\NN}=\card{B}$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{group2:146} Let the set of left cosets of $H$ be finite.
+  \begin{enumerate}[label=(\roman*)]
+  \item There exists a finite set $B$ such that $B$ is the set of left
+    cosets of $H$ and $\Index{G}{H}_{\NN}=\card{B}$.
+  \item There exists a finite set $C$ such that $C$ is the set of right
+    cosets of $H$ and $\Index{G}{H}_{\NN}=\card{C}$.
+  \end{enumerate}
+\item\label{group2:147}\index{Lagrange Theorems!for Groups}% 
+(\textsc{Lagrange's Theorem}) Let $G$ be a finite group, let $H$ be a subgroup of $G$. Then $\card{G}=\card{H}\cdot\Index{G}{H}_{\NN}$.
+\item\label{group2:148} Let $G$ be a finite group, let $H$ be a subgroup of $G$.
+  Then $\card{H}\divides\card{G}$.
+\item\label{group2:149} Let $G$ be a finite group.
+  Let $I$, $H$ be subgroups of $G$, let $J$ be a subgroup of $H$.
+  If $I=J$, then $\Index{H}{J}_{\NN}\Index{G}{H}_{\NN}=\Index{G}{I}_{\NN}$.
+\item\label{group2:150} $\Index{G}{\Omega_{G}}_{\NN}=1$.
+\item\label{group2:151} Let $G$ be a strict group, let $H$ be a strict
+  subgroup of $G$. If the set of left cosets of $H$ is finite and
+  $\Index{G}{H}_{\NN}=1$, then $H=G$.
+\item\label{group2:152} $\Index{G}{\trivialSubgroup{G}}=\card{G}$.
+\item\label{group2:153} Let $G$ be a finite group.
+  Then $\Index{G}{\trivialSubgroup{G}}_{\NN}=\card{G}$.
+\item\label{group2:154} Let $G$ be a finite group, let $H$ be a strict
+  subgroup of $G$.
+  If $\Index{G}{H}_{\NN}=\card{G}$, then $H=\trivialSubgroup{G}$.
+\item\label{group2:155} Let $H$ be a strict subgroup of $G$.
+  If the set of left cosets of $H$ is finite, and if $\Index{G}{H}=\card{G}$,
+  then $G$ is finite and $H=\trivialSubgroup{G}$.
+\item\label{group2:156} Let $X$ be a finite set.
+  Suppose every set $Y$ such that $Y\in X$ holds $Y$ is finite and
+  $\card{Y}=k$ and for every set $Z$ such that $Z\in X$ and $Y\neq Z$
+  holds $Y\equipotent Z$ and $Y$ misses $Z$.
+  Then $\card{\union X}=k\cdot\card{X}$.
+\end{thm}
+
+\end{document}

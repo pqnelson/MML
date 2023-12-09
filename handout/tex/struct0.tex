@@ -1,0 +1,328 @@
+\documentclass{article}
+\title{Preliminaries to Structures (STRUCT-0)}
+\author{Library Committee}
+\date{January 6, 1995}
+\begin{document}
+\maketitle
+
+\begin{definition}\index{Carrier}
+  We define the \define{1-sorted} structure as
+  \[\langle\mbox{a carrier}\rangle\]
+  where the carrier is a set.
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure.
+We define the attribute $S$ is \define{empty} to mean
+\begin{defn}
+\item the carrier of $S$ is empty.
+\end{defn}
+\end{definition}
+
+Observe there exists a strict empty 1-sorted structure and a strict
+nonempty 1-sorted structure. Observe the carrier of an empty 1-sorted
+structure is empty. We also observe the carrier of a nonempty 1-sorted
+structure is nonempty.
+
+\begin{definition}
+  Let $S$ be a 1-sorted structure.
+  We define the modes \define{Element of $S$} is an element of the
+  carrier of $S$, and a \define{Subset of $S$} is a subset of the
+  carrier of $S$, and a \define{Subset-Family of $S$} is a subset-family
+  of the carrier of $S$.
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure, let $X$ be a set.
+We define the modes \define{Function of $S$, $X$} is a function from the
+carrier of $S$ to $X$, and a \define{Function of $X$, $S$}
+is a function from $X$ to the carrier of $S$.
+\end{definition}
+
+\begin{definition}
+Let $S$ and $T$ be 1-sorted structures.
+We define the mode \define{Function of $S$, $T$} is a function from the
+carrier of $S$ to the carrier of $T$.
+\end{definition}
+
+\begin{definition}
+Let $T$ be a 1-sorted structure.
+We define the term $\emptyset_{T}$ (Mizar: ``\verb#{} T#'') to be the subset of $T$ equal to
+\begin{defn}
+\item $\emptyset_{T}=\emptyset$.
+\end{defn}
+We define the term $\Omega_{T}$ (Mizar: ``\verb|[#] T|'') to be the
+subset of $T$ equal to
+\begin{defn}
+\item $\Omega_{T}=\carrier{T}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure.
+We define the mode a \define{Finite Sequence of $S$}
+(Mizar: ``\verb#FinSequence of S#'')
+is a finite sequence of the carrier of $S$.
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure.
+We define the mode a \define{Many Sorted Set of $S$} (Mizar:
+``\verb#ManySortedSet of S#'') is a many sorted set of the carrier of $S$.
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure.
+We define the term $\id_{S}$ to be a function of $S$, $S$ equal to
+\begin{defn}
+\item $\id_{S}=\id_{\carrier{S}}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure.
+We define the mode \define{sequence of $S$} is a sequence of the carrier
+of $S$.
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure, let $X$ be a set.
+We define the mode \define{Partial Function of $S$, $X$} (Mizar:
+``\verb#PartFunc of S,X#'') is a partial function from the carrier of
+$S$ to $X$.
+We define the mode \define{Partial Function of $X$, $S$} (Mizar:
+``\verb#PartFunc of X,S#'') is a partial function from $X$ to the carrier of
+$S$.
+\end{definition}
+
+\begin{definition}
+Let $S$, $T$ be 1-sorted structures.
+We define the mode \define{Partial Function from $S$ to $T$}
+(Mizar: ``\verb#PartFunc of S,T#'') is a partial function from the carrier of
+$S$ to the carrier of $T$.
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure, let $x$ be an object.
+We define the predicate $x\in S$ (Mizar: ``\verb#x in S#'') to mean
+\begin{defn}
+\item $x\in\carrier{S}$.
+\end{defn}
+\end{definition}
+
+\section{Pointed Structures}
+
+\begin{definition}\index{ZeroF}
+We define the system of \define{ZeroStr} which extends the 1-sorted
+structures as
+\[\langle \mbox{a carrier}, \mbox{a ZeroF}\rangle\]
+where ZeroF is an element of the carrier.
+\end{definition}
+
+\begin{definition}\index{OneF}
+We define the system of \define{OneStr} which extends the 1-sorted
+structures as
+\[\langle \mbox{a carrier}, \mbox{a OneF}\rangle\]
+where OneF is an element of the carrier.
+\end{definition}
+
+\begin{definition}
+We define the system of \define{ZeroOneStr} which extends the ZeroStr
+and OneStr structures as
+\[\langle \mbox{a carrier}, \mbox{a ZeroF}, \mbox{a OneF}\rangle\]
+where ZeroF is an element of the carrier,
+and OneF is an element of the carrier.
+\end{definition}
+
+\begin{definition}
+Let $S$ be a ZeroStr structure. We define the term $0_{S}$ (Mizar:
+``\verb#0. S#'') to be an element of $S$ equal to
+\begin{defn}
+\item $0_{S} = $ the ZeroF of $S$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $S$ be a OneStr structure. We define the term $0_{S}$ (Mizar:
+``\verb#1. S#'') to be an element of $S$ equal to
+\begin{defn}
+\item $1_{S} = $ the OneF of $S$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $S$ be a ZeroOneStr structure.
+We define the attribute $S$ is \define{degenerated} to mean
+\begin{defn}
+\item $0_{S}=1_{S}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure.
+We define the attribute $S$ is trivial to mean
+\begin{defn}
+\item the carrier of $S$ is trivial.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure.
+We can alternatively redefine the attribute that $S$ is \define{trivial}
+to mean:
+\begin{defn}
+\item For any elements $x$ and $y$ of $S$, we have $x=y$.
+\end{defn}
+\end{definition}
+
+Observe, nondegenerated ZeroOneStr structures are nontrivial.
+
+\section{Finite 1-sorted Structures}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure.
+We define the attribute $S$ is \define{finite} to mean
+\begin{defn}
+\item the carrier of $S$ is finite.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $S$ be a ZeroStr structure, let $x$ be an element of $S$.
+We define the attribute that $x$ is \define{zero} to mean
+\begin{defn}
+\item $x=0_{S}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure.
+We define the mode \define{Cover of $S$} is a cover of the carrier of $S$.
+\end{definition}
+
+\section{2-Sorted Structures}
+
+\begin{definition}
+We define a system of \define{2-sorted} structures which extends
+1-sorted structures as
+\[\langle\mbox{a carrier}, \mbox{a carrier'}\rangle\]
+where carrier' is a set.
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 2-sorted structure.
+We define the attribute $S$ is \define{void} to mean
+\begin{defn}
+\item the carrier' of $S$ is empty.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a 1-sorted structure, $Y$ be a nonempty 1-sorted structure,
+let $y$ be an element of $Y$.
+We define the term $X\longmapsto y$ (Mizar: ``\verb#X --> y#'') to be a function from $X$ to $Y$ meaning
+\begin{defn}
+\item $X\longmapsto y=\carrier{X}\longmapsto y$
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a set, $S$ be a ZeroStr structure, $R$ a relation of $X$ and
+the carrier of $S$.
+We define the attribute $R$ is \define{non-zero} to mean
+\begin{defn}
+\item $0_{S}\notin\rng(R)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure.
+We define the term $\card{S}$ (Mizar: ``\verb#card S#'') to be a
+Cardinal meaning
+\begin{defn}
+\item $\card{S}=\card{\carrier{S}}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 1-sorted structure.
+We define the modes \define{Unary Operator of $S$} (Mizar:
+``\verb#UnOp of S#'') is a Unary Operator of the carrier of $S$, and
+\define{Binary Operator of $S$} (Mizar: ``\verb#BinOp of S#'') is a
+binary operator of the carrier of $S$.
+\end{definition}
+
+\begin{definition}
+Let $S$ be a ZeroStr structure.
+We define the term \define{NonZero $S$} (Mizar: ``\verb#NonZero S#'')
+is a subset of $S$ meaning
+\begin{defn}
+\item NonZero $S = \Omega_{S}\setminus\{0_{S}\}$.
+\end{defn}
+\end{definition}
+
+We can prove the following result:
+\begin{thm}
+\item\label{struct0:1} Let $S$ be a nonempty ZeroStr structure, let $u$
+  be an element of $S$. Then $u\in\mbox{NonZero\ }S$ iff $u$ is not zero.
+\end{thm}
+
+\begin{definition}
+Let $V$ be a nonempty ZeroStr structure.
+We redefine the attribute $V$ is \define{trivial} to mean
+\begin{defn}
+\item every element $u$ of $V$ satisfies $u=0_{V}$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{struct0:2} Let $F$ be a nondegenerated ZeroOneStr structure.
+  Then $1_{F}\in\mbox{NonZero\ }F$.
+\item\label{struct0:3} Let $S$ be a ZeroStr structure. Then $0_{S}\notin\NonZero(S)$.
+\item\label{struct0:4} Let $S$ be a nonempty ZeroStr structure.
+  Then $\carrier{S}=\{0_{S}\}\cup\NonZero(S)$.
+\end{thm}
+
+\begin{definition}
+Let $C$ be a set and let $X$ be a 1-sorted structure.
+We define the attribute $X$ is \define{C-element} to mean
+\begin{defn}
+\item The carrier of $X$ is $C$-element.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 2-sorted structure.
+We define the attribute $S$ is \define{feasible} to mean
+\begin{defn}
+\item If the carrier of $S$ is empty, then the carrier' of $S$ is empty.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $S$ be a 2-sorted structure. We define the attribute $S$ is \define{trivial'}
+to mean
+\begin{defn}
+\item the carrier' of $S$ is trivial.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $x$ be an object, let $S$ be a 1-sorted structure.
+We define the term $\In{x}{S}$ to be an element of $S$ such that
+\begin{defn}
+\item $\In{x}{S}=\In{x}{\carrier{S}}$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+If we have a structure $S$ with fields $\langle F_{1},\dots,F_{n}\rangle$,
+we could extend it by merging with other structures. For example, a
+topological group has the fields of a group structure, and the fields of
+a topological structure. But if we wanted to insist on looking at a
+structure strictly with the fields from $S$, then we use the attribute
+\define{strict} to do so.
+\end{remark}
+
+\end{document}

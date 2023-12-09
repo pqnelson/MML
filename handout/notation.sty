@@ -23,13 +23,35 @@
 \def\RR{\mathbb{R}}
 \def\ZZ{\mathbb{Z}}
 
-\DeclareMathOperator{\ord}{ord}
-\DeclareMathOperator{\power}{power}
 
 \def\card#1{|#1|}
 
 \def\proj#1{\pi_{#1}}
 %\def\proj2{\pi_{2}}
+
+% https://tex.stackexchange.com/a/117035
+\def\localbig#1#2{%
+  \sbox\z@{$\m@th#1
+    \sbox\tw@{$#1()$}%
+    \dimen@=\ht\tw@\advance\dimen@\dp\tw@
+    \nulldelimiterspace\z@\left#2\vcenter to1.2\dimen@{}\right.
+  $}\box\z@}
+
+\newcommand{\divides}{\mathrel{\mathpalette\dividesaux\relax}}
+\newcommand{\ndivides}{\mathrel{\mathpalette\ndividesaux\relax}}
+
+\newcommand{\dividesaux}[2]{\mbox{$\m@th#1\localbig{#1}|$}}
+\newcommand{\ndividesaux}[2]{%
+  \mkern.5mu
+  \ooalign{%
+    \hidewidth$\m@th#1\localbig{#1}|$\hidewidth\cr
+    $\m@th#1\nmid$\cr%
+  }%
+}
+
+
+% SUBSET_1
+\newcommand\In[2]{#1(\in #2)}
 
 % setfam1
 \let\meet\bigcap
@@ -56,3 +78,20 @@
 \DeclareMathOperator\Lim{Lim}
 \DeclareMathOperator\Segm{Segm}
 \DeclareMathOperator\Seg{Seg}
+
+% PARTFUN1
+\DeclareMathOperator\PFuncs{PFuncs}
+\DeclareMathOperator\TotFuncs{TotFuncs}
+% STRUCT0
+\def\carrier#1{\operatorname{the\ carrier\ of\ }#1}
+\DeclareMathOperator\NonZero{NonZero}
+
+% GROUP1
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\power}{power}
+\def\inverseop#1{\cdot_{#1}^{-1}}
+
+% GROUP2
+\def\trivialSubgroup#1{\mathbf{1}_{#1}}
+\DeclareMathOperator\carr{carr}
+\def\Index#1#2{[#1 : #2]}
