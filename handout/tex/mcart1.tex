@@ -23,42 +23,70 @@ Let $X$ be a set, let $v$, $x$, $y$ be objects.
 \item\label{mcart1:10} If $z\in X\times Y$, then $z_{1}\in X$ and
   $z_{2}\in Y$.
 \item\label{mcart1:11} (Cancelled)
-\item\label{mcart1:12} 
-\item\label{mcart1:13} 
-\item\label{mcart1:14} 
-\item\label{mcart1:15} 
-\item\label{mcart1:16} 
-\item\label{mcart1:17} 
-\item\label{mcart1:18} 
-\item\label{mcart1:19} 
-\item\label{mcart1:20} 
-\item\label{mcart1:21} 
-\item\label{mcart1:22} 
-\item\label{mcart1:23} 
-\item\label{mcart1:24} 
+\item\label{mcart1:12} If $z\in\{x\}\times Y$, then $z_{1}=x$ and
+  $z_{2}\in Y$.
+\item\label{mcart1:13} If $z\in X\times\{y\}$, then $z_{1}\in X$ and $z_{2}=y$.
+\item\label{mcart1:14} If $z\in\{x\}\times\{y\}$, then $z_{1}=x$ and $z_{2}=y$.
+\item\label{mcart1:15} If $z\in\{x_{1},x_{2}\}\times Y$, then either
+  $z_{1}=x_{1}$ or $z_{1}=x_{2}$ and
+  $z_{2}\in Y$.
+\item\label{mcart1:16} If $z\in X\times\{y_{1},y_{2},\}$, then $z_{1}\in X$
+  and either $z_{2}=y_{1}$ or $z_{2}=y_{2}$.
+\item\label{mcart1:17} If $z\in\{x_{1},x_{2}\}\times \{y\}$, then either
+  $z_{1}=x_{1}$ or $z_{1}=x_{2}$ and
+  $z_{2}=y$.
+\item\label{mcart1:18} If $z\in \{x\}\times\{y_{1},y_{2},\}$, then $z_{1}=x$
+  and either $z_{2}=y_{1}$ or $z_{2}=y_{2}$.
+\item\label{mcart1:19} If $z\in \{x_{1},x_{2}\}\times\{y_{1},y_{2},\}$,
+  then either $z_{1}=x_{1}$ or $z_{1}=x_{2}$ and either $z_{2}=y_{1}$ or $z_{2}=y_{2}$.
+\item\label{mcart1:20} If there exists objects $y$ and $z$ such that
+  $x=(y,z)$,
+  then $x\neq x_{1}$ and $x\neq x_{2}$.
+\end{thm}
+
+Let $R$ be a relation. We have the following results:
+\begin{thm}
+\item\label{mcart1:21} If $x\in R$, then $x=(x_{1},x_{2})$.
+\item\label{mcart1:22} If $X\neq\emptyset$ and $Y\neq\emptyset$,
+  then every element $x$ of $X\times Y$ satisfies $x=(x_{1},x_{2})$.
+\item\label{mcart1:23}
+  $\{x_{1},x_{2}\}\times\{y_{1},y_{2}\}=\{(x_{1},y_{1}), (x_{1},y_{2}),(x_{2},y_{1}),(x_{2},y_{2})\}$.
+\item\label{mcart1:24} If $X\neq\emptyset$ and $Y\neq\emptyset$,
+  then every element $x$ of $X\times Y$ satisfies $x\neq x_{1}$ and
+  $x\neq x_{2}$.
 \end{thm}
 
 \section{Triples, Quadruples, Cartesian products of three sets}
 
 \begin{thm}
 \item\label{mcart1:25} (Cancelled)
-\item\label{mcart1:26} 
+\item\label{mcart1:26} If $X\neq\emptyset$, then there exists an object
+  $v$ such that $v\in X$ and there are no objects $x$, $y$, $z$ such
+  that $v=(x,y,z)$ and either $x\in X$ or $y\in X$.
 \item\label{mcart1:27} (Cancelled)
 \item\label{mcart1:28} (Cancelled)
 \item\label{mcart1:29} (Cancelled)
-\item\label{mcart1:30} 
-\item\label{mcart1:31} 
-\item\label{mcart1:32} 
-\item\label{mcart1:33} 
-\item\label{mcart1:34} 
-\item\label{mcart1:35} 
-\item\label{mcart1:36} 
-\item\label{mcart1:37} 
-\item\label{mcart1:38} 
-\item\label{mcart1:39} 
-\item\label{mcart1:40} 
-\item\label{mcart1:41} 
-\item\label{mcart1:42} 
+\item\label{mcart1:30} If $X\neq\emptyset$, then there exists an object
+  $v$ such that $v\in X$ and there are no objects $x_{1}$, $x_{2}$,
+  $x_{3}$, $x_{4}$ such
+  that $v=(x_{1},x_{2},x_{3},x_{4})$ and either $x_{1}\in X$ or $x_{2}\in X$.
+\item\label{mcart1:31} $X_{1}\neq\emptyset$ and $X_{2}\neq\emptyset$ and
+  $X_{3}\neq\emptyset$ if and only if $X_{1}\times X_{2}\times X_{3}\neq\emptyset$.
+\item\label{mcart1:32} Suppose $X_{1}\neq\emptyset$ and $X_{2}\neq\emptyset$ and
+  $X_{3}\neq\emptyset$. If $X_{1}\times X_{2}\times X_{3}=Y_{1}\times Y_{2}\times Y_{3}$,
+  then $X_{1}=Y_{1}$, $X_{2}=Y_{2}$, and $X_{3}=Y_{3}$.
+\item\label{mcart1:33} If $X_{1}\times X_{2}\times X_{3}\neq\emptyset$
+  and $X_{1}\times X_{2}\times X_{3}=Y_{1}\times Y_{2}\times Y_{3}$,
+  then $X_{1}=Y_{1}$, $X_{2}=Y_{2}$, and $X_{3}=Y_{3}$.
+\item\label{mcart1:34} If $X\times X\times X=Y\times Y\times Y$, then $X=Y$.
+\item\label{mcart1:35} $\{x_{1}\}\times\{x_{2}\}\times\{x_{3}\}=\{(x_{1},x_{2},x_{3})\}$.
+\item\label{mcart1:36} $\{x_1,y_1\}\times\{x_2\}\times\{x_3\}=\{ (x_1,x_2,x_3),(y_1,x_2,x_3) \}$
+\item\label{mcart1:37} $\{x_{1}\}\times\{x_{2},y_{2}\}\times\{x_{3}\}=\{(x_{1},x_{2},x_{3}),(x_{1},y_{2},x_{3})\}$.
+\item\label{mcart1:38} $\{x_{1}\}\times\{x_{2}\}\times\{x_{3},y_{3}\}=\{(x_{1},x_{2},x_{3}),(x_{1},x_{2},y_{3})\}$.
+\item\label{mcart1:39} $\{x_1,y_1\}\times\{x_2,y_{2}\}\times\{x_3\}=\{ (x_1,x_2,x_3),(y_1,x_2,x_3),(x_1,y_2,x_3),(y_1,y_2,x_3) \}$
+\item\label{mcart1:40} $\{x_1,y_1\}\times\{x_2\}\times\{x_3,y_{3}\}=\{ (x_1,x_2,x_3),(y_1,x_2,x_3),(x_1,x_2,y_3),(y_1,x_2,y_3) \}$
+\item\label{mcart1:41} $\{x_{1}\}\times\{x_{2},y_{2}\}\times\{x_{3},y_{3}\}=\{(x_{1},x_{2},x_{3}),(x_{1},y_{2},x_{3}),(x_{1},x_{2},y_{3}),(x_{1},y_{2},y_{3})\}$.
+\item\label{mcart1:42} $\{x_1,y_1\}\times\{x_2,y_{2}\}\times\{x_3,y_{3}\}=\{ (x_1,x_2,x_3),(x_1,y_2,x_3),(x_{1},x_{2},y_{3}),(x_{1},y_{2},y_{3}),(y_1,x_2,x_3),(y_1,y_2,x_3),(y_{1},x_{2},y_{3}),(y_{1},y_{2},y_{3}) \}$
 \end{thm}
 
 The first four definitions are cancelled.
@@ -66,39 +94,105 @@ The first four definitions are cancelled.
 \begin{definition}
   Let $X_{1}$, $X_{2}$, $X_{3}$ be nonempty sets.
   Let $x$ be an element of $X_{1}\times X_{2}\times X_{3}$.
-  We redefine the term $x_{\mathbf{1},3}$ to be an element of
+  We redefine \eqref{xtuple0:defn6} the term $x_{\mathbf{1},3}$ (Mizar: ``\verb#x`1_3#'') to be an element of
   $X_{1}$ such that
   \begin{defn}[start=5]
   \item $x=(x_{1},x_{2},x_{3})$ and $x_{\mathbf{1},3}=x_{1}$.
+  \end{defn}
+  We redefine the term $x_{\mathbf{2},3}$ to be an element of
+  $X_{2}$ such that
+  \begin{defn}
+  \item $x=(x_{1},x_{2},x_{3})$ and $x_{\mathbf{2},3}=x_{2}$.
+  \end{defn}
+  We redefine the term $x_{\mathbf{3},3}$ to be an element of
+  $X_{3}$ such that
+  \begin{defn}
+  \item $x=(x_{1},x_{2},x_{3})$ and $x_{\mathbf{3},3}=x_{3}$.
   \end{defn}
 \end{definition}
 
 \begin{thm}
 \item\label{mcart1:43} (Cancelled)
 \item\label{mcart1:44} (Cancelled)
-\item\label{mcart1:45} 
+\item\label{mcart1:45} If $X\subset X\times Y\times Z$ or
+  $X\subset Y\times Z\times X$ or $X\subset Z\times X\times Y$,
+  then $X=\emptyset$.
 \item\label{mcart1:46} (Cancelled)
-\item\label{mcart1:47} 
-\item\label{mcart1:48} 
+\item\label{mcart1:47} Let $X_{1}$, $X_{2}$, $X_{3}$ be nonempty sets.
+  Every element $x$ of $X_{1}\times X_{2}\times X_{3}$ satisfies
+  $x\neq x_{\mathbf{1},3}$ and $x\neq x_{\mathbf{2},3}$ and
+  $x\neq x_{\mathbf{3},3}$.
+\item\label{mcart1:48} If $X_{1}\times X_{2}\times X_{3}$ meets
+  $Y_{1}\times Y_{2}\times Y_{3}$, then $X_{1}$ meets $Y_{1}$ and
+  $X_{2}$ meets $Y_{2}$ and $X_{3}$ meets $Y_{3}$.
 \end{thm}
 
 \section{Cartesian Products of Four Sets}
 \begin{thm}
-\item\label{mcart1:49} 
-\item\label{mcart1:50} 
-\item\label{mcart1:51} 
-\item\label{mcart1:52} 
-\item\label{mcart1:53} 
-\item\label{mcart1:54} 
+\item\label{mcart1:49} $X_{1}\times X_{2}\times X_{3}\times X_{4}=((X_{1}\times X_{2})\times X_{3})\times X_{4}$
+\item\label{mcart1:50} $(X_{1}\times X_{2})\times X_{3}\times X_{4}=X_{1}\times X_{2}\times X_{3}\times X_{4}$.
+\item\label{mcart1:51} $X_{1}\neq\emptyset$, $X_{2}\neq\emptyset$,
+ $X_{3}\neq\emptyset$, and $X_{4}\neq\emptyset$ if and only if $X_{1}\times X_{2}\times X_{3}\times X_{4}\neq\emptyset$.
+\item\label{mcart1:52} If $X_{1}\neq\emptyset$, $X_{2}\neq\emptyset$,
+ $X_{3}\neq\emptyset$, $X_{4}\neq\emptyset$, and $X_{1}\times X_{2}\times X_{3}\times X_{4}=Y_{1}\times Y_{2}\times Y_{3}\times Y_{4}$,
+then $X_{1}=Y_{1}$ and $X_{2}=Y_{2}$ and $X_{3}=Y_{3}$ and $X_{4}=Y_{4}$.
+\item\label{mcart1:53} If $X_{1}\times X_{2}\times X_{3}\times X_{4}\neq\emptyset$
+  and $X_{1}\times X_{2}\times X_{3}\times X_{4}=Y_{1}\times Y_{2}\times Y_{3}\times Y_{4}$,
+then $X_{1}=Y_{1}$ and $X_{2}=Y_{2}$ and $X_{3}=Y_{3}$ and $X_{4}=Y_{4}$.
+\item\label{mcart1:54} If $X\times X\times X\times X=Y\times Y\times Y\times Y$,
+  then $X=Y$.
 \item\label{mcart1:55} (Cancelled)
 \item\label{mcart1:56} (Cancelled)
 \item\label{mcart1:57} (Cancelled)
-\item\label{mcart1:58} 
-\item\label{mcart1:59} 
-\item\label{mcart1:60} 
-\item\label{mcart1:61} 
-\item\label{mcart1:62} 
-\item\label{mcart1:63} 
+\end{thm}
+
+\begin{definition}
+Let $X_{1}$, $X_{2}$, $X_{3}$, $X_{4}$ be nonempty sets.
+Let $x$ be an element of $X_{1}\times X_{2}\times X_{3}\times X_{4}$.
+We redefine \eqref{xtuple0:def10} the term $x_{\mathbf{1},4}$ (Mizar: ``\verb#x`1_4#'')
+to be an element of $X_{1}$ satisfying
+\begin{defn}
+\item If $x=(x_{1},x_{2},x_{3},x_{4})$, then $x_{\mathbf{1},4}=x_{1}$.
+\end{defn}
+We redefine the term $x_{\mathbf{2},4}$ (Mizar: ``\verb#x`2_4#'')
+to be an element of $X_{2}$ satisfying
+\begin{defn}
+\item If $x=(x_{1},x_{2},x_{3},x_{4})$, then $x_{\mathbf{2},4}=x_{2}$.
+\end{defn}
+We redefine the term $x_{\mathbf{3},4}$ (Mizar: ``\verb#x`3_4#'')
+to be an element of $X_{3}$ satisfying
+\begin{defn}
+\item If $x=(x_{1},x_{2},x_{3},x_{4})$, then $x_{\mathbf{3},4}=x_{3}$.
+\end{defn}
+We redefine the term $x_{\mathbf{4},4}$ (Mizar: ``\verb#x`4_4#'')
+to be an element of $X_{4}$ satisfying
+\begin{defn}
+\item If $x=(x_{1},x_{2},x_{3},x_{4})$, then $x_{\mathbf{4},4}=x_{4}$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{mcart1:58} Let $X_{1}$, $X_{2}$, $X_{3}$, $X_{4}$ be nonempty sets.
+  Every element $x$ of $X_{1}\times X_{2}\times X_{3}\times X_{4}$
+  satisfies
+  $x\neq x_{\mathbf{1},4}$, $x\neq x_{\mathbf{2},4}$, $x\neq x_{\mathbf{3},4}$, and $x\neq x_{\mathbf{4},4}$.
+\item\label{mcart1:59} If $X_{1}\subset X_{1}\times X_{2}\times X_{3}\times X_{4}$
+  or $X_{1}\subset X_{2}\times X_{3}\times X_{4}\times X_{1}$
+  or $X_{1}\subset X_{3}\times X_{4}\times X_{1}\times X_{2}$
+  or $X_{1}\subset X_{4}\times X_{1}\times X_{2}\times X_{3}$,
+  then $X_{1}=\emptyset$.
+\item\label{mcart1:60} If $X_{1}\times X_{2}\times X_{3}\times X_{4}$ meets
+  $Y_{1}\times Y_{2}\times Y_{3}\times Y_{4}$, then
+  $X_{i}$ meets $Y_{i}$ for all $i=1,2,3,4$.
+\item\label{mcart1:61} $\{x_{1}\}\times\{x_{2}\}\times\{x_{3}\}\times\{x_{4}\}=\{(x_{1},x_{2},x_{3},x_{4})\}$.
+\end{thm}
+
+We can prove the following two propositions concerning ordered pairs:
+\begin{thm}
+\item\label{mcart1:62} If $X\times Y\neq\emptyset$, then every element
+  $x$ of $X\times Y$ satisfies $x\neq x_{1}$ and $x\neq x_{2}$.
+\item\label{mcart1:63} If $x\in X\times Y$,
+  then $x\neq x_{1}$ and $x\neq x_{2}$.
 \end{thm}
 
 \section{Triples}
