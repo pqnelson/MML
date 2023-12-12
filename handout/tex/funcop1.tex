@@ -1,0 +1,462 @@
+\documentclass{article}
+
+\title{Binary Operations Applied to Functions (FUNCOP-1)}
+\author{Andrzej Trybulec}
+\date{September 4, 1989}
+\begin{document}
+\maketitle
+
+Let $f$, $g$, $h$ be functions. Let $A$, $B$, $x$, $y$, $z$ be sets.
+We can prove the following proposition:
+\begin{thm}
+\item\label{funcop1:1} $\Delta_{A}=\langle\id_{A},\id_{A}\rangle$.
+\end{thm}
+
+\begin{definition}\index{$f^{\smile}$}
+Let $f$ be a function.
+We define the term $f^{\smile}$ (Mizar: ``\verb#f~#'') to be the function satisfying
+\begin{defn}
+\item $\dom(f^{\smile})=\dom(f)$ and for all objects $x\in\dom(f)$,
+  \begin{enumerate}[label=(\roman*)]
+  \item for all objects $y$ and $z$, if $f(x)=(y,z)$, then $f^{\smile}(x)=(z,y)$;
+    and
+  \item $f(x)=f^{\smile}(x)$ or there exists objects $y$ and $z$ such
+    that $f(x)=(y,z)$.
+  \end{enumerate}
+\end{defn}
+Observe this is involutive (i.e., $(f^{\smile})^{\smile}=f$).
+\end{definition}
+
+We can prove the following propositions:
+\begin{thm}
+\item\label{funcop1:2} $\langle f,g\rangle=\langle g,f\rangle^{\smile}$
+\item\label{funcop1:3} $(f|_{A})^{\smile}=f^{\smile}|_{A}$.
+\item\label{funcop1:4} $(\Delta_{A})^{\smile}=\Delta_{A}$.
+\item\label{funcop1:5} $\langle f,g\rangle|_{A}=\langle f|_{A},g\rangle$.
+\item\label{funcop1:6} $\langle f,g\rangle|_{A}=\langle f,g|_{A}\rangle$.
+\end{thm}
+
+\begin{definition}
+Let $A$ be a set, let $z$ be an object.
+We define the term $A\constantto z$ to be the set equal to
+\begin{defn}
+\item $A\constantto z= A\times\{z\}$.
+\end{defn}
+\end{definition}
+
+Observe that $A\constantto z$ is function-like and relation-like.
+
+Let $x$, $z$ be objects. We can prove the following proposition:
+\begin{thm}
+\item\label{funcop1:7} If $x\in A$, then $(A\constantto z)(x)=z$.
+\end{thm}
+Observe when $A$ is a nonempty set, $x$ is any object, and $a$ is an
+element of $A$, we can reduce $(A\constantto z)(a)$ to $a$.
+
+Now we can prove the following two propositions:
+\begin{thm}
+\item\label{funcop1:8} If $A\neq\emptyset$, then $\rng(A\constantto x)=\{x\}$.
+\item\label{funcop1:9} If $\rng(f)=\{x\}$,
+  then $f=\dom(f)\constantto x$.
+\end{thm}
+
+Observe $\emptyset\constantto x$ is empty, and when $A$ is nonempty we
+see $A\constantto x$ is nonempty.
+
+We have the following four results:
+\begin{thm}
+\item\label{funcop1:10} $\dom(\emptyset\constantto x)=\emptyset$
+  and $\rng(\emptyset\constantto x)=\emptyset$.
+\item\label{funcop1:11} Suppose every object $z\in\dom(f)$ satisfies $f(z)=x$.
+  Then $f=\dom(f)\constantto x$.
+\item\label{funcop1:12} $(A\constantto x)|_{B}=A\cap B\constantto x$.
+\item\label{funcop1:13} $\dom(A\constantto x)=A$ and
+  $\rng(A\constantto x)\subset\{x\}$.
+\end{thm}
+
+Observe we can reduce $\dom(X\constantto a)$ to $X$ for any set $X$.
+Also observe, for any set $D$, $D\constantto\emptyset$ is empty-yielding.
+
+We can prove the following seven propositions:
+\begin{thm}
+\item\label{funcop1:14} If $x\in B$, then $(A\constantto x)^{-1}B=A$.
+\item\label{funcop1:15} $(A\constantto x)^{-1}\{x\}=A$.
+\item\label{funcop1:16} If $x\notin B$, then $(A\constantto x)^{-1}B=\emptyset$.
+\item\label{funcop1:17} If $x\in\dom(h)$,
+  then $h\circ(A\constantto x)=A\constantto h(x)$.
+\item\label{funcop1:18} If $A\neq\emptyset$ and $x\in\dom(h)$,
+  then $\dom(h\circ(A\constantto x))\neq\emptyset$.
+\item\label{funcop1:19} $(A\constantto x)\circ h=h^{-1}(A)\constantto x$.
+\item\label{funcop1:20} $(A\constantto(x,y))^{\smile}=A\constantto(y,x)$.
+\end{thm}
+
+\begin{definition}
+Let $F$, $f$, $g$ be functions.
+We define the term $F(f,g)$ (Mizar: ``\verb#F .: (f,g)#'') to be the set equal to
+\begin{defn}
+\item $F(f,g)=F\circ\langle f,g\rangle$.
+\end{defn}
+\end{definition}
+
+Observe $F(f,g)$ is function-like and relation-like.
+
+We can prove the following propositions:
+\begin{thm}
+\item\label{funcop1:21} Let $h$ be a function.
+  Suppose every set $z\in\dom(F(f,g))$ satisfies $h(z)=F(f(z),g(z))$.
+  Then $h=F(f,g)$.
+\item\label{funcop1:22} If $x\in\dom(F(f,g))$,
+  then $(F(f,g))(x)=F(f(x),g(x))$.
+\item\label{funcop1:23} If $f|_{A}=g|_{A}$,
+  then $(F(f,h))|_{A}=(F(g,h))|_{A}$.
+\item\label{funcop1:24} If $f|_{A}=g|_{A}$,
+  then $(F(h,f))|_{A}=(F(h,g))|_{A}$.
+\item\label{funcop1:25} $F(f,g)\circ h=F(f\circ h,g\circ h)$.
+\end{thm}
+
+\begin{definition}
+Let $F$, $f$ be functions, let $x$ be an object.
+We define the term $F(f,x)$ (Mizar: ``\verb#F[:](f,x)#'') to be the set equal to
+\begin{defn}
+\item $F(f,x)=F\circ\langle f,\dom(f)\constantto x\rangle$.
+\end{defn}
+\end{definition}
+
+Observe $F(f,x)$ is function-like and relation-like.
+
+We now can prove the following five propositions:
+\begin{thm}
+\item\label{funcop1:26} $F(f,x)=F(f,\dom(f)\constantto x)$.
+\item\label{funcop1:27} If $x\in\dom(F(f,z))$,
+  then $(F(f,z))(x)=F(f(x),z)$.
+\item\label{funcop1:28} If $f|_{A}=g|_{A}$,
+  then $(F(f,x))|_{A}=(F(g,x))|_{A}$.
+\item\label{funcop1:29} $F(f,x)\circ h=F(f\circ h,x)$
+\item\label{funcop1:30} $F(f,x)\circ\id_{A}=F(f|_{A},x)$.
+\end{thm}
+
+\begin{definition}
+Let $F$ be a function, let $x$ be an object, let $g$ be a function.
+We define the term $F(x,g)$ to be the set equal to
+\begin{defn}
+\item $F(x,g)=F\circ\langle\dom(g)\constantto x,g\rangle$.
+\end{defn}
+\end{definition}
+
+Observe $F(x,g)$ is function-like and relation-like.
+
+We can prove the following five propositions:
+\begin{thm}
+\item\label{funcop1:31} $F(x,g)=F(\dom(g)\constantto x,g)$
+\item\label{funcop1:32} If $x\in\dom(F(z,f))$, then $(F(z,f))(x)=F(z,f(x))$.
+\item\label{funcop1:33} If $f|_{A}=g|_{A}$,
+  then $(F(x,f))|_{A}=(F(x,g))|_{A}$.
+\item\label{funcop1:34} $F(x,f)\circ h=F(x,f\circ h)$.
+\item\label{funcop1:35} $F(x,f)\circ\id_{A}=F(x,f|_{A})$.
+\end{thm}
+
+Let $X$ be a nonempty set, $Y$ be a set, $F$ be a binary operator of $X$.
+Let $f$, $g$, $h\colon Y\to X$ be functions. Let $x$, $x_{1}$, $x_{2}$
+be elements of $X$.
+
+Then we have the following result:
+\begin{thm}
+\item\label{funcop1:36} $F(f,g)$ is a function from $Y$ to $X$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a nonempty set, let $Z$ be a set, let $F$ be a binary
+operator of $X$. Let $f,g\colon Z\to X$.
+We redefine the type of $F(f,g)$ to be a function from $Z$ to $X$.
+\end{definition}
+
+Let $Y$ be a nonempty set, $F$ be a binary operator of $X$.
+Let $f$, $g$, $h\colon Y\to X$ be functions. Let $x$, $x_{1}$, $x_{2}$
+be elements of $X$.
+
+We can prove the following results:
+\begin{thm}
+\item\label{funcop1:37} For any element $z$ of $Y$, we have $(F(f,g))(z)=F(f(z),g(z))$.
+\item\label{funcop1:38} Let $h\colon Y\to X$.
+  Suppose every element $z$ of $Y$ satisfies $h(z)=F(f(z),g(z))$.
+  Then $h=F(f,g)$.
+\item\label{funcop1:39} Let $g\colon X\to X$.
+  Then $F(\id_{X},g)\circ f=F(f,g\circ f)$.
+\item\label{funcop1:40} Let $g\colon X\to X$.
+  Then $F(g,\id_{X})\circ f=F(g\circ f,f)$.
+\item\label{funcop1:41} $F(\id_{X},\id_{X})\circ f=F(f,f)$.
+\item\label{funcop1:42} Let $g\colon X\to X$.
+  Then $(F(\id_{X},g))(x)=F(x,g(x))$.
+\item\label{funcop1:43} Let $g\colon X\to X$.
+  Then $(F(g,\id_{X}))(x)=F(g(x),x)$.
+\item\label{funcop1:44} $(F(\id_{X},\id_{X}))(x)=F(x,x)$. 
+\item\label{funcop1:45} If $x\in B$, then $A\constantto x$ is a function
+  from $A$ to $B$.
+\end{thm}
+
+\begin{definition}
+Let $I$ be a set, let $i$ be an object.
+We redefine the type of $I\constantto i$ to be a function from $I$ to $\{i\}$.
+\end{definition}
+
+\begin{definition}
+Let $B$ be a nonempty set, let $A$ be a set, let $b$ be an element of $B$.
+We redefine the type of $A\constantto b$ to be a function from $A$ to $B$.
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{funcop1:46} $A\constantto x$ is a function from $A$ to $X$.
+\item\label{funcop1:47} Let $Y$ be a set, $f\colon Y\to X$. Then
+  $F(f,x)$ is a function from $Y$ to $X$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a nonempty set, let $Z$ be a set.
+Let $F$ be a binary operator of $X$, $f\colon Z\to X$, and $x$ be an
+element of $X$.
+We redefine the type of $F(f,x)$ to be a function from $Z$ to $X$.
+\end{definition}
+
+Suppose $Y$ is a nonempty set in the following four propositions:
+\begin{thm}
+\item\label{funcop1:48} For any element $y$ of $Y$, we have
+  $(F(f,x))(y)=F(f(y),x)$.
+\item\label{funcop1:49} For any element $y$ of $Y$, we have
+  $(F(x,f))(y)=F(x,f(y))$.
+\item\label{funcop1:50} $F(\id_{X},x)\circ f=F(f,x)$
+\item\label{funcop1:51} $(F(\id_{X},x))(x)=F(x,x)$.
+\end{thm}
+
+Now suppose $Y$ is any arbitrary set (possibly empty). We can prove the
+following result:
+\begin{thm}
+\item\label{funcop1:52} $F(x,g)$ is a function from $Y$ to $X$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a nonempty set and $Z$ be any set.
+Let $f$ be a binary operator of $X$, let $x$ be an element of $X$,
+let $g\colon Z\to X$.
+We redefine the type of $F(x,g)$ to be a function from $Z$ to $X$.
+\end{definition}
+
+Let $Y$ be a nonempty set. We can prove the following propositions:
+\begin{thm}
+\item\label{funcop1:53} For any element $y$ of $Y$, $(F(x,f))(y)=F(x,f(y))$.
+\item\label{funcop1:54} Suppose every element $y$ of $Y$ satisfies $g(y)=F(x,f(y))$.
+  Then $g=F(x,f)$.
+\end{thm}
+
+Let $Y$ be an arbitrary (possibly empty) set. We can prove the following
+three propositions:
+\begin{thm}
+\item\label{funcop1:55} $F(x,\id_{X})\circ f=F(x,f)$
+\item\label{funcop1:56} $(F(x,\id_{X}))(x)=F(x,x)$.
+\item\label{funcop1:57} For any nonempty sets $X$, $Y$, $Z$, for any
+  function $f\colon X\to Y\times Z$, and for any element $x$ of $X$,
+  we have $f^{\smile}(x)=(f(x)_{2},f(x)_{1})$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$, $Z$ be nonempty sets, let $f\colon X\to Y\times Z$.
+We redefine the type of $\rng(f)$ to be a relation of $Y$ and $Z$.
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$, $Z$ be nonempty sets, let $f\colon X\to Y\times Z$.
+We redefine the type of $f^{\smile}$ to be a function from $X$ to $Z\times Y$.
+\end{definition}
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{funcop1:58} Let $X$, $Y$, $Z$ be nonempty sets, let $f\colon X\to Y\times Z$.
+  Then $\rng(f^{\smile})=(\rng(f))^{\sim}$.
+\end{thm}
+
+Let $y$ be an arbitrary element of $Y$. We can now prove the following
+eight propositions:
+\begin{thm}
+\item\label{funcop1:59} If $F$ is associative,
+  then $F(F(x_{1},f),x_{2})=F(x_{1},F(f,x_{2}))$.
+\item\label{funcop1:60} If $F$ is associative,
+  then $F(F(f,x),g)=F(f,F(x,g))$.
+\item\label{funcop1:61} If $F$ is associative,
+  then $F(F(f,g),h)=F(f,F(g,h))$.
+\item\label{funcop1:62} If $F$ is associative,
+  then $F(F(x_{1},x_{2}),f)=F(x_{1},F(x_{2},f))$.
+\item\label{funcop1:63} If $F$ is associative,
+  then $F(f,F(x_{1},x_{2}))=F(F(f,x_{1}),x_{2})$.
+\item\label{funcop1:64} If $F$ is commutative,
+  then $F(x,f)=F(f,x)$.
+\item\label{funcop1:65} If $F$ is commutative,
+  then $F(f,g)=F(g,f)$.
+\item\label{funcop1:66} If $F$ is idempotent,
+  then $F(f,f)=f$.
+\end{thm}
+
+Now suppose $Y$ is a nonempty set. Let $x$ be an element of $X$, $y$ be
+an element of $Y$. We can prove the following propositions:
+\begin{thm}
+\item\label{funcop1:67} If $F$ is idempotent,
+  then $(F(f(y),f))(y)=f(y)$.
+\item\label{funcop1:68} If $F$ is idempotent,
+  then $(F(f,f(y)))(y)=f(y)$.
+\item\label{funcop1:69} For any functions $F$, $f$, $g$,
+  if $\rng(f)\times\rng(g)\subset\dom(F)$, then $\dom(F(f,g))=\dom(f)\cap\dom(g)$.
+\end{thm}
+
+\begin{definition}
+Let $F$ be a function.
+We define the attribute $F$ is \define{Function-yielding} to mean
+\begin{defn}
+\item for every object $x\in\dom(F)$, we have $F(x)$ is a function.
+\end{defn}
+\end{definition}
+
+Observe there exists a function-yielding function.
+Observe when $F$ is a function-yielding function, and $f$ is a function,
+then $F\circ f$ is function-yielding.
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{funcop1:70} $(X\times Y\constantto z)(x,y)=z$.
+\end{thm}
+
+\begin{definition}
+Let $a$, $b$, $c$ be objects.
+We define the term $(a,b)\constantto c$ to be the function equal to
+\begin{defn}
+\item $(a,b)\constantto c = \{(a,b)\}\constantto c$.
+\end{defn}
+\end{definition}
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{funcop1:71} For any objects $a$, $b$, and $c$, we have
+  $((a,b)\constantto c)(a,b)=c$.
+\end{thm}
+
+\begin{definition}
+Let $x$, $y$, $a$, $b$ be objects.
+We define the term $\IfEq{x}{y}{a}{b}$ (Mizar: ``\verb#IFEQ(x,y,a,b)#'')
+to be the object equal to
+\begin{defn}
+\item $a$ if $x=y$, otherwise $b$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $x$, $y$ be objects, let $a$ and $b$ be sets.
+We redefine the type of the term $\IfEq{x}{y}{a}{b}$ to be a set.
+\end{definition}
+
+\begin{definition}
+Let $D$ be a set, let $x$ and $y$ be objects, let $a$ and $b$ be
+elements of $D$.
+We redefine the type of the term $\IfEq{x}{y}{a}{b}$ to be an element of
+$D$.
+\end{definition}
+
+\begin{definition}
+Let $x$, $y$ be objects.
+We define the term $x\constantto y$ (Mizar: ``\verb#x .--> y#'')
+to be the set equal to
+\begin{defn}
+\item $\{x\}\constantto y$.
+\end{defn}
+\end{definition}
+
+Observe $x\constantto  y$ is function-like and relation-like and one-to-one.
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{funcop1:72} For any objects $x$ and $y$, we have
+  $(x\constantto y)(x)=y$.
+\item\label{funcop1:73} For any objects $a$ and $b$, for any function
+  $f$, we have $a\constantto b\subset f$ if and only if $a\in\dom(f)$
+  and $f(a)=b$.
+\end{thm}
+
+\begin{notation}
+Let $a$, $b$, $c$ be objects.
+We define the synonym $(a,b)\mapsto c$ (Mizar: ``\verb#(a,b) :-> c#'')
+for $(a,b)\constantto c$.
+\end{notation}
+
+\begin{definition}
+Let $a$, $b$, $c$ be objects.
+We redefine $(a,b)\mapsto c$ (Mizar: ``\verb#(a,b) :-> c#'')
+to have its type be a function from $\{a\}\times\{b\}$ to $\{c\}$.
+\end{definition}
+
+We can prove the following three propositions:
+\begin{thm}
+\item\label{funcop1:74} $x\in\dom(x\constantto y)$
+\item\label{funcop1:75} If $z\in\dom(x\constantto y)$, then $z=x$.
+\item\label{funcop1:76} If $x\notin A$, then $(x\constantto y)|_{A}=\emptyset$.
+\end{thm}
+
+\begin{notation}
+Let $x$ and $y$ be objects. We introduce $x\mapsto y$ (Mizar:
+``\verb#x :-> y#'') as a synonym for $x\constantto y$.
+\end{notation}
+
+\begin{definition}
+Let $x$, $y$ be objects.
+We redefine the type of the term $x\mapsto y$ to be a function from
+$\{x\}$ to $\{y\}$.
+\end{definition}
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{funcop1:77} Let $x$ be an element of $\{a\}$ and $y$ be an
+  element of $\{b\}$. Then $((a,b)\mapsto c)(x,y)=c$.
+\end{thm}
+
+Observe when $F$ is function-yielding and $C$ is a set, that $F|_{C}$ is function-yielding.
+When $A$ is a set and $f$ is a function, we see $A\constantto f$ is
+function-yielding.
+When $X$ is a set and $a$ is any object, $X\constantto a$ is constant.
+
+We can prove the following three propositions:
+\begin{thm}
+\item\label{funcop1:78} Let $f$ be a nonempty constant function.
+  Then there exists an object $y$ such that for every object $x\in\dom(f)$
+  we have $f(x)=y$.
+\item\label{funcop1:79} Let $X$ be a nonempty set, let $x$ be any set.
+  Then the value of $(X\constantto x)$ is equal to $x$.
+\item\label{funcop1:80} Let $f$ be a constant function.
+  Then $f=\dom(f)\constantto\mbox{the value of }f$.
+\item\label{funcop1:81} $(A\constantto x)(B)\subset\{x\}$.
+\item\label{funcop1:82} $x\constantto y$ is an isomorphism of
+  $\{(x,x)\}$ with $\{(y,y)\}$.
+\item\label{funcop1:83} $\{(x,x)\}$ is isomorphic to $\{(y,y)\}$.
+\item\label{funcop1:84} For any function $f$, if $x\in\dom(f)$, then
+  $x\constantto f(x)\subset f$.
+\item\label{funcop1:85} If $F$ is associative,
+  then $F(F(x,f),g)=F(x,F(f,g))$.
+\item\label{funcop1:86} Let $x$, $y$, $A$ be sets. If $x\in A$, then
+  $(x\constantto y)|_{A}=x\constantto y$.
+\end{thm}
+
+\begin{definition}
+Let $F$ be a function.
+We define the attribute $F$ is \define{Relation-yielding} to mean
+\begin{defn}
+\item for every set $x\in\dom(F)$, we have $F(x)$ is a relation.
+\end{defn}
+\end{definition}
+
+Observe every function-yielding function is automatically relation-yielding.
+
+\begin{thm}
+\item\label{funcop1:87} Let $X$, $Y$ be sets, let $x$, $y$ be objects.
+  Then $X\constantto x$ tolerates $Y\constantto y$ if and only if
+  $x=y$ or $X$ misses $Y$.
+\item\label{funcop1:88} $\rng(x\constantto y)=\{y\}$.
+\item\label{funcop1:89} If $z\in A$, then $(A\constantto x)\circ(y\constantto z)=y\constantto x$.
+\end{thm}
+
+
+\end{document}

@@ -27,7 +27,8 @@
 \newlist{thm}{enumerate}{1}
 % AMSbook sets:
 % \setlength{\smallskipamount}{2.09999pt plus 2.09999pt}
-\setlist[defn]{label=(Def.\ \arabic*),wide,
+\setlist[defn]{label=(Def.\ \arabic*),ref=(Def.\ \arabic*),
+  wide,
   resume=defn, labelwidth=!, labelindent=0pt,
   itemindent=!,
   % just follow AMSbook's conventions
@@ -60,7 +61,7 @@
 %\renewcommand\thethmi{(\ifx\mizart\relax\else\mizart:\fi\arabic{thmi})}
 %\renewcommand\thedefni{(Def.~\arabic{defni})}
 
-\newcommand\skipdefn{\addtocounter{defni}{1}Definition \thedefni\ was cancelled.\addtocounter{defni}{2}}
+\newcommand\skipdefn{\stepcounter{defni}Definition \thedefni\ was cancelled.}
 %    {\stepcounter{defni}}%\addtocounter{}{}}
 
 \newtheorem{axiom}{Axiom}

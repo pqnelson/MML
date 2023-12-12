@@ -1,0 +1,281 @@
+\documentclass{article}
+
+\title{Sequences of Ordinal Numbers. Beginnings of Ordinal Arithmetics (ORDINAL2)}
+\author{Grzegorz Bancerek}
+\date{July 18, 1989}
+\begin{document}
+\maketitle
+
+\begin{scheme}[OrdinalInd]
+Let $P[-]$ be a unary predicate of Ordinals.
+We have for every Ordinal $A$, $P[A]$; provided:
+\begin{enumerate}
+\item $P[0]$; and
+\item for all Ordinals $A$, $P[A]$ implies $P[\succ(A)]$; and
+\item for all nonzero limit Ordinals $A$, if every Ordinal $B\in A$
+  satisfies $P[B]$, then $P[A]$.
+\end{enumerate}
+\end{scheme}
+
+Let $A$, $B$, $C$ be Ordinals.
+\begin{thm}
+\item\label{ordinal2:1} $A\subset B$ if and only if $\succ(A)\subset\succ(B)$.
+\item\label{ordinal2:2} $\union(\succ(A))=A$.
+\item\label{ordinal2:3} $\succ(A)\subset\powerset(A)$.
+\item\label{ordinal2:4} $0$ is a limit Ordinal.
+\item\label{ordinal2:5} $\union(A)\subset A$.
+\end{thm}
+
+\begin{definition}
+Let $L$ be a sequence. We define the term $\last(L)$ to be the set equal
+to
+\begin{defn}
+\item $\last(L)=L_{\union(\dom(L))}$.
+\end{defn}
+\end{definition}
+
+Let $L$ be a sequence, let $X$ and $Y$ be sets. We can now prove the
+following results:
+\begin{thm}
+\item\label{ordinal2:6} If $\dom(L)\subset\succ(A)$, then $\last(L)=L_{A}$.
+\item\label{ordinal2:7} $\On(X)\subset X$.
+\item\label{ordinal2:8} $\On(A)=A$.
+\item\label{ordinal2:9} If $X\subset Y$, then $\On(X)\subset\On(Y)$.
+\item\label{ordinal2:10} $\Lim(X)\subset X$.
+\item\label{ordinal2:11} If $X\subset Y$, then $\Lim(X)\subset\Lim(Y)$.
+\item\label{ordinal2:12} $\Lim(X)\subset\On(X)$.
+\item\label{ordinal2:13} Suppose every object $x\in X$ is an Ordinal.
+  Then $\meet X$ is an Ordinal.
+\end{thm}
+
+Observe there exists a limit Ordinal.
+
+\begin{definition}\index{$\inf(X)$}\index{$\sup(X)$}
+Let $X$ be a set.
+We define $\inf(X)$ to be the Ordinal equal to
+\begin{defn}
+\item $\meet\On(X)$
+\end{defn}
+We define $\sup(X)$ to be the Ordinal satisfying
+\begin{defn}
+\item $\On(X)\subset\sup(X)$, and for all Ordinals $A$ such that
+  $\On(X)\subset A$ we have $\sup(X)\subset A$.
+\end{defn}
+\end{definition}
+
+Let $A$, $B$, $C$, $D$ be Ordinals.
+We can now prove the following results:
+\begin{thm}
+\item\label{ordinal2:14} If $A\in X$, then $\inf(X)\subset A$.
+\item\label{ordinal2:15} If $\On(X)\neq0$ and every Ordinal $A\in X$
+  contains $D\subset A$,
+  then $D\subset\inf(X)$.
+\item\label{ordinal2:16} If $A\in X$ and $X\subset Y$, then $\inf(Y)\subset\inf(X)$.
+\item\label{ordinal2:17} If $A\in X$, then $\inf(X)\in X$.
+\item\label{ordinal2:18} For any Ordinal $A$, we have $\sup(A)=A$.
+\item\label{ordinal2:19} If $A\in X$, then $A\in\sup(X)$.
+\item\label{ordinal2:20} Suppose every Ordinal $A\in X$ is contained in
+  $A\in D$. Then $\sup(X)\subset D$.
+\item\label{ordinal2:21} If $A\in\sup(X)$, then there exists an Ordinal
+  $B$ such taht $B\in X$ and $A\subset B$.
+\item\label{ordinal2:22} If $X\subset Y$, then $\sup(X)\subset\sup(Y)$.
+\item\label{ordinal2:23} For any Ordinal $A$, we have $\sup\{A\}=A$.
+\item\label{ordinal2:24} $\inf(X)\subset\sup(X)$.
+\end{thm}
+
+\begin{scheme}[TSLambda]
+Let $\mathcal{A}$ be an ordinal, let $\mathcal{F}(-)$ be a set
+parametrized by an ordinal.
+There exists a sequence $L$ such that $\dom(L)=\mathcal{A}$ and for each
+ordinal $A\in\mathcal{A}$, we have $L_{A}=\mathcal{F}(A)$.
+\end{scheme}
+
+\begin{definition}
+Let $f$ be a function. We define the attribute $f$ is \define{Ordinal-yielding}
+to mean
+\begin{defn}
+\item There exists an Ordinal $A$ such that $\rng(f)\subset A$.
+\end{defn}
+\end{definition}
+
+Observe there exists an ordinal-yielding sequence.
+
+\begin{definition}
+We define the mode an \define{Ordinal-Sequence} is an Ordinal-yielding sequence.
+\end{definition}
+
+Observe a sequence of $A$ is automatically Ordinal-yielding.
+
+Let $\varphi$, $\psi$ be Ordina-sequences. Then we can prove the
+following result:
+\begin{thm}
+\item\label{ordinal2:25} If $A\in\dom(\varphi)$, then $\varphi_{A}$ is
+  an Ordinal.
+\end{thm}
+
+Observe when we have an Ordinal-sequence $f$ and any object $a$, that
+$f_{a}$ is an ordinal.
+
+\begin{scheme}[OSLambda]
+Let $\mathcal{A}$ be an Ordinal, let $\mathcal{F}(-)$ be an Ordinal
+parametrized by an Ordinal.
+There exists an Ordinal-sequence $\varphi$ such that $\dom(\varphi)=\mathcal{A}$
+and for all Ordinals $A\in\mathcal{A}$ we have $\varphi_{A}=\mathcal{F}(A)$.
+\end{scheme}
+
+\begin{scheme}[TSUniq1]
+Let $\mathcal{A}$ be an ordinal, let $\mathcal{B}$ be an object,
+let $\mathcal{C}(-,-)$ be an object parametrized by an Ordinal and a set,
+let $\mathcal{D}(-,-)$ be an object parametrized by an Ordinal and a Sequence,
+let $\mathcal{L}_{1}$ and $\mathcal{L}_{2}$ be sequences.
+We have $\mathcal{L}_{1}=\mathcal{L}_{2}$, provided:
+\begin{enumerate}
+\item $\dom(\mathcal{L}_{1})=\mathcal{A}$; and
+\item If $0\in\mathcal{A}$, then $\mathcal{L}_{1}(0)=\mathcal{B}$; and
+\item for all Ordinals $A$, if $\succ(A)\in\mathcal{A}$,
+  then $\mathcal{L}_{1}(\succ(A))=\mathcal{C}(A,\mathcal{L}_{1}(A))$; and
+\item for all Ordinals $A\in\mathcal{A}$, if $A\neq0$ is a limit
+  ordinal,
+  then $\mathcal{L}_{1}(A)=\mathcal{D}(A,\mathcal{L}_{1}|_{A})$; and
+\item $\dom\mathcal{L}_{2}=\mathcal{A}$; and
+\item if $0\in\mathcal{A}$, then $\mathcal{L}_{2}(0)=\mathcal{B}$; and
+\item for all Ordinals $A$, if $\succ(A)\in\mathcal{A}$,
+  then $\mathcal{L}_{2}(\succ(A))=\mathcal{C}(A,\mathcal{L}_{2}(A))$; and
+\item for all Ordinals $A\in\mathcal{A}$, if $A\neq0$ is a limit
+  ordinal,
+  then $\mathcal{L}_{2}(A)=\mathcal{D}(A,\mathcal{L}_{2}|_{A})$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[TSExists1]
+Let $\mathcal{A}$ and $\mathcal{B}$ be Ordinals, let $\mathcal{C}(-,-)$
+be an object parametrized by an Ordinal and a set, let
+$\mathcal{D}(-,-)$ be an object parametrized by an ordinal and a sequence.
+There exists a sequence $L$ such that
+\begin{enumerate}[label=(\roman*)]
+\item $\dom(L)=\mathcal{A}$; and
+\item if $0\in\mathcal{A}$, then $L_{0}=\mathcal{B}$; and
+\item for all Ordinals $A$, if $\succ(A)\in\mathcal{A}$, then $L(\succ(A))=\mathcal{C}(A,L_{A})$;
+and
+\item for all Ordinals $A\in\mathcal{A}$, if $A\neq0$ is a limit
+  ordinals,
+  then $L(A)=\mathcal{D}(A,L|_{A})$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[TSResult]
+Let $\mathcal{L}$ be a sequence, let $\mathcal{F}(-)$ be a set
+parametrized by an Ordinal, let $\mathcal{A}$ be an Ordinal, let
+$\mathcal{B}$ be a set, let $\mathcal{C}(-,-)$ be a set parametrized by
+an Ordinal and a set, let $\mathcal{D}(-,-)$ be a set parametrized by an
+ordinal and a sequence.
+We have for all Ordinals $A\in\dom(\mathcal{L})$, $\mathcal{L}(A)=\mathcal{F}(A)$;
+provided:
+\begin{enumerate}
+\item for all Ordinals $A$ and objects $x$, we have $x=\mathcal{F}(A)$
+  if and only if there exists a sequence $L$ such that $x=\last(L)$ and
+  $\dom(L)=\succ(A)$ and $L_{0}=\mathcal{B}$ and (for all Ordinals $C$
+  such that $\succ(C)\in\succ(A)$ we have $L(C)=\mathcal{C}(C,L(C))$)
+  and (every Ordinal $C\in\succ(A)$ which is a nonzero limit ordinal
+  satisfies $L_{C}=\mathcal{D}(C,L|_{C})$); and
+\item if $0\in\mathcal{A}$, then $\mathcal{L}(0)=\mathcal{B}$; and
+\item for all Ordinals $A$, if $\succ(A)\in\mathcal{A}$,
+  then $\mathcal{L}(\succ(A))=\mathcal{C}(A,\mathcal{L}({A}))$; and
+\item for all Ordinals $A\in\mathcal{A}$, if $A\neq0$ is a limit
+  ordinal, then $\mathcal{L}(A)=\mathcal{D}(A,\mathcal{L}|_{A})$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[TSDef]
+Let $\mathcal{A}$ be an Ordinal, $\mathcal{B}$ be a set,
+$\mathcal{C}($Ordinal,set$)$ be a set parametrized by an Ordinal and set,
+let $\mathcal{D}($Ordinal,Sequence$)$ be a set parametrized by an
+Ordinal and a set.
+There exists an object $x$ and a sequence $L$ such that
+\begin{enumerate}[label=(\roman*)]
+\item $x=\last(L)$; and
+\item $\dom(L)=\succ(\mathcal{A})$; and
+\item $L(0)=\mathcal{B}$; and
+\item for all Ordinals $C$, if $\succ(C)\in\succ(\mathcal{A})$,
+  then $L(\succ(C))=\mathcal{C}(C,L(C))$; and
+\item for all nonzero limit Ordinals $C$, if $C\in\mathcal{A}$,
+  then $L(C)=\mathcal{D}(C,L|_{C})$; and
+\item for all sets $x_{1}$ and $x_{2}$ such that there exists sequences
+  $L_{1}$ and $L_{2}$ which satisfy $x_{1}=\last(L_{1})$ and
+  $x_{2}=\last(L_{2})$ and both $L_{1}$ and $L_{2}$ satisfy the previous
+  four conditions that $L$ satisfies, then $x_{1}=x_{2}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[TSResult0]
+Let $\mathcal{F}(-)$ be a set parametrized by an Ordinal, let
+$\mathcal{B}$ be a set, let $\mathcal{C}(-,-)$ be a set parametrized by
+an Ordinal and a set, let $\mathcal{D}(-,-)$ be a set parametrized by an
+Ordinal and a sequence.
+
+We have $\mathcal{F}(0)=\mathcal{B}$; provided
+\begin{enumerate}
+\item for all Ordinals $A$ and sets $x$, we have $x=\mathcal{F}(A)$ if
+  and only if there exists a sequence $L$ such that
+  \begin{enumerate}[label=(\roman*)]
+  \item $x=\last(L)$; and
+  \item $\dom(L)=\succ(A)$; and 
+  \item $L(0)=\mathcal{B}$; and
+  \item for all Ordinals $C$, if $\succ(C)\in\succ(A)$, then
+    $L(\succ(C))=\mathcal{C}(C,L(C))$; and
+  \item for all nonzero limit Ordinals $C$, if $C\in\succ(A)$, then $L(C)=\mathcal{D}(C,L|_{C})$.
+  \end{enumerate}
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[TSResultS]
+Let $\mathcal{B}$ be a set, $\mathcal{C}(-,-)$ be a set parametrized by
+an Ordinal and a set, let $\mathcal{D}(-,-)$ be a set parametrized by an
+Ordinal and a Sequence, let $\mathcal{F}(-)$ be a set parametrized by an
+Ordinal.
+
+We have for all Ordinals $A$, $\mathcal{F}(\succ(A))=\mathcal{C}(A,\mathcal{F}(A))$;
+provided:
+\begin{enumerate}
+\item for all Ordinals $A$ and sets $x$, we have $x=\mathcal{F}(A)$ if
+  and only if there exists a sequence $L$ such that
+  \begin{enumerate}[label=(\roman*)]
+  \item $x=\last(L)$; and
+  \item $\dom(L)=\succ(A)$; and 
+  \item $L(0)=\mathcal{B}$; and
+  \item for all Ordinals $C$, if $\succ(C)\in\succ(A)$, then
+    $L(\succ(C))=\mathcal{C}(C,L(C))$; and
+  \item for all nonzero limit Ordinals $C$, if $C\in\succ(A)$, then $L(C)=\mathcal{D}(C,L|_{C})$.
+  \end{enumerate}
+\end{enumerate}
+\end{scheme}
+
+\begin{thm}
+\item\label{ordinal2:26} 
+\item\label{ordinal2:27} 
+\item\label{ordinal2:28} 
+\item\label{ordinal2:29} 
+\item\label{ordinal2:30} 
+\item\label{ordinal2:31} 
+\item\label{ordinal2:32} 
+\item\label{ordinal2:33} 
+\item\label{ordinal2:34} 
+\item\label{ordinal2:35} 
+\item\label{ordinal2:36} 
+\item\label{ordinal2:37} 
+\item\label{ordinal2:38} 
+\item\label{ordinal2:39} 
+\item\label{ordinal2:40} 
+\item\label{ordinal2:41} 
+\item\label{ordinal2:42} 
+\item\label{ordinal2:43} 
+\item\label{ordinal2:44} 
+\item\label{ordinal2:45} 
+\item\label{ordinal2:46} 
+\item\label{ordinal2:47} 
+\item\label{ordinal2:48} 
+\item\label{ordinal2:49} 
+\item\label{ordinal2:50} 
+\end{thm}
+
+\end{document}

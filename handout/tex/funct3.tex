@@ -1,19 +1,60 @@
 \documentclass{article}
 
-\title{Basic Functions and Operations on Functions}
+\title{Basic Functions and Operations on Functions (FUNCT-3)}
 \author{Czes{\l}aw Byli\'nski}
 \date{May 9, 1989}
 \begin{document}
 \maketitle
 
+Let $A$, $X$, $Y$ be sets. We can prove the following five propositions:
 \begin{thm}
-\item\label{funct3:1} 
-\item\label{funct3:2} 
-\item\label{funct3:3} 
-\item\label{funct3:4} 
-\item\label{funct3:5} 
-\item\label{funct3:6} 
+\item\label{funct3:1} If $A\subset Y$, then $\id_{A}=\id_{Y}|_{A}$.
+\item\label{funct3:2} Let $f$, $g$ be functions.
+  If $X\subset\dom(g\circ f)$, then $f(X)\subset\dom(g)$.
+\item\label{funct3:3} Let $f$, $g$ be functions.
+  If $X\subset\dom(f)$ and $f(X)\subset\dom(g)$,
+  then $X\subset\dom(g\circ f)$.
+\item\label{funct3:4} Let $f$, $g$ be functions.
+  If $Y\subset\rng(g\circ f)$ and $g$ is one-to-one,
+  then $g^{-1}(Y)\subset\rng(f)$.
+\item\label{funct3:5} Let $f$, $g$ be functions.
+  If $Y\subset\rng(g)$ and $g^{-1}(Y)\subset\rng(f)$,
+  then $Y\subset\rng(g\circ f)$.
 \end{thm}
+
+\begin{scheme}[FuncEx3]
+Let $\mathcal{A}$ and $\mathcal{B}$ be sets, let $P[-,-,-]$ be a ternary
+predicate of objects.
+There exists a function $f$ such that $\dom(f)=\mathcal{A}\times\mathcal{B}$
+and for all objects $x\in\mathcal{A}$ and $y\in\mathcal{B}$
+we have $P[x,y,f(x,y)]$;
+provided
+\begin{enumerate}
+\item for all objects $x\in\mathcal{A}$ and $y\in\mathcal{B}$ and
+  $z_{1}$, $z_{2}$, if $P[x,y,z_{1}]$ and $P[x,y,z_{2}]$, then
+  $z_{1}=z_{2}$; and
+\item for all objects $x\in\mathcal{A}$ and $y\in\mathcal{B}$,
+  there exists an object $z$ such that $P[x,y,z]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[Lambda3]
+Let $\mathcal{A}$ and $\mathcal{B}$ be sets, let $\mathcal{F}(-,-)$
+be an object parametrized by two objects.
+There exist a function $f$ such that $\dom(f)=\mathcal{A}\times\mathcal{B}$
+and for all objects $x\in\mathcal{A}$ and $y\in\mathcal{B}$,
+we have $f(x,y)=\mathcal{F}(x,y)$.
+\end{scheme}
+
+We now can prove the following proposition:
+\begin{thm}
+\item\label{funct3:6} Let $f$, $g$ be functions with $\dom(f)=X\times Y$
+  and $\dom(g)=X\times Y$.
+  Suppose for all objects $x\in X$ and $y\in Y$, we have $f(x,y)=g(x,y)$.
+  Then $f=g$.
+\end{thm}
+
+\section{Function indicated by the image under a function}
 
 \begin{definition}
 Let $f$ be a function.
@@ -30,82 +71,353 @@ the notation $f_{*}$ for the image of $f$ under the covariant powerset
 functor, so I'm going to stick with it.
 \end{remark}
 
+Let $D$ be a nonempty set.
+We can prove the following results:
 \begin{thm}
-\item\label{funct3:7} 
-\item\label{funct3:8} 
-\item\label{funct3:9} 
-\item\label{funct3:10} 
-\item\label{funct3:11} 
-\item\label{funct3:12} 
-\item\label{funct3:13} 
-\item\label{funct3:14} 
-\item\label{funct3:15} 
-\item\label{funct3:16} 
-\item\label{funct3:17} 
-\item\label{funct3:18} 
-\item\label{funct3:19} 
-\item\label{funct3:20} 
-\item\label{funct3:21} 
-\item\label{funct3:22} 
-\item\label{funct3:23} 
-\item\label{funct3:24} 
-\item\label{funct3:25} 
-\item\label{funct3:26} 
-\item\label{funct3:27} 
-\item\label{funct3:28} 
-\item\label{funct3:29} 
-\item\label{funct3:30} 
-\item\label{funct3:31} 
-\item\label{funct3:32} 
-\item\label{funct3:33} 
-\item\label{funct3:34} 
-\item\label{funct3:35} 
-\item\label{funct3:36} 
-\item\label{funct3:37} 
-\item\label{funct3:38} 
-\item\label{funct3:39} 
-\item\label{funct3:40} 
-\item\label{funct3:41} 
-\item\label{funct3:42} 
-\item\label{funct3:43} 
-\item\label{funct3:44} 
-\item\label{funct3:45} 
-\item\label{funct3:46} 
-\item\label{funct3:47} 
-\item\label{funct3:48} 
-\item\label{funct3:49} 
-\item\label{funct3:50} 
-\item\label{funct3:51} 
-\item\label{funct3:52} 
-\item\label{funct3:53} 
-\item\label{funct3:54} 
-\item\label{funct3:55} 
-\item\label{funct3:56} 
-\item\label{funct3:57} 
-\item\label{funct3:58} 
-\item\label{funct3:59} 
-\item\label{funct3:60} 
-\item\label{funct3:61} 
-\item\label{funct3:62} 
-\item\label{funct3:63} 
-\item\label{funct3:64} 
-\item\label{funct3:65} 
-\item\label{funct3:66} 
-\item\label{funct3:67} 
-\item\label{funct3:68} 
-\item\label{funct3:69} 
-\item\label{funct3:70} 
-\item\label{funct3:71} 
-\item\label{funct3:72} 
-\item\label{funct3:73} 
-\item\label{funct3:74} 
-\item\label{funct3:75} 
-\item\label{funct3:76} 
-\item\label{funct3:77} 
-\item\label{funct3:78} 
-\item\label{funct3:79} 
-\item\label{funct3:80} 
-\item\label{funct3:81} 
+\item\label{funct3:7} Let $f$ be a function. If $X\in\dom(f_{*})$,
+  then $f_{*}(X)=f(X)$ (Mizar: ``\verb#(.:f).X = f.:X#'').
+\item\label{funct3:8} Let $f$ be a function. Then $f_{*}(\emptyset)=\emptyset$.
+\item\label{funct3:9} Let $f$ be a function. Then $\rng(f_{*})\subset\powerset(\rng(f))$.
+\item\label{funct3:10} Let $f$ be a function. Then $f_{*}(A)\subset\powerset(\rng(f))$.
+\item\label{funct3:11} Let $f$ be a function. Then $f_{*}^{-1}(A)\subset\powerset(\dom(f))$.
+\item\label{funct3:12} Let $f\colon X\to D$. Then $f_{*}^{-1}(B)\subset\powerset(X)$.
+\item\label{funct3:13} Let $f$ be a function. Then $\union f_{*}(A)\subset f(\union A)$.
+\item\label{funct3:14} Let $f$ be a function. If $A\subset\powerset(\dom(f))$,
+  then $f(\union A)=\union(f_{*}(A))$.
+\item\label{funct3:15} Let $f\colon X\to D$. If $A\subset\powerset(X)$,
+  then $f(\union A)=\union(f_{*}(A))$.
+\item\label{funct3:16} Let $f$ be a function.
+  Then $\union(f_{*}^{-1}(B))\subset f^{-1}(\union B)$.
+\item\label{funct3:17} Let $f$ be a function.
+  If $B\subset\powerset(\rng(f))$,
+  then $f^{-1}(\union B)=\union(f_{*}^{-1}(B))$.
+\item\label{funct3:18} Let $f$, $g$ be functions.
+  Then $(g\circ f)_{*}=g_{*}\circ f_{*}$.
+\item\label{funct3:19} Let $f$ be a function.
+  Then $f_{*}$ is a function from $\powerset(\dom(f))$ to $\powerset(\rng(f))$.
+\item\label{funct3:20} Let $f\colon X\to Y$, suppose either $Y\neq\emptyset$
+  or $X=\emptyset$.
+  Then $f$ is a function from $\powerset(X)$ to $\powerset(Y)$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set, let $D$ be a nonempty set.
+Let $f\colon X\to D$.
+We redefine the type of $f_{*}$ to be a function from $\powerset(X)$ to
+$\powerset(D)$. 
+\end{definition}
+
+\section{Function indicated by the inverse image under a function}
+
+\begin{definition}
+Let $f$ be a function.
+We define the term $f^{*}$ (Mizar: ``\verb#"f#'') to be the function satisfying
+\begin{defn}
+\item $\dom(f^{*})=\bool(\rng(f))$ and for each set $Y\subset\rng(f)$,
+  we have $f^{*}(Y)=f^{-1}(Y)$.
+\end{defn}
+\end{definition}
+
+We can prove the following propositions:
+\begin{thm}
+\item\label{funct3:21} Let $f$ be a function.
+  If $Y\in\dom(f^{*})$, then $f^{*}(Y)=f^{-1}Y$.
+\item\label{funct3:22} Let $f$ be a function.
+  Then $\rng(f^{*})\subset\bool(\dom(f))$.
+\item\label{funct3:23} Let $f$ be a function.
+  Then $f^{*}(B)\subset\powerset(\dom(f))$.
+\item\label{funct3:24} Let $f$ be a function.
+  Then $(f^{*})^{-1}(A)\subset\powerset(\rng(f))$.
+\item\label{funct3:25} Let $f$ be a function.
+  $\union(f^{*}(B))\subset f^{-1}(\union B)$.
+\item\label{funct3:26} Let $f$ be a function.
+  If $B\subset\powerset(\rng(f))$,
+  then $\union(f^{*}(B))=f^{-1}(\union B)$.
+\item\label{funct3:27} Let $f$ be a function.
+  Then $\union((f^{*})^{-1}(A))\subset f(\union A)$.
+\item\label{funct3:28} Let $f$ be a function.
+  If $A\subset\powerset(\dom(f))$ and $f$ is one-to-one,
+  then $\union((f^{*})^{-1}A)=f(\union A)$.
+\item\label{funct3:29} Let $f$ be a function.
+  Then $f^{*}(B)\subset (f_{*})^{-1}(B)$.
+\item\label{funct3:30} Let $f$ be a function.
+  If $f$ is one-to-one,
+  then $f^{*}(B) = (f_{*})^{-1}(B)$.
+\item\label{funct3:31} Let $f$ be a function, let $A$ be a set.
+  If $A\subset\powerset(\dom(f))$,
+  then $f^{*}(A)\subset (f_{*})^{-1}(A)$.
+\item\label{funct3:32} Let $f$ be a function, let $A$ be a set.
+  If $A\subset\powerset(\dom(f))$,
+  then $(f_{*})^{-1}(A)\subset f^{*}(A)$.
+\item\label{funct3:33} Let $f$ be a function, let $A$ be a set.
+  If $f$ is one-to-one and $A\subset\powerset(\dom(f))$,
+  then $(f_{*})^{-1}(A) = f^{*}(A)$.
+\item\label{funct3:34} Let $f$, $g$ be functions.
+  If $g$ is one-to-one, then $(g\circ f)^{*}=f^{*}\circ g^{*}$.
+\item\label{funct3:35} Let $f$ be a function.
+  Then $f^{*}\colon\powerset(\rng(f))\to\powerset(\dom(f))$.
+\end{thm}
+
+\section{Characteristic function}
+
+\begin{definition}
+Let $A$ and $X$ be sets.
+We define $\chi_{A,X}$ (Mizar: ``\verb#chi(A,X)#'') to be the function
+satisfying
+\begin{defn}
+\item $\dom(\chi_{A,X})=X$ and for any object $x\in X$,
+  $\chi_{A,X}(x)=1$ when $x\in A$,
+  and $\chi_{A,X}(x)=0$ when $x\notin A$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{funct3:36} Let $x$ be an object.
+  If $\chi_{A,X}(x)=1$, then $x\in A$.
+\item\label{funct3:37} Let $x$ be an object.
+  If $\chi_{A,X}(x)=0$, then $x\notin A$.
+\item\label{funct3:38} If $A\subset X$, $B\subset X$, and $\chi_{A,X}=\chi_{B,X}$,
+  then $A=B$.
+\item\label{funct3:39} $\rng(\chi_{A,X})\subset\{0,1\}$.
+\item\label{funct3:40} Let $f\colon X\to\{0,1\}$. Then $f=\chi_{f^{-1}(\{1\}),X}$.
+\end{thm}
+
+\begin{definition}
+Let $A$ and $X$ be sets.
+We redefine the type of the term $\chi_{A,X}\colon X\to\{0,1\}$
+to be a function from $X$ to $\{0,1\}$.
+\end{definition}
+
+\begin{notation}\index{$\incl{A}$}
+Let $Y$ be a set, let $A$ be a subset of $Y$.
+We define $\incl{A}$ (Mizar: ``\verb#incl A#'') as a synonym for $\id_{A}$.
+\end{notation}
+
+\begin{remark}
+The notation for inclusion varies wildly all over the place. I picked
+what makes the most sense to me.
+\end{remark}
+
+\begin{definition}
+Let $Y$ be a set, let $A$ be a subset of $Y$.
+We redefine the type of $\incl{A}$ to be a function from $A$ to $Y$.
+\end{definition}
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{funct3:41} Let $A$ be a subset of $Y$, then $\incl{A}=\id_{Y}|_{A}$.
+\item\label{funct3:42} Let $A$ be a subset of $Y$,
+  if $x\in A$, then $\incl{A}(x)\in Y$.
+\end{thm}
+
+\section{Projections}
+
+\begin{definition}
+Let $X$ and $Y$ be sets.
+We define the term $\pr1{X}{Y}$ to be a function satisfying
+\begin{defn}
+\item $\dom(\pr1{X}{Y})=X\times Y$ and for all objects $x\in X$ and
+  $y\in Y$, $\pr1{X}{Y}(x,y)=x$.
+\end{defn}
+We define the term $\pr2{X}{Y}$ to be a function satisfying
+\begin{defn}
+\item $\dom(\pr2{X}{Y})=X\times Y$ and for all objects $x\in X$ and
+  $y\in Y$, $\pr2{X}{Y}(x,y)=x$.
+\end{defn}
+\end{definition}
+
+We now have the following four propositions:
+\begin{thm}
+\item\label{funct3:43} $\rng\pr1XY\subset X$.
+\item\label{funct3:44} If $Y\neq\emptyset$, then $\rng(\pr1{X}{Y})=X$.
+\item\label{funct3:45} $\rng\pr1XY\subset Y$.
+\item\label{funct3:46} If $X\neq\emptyset$, then $\rng(\pr2{X}{Y})=Y$.
+\end{thm}
+
+\begin{definition}
+Let $X$ and $Y$ be sets.
+We redefine the type of $\pr{1}{X}{Y}$ to be a function from $X\times Y$
+to $X$.
+We redefine the type of $\pr{2}{X}{Y}$ to be a function from $X\times Y$
+to $Y$.
+\end{definition}
+
+\begin{definition}\index{Diagonal function}\index{Function!Diagonal}\index{$\Delta_{X}$}
+Let $X$ be a set.
+We define the new term $\Delta_{X}$ (Mizar: ``\verb#delta(X)#'') to be
+the function satisfying
+\begin{defn}
+\item $\dom(\Delta_{X})=X$ and for all objects $x\in X$, $\Delta_{X}(x)=(x,x)$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+This is the familiar \emph{diagonal function}.
+\end{remark}
+
+We now can prove the following proposition:
+\begin{thm}
+\item\label{funct3:47} $\rng(\Delta_{X})\subset X\times X$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set.
+We redefine the type of $\Delta_{X}$ to be a function from $X$ to
+$X\times X$.
+\end{definition}
+
+\section{Composite Function}
+
+\begin{definition}
+Let $f$ and $g$ be functions.
+We define the term $\langle f,g\rangle$ (Mizar: ``\verb#<:f,g:>#'') to be the function satisfying
+\begin{defn}
+\item $\dom(\langle f,g\rangle)=\dom(f)\cap\dom(g)$
+  and for all objects $x\in\dom(\langle f,g\rangle)$, we have $\langle f,g\rangle(x)=(f(x),g(x))$.
+\end{defn}
+\end{definition}
+
+We can now prove the following propositions:
+\begin{thm}
+\item\label{funct3:48} Let $f$, $g$ be functions, let $x\in\dom(f)\cap\dom(g)$.
+  Then $\langle f,g\rangle(x)=(f(x),g(x))$.
+\item\label{funct3:49} Let $f$, $g$ be functions. Suppose $\dom(f)=X$
+  and $\dom(g)=X$ and $x\in X$. Then $\langle f,g\rangle(x)=(f(x),g(x))$.
+\item\label{funct3:50} Let $f$, $g$ be functions. Suppose $\dom(f)=X$
+  and $\dom(g)=X$. Then $\dom(\langle f,g\rangle)=X$.
+\item\label{funct3:51} Let $f$, $g$ be functions.
+  Then $\rng(\langle f,g\rangle)\subset\rng(f)\times\rng(g)$.
+\item\label{funct3:52} Let $f$, $g$ be functions.
+  Suppose $\dom(f)=\dom(g)$ and $\rng(f)\subset Y$ and $\rng(g)\subset Z$.
+  Then $\pr{1}{Y}{Z}\circ\langle f,g\rangle=f$ and $\pr{2}{Y}{Z}\circ\langle f,g\rangle=g$.
+\item\label{funct3:53}
+  $\langle\pr{1}{X}{Y},\pr{2}{X}{Y}\rangle=\id_{X\times Y}$.
+\item\label{funct3:54} Let $f$, $g$, $h$, $k$ be functions.
+  If $\dom(f)=\dom(g)$ and $\dom(k)=\dom(h)$ and $\langle f,g\rangle=\langle k,h\rangle$,
+  then $f=k$ and $g=h$.
+\item\label{funct3:55} Let $f$, $g$, $h$ be functions.
+  Then $\langle f\circ h,g\circ h\rangle=\langle f,g\rangle\circ h$.
+\item\label{funct3:56} Let $f$, $g$ be functions.
+  Then $\langle f,g\rangle(A)\subset(f(A))\times(g(A))$.
+\item\label{funct3:57} Let $f$, $g$ be functions.
+  Then $\langle f,g\rangle^{-1}(B\times C)=f^{-1}(B)\cap g^{-1}(C)$.
+\item\label{funct3:58} Let $f\colon X\to Y$, $g\colon X\to Z$.
+  Suppose $Y\neq\emptyset$ or $X=\emptyset$, and suppose $Z\neq\emptyset$
+  or $X=\emptyset$.
+  Then $\langle f,g\rangle\colon X\to Y\times Z$. 
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set, let $D_{1}$ and $D_{2}$ be nonempty sets.
+Let $f_{1}\colon X\to D_{1}$ and $f_{2}\colon X\to D_{2}$.
+We redefine the type of $\langle f_{1},f_{2}\rangle\colon X\to D_{1}\times D_{2}$.
+\end{definition}
+
+Let $D_{1}$, $D_{2}$ be nonempty sets.
+We can prove the following six propositions:
+\begin{thm}
+\item\label{funct3:59} Let $f_{1}\colon C\to D_{1}$,
+  let $f_{2}\colon C\to D_{2}$, let $c$ be an element of $C$.
+  Then $\langle f_{1},f_{2}\rangle(c)=(f_{1}(c),f_{2}(c))$.
+\item\label{funct3:60} Let $f\colon X\to Y$, $g\colon X\to Z$.
+  Then $\rng(\langle f,g\rangle)\subset Y\times Z$.
+\item\label{funct3:61} Let $f\colon X\to Y$, $g\colon X\to Z$.
+  Suppose $Y\neq\emptyset$ or $X=\emptyset$, and suppose
+  $Z\neq\emptyset$ or $X=\emptyset$.
+  Then $\pr{1}{Y}{Z}\circ\rng(\langle f,g\rangle)=f$
+  and $\pr{2}{Y}{Z}\circ\rng(\langle f,g\rangle)=g$
+\item\label{funct3:62} Let $f\colon X\to D_{1}$,
+  $g\colon X\to D_{2}$.
+  Then $\pr{1}{D_{1}}{D_{2}}\circ\langle f,g\rangle = f$ and
+  $\pr{2}{D_{1}}{D_{2}}\circ\langle f,g\rangle = g$.
+\item\label{funct3:63} Let $f_{1},f_{2}\colon X\to Y$, $g_{1},g_{2}\colon X\to Z$.
+  Suppose $Y\neq\emptyset$ or $X=\emptyset$, and suppose
+  $Z\neq\emptyset$ or $X=\emptyset$.
+  If $\langle f_{1},g_{1}\rangle = \langle f_{2},g_{2}\rangle$,
+  then $f_{1} = f_{2}$ and $g_{1} = g_{2}$.
+\item\label{funct3:64} Let $f_{1},f_{2}\colon X\to D_{1}$,
+  $g_{1},g_{2}\colon X\to D_{2}$.
+  If $\langle f_{1},g_{1}\rangle = \langle f_{2},g_{2}\rangle$,
+  then $f_{1} = f_{2}$ and $g_{1} = g_{2}$.
+\end{thm}
+
+\section{Product functions}
+
+\begin{definition}
+Let $f$, $g$ be functions.
+We define the term $(f,g)$ (Mizar: ``\verb#[:f,g:]#'')
+to be the function satisfying
+\begin{defn}
+\item $\dom((f,g))=\dom(f)\times\dom(g)$ and for all objects
+  $x\in\dom(f)$ and $y\in\dom(g)$, we have $(f,g)(x,y)=(f(x),g(y))$.
+\end{defn}
+\end{definition}
+
+We can prove the following propositions:
+\begin{thm}
+\item\label{funct3:65} Let $f$, $g$ be functions, let $x$, $y$ be objects.
+  If $(x,y)\in\dom(f)\times\dom(g)$, then $(f,g)(x,y)=(f(x),g(y))$.
+\item\label{funct3:66} Let $f$, $g$ be functions.
+  Then $(f,g)=\langle f\circ\pr{1}{\dom(f)}{\dom(g)},g\circ\pr{2}{\dom(f)}{\dom(g)}\rangle$
+\item\label{funct3:67} Let $f$, $g$ be functions.
+  Then $\rng((f,g))=\rng(f)\times\rng(g)$.
+\item\label{funct3:68} Let $f$, $g$ be functions.
+  If $\dom(f)=X$ and $\dom(g)=X$, then $\langle f,g\rangle=(f,g)\circ\Delta_{X}$.
+\item\label{funct3:69} $(\id_{X},\id_{Y})=\id_{X\times Y}$.
+\item\label{funct3:70} Let $f$, $g$, $h$, $k$ be functions.
+  Then $(f,h)\circ\langle g,k\rangle=\langle f\circ g,h\circ k\rangle$.
+\item\label{funct3:71} Let $f$, $g$, $h$, $k$ be functions.
+  Then $(f,h)\circ(g,k)=(f\circ g,h\circ k)$.
+\item\label{funct3:72} Let $f$, $g$ be functions.
+  Then $(f,g)(B,A)=(f(B),g(A))$.
+\item\label{funct3:73} Let $f$, $g$ be functions.
+  Then $(f,g)^{-1}(B,A)=(f^{-1}(B),g^{-1}(A))$.
+\item\label{funct3:74} Let $f\colon X\to Y$, $g\colon V\to Z$.
+  Then $(f,g)\colon X\times V\to Y\times Z$.
+\end{thm}
+
+\begin{definition}
+Let $X_{1}$, $X_{2}$, $Y_{1}$, $Y_{2}$ be sets, let $f_{1}\colon X_{1}\to Y_{1}$,
+let $f_{2}\colon X_{2}\to Y_{2}$.
+Then we redefine the type of $(f_{1},f_{2})\colon X_{1}\times X_{2}\to Y_{1}\times Y_{2}$.
+\end{definition}
+
+Let $C_{1}$, $C_{2}$, $D_{1}$, $D_{2}$ be nonempty sets.
+We can prove the following seven propositions:
+\begin{thm}
+\item\label{funct3:75} Let $f_{1}\colon C_{1}\to D_{1}$,
+  let $f_{2}\colon C_{2}\to D_{2}$. For all elements $c_{1}$ of $C_{1}$
+  and $c_{2}$ of $C_{2}$, we have $(f_{1},f_{2})(c_{1},c_{2})=(f_{1}(c_{1}),f_{2}(c_{2}))$.
+\item\label{funct3:76} Let $f_{1}\colon X_{1}\to Y_{1}$,
+  let $f_{2}\colon X_{2}\to Y_{2}$.
+  Suppose $Y_{1}\neq\emptyset$ or $X_{1}=\emptyset$, and suppose
+  $Y_{2}\neq\emptyset$ or $X_{2}=\emptyset$.
+  Then $(f_{1},f_{2})=\langle f_{1}\circ\pr{1}{X_{1}}{X_{1}}, f_{2}\circ\pr{2}{X_{2}}{X_{2}}\rangle$.
+\item\label{funct3:77} Let $f_{1}\colon X_{1}\to D_{1}$,
+  let $f_{2}\colon X_{2}\to D_{2}$.
+  Then $(f_{1},f_{2})=\langle f_{1}\circ\pr{1}{X_{1}}{X_{1}}, f_{2}\circ\pr{2}{X_{2}}{X_{2}}\rangle$.
+\item\label{funct3:78} Let $f_{1}\colon X\to Y_{1}$, let $f_{2}\colon X\to Y_{2}$.
+  Then $\langle f_{1},f_{2}\rangle = (f_{1},f_{2})\circ\Delta_{X}$.
+\item\label{funct3:79} Let $f$ be a function.
+  Then $\pr{1}{\dom(f)}{\rng{f}}(f)=\dom(f)$.
+\item\label{funct3:80} Let $A$, $B$, $C$ be nonempty sets.
+  Let $f,g\colon A\to B\times C$.
+  If $\pr{1}{B}{C}\circ f=\pr{1}{B}{C}\circ g$
+  and if $\pr{2}{B}{C}\circ f=\pr{2}{B}{C}\circ g$,
+  then $f=g$.
+\end{thm}
+Observe the product of one-to-one functions is one-to-one.
+
+\begin{definition}
+  Let $A_{1}$ be a set, let $B_{1}$ be a nonempty set,
+  let $f\colon A_{1}\to B_{1}$. Let $Y_{1}$ be a subset of $A_{1}$.
+  We redefine the type of the term of $f|_{Y_{1}}$ to be a function from
+  $Y_{1}$ to $B_{1}$.
+\end{definition}
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{funct3:81} $(f,g)|(Y_{1},Y_{2})=(f|_{Y_{1}},g|_{Y_{1}})$.
 \end{thm}
 
 \end{document}

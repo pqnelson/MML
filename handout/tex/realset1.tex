@@ -1,0 +1,117 @@
+\documentclass{article}
+
+\title{Group and Field Definitions (REALSET1)}
+\author{J\'ozef Bia{\l}as}
+\date{October 27, 1989}
+\begin{document}
+\maketitle
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{realset1:1} Let $X$ and $x$ be sets, let $F\colon X\times X\to X$.
+  If $x\in X\times X$, then $F(x)\in X$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set, let $F$ be a binary operator of $X$, let $A$ be a
+subset of $X$.
+We define the attribute $A$ is to be \define{closed with respect to $F$}
+(Mizar: ``\verb#F-binopclosed#'') to mean
+\begin{defn}
+\item For every set $x$, if $x\in A\times A$, then $F(x)\in A$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a set, let $F$ be a binary operator of $X$.
+We define the mode \define{Preserve} of $F$ to be a subset of $X$ which
+is closed with respect to $F$.
+\end{definition}
+
+\begin{definition}
+Let $R$ be a relation, let $A$ be a set. We define the term $R|_{A}$
+(Mizar: ``\verb#R||A#'') to be the set equal to
+\begin{defn}
+\item $R|_{A}=R|_{A\times A}$.
+\end{defn}
+\end{definition}
+
+Observe $R|_{A}$ is relation-like.
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{realset1:2} Let $X$ be a set, $F$ be a binary operator
+  of $X$, let $A$ be a subset of $X$ closed under $F$.
+  Then $F|_{A}$ is a binary operator of $A$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be sets, let $F$ be a binary operator of $X$, let $A$ be a
+subset of $X$ closed under $F$.
+We redefine the type of $F|_{A}$ to be a binary operator of $A$.
+\end{definition}
+
+We can define the following propositions:
+\begin{thm}
+\item\label{realset1:3} (Cancelled)
+\item\label{realset1:4} (Cancelled)
+\item\label{realset1:5} Let $X$ be a set, let $A$ be a subset of $X$.
+  Then $A$ is closed under $\pr1{X}{X}$.
+\end{thm}
+
+\skipdefn
+
+\begin{definition}
+Let $X$ be a set, $A$ be a subset of $X$, $F$ be a binary operator of $X$.
+We define the attribute $F$ is \define{preserving $A$}
+(Mizar: ``\verb#A-subsetpreserving#'')
+to mean
+\begin{defn}[start=4]
+\item for all sets $x\in A\times A$, we have $F(x)\in A$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a set, let $A$ be a subset of $X$.
+We define the mode ``$A$-preserving binary operators of $X$''
+(Mizar: ``\verb#Presv of X,A#'') to be a binary operator of $X$ which
+preserves $A$.
+\end{definition}
+
+We have the following result:
+\begin{thm}
+\item\label{realset1:6} Let $X$ be a set, $A$ a subset of $X$, and $F$
+  be an $A$-preserving binary operator of $X$.
+  Then $F|_{A}$ is a binary operator of $A$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set, $A$ a subset of $X$, and $F$ an $A$-preserving binary
+operator of $X$. We define the term $F|_{A}$ (Mizar: ``\verb#F|||A#'')
+to be the binary operator of $A$ equal to
+\begin{defn}
+\item $F|_{A}$ (Mizar: ``\verb#F||A#'').
+\end{defn}
+\end{definition}
+
+We can prove the following result:
+\begin{thm}
+\item\label{realset1:7} Let $A$ be a nontrivial set, let $x$ be an
+  element of $A$, let $F$ be an $(A\setminus\{x\})$-preserving binary
+  operator of $A$.
+  Then $F|_{A\setminus\{x\}}$ is a binary operator of $A\setminus\{x\}$.
+\end{thm}
+
+\skipdefn
+
+\begin{definition}
+Let $A$ be a nontrivial set, $x$ be an element of $A$, and let $F$ be an
+$(A\setminus\{x\})$-preserving binary operator of $A$.
+We define the term $F|_{x,A}$ (Mizar: ``\verb#F!(A,x)#'') to be the
+binary operator of $A\setminus\{x\}$ such that
+\begin{defn}[start=7]
+\item $F|_{x,A}=F|_{A\setminus\{x\}}$.
+\end{defn}
+\end{definition}
+
+\end{document}

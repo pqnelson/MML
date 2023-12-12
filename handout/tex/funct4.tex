@@ -1,0 +1,540 @@
+\documentclass{article}
+
+\title[Modification of a Function by a Function (FUNCT-4)]{The Modification of a Function by a Function and the Iteration of the Composition of a Function (FUNCT-4)}
+\author{Czes{\l}aw Byli\'nski}
+\date{March 1, 1990}
+
+\begin{document}
+\maketitle
+
+\begin{remark}
+Iteration of composition of a function appears to have been moved to
+\verb#FUNCT_7# (in Def.~11).
+\end{remark}
+
+Let $X$, $Y$, $Z$ be sets. Let $f$, $g$, $h$ be functions.
+\begin{thm}
+\item\label{funct4:1} Suppose for every object $z\in Z$ there exists
+  objects $x$ and $y$ such that $z=(x,y)$.
+  Then there exists sets $X$ and $Y$ such that $Z\subset X\times Y$.
+\item\label{funct4:2} $g\circ f=(g|_{\rng(f)})\circ f$.
+\item\label{funct4:3} $\id_{X}\subset\id_{Y}$ if and only if $X\subset Y$.
+\item\label{funct4:4} If $X\subset Y$, then $X\constantto a\subset Y\constantto a$.
+\item\label{funct4:5} Let $a$ and $b$ be objects.
+  If $X\constantto a\subset Y\constantto b$, then $X\subset Y$.
+\item\label{funct4:6} Let $a$ and $b$ be objects.
+  If $X\neq\emptyset$ and $X\constantto a\subset Y\constantto b$,
+  then $a=b$.
+\item\label{funct4:7} If $x\in\dom(f)$,
+  then $\{x\}\constantto f(x)\subset f$.
+\end{thm}
+
+\section{Natural order on functions}
+
+We can prove the following propositions:
+\begin{thm}
+\item\label{funct4:8} $f|^{Y}_{X}\subset f$.
+\item\label{funct4:9} If $f\subset g$, then $f|^{Y}_{X}\subset g|^{Y}_{X}$.
+\end{thm}
+
+\begin{definition}
+Let $f$ and $g$ be functions.
+We define the term $f\plusdot g$ (Mizar: ``\verb#f +* g#'') to be the function such that
+\begin{defn}
+\item $\dom(f \plusdot g)=\dom(f)\cup\dom(g)$, and
+  for all objects $x\in\dom(f)\cup\dom(g)$,
+\begin{enumerate}[label=(\roman*)]
+\item if $x\in\dom(g)$ then $(f\plusdot g)(x)=g(x)$, and
+\item if $x\notin\dom(g)$ then $(f\plusdot g)(x)=f(x)$.
+\end{enumerate}
+\end{defn}
+\end{definition}
+
+\begin{remark}
+This allows us to define things by cases, with the right-most function
+taking precedence
+\[(f\plusdot g)(x)=\begin{cases}g(x) & \mbox{if }x\in\dom(g)\\
+f(x) & \mbox{if }x\in\dom(f)
+\end{cases}\]
+Since $g\subset f\plusdot g$, we should think of $f\plusdot g$ as
+\emph{extending} $g$ by $f$.
+\end{remark}
+
+We can prove the following results:
+\begin{thm}
+\item\label{funct4:10} $\dom(f)\subset\dom(f\plusdot g)$
+  and $\dom(g)\subset\dom(f\plusdot g)$
+\item\label{funct4:11} For any object $x$,
+  if $x\notin\dom(g)$, then $(f\plusdot g)(x)=f(x)$.
+\item\label{funct4:12} For any object $x$,
+  $x\in\dom(f\plusdot g)$ if and only if either $x\in\dom(f)$ or $x\in\dom(g)$.
+\item\label{funct4:13} For any object $x$,
+  if $x\in\dom(g)$, then $(f\plusdot g)(x)=g(x)$.
+\item\label{funct4:14} (Associativity of extension)
+  $(f\plusdot g)\plusdot h=f\plusdot(g\plusdot h)$.
+\item\label{funct4:15} If $f$ tolerates $g$, and if $x\in\dom(f)$,
+  then $(f\plusdot g)(x)=f(x)$.
+\item\label{funct4:16} If $\dom(f)$ misses $\dom(g)$, and if $x\in\dom(f)$,
+  then $(f\plusdot g)(x)=f(x)$.
+\item\label{funct4:17} $\rng(f\plusdot g)\subset\rng(f)\cup\rng(g)$.
+\item\label{funct4:18} $\rng(g)\subset\rng(f\plusdot g)$
+\item\label{funct4:19} If $\dom(f)\subset\dom(g)$, then $f\plusdot g=g$.
+\end{thm}
+
+Observe when $g$ is an empty function and $f$ is any function, we can
+reduce $f\plusdot g$ to $f$, and we can reduce $g\plusdot f$ to $f$.
+
+Now, we can prove the following four propositions:
+\begin{thm}
+\item\label{funct4:20} $\emptyset\plusdot f=f$
+\item\label{funct4:21} $f\plusdot\emptyset=f$
+\item\label{funct4:22} $\id_{X}\plusdot\id_{Y}=\id_{X\cup Y}$.
+\item\label{funct4:23} $(f\plusdot g)|_{\dom(g)}=g$.
+\end{thm}
+
+Observe we can reduce $(f\plusdot g)|_{\dom(g)}$ to $g$.
+
+Now we can prove the following results:
+\begin{thm}
+\item\label{funct4:24} $(f\plusdot g)|_{\dom(f)\setminus\dom(g)}\subset f$
+\item\label{funct4:25} $g\subset f\plusdot g$
+\item\label{funct4:26} If $f$ tolerates $g\plusdot h$,
+  then $f|_{\dom(f)\setminus\dom(h)}$ tolerates $g$.
+\item\label{funct4:27} If $f$ tolerates $g\plusdot h$,
+  then $f$ tolerates $h$.
+\item\label{funct4:28} $f$ tolerates $g$ if and only if $f\subset f\plusdot g$.
+\item\label{funct4:29} $f\plusdot g\subset f\cup g$.
+\item\label{funct4:30} $f$ tolerates $g$ if and only if $f\cup g=f\plusdot g$.
+\item\label{funct4:31} If $\dom(f)$ misses $\dom(g)$, then
+  $f\cup g=f\plusdot g$.
+\item\label{funct4:32} If $\dom(f)$ misses $\dom(g)$,
+  then $f\subset f\plusdot g$.
+\item\label{funct4:33} If $\dom(f)$ misses $\dom(g)$,
+  then $(f\plusdot g)|_{\dom(f)}=f$.
+\item\label{funct4:34} $f$ tolerates $g$ if and only if
+  $f\plusdot g=g\plusdot f$.
+\item\label{funct4:35} If $\dom(f)$ misses $\dom(g)$, then
+  $f\plusdot g=g\plusdot f$.
+\item\label{funct4:36} For any partial functions $f$ and $g$ from $X$ to $Y$,
+  if $g$ is total, then $f\plusdot g=g$.
+\item\label{funct4:37} For any $f,g\colon X\to Y$,
+  $f\plusdot g=g$.
+\item\label{funct4:38} For any functions $f,g\colon X\to X$,
+  $f\plusdot g=g$.
+\item\label{funct4:39} For any functions $f,g\colon X\to D$,
+  $f\plusdot g=g$.
+\item\label{funct4:40} For any partial functions $f$ and $g$ from $X$ to $Y$,
+  $f\plusdot g$ is a partial function from $X$ to $Y$.
+\end{thm}
+
+\section{The converse of a function on arbitrary domains}
+
+\begin{definition}\index{Function!Converse}
+Let $f$ be a function.
+We define the \define{converse function} of $f$ to be the term
+$\converse{f}$ (Mizar: ``\verb#~f#'') which is the function
+satisfying
+\begin{defn}
+\item \begin{enumerate}[label=(\roman*)]
+\item for any object $x$, $x\in\dom(\converse{f})$ if and only if there
+  exists objects $y$ and $z$ such that $x=(z,y)$ and $(y,z)\in\dom(f)$; and
+\item for all objects $y$, $z$, if $(y,z)\in\dom(f)$, then $\converse{f}(z,y)=f(y,z)$.
+\end{enumerate}
+\end{defn}
+\end{definition}
+
+\begin{remark}
+This is in analogy to \verb#RELAT_1#~\ref{relat1:def7}, the converse
+relation of $R$. For this reason, I choice to overload the notation for
+the converse of a function.
+\end{remark}
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{funct4:41} $\rng(\converse{f})\subset\rng(f)$.
+\item\label{funct4:42} For any objects $x$ and $y$, we have
+  $(x,y)\in\dom(f)$ if and only if $(y,x)\in\dom(\converse{f})$.
+\end{thm}
+
+Observe the converse of an empty function is empty.
+
+We can prove the following six propositions:
+\begin{thm}
+\item\label{funct4:43} For any objects $x$ and $y$,
+  if $(y,x)\in\dom(\converse{f})$, then $\converse{f}(y,x)=f(x,y)$.
+\item\label{funct4:44} There exists sets $X$ and $Y$ such that
+  $\dom(\converse{f})\subset X\times Y$.
+\item\label{funct4:45} If $\dom(f)\subset X\times Y$,
+  then $\dom(\converse{f})\subset Y\times X$.
+\item\label{funct4:46} If $\dom(f)=X\times Y$,
+  then $\dom(\converse{f})=Y\times X$.
+\item\label{funct4:47} If $\dom(f)\subset X\times Y$,
+  then $\rng(\converse{f})=\rng(f)$.
+\item\label{funct4:48} For any partial function $f$ from $X\times Y$ to $Z$,
+  we have $\converse{f}$ be a partial function from $Y\times X$ to $Z$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$, $Z$ be sets, let $f$ be a partial function from $X\times Y$
+to $Z$.
+We redefine the type of $\converse{f}$ to be a partial function from
+$Y\times X$ to $Z$.
+\end{definition}
+
+We also have the following result:
+\begin{thm}
+\item\label{funct4:49} For any $f\colon X\times Y\to Z$,
+  we see $\converse{f}$ is a function from $Y\times X\to Z$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$, $Z$ be sets, let $f\colon X\times Y\to Z$.
+We redefine the type of $\converse{f}$ to be a function from
+$Y\times X$ to $Z$.
+\end{definition}
+
+We can prove the following four propositions:
+\begin{thm}
+\item\label{funct4:50} For any $f\colon X\times Y\to Z$, we have
+  $\converse{f}\colon Y\times X\to Z$.
+\item\label{funct4:51} $\converse{(\converse{f})}\subset f$.
+\item\label{funct4:52} If $\dom(f)\subset X\times Y$, then $\converse{(\converse{f})}=f$.
+\item\label{funct4:53} For any partial function $f$ from $X\times Y$
+  to $Z$, we have $\converse{(\converse{f})}=f$.
+\end{thm}
+
+\section{Product of binary functions}
+
+\begin{definition}
+Let $f$ and $g$ be functions.
+We define the term $\prodFun{f}{g}$ (Mizar: ``\verb#|: f, g :|#'') to be the function satisfying:
+\begin{defn}
+\item \begin{enumerate}[label=(\roman*)]
+\item for all objects $z$, we have $z\in\dom(\prodFun{f}{g})$ if and only if
+  there exists objects $x_{1}$, $y_{1}$, $x_{2}$, $y_{2}$ such that $z=((x_{1},x_{2}),(y_{1},y_{2}))$
+  and $(x_{1},y_{1})\in\dom(f)$ and $(x_{2},y_{2})\in\dom(g)$; and
+\item for all objects $x_{1}$, $y_{1}$, $x_{2}$, $y_{2}$,
+  if $(x_{1},y_{1})\in\dom(f)$ and $(x_{2},y_{2})\in\dom(g)$,
+  then $\prodFun{f}{g}((x_{1},x_{2}),(y_{1},y_{2}))=(f(x_{1},y_{1}), g(x_{2},y_{2}))$.
+\end{enumerate}
+\end{defn}
+\end{definition}
+
+Let $x_{1}$, $y_{1}$, $x_{2}$, $y_{2}$ be objects. We have the following results:
+\begin{thm}
+\item\label{funct4:54} $((x_{1},x_{2}),(y_{1},y_{2}))\in\dom(\prodFun{f}{g})$
+  if and only if $(x_{1},y_{1})\in\dom(f)$ and $(x_{2},y_{2})\in\dom(g)$.
+\item\label{funct4:55} If $((x_{1},x_{2}),(y_{1},y_{2}))\in\dom(\prodFun{f}{g})$,
+  then $\prodFun{f}{g}((x_{1},x_{2}),(y_{1},y_{2}))=(f(x_{1},x_{2}),g(y_{1},y_{2}))$.
+\item\label{funct4:56} $\rng\prodFun{f}{g}\subset\rng(f)\times\rng(g)$.
+\item\label{funct4:57} If $\dom(f)\subset X_{1}\times Y_{1}$ and
+  $\dom(g)\subset X_{2}\times Y_{2}$,
+  then $\dom\prodFun{f}{g}\subset(X_{1}\times X_{2})\times(Y_{1}\times Y_{2})$.
+\item\label{funct4:58} If $\dom(f)=X_{1}\times Y_{1}$ and
+  $\dom(g)=X_{2}\times Y_{2}$, then $\dom\prodFun{f}{g}=(X_{1}\times X_{2})\times(Y_{1}\times Y_{2})$.
+\item\label{funct4:59} Let $f$ be a partial function from $X_{1}\times Y_{1}$
+  to $Z_{1}$, let $g$ be a partial function from $X_{2}\times Y_{2}$ to $Z_{2}$,
+  then $\prodFun{f}{g}$ is a partial function from $(X_{1}\times X_{2})\times(Y_{1}\times Y_{2})$
+  to $Z_{1}\times Z_{2}$.
+\item\label{funct4:60} Let $f\colon X_{1}\times Y_{1}\to Z_{1}$,
+  $g\colon X_{2}\times Y_{2}\to Z_{2}$. If $Z_{1}\neq\emptyset$ and $Z_{2}\neq\emptyset$,
+  then $\prodFun{f}{g}\colon(X_{1}\times X_{2})\times(Y_{1}\times Y_{2})\to(Z_{1}\times Z_{2})$.
+\item\label{funct4:61} Let $f\colon X_{1}\times Y_{1}\to D_{1}$ and
+  $g\colon X_{2}\times Y_{2}\to D_{2}$, then
+  $\prodFun{f}{g}\colon(X_{1}\times X_{2})\times(Y_{1}\times Y_{2})\to(D_{1}\times D_{2})$.
+\end{thm}
+
+\begin{definition}
+Let $x$, $y$, $a$, $b$ be objects.
+The term $(x,y)\constantto(a,b)$ is the set equal to
+\begin{defn}
+\item $(\{x\}\constantto a)\plusdot(\{y\}\constantto b)$.
+\end{defn}
+\end{definition}
+
+Observe $(x,y)\constantto(a,b)$ is function-like and relation-like.
+
+Let $x_{1}$, $x_{2}$, $y_{1}$, $y_{2}$ be objects.
+We can prove the following four propositions:
+\begin{thm}
+\item\label{funct4:62} $\dom((x_{1},x_{2})\constantto(y_{1},y_{2}))=\{x_{1},x_{2}\}$
+  and $\rng((x_{1},x_{2})\constantto(y_{1},y_{2}))=\{y_{1},y_{2}\}$
+\item\label{funct4:63}
+  \begin{enumerate}[label=(\roman*)]
+  \item If $x_{1}\neq x_{2}$, then $((x_{1},x_{2})\constantto(y_{1},y_{2}))(x_{1})=y_{1}$;
+    and
+  \item $((x_{1},x_{2})\constantto(y_{1},y_{2}))(x_{2})=y_{2}$
+  \end{enumerate}
+\item\label{funct4:64} If $x_{1}\neq x_{2}$,
+  then $\rng((x_{1},x_{2})\constantto(y_{1},y_{2}))=\{y_{1},y_{2}\}$.
+\item\label{funct4:65} For any object $y$,
+  $(x_{1},x_{2})\constantto(y,y) = \{x_{1},x_{2}\}\constantto y$.
+\end{thm}
+
+\begin{definition}
+Let $A$ be a set, $x_{1}$ and $x_{2}$ be objects. Let $y_{1}$, $y_{2}$
+be elements of $A$.
+We redefine the type of $(x_{1},x_{2})\constantto(y_{1},y_{2})$ to be a
+function from $\{x_{1},x_{2}\}$ to $A$.
+\end{definition}
+
+We now have the following results:
+\begin{thm}
+\item\label{funct4:66} For any objects $a$, $b$, $c$, $d$, for any
+  function $g$, if $\dom(g)=\{a,b\}$ and $g(a)=c$ and $g(b)=d$,
+  then $g=(a,b)\constantto(c,d)$.
+\item\label{funct4:67} For any objects $a$, $b$, $c$, $d$,
+  if $a\neq c$, then $(a,c)\to(b,d)=\{(a,b),(c,d)\}$.
+\item\label{funct4:68} For any objects $a$, $b$, $x_{1}$, $x_{2}$,
+  $y_{1}$, $y_{2}$,
+  if $a\neq b$ and $(a,b)\constantto(x_{1},y_{1}) = (a,b)\constantto(x_{2},y_{2})$,
+  then $x_{1}=x_{2}$ and $y_{1}=y_{2}$.
+\item\label{funct4:69} Let $f_{1}$, $f_{2}$, $g_{1}$, $g_{2}$ be functions.
+  If $\rng(g_{1})\subset\dom(f_{1})$, $\rng(g_{2})\subset\dom(f_{2})$,
+  and $f_{1}$ tolerates $f_{2}$, then $(f_{1}\plusdot f_{2})\circ(g_{1}\plusdot g_{2})=(f_{1}\circ g_{1})\plusdot(f_{2}\circ g_{2})$.
+\item\label{funct4:70} If $\dom(f)\subset A\cup B$,
+  then $f|_{A}\plusdot f|_{B}=f$.
+\item\label{funct4:71} Let $p$, $q$ be functions, let $A$ be a set.
+  Then $(p\plusdot q)|_{A}=p|_{A}\plusdot q|_{A}$.
+\item\label{funct4:72} Let $f$, $g$ be functions, let $A$ be a set.
+  If $A$ misses $\dom(g)$, then $(f\plusdot g)|_{A}=f|_{A}$.
+\item\label{funct4:73} Let $f$, $g$ be functions, let $A$ be a set.
+  If $\dom(f)$ misses $A$, then $(f\plusdot g)|_{A}=g|_{A}$.
+\item\label{funct4:74} Let $f$, $g$, $h$ be functions.
+  If $\dom(g)=\dom(h)$, then $(f\plusdot g)\plusdot h=f\plusdot h$.
+\item\label{funct4:75} Let $f$ be a function, let $A$ be a set.
+  Then $f\plusdot f|_{A}=f$.
+\item\label{funct4:76} Let $f$, $g$ be functions, let $B$, $C$ be sets.
+  If $\dom(f)\subset B$, $\dom(g)\subset C$, and $B$ misses $C$,
+  then $(f\plusdot g)|_{B}=f$ and $(f\plusdot g)|_{C}=g$.
+\item\label{funct4:77} Let $p$, $q$ be functions, let $A$ be a set.
+  If $\dom(p)\subset A$ and $\dom(q)$ misses $A$, then $(p\plusdot q)|_{A}=p$.
+\item\label{funct4:78} Let $f$ be a function, let $A$ and $B$ be sets.
+  Then $f|_{A\cup B}=f|_{A}\plusdot f|_{B}$.
+\item\label{funct4:79} Let $i$, $j$, $k$ be objects.
+  Then $(i,j)\mapsto k = \{(i,j)\}\constantto k$ (Mizar: ``\verb#(i,j):->k = [i,j].-->k#'')
+\item\label{funct4:80} Let $i$, $j$, $k$ be objects.
+  Then $((i,j)\mapsto k)(i,j)=k$.
+\item\label{funct4:81} Let $a,b,c$ be objects.
+  Then $(a,a)\constantto(b,c)=\{a\}\constantto c$.
+\item\label{funct4:82} Let $x$, $y$ be objects. Then $\{x\}\constantto y=\{(x,y)\}$.
+\item\label{funct4:83} Let $f$ be a function, let $a$, $b$, $c$ be objects.
+  If $a\neq c$, then $(f\plusdot(\{a\}\constantto b))(c)=f(c)$.
+\item\label{funct4:84} Let $f$ be a function, let $a$, $b$, $c$, $d$ be objects.
+  If $a\neq b$, then $(f\plusdot((a,b)\constantto(c,d)))(a)=c$
+  and $(f\plusdot((a,b)\constantto(c,d)))(b)=d$.
+\item\label{funct4:85} Let $a$, $b$ be sets, let $f$ be a function.
+  If $a\in\dom(f)$ and $f(a)=b$, then $\{a\}\constantto b\subset f$.
+\item\label{funct4:86} Let $a$, $b$, $c$, $d$ be sets, let $f$ be a function.
+  If $a\in\dom(f)$ and $c\in\dom(f)$, if $f(a)=b$ and $f(c)=d$,
+  then $(a,c)\constantto(b,d)\subset f$.
+\item\label{funct4:87} Let $f$, $g$, $h$ be functions.
+  If $f\subset h$ and $g\subset h$, then $f\plusdot g\subset h$.
+\item\label{funct4:88} Let $f$, $g$ be functions, let $A$ be a set.
+  If $A\cap\dom(f)\subset A\cap\dom(g)$, then $(f\plusdot g|_{A})|_{A}=g|_{A}$.
+\item\label{funct4:89} Let $f$ be a function, let $a$, $b$, $n$, $m$ be objects.
+  Then $(f\plusdot(\{a\}\constantto b)\plusdot(\{m\}\constantto n))(m)=n$.
+\item\label{funct4:90} Let $f$ be a function, let $m$ and $n$ be objects.
+  Then $(f\plusdot (\{n\}\constantto m)\plusdot(\{m\}\constantto n))(n)=m$.
+\item\label{funct4:91} Let $f$ be a function, let $a$, $b$, $m$, $n$,
+  $x$ be objects. If $x\neq m$ and $x\neq a$,
+  then $(f\plusdot(\{a\}\constantto b)\plusdot(\{m\}\constantto n))(x)=f(x)$.
+\item\label{funct4:92} If $f$ is one-to-one, $g$ is one-to-one, and
+  $\rng(f)$ misses $\rng(g)$, then $f\plusdot g$ is one-to-one.
+\end{thm}
+
+Observe when $f$ and $g$ are functions, we can reduce $f\plusdot g\plusdot g$
+to $f\plusdot g$.
+
+Now we can prove the following results:
+\begin{thm}
+\item\label{funct4:93} Let $f$, $g$ be functions.
+  Then $f\plusdot g\plusdot g=f\plusdot g$.
+\item\label{funct4:94} Let $f$, $g$, $h$ be functions, let $D$ be a set.
+  If $(f\plusdot g)|_{D}=h|_{D}$, then $(h\plusdot g)|_{D}=(f\plusdot g)|_{D}$.
+\item\label{funct4:95} Let $f$, $g$, $h$ be functions, let $D$ be a set.
+  If $f|_{D}=h|_{D}$, then $(h\plusdot g)|_{D}=(f\plusdot g)|_{D}$.
+\item\label{funct4:96} $\{x\}\constantto x=\id_{\{x\}}$.
+\item\label{funct4:97} If $f\subset g$, then $f\plusdot g=g$.
+\item\label{funct4:98} If $f\subset g$, then $g\plusdot f=g$.
+\end{thm}
+
+\section{Changing a value in the range}
+
+\begin{definition}
+Let $f$ be a function, let $x$ and $y$ be objects.
+We define the term $f\frown(x,y)$ to be the set equal to
+\begin{defn}
+\item $f\frown(x,y) = f\plusdot((\{x\}\constantto y)\circ f)$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+What $f\frown(x,y)$ says is that whenever $f(a)=x$, we will have
+$(f\frown(x,y))(a)=y$. We should read this as ``Change the value $x$ to
+$y$ in the definition of $f$''.
+\end{remark}
+
+Observe $f\frown(x,y)$ is relation-like and function-like.
+
+We can prove the following results:
+\begin{thm}
+\item\label{funct4:99} For any objects $x$, $y$,
+  $\dom(f\frown(x,y))=\dom(f)$.
+\item\label{funct4:100} For any objects $x$, $y$,
+  if $x\neq y$, then $x\notin\rng(f\frown(x,y))$.
+\item\label{funct4:101} For any objects $x$, $y$,
+  if $x\in\rng(f)$, then $y\in\rng(f\frown(x,y))$.
+\item\label{funct4:102} For any object $x$, we have $f\frown(x,x)=f$.
+\item\label{funct4:103} For any objects $x$, $y$,
+  if $x\notin\rng(f)$, then $f\frown(x,y)=f$.
+\item\label{funct4:104} For any objects $x$, $y$,
+  $\rng(f\frown(x,y))\subset(\rng(f)\setminus\{x\})\cup\{y\}$.
+\item\label{funct4:105} For any objects $x$, $y$, $z$, if
+  $f(z)\neq x$, then $(f\frown(x,y))(z)=f(z)$.
+\item\label{funct4:106} If $z\in\dom(f)$ and $f(z)=x$,
+  then $(f\frown(x,y))(z)=y$.
+\item\label{funct4:107} If $x\notin\dom(f)$,
+  then $f\subset f\plusdot(\{x\}\constantto y)$.
+\item\label{funct4:108} Let $f$ be a partial function from $X$ to $Y$,
+  let $x$ and $y$ be objects. If $x\in X$ and $y\in Y$,
+  then $f\plusdot(\{x\}\constantto y)$ is a partial function from $X$ to $Y$.
+\end{thm}
+
+Observe when $f$ is any function and $g$ is any nonempty function,
+$f\plusdot g$ is nonempty, and $g\plusdot f$ is nonempty. When both $f$
+and $g$ are nonempty functions, then $f\plusdot g$ is automatically nonempty.
+
+\begin{definition}
+Let $X$, $Y$ be sets, let $f$ and $g$ be partial functions from $X$ to $Y$.
+We redefine the type of $f\plusdot g$ to be a partial function from $X$
+to $Y$.
+\end{definition}
+
+Let $x$ be a set. Then we can prove the following two propositions:
+\begin{thm}
+\item\label{funct4:109} $\dom((x\constantto y)\plusdot(\{x\}\constantto z))=\succ(x)$.
+\item\label{funct4:110} $\dom((x\constantto y)\plusdot(\{x\}\constantto z)\plusdot(\{\succ(x)\}\constantto z))=\succ(\succ(x))$.
+\end{thm}
+
+Now let $x$ be any object. We can prove the following results:
+\begin{thm}
+\item\label{funct4:111} $f|_{A}\plusdot f=f$.
+\item\label{funct4:112} For any relation $R$, if $\dom(R)=\{x\}$ and
+  $\rng(R)=\{y\}$, then $R=\{x\}\constantto y$.
+\item\label{funct4:113} $(f\plusdot(\{x\}\constantto y))(x)=y$.
+\item\label{funct4:114} $f\plusdot(\{x\}\constantto z_{1})\plusdot(\{x\}\constantto z_{2})=f\plusdot(\{x\}\constantto z_{2})$.
+\item\label{funct4:115} If $\dom(g)$ misses $\dom(h)$,
+  then $f\plusdot g\plusdot h\plusdot g=f\plusdot g\plusdot h$.
+\item\label{funct4:116} If $\dom(f)$ misses $\dom(h)$ and if $f\subset g\plusdot h$,
+  then $f\subset g$.
+\item\label{funct4:117} If $\dom(f)$ misses $\dom(h)$ and $f\subset g$,
+  then $f\subset g\plusdot h$.
+\item\label{funct4:118} If $\dom(g)$ misses $\dom(h)$, then
+  $f\plusdot g\plusdot h = f\plusdot h\plusdot g$.
+\item\label{funct4:119} If $\dom(f)$ misses $\dom(g)$, then $(f\plusdot g)\setminus g=f$.
+\item\label{funct4:120} If $\dom(f)$ misses $\dom(g)$,
+  then $f\setminus g=f$.
+\item\label{funct4:121} If $\dom(g)$ misses $\dom(h)$,
+  then $(f\setminus g)\plusdot h=(f\plusdot h)\setminus g$.
+\item\label{funct4:122}Let $f_{1}$, $f_{2}$, $g_{1}$, $g_{2}$ be functions.
+  If $f_{1}\subset g_{1}$ and $f_{2}\subset g_{2}$ and $\dom(f_{1})$
+  misses $\dom(g_{2})$, then $f_{1}\plusdot f_{2}\subset g_{1}\plusdot g_{2}$.
+\end{thm}
+
+Observe for any sets $x$ and $y$ that $\{x\}\constantto y$ is trivial.
+
+We now can prove the following result:
+\begin{thm}
+\item\label{funct4:123} If $f\subset g$, then $f\plusdot h\subset g\plusdot h$.
+\item\label{funct4:124} If $f\subset g$ and $\dom(f)$ misses $\dom(h)$,
+  then $f\subset g\plusdot h$.
+\item\label{funct4:125} If $f$ tolerates $g$, and if $g$ tolerates $h$,
+  and if $h$ tolerates $f$, then $f\plusdot g$ tolerates $h$.
+\end{thm}
+
+\begin{definition}
+Let $A$ and $B$ be nonempty sets. Let $f$ be a partial function from
+$A\times A$ to $A$, let $g$ be a partial function from $B\times B$ to $B$.
+Then we redefine the type of $\prodFun{f}{g}$ to be a partial function
+from $(A\times B)\times(A\times B)$ to $(A\times B)$.
+\end{definition}
+
+We now can prove the following two results:
+\begin{thm}
+\item\label{funct4:126} Let $f$ be a partial function from $A_{1}\times A_{1}$
+  to $A_{1}$, let $g$ be a partial function from $A_{2}\times A_{2}$ to $A_{2}$,
+  let $F$ be a partial function from $Y_{1}\times Y_{1}$ to $Y_{1}$,
+  let $G$ be a partial function from $Y_{2}\times Y_{2}$ to $Y_{2}$.
+  If $F=f|_{Y_{1}}$ and $G=g|_{Y_{2}}$, then $\prodFun{F}{G}=\prodFun{f}{g}|_{Y_{1}\times Y_{2}}$.
+\item\label{funct4:127} Let $x$ and $y$ be distinct objects $x\neq y$.
+  Then $f\frown(x,y)\frown(x,z)=f\frown(x,y)$.
+\end{thm}
+
+\begin{definition}
+Let $a$, $b$, $c$, $x$, $y$, $z$ be objects.
+We define the term $(a,b,c)\constantto(x,y,z)$ to be the set equal to
+\begin{defn}
+\item $((a,b)\constantto(x,y))\plusdot(\{c\}\constantto z)$.
+\end{defn}
+\end{definition}
+Observe $(a,b,c)\constantto(x,y,z)$ is function-like and relation-like.
+
+We can prove the following theorems:
+\begin{thm}
+\item\label{funct4:128} $\dom((a,b,c)\constantto(x,y,z))=\{a,b,c\}$
+\item\label{funct4:129} $\rng((a,b,c)\constantto(x,y,z))\subset\{x,y,z\}$
+\item\label{funct4:130} $(a,a,a)\constantto(x,y,z)=\{a\}\constantto z$.
+\item\label{funct4:131} $(a,a,b)\constantto(x,y,z)=(a,b)\constantto(y,z)$.
+\item\label{funct4:132} If $a\neq b$, then
+  $(a,b,a)\constantto(x,y,z)=(a,b)\constantto(z,y)$
+\item\label{funct4:133} $(a,b,b)\constantto(x,y,z)=(a,b)\constantto(x,z)$.
+\item\label{funct4:134} If $a\neq b$ and $a\neq c$, then
+  $((a,b,c)\constantto(x,y,z))(a)=x$.
+\item\label{funct4:135} 
+  \begin{enumerate}[label=(\roman*)]
+  \item If $b\neq c$, then $((a,b,c)\constantto(x,y,z))(b)=y$; and
+  \item $((a,b,c)\constantto(x,y,z))(c)=z$.
+  \end{enumerate}
+\item\label{funct4:136} Let $f$ be a function. If $\dom(f)=\{a,b,c\}$,
+  $f(a)=x$, $f(b)=y$, and $f(c)=z$, then $f = (a,b,c)\constantto(x,y,z)$.
+\end{thm}
+
+\begin{definition}
+Let $x$, $y$, $w$, $z$, $a$, $b$, $c$, $d$ be objects.
+We define the term $(x,y,w,z)\constantto(a,b,c,d)$ to be the set equal
+to
+\begin{defn}
+\item $((x,y)\constantto(a,b))\plusdot((w,z)\constantto(c,d))$.
+\end{defn}
+\end{definition}
+Observe $(x,y,w,z)\constantto(a,b,c,d)$ is function-like and relation-like.
+
+Now we can prove the following theorems:
+\begin{thm}
+\item\label{funct4:137} $\dom((x,y,w,z)\constantto(a,b,c,d))=\{x,y,w,z\}$.
+\item\label{funct4:138} $\rng((x,y,w,z)\constantto(a,b,c,d))\subset\{a,b,c,d\}$.
+\item\label{funct4:139} $((x,y,w,z)\constantto(a,b,c,d))(z)=d$
+\item\label{funct4:140} If $w\neq z$, then
+  $((x,y,w,z)\constantto(a,b,c,d))(w)=c$.
+\item\label{funct4:141} If $y\neq w$ and $w\neq z$, then
+  $((x,y,w,z)\constantto(a,b,c,d))(y)=b$.
+\item\label{funct4:142} If $x\neq y$ and $x\neq w$ and $x\neq z$, then 
+  $((x,y,w,z)\constantto(a,b,c,d))(x)=a$.
+\item\label{funct4:143} If $x$, $y$, $w$, $z$ are mutually distinct,
+  then $\rng((x,y,w,z)\constantto(a,b,c,d))=\{a,b,c,d\}$.
+\item\label{funct4:144} Let $g$ be an object.
+  If $\dom(g)=\{a,b,c,d\}$, $g(a)=e$, $g(b)=i$, $g(c)=j$, and $g(d)=k$,
+  then $g=(a,b,c,d)\constantto(e,i,j,k)$.
+\item\label{funct4:145} If $a$, $c$, $x$, $w$ are mutually distinct,
+  then $(a,c,x,w)\constantto(b,d,y,z)=\{(a,b),(c,d),(x,y),(w,z)\}$.
+\item\label{funct4:146} If $a$, $b$, $c$, $d$ are mutually distinct
+  and $(a,b,c,d)\constantto(x,y,z,w)=(a,b,c,d)\constantto(x',y',z',w')$,
+  then $x=x'$ and $y=y'$ and $z=z'$ and $w=w'$.
+\item\label{funct4:147} If $a_{1}$, $a_{2}$, $a_{3}$ are mutually
+  distinct objects, then $\rng((a_{1},a_{2},a_{3})\constantto(b_{1},b_{2},b_{3}))=\{b_{1},b_{2},b_{3}\}$.
+\end{thm}
+
+
+
+\end{document}
