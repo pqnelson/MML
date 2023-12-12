@@ -19,18 +19,24 @@
   \renewcommand{\usepackage}[2][]{}%
   \renewenvironment{document}{\begingroup}{\endgroup}%
   
-  \newcommand{\title}[1]{\renewcommand{\@title}{##1}\begingroup%
-    \renewcommand{\thanks}[1]{}\protected@xdef\@@title{##1}
+  %% \newcommand{\title}[1]{\renewcommand{\@title}{##1}\begingroup%
+  %%   \renewcommand{\thanks}[1]{}\protected@xdef\@@title{##1}
+  %%   \endgroup}
+  \newcommand{\title}[2][\relax]{\renewcommand{\@title}{##2}\begingroup%
+    \renewcommand{\thanks}[1]{}\protected@xdef\@@title{##2}
+    \protected@xdef\@@shorttitle{\ifx\relax##1##2\else##1\fi}
     \endgroup}
   \newcommand{\subtitle}[1]{\newcommand{\@@subtitle}{##1}}%
   \newcommand{\author}[1]{\renewcommand{\@author}{##1}}
   \newcommand{\thanks}[1]{\symbolfootnote[1]{##1}}
-  \newcommand{\maketitle}{
+  \newcommand{\maketitle}{%8\baselineskip}
     % \thispagestyle{empty}
     %\vspace*{5\baselineskip}
-    \vspace*{1\baselineskip}
-    \smallbreak
-    \begin{center}\sf
+    %\par
+    %\leavevmode%
+    %\vspace*{1\baselineskip}
+    %\smallbreak\leavevmode
+    \begin{center}\sf\phantomsection
       \footnotesize Article~\thearticle\smallbreak%
       \LARGE\@title%
       \ifthenelse{\equal{\@@subtitle}{}}{%empty subtitle
@@ -40,14 +46,15 @@
       }
       \bigbreak
       \large\@author%
-      \medbreak%
+      \smallbreak%
     \end{center}%
-    \markboth{\@@title}{\@@title}%
 %    \markboth{\@@title}{\@author}%
 %    \addcontentsline{toc}{chapter}{\MakeUppercase{\@author}\\\@@title}%
     \addcontentsline{toc}{chapter}{{\@author} \\\@@title}%
+    % leavevmode makes sure the \markboth headers are on the right page
+    \leavevmode\markboth{\protect\@@shorttitle}{\protect\@@shorttitle}%
     \setcounter{footnote}{0}\noindent%
-    \ignorespacesafterend}
+    \ignorespacesafterend}%
 }{
 }
 
@@ -55,6 +62,7 @@
   \restartlist{thm}\restartlist{defn}
   \let\enit@resume@series@thm\@empty
   \let\enit@resume@series@defn\@empty
+  \needspace{2in}\leavevmode
   \input}
 %\let\import\include
 
