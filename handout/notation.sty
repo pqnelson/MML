@@ -27,6 +27,7 @@
 \def\card#1{|#1|}
 
 \def\proj#1{\pi_{#1}}
+\def\pr#1{\pi_{#1}}
 %\def\proj2{\pi_{2}}
 
 % https://tex.stackexchange.com/a/117035
@@ -82,6 +83,13 @@
 % PARTFUN1
 \DeclareMathOperator\PFuncs{PFuncs}
 \DeclareMathOperator\TotFuncs{TotFuncs}
+
+% WELLORD2
+\newcommand\RelIncl[1]{\mathord{\subset_{#1}}}
+
+% FUNCT2
+\DeclareMathOperator\Funcs{Funcs}
+
 % STRUCT0
 \def\carrier#1{\operatorname{the\ carrier\ of\ }#1}
 \DeclareMathOperator\NonZero{NonZero}
@@ -95,3 +103,5 @@
 \def\trivialSubgroup#1{\mathbf{1}_{#1}}
 \DeclareMathOperator\carr{carr}
 \def\Index#1#2{[#1 : #2]}
+
+\DeclareMathOperator\contradiction{contradiction}

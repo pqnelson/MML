@@ -1,5 +1,5 @@
 \documentclass{amsbook}
-
+\usepackage{needspace}
 \usepackage{ifthen}
 \usepackage{macros}
 \usepackage{notation}
@@ -21,15 +21,14 @@
 \begin{papers}
   \import{tex/axioms}
   \import{tex/tarski}
-  \import{tex/xboole0}
+  \import{tex/xboole0}%\vfill\pagebreak
   \import{tex/xboole1}
   \import{tex/xtuple0}
-  \import{tex/zfmisc1}
+  \import{tex/zfmisc1}%\pagebreak%\smallbreak
   \import{tex/subset1}
   \import{tex/setfam1}
-  \import{tex/relat1}
-  \import{tex/funct1}
-  \bigbreak
+  \import{tex/relat1}%\vfill\pagebreak
+  \import{tex/funct1}%\vfill\pagebreak
   \import{tex/grfunc1}
   \import{tex/relat2}
   \import{tex/ordinal1}
@@ -37,15 +36,101 @@
   \import{tex/relset1}
   \import{tex/partfun1}
   \import{tex/mcart1}
-%% mcart_1
-%% wellord2
-%% funct_2
-%% binop_1
-%% domain_1
-%% funct_3
+  \import{tex/wellord2}
+  \import{tex/funct2}
+  \import{tex/binop1}
+  \import{tex/domain1}
+%% funct3
 %% funcop_1
 %% realset1
 %% funct_4
+%% numerals
+%% ordinal2
+%% ordinal3
+%% wellset1 Zermelo's Theorem
+%% multop_1
+%% schems_1 % doesn't appear to be used anywhere...
+%% sysrel
+%% finset_1
+%% card_1
+%% classes1
+  %% pboole Many-sorted Sets
+%% pzfmisc1?
+%% finsub_1
+%% orders_1
+%% setwiseo
+%% fraenkel
+%% funct_5
+%% partfun2
+%% card_3
+  %% funct_6
+
+
+%% \part{Arithmetic}
+%% arytm_3
+%% arytm_2
+%% arytm_1
+%% numbers
+%% arytm_0
+%% xcmplx_0
+%% arithm
+%% xxreal_0
+%% xreal_0
+%% real
+%% xcmplx_1
+%% xreal_1
+%% axioms
+%% real_1
+%% square_1
+%% nat_1
+%% int_1
+%% rat_1
+%% membered
+%% valued_0
+%% complex1
+%% absvalue
+%% int_2
+%% nat_d
+%% xprimes0
+%% binop_2
+%% xxreal_1
+%% card_2
+%% xxreal_2
+%% xxreal_3
+%% member_1
+%% supinf_1
+%% quin_1
+%% classes2
+%% ordinal4
+%% finseq_1
+%% recdef_1
+%% eqrel_1
+%% finseq_2
+%% finseqop
+%% finseq_3
+%% valued_1
+%% seq_1
+%% comseq_1
+%% xboolean
+%% comseq_2
+%% seq_2
+%% margrel1
+%% toler_1
+%% trees_1
+%% finseq_4
+%% finsop_1
+%% setwop_2
+%% rfunct_1
+%% rvsum_1
+%% newton
+%% card_4
+%% card_5
+%% trees_2
+%% valued_2
+%% seqm_3
+%% rfinseq
+%% seq_4
+%% rcomp_1
 
 \part{Group Theory}
   \import{tex/struct0}

@@ -1,0 +1,765 @@
+\documentclass{article}
+
+\title{Functions from a Set to a Set (FUNCT-2)}
+\author{Czes{\l}aw Byli\'nski}
+\date{April 6, 1989}
+\begin{document}
+\maketitle
+
+Let $X$, $Y$, $Z$ be sets.
+\begin{definition}
+Let $X$, $Y$ be sets, let $R$ be a relation of $X$ and $Y$.
+We define the attribute $R$ is \define{quasitotal} (Mizar: ``\verb#quasi_total#'')
+which means:
+\begin{defn}
+\item $X=\dom(R)$ if $Y\neq\emptyset$, and $R=\emptyset$ otherwise.
+\end{defn}
+\end{definition}
+Observe there exists a quasitotal partial function from $X$ to $Y$.
+Observe total relations are quasitotal.
+
+\begin{definition}
+Let $X$ and $Y$ be sets. We define a new mode, a \define{Function from $X$ to $Y$}
+(Mizar: ``\verb#Function of X,Y#'')
+is a quasitotal partial function from $X$ to $Y$.
+\end{definition}
+
+\begin{remark}
+We will \textbf{informally} write ``let $f\colon X\to Y$'' instead of
+``let $f$ be a function from $X$ to $Y$''.
+\end{remark}
+
+\begin{remark}
+This is a little different than usual mathematical convention. In
+particular, Mizar allows us to write down $f$ being a function from $X$
+to $\emptyset$, but ``under the hood'' forces $f=\id_{\emptyset}$ and
+$X=\emptyset$. In ordinary mathematics, the only function to the empty
+set is $\id_{\emptyset}$. There's no inconsistency here, Mizar just
+automates a bit of the legwork for us. 
+\end{remark}
+Observe, when $Y$ is a nonempty set, quasitotal implies total for
+relations of $X$, $Y$. Also observe quasitotal implies total for
+relations of $X$, $X$; and for relations of $X\times X$ and $X$.
+
+Let $x$ be an object.
+We can prove the following results.
+\begin{thm}
+\item\label{funct2:1} Let $f$ be a \hyperlink{definition:funct1:nm1}{function}.
+  Then $f$ is a function from $\dom(f)$ to $\rng(f)$.
+\item\label{funct2:2} Let $f$ be a \hyperlink{definition:funct1:nm1}{function}.
+  If $\rng(f)\subset Y$, then $f$ is a function from $\dom(f)$ to $Y$.
+\item\label{funct2:3} Let $f$ be a \hyperlink{definition:funct1:nm1}{function}.
+  If $\dom(f)=X$ and if for every object $x\in X$ we have $f(x)\in Y$,
+  then $f$ is a function from $X$ to $Y$.
+\item\label{funct2:4} Let $f$ be a function from $X$ to $Y$.
+  If $Y\neq\emptyset$ and $x\in X$, then $f(x)\in\rng(f)$.
+\item\label{funct2:5} Let $f$ be a function from $X$ to $Y$.
+  If $Y\neq\emptyset$ and $x\in X$, then $f(x)\in Y$.
+\item\label{funct2:6} Let $f$ be a function from $X$ to $Y$.
+  If $Y=\emptyset$ implies $X=\emptyset$,
+  and if $\rng(f)\subset Z$,
+  then $f$ is a function from $X$ to $Z$.
+\item\label{funct2:7} Let $f$ be a function from $X$ to $Y$.
+  If $Y=\emptyset$ implies $X=\emptyset$,
+  and if $Y\subset Z$,
+  then $f$ is a function from $X$ to $Z$.
+\end{thm}
+
+\begin{scheme}[FuncEx1]
+Let $\mathcal{X}$, $\mathcal{Y}$ be sets, let $P[-,-]$ be a binary
+predicate of objects.
+There exists a function $f$ from $\mathcal{X}$ to $\mathcal{Y}$ such
+that for every object $x\in\mathcal{X}$ we have $P[x,f(x)]$;
+provided
+\begin{enumerate}
+\item for every object $x\in\mathcal{X}$, there exists an object
+  $y\in\mathcal{Y}$ such that $P[x,y]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[Lambda1]
+Let $\mathcal{X}$ and $\mathcal{Y}$ be sets, let $\mathcal{F}(-)$ be an
+object parametrized by objects.
+There exists a function $f$ from $\mathcal{X}$ to $\mathcal{Y}$ such
+that for every object $x\in\mathcal{X}$ we have $f(x)=\mathcal{F}(x)$;
+provided
+\begin{enumerate}
+\item for all objects $x\in\mathcal{X}$ we have $\mathcal{F}(x)\in\mathcal{Y}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{definition}
+Let $X$, $Y$ be sets.
+We define the term $\Funcs(X,Y)$ (Mizar: ``\verb#Funcs(X,Y)#'') to be
+the set satisfying
+\begin{defn}
+\item $x\in\Funcs(X,Y)$ if and only if there exists a function $f$ such
+  that $x=f$ and $\dom(f)=X$ and $\rng(f)\subset Y$.
+\end{defn}
+\end{definition}
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{funct2:8} Let $f$ be a function from $X$ to $Y$.
+  If $Y=\emptyset$ implies $X=\emptyset$, then $f\in\Funcs(X,Y)$.
+\item\label{funct2:9} Let $f$ be a function from $X$ to $X$.
+  Then $f\in\Funcs(X,X)$.
+\end{thm}
+
+
+Observe when $Y$ is a nonempty set, $\Funcs(X,Y)$ is nonempty.
+Observe for arbitrary sets $X$, $\Funcs(X,X)$ is nonempty.
+
+Let $x$, $y$ be objects.
+We can prove the following results:
+\begin{thm}
+\item\label{funct2:10} Let $f$ be a function from $X$ to $Y$.
+  Suppose for each object $y\in Y$ there exists an object $x\in X$
+  such that $f(x)=y$. Then $\rng(f)=Y$.
+\item\label{funct2:11} Let $f$ be a function from $X$ to $Y$.
+  If $y\in\rng(f)$, then there exists an object $x\in X$ such that $f(x)=y$.
+\item\label{funct2:12} Let $f_{1}$ and $f_{2}$ be functions from $X$ to $Y$.
+  If for every object $x\in X$ we have $f_{1}(x)=f_{2}(x)$,
+  then $f_{1}=f_{2}$.
+\item\label{funct2:13} Let $f$ be a quasitotal relation of $X$ and $Y$.
+  Let $g$ be a quasitotal relation of $Y$ and $Z$.
+  If $Y\neq\emptyset$ or $Z=\emptyset$ or $X=\emptyset$, then $f\cdot g$
+  is quasitotal.
+\item\label{funct2:14} Let $f$ be a function from $X$ to $Y$,
+  let $g$ be a function from $Y$ to $Z$.
+  If $Z\neq\emptyset$, $\rng(f)=Y$, and $\rng(g)=Z$, then $\rng(g\circ f)=Z$.
+\item\label{funct2:15} Let $f$ be a function from $X$ to $Y$,
+  let $g$ be a \hyperlink{definition:funct1:nm1}{function}.
+  If $Y\neq\emptyset$ and $x\in X$, then $(g\circ f)(x)=g\bigl(f(x)\bigr)$.
+\item\label{funct2:16} Let $f$ be a function from $X$ to $Y$, suppose
+  $Y\neq\emptyset$. Then the following are logically equivalent:
+  \begin{enumerate}[label=(\roman*)]
+  \item $\rng(f)=Y$ 
+  \item for all sets $Z\neq\emptyset$, for all
+  functions $g$ and $h$ from $Y$ to $Z$, if $g\circ f=h\circ f$, then $g=h$.
+  \end{enumerate}
+\item\label{funct2:17} Let $f$ be a relation of $X$ and $Y$.
+  Then $\id_{X}\cdot f=f$ and $f\cdot\id_{Y}=f$.
+\item\label{funct2:18} Let $f$ be a function from $X$ to $Y$, let $g$ be
+  a function from $Y$ to $X$, if $f\circ g=\id_{Y}$, then $\rng(f)=Y$.
+\item\label{funct2:19} Let $f$ be a function from $X$ to $Y$. Suppose
+  $Y=\emptyset$ implies $X=\emptyset$. Then $f$ is one-to-one if and
+  only if for all objects $x_{1}\in X$ and $x_{2}\in X$ we have
+  $f(x_{1})=f(x_{2})$ implies $x_{1}=x_{2}$.
+\item\label{funct2:20} Let $f$ be a function from $X$ to $Y$, let $g$ be
+  a function from $Y$ to $Z$. If either $Z\neq\emptyset$ or $Y=\emptyset$,
+  and if $g\circ f$ is one-to-one, then $f$ is one-to-one.
+\item\label{funct2:21} Let $f$ be a function from $X$ to $Y$. Suppose
+  $X\neq\emptyset$ and $Y\neq\emptyset$.
+  Then $f$ is one-to-one if and only if for every set $Z$ and for all
+  functions $g$ and $h$ from $Z$ to $X$, $f\circ g=f\circ h$ implies $g=h$.
+\item\label{funct2:22} Let $f$ be a function from $X$ to $Y$,
+  let $g$ be a function from $Y$ to $Z$. If $Z\neq\emptyset$,
+  $\rng(g\circ f)=Z$, and $g$ is one-to-one, then $\rng(f)=Y$.
+\end{thm}
+
+\begin{definition}
+Let $Y$ be a set, let $f$ be a $Y$-valued relation.
+We define the attribute $f$ is \define{onto} means
+\begin{defn}
+\item $\rng(f)=Y$.
+\end{defn}
+\end{definition}
+
+Let $f$ be a function from $X$ to $Y$, let $g$ be a function from $Y$ to $X$.
+We can prove the following results:
+\begin{thm}
+\item\label{funct2:23} %% Let $f$ be a function from $X$ to $Y$,
+  %% let $g$ be a function from $Y$ to $X$.
+  If $g\circ f=\id_{X}$, then $f$ is one-to-one and $g$ is onto.
+\item\label{funct2:24} %Let $f$ be a function from $X$ to $Y$,
+  Let $g$ be a function from $Y$ to $Z$.
+  If either $Z\neq\emptyset$ or $Y=\emptyset$,
+  if $g\circ f$ is one-to-one,
+  and if $\rng(f)=Y$, then $f$ is one-to-one and $g$ is one-to-one.
+\item\label{funct2:25} % Let $f$ be a function from $X$ to $Y$.
+  If $f$ is one-to-one and $\rng(f)=Y$, then $f^{-1}$ is a function from
+  $Y$ to $X$.
+\item\label{funct2:26} % Let $f$ be a function from $X$ to $Y$.
+  If $Y\neq\emptyset$, $f$ is one-to-one, and $x\in X$,
+  then $f^{-1}\bigl(f(x)\bigr)=x$.
+\item\label{funct2:27} Let $Y$ and $Z$ be nonempty sets, let $X$ be any
+  set, %let $f$ be a function from $X$ to $Y$,
+  let $g$ be a function from $Y$ to $Z$.
+  If $f$ and $g$ are both onto, then $g\circ f$ is onto.
+\item\label{funct2:28} % Let $f$ be a function from $X$ to $Y$,
+  Let $g$ be a function from $Y$ to $X$.
+  If $X\neq\emptyset$, $Y\neq\emptyset$,
+  $\rng(f)=Y$, and $f$ is one-to-one. If every objects $x$ and $y$ satisfies $y\in Y$ and $g(y)=x$ if and
+  only if $x\in X$ and $f(x)=y$, then $g=f^{-1}$.
+\item\label{funct2:29} %Let $f$ be a function from $X$ to $Y$,
+  Suppose $Y\neq\emptyset$. If $\rng(f)=Y$ and $f$ is one-to-one,
+  then $f^{-1}\circ f=\id_{X}$ and $f\circ f^{-1}=\id_{Y}$.
+\item\label{funct2:30} Let $g$ be a function from $Y$ to $X$.
+  If $X\neq\emptyset$, $Y\neq\emptyset$, $\rng(f)=Y$, $g\circ f=\id_{X}$,
+  and $f$ is one-to-one, then $g=f^{-1}$.
+\item\label{funct2:31} If $Y\neq\emptyset$, and if there exists a function
+  $g\colon Y\to X$ such that $g\circ f=\id_{X}$, then $f$ is one-to-one.
+\item\label{funct2:32} If $Z\subset X$ and either $Y\neq\emptyset$ or
+  $X=\emptyset$, then $f|_{Z}\colon Z\to Y$ is a function from $Z$ to $Y$.
+\item\label{funct2:33} If $X\subset Z$, then $f|_{Z}=f$.
+\item\label{funct2:34} If $Y\neq\emptyset$, $x\in X$, $f(x)\in Z$, then $f|^{Z}(x)=f(x)$.
+\item\label{funct2:35} If $Y\neq\emptyset$ and suppose for each $y$ there
+  exists an $x\in X$ such that $x\in P$ and $y=f(x)$, then $y\in f(P)$.
+\item\label{funct2:36} $f(P)\subset Y$.
+\item\label{funct2:37} (Cancelled)
+\item\label{funct2:38} If $Y\neq\emptyset$, then $x\in f^{-1}(Q)$ if and
+  only if $f(x)\in Q$.
+\item\label{funct2:39} Let $f$ be a partial function from $X$ to $Y$,
+  then $f^{-1}(Q)\subset X$. 
+\item\label{funct2:40} If either $Y\neq\emptyset$ or $X=\emptyset$, then
+  $f^{-1}(Y)=X$. 
+\item\label{funct2:41} The following are logically equivalent:
+  \begin{enumerate}[label=(\roman*)]
+  \item for all objects $y\in Y$, we have $f^{-1}(\{y\})\neq\emptyset$;
+  \item $\rng(f)=Y$.
+  \end{enumerate}
+\item\label{funct2:42} If $P\subset X$, and either $Y\neq\emptyset$ or $X=\emptyset$,
+  then $P\subset f^{-1}\bigl(f(P)\bigr)$.
+\item\label{funct2:43} If either $Y\neq\emptyset$ or $X=\emptyset$, then $f^{-1}\bigl(f(X)\bigr)=X$.
+\item\label{funct2:44} Let $g\colon Y\to Z$. If either $Z\neq\emptyset$
+  or $Y=\emptyset$, then $f^{-1}(Q)\subset (g\circ f)^{-1}\bigl(g(Q)\bigr)$.
+\item\label{funct2:45} Let $f\colon\emptyset\to Y$. Then $f(P)=\emptyset$.
+\item\label{funct2:46} Let $f\colon\emptyset\to Y$. Then $f^{-1}(Q)=\emptyset$.
+\item\label{funct2:47} Let $f\colon\{x\}\to Y$. If $Y\neq\emptyset$,
+  then $f(x)\in Y$.
+\item\label{funct2:48} Let $f\colon\{x\}\to Y$. If $Y\neq\emptyset$,
+  then $\rng(f)=\{f(x)\}$.
+\item\label{funct2:49} Let $f\colon\{x\}\to Y$.
+  If $Y\neq\emptyset$, then $f(P)\subset\{f(x)\}$.
+\item\label{funct2:50} Let $f\colon X\to\{y\}$.
+  If $x\in X$, then $f(x)=y$.
+\item\label{funct2:51} Let $f_{1},f_{2}\colon X\to\{y\}$.
+  Then $f_{1}=f_{2}$.
+\item\label{funct2:52} Let $f\colon X\to X$. Then $\dom(f)=X$.
+\end{thm}
+
+Observe the composition of quasitotal partial functions is a quasitotal
+partial function.
+
+We have the following four results:
+\begin{thm}
+\item\label{funct2:53} Let $f$, $g$ be relations of $X$ and $X$.
+  If $\rng(f)=X$ and $\rng(g)=X$, then $\rng(g\cdot f)=X$.
+\item\label{funct2:54} Let $f$, $g\colon X\to X$ be functions.
+  If $g\circ  f=f$ and $\rng(f)=X$,
+  then $g=\id_{X}$.
+\item\label{funct2:55} Let $f,g\colon X\to X$ be functions.
+  If $f\circ g=f$ and $f$ is one-to-one,
+  then $g=\id_{X}$.
+\item\label{funct2:56} Let $f\colon X\to X$.
+  Then $f$ is one-to-one if and only if every objects $x_{1}\in X$ and
+  $x_{2}\in X$ with $f(x_{1})=f(x_{2})$ has $x_{1}=x_{2}$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$ be sets. Let $f$ be an $X$-defined $Y$-valued functions.
+We define the attribute $f$ is \define{bijective} means
+\begin{defn}
+\item f is one-to-one onto.
+\end{defn}
+\end{definition}
+
+Observe bijective partial functions are one-to-one and onto, and vice-versa.
+Observe there exists a bijective function $f\colon X\to X$ for any set
+$X$.
+
+\begin{definition}
+Let $X$ be a set.
+We define a new mode, a \define{Permutation of $X$} is a bijective
+function from $X$ to $X$.
+\end{definition}
+
+We can now prove the following results:
+\begin{thm}
+\item\label{funct2:57} Let $f\colon X\to X$ be one-to-one.
+  If $\rng(f)=X$, then $f$ is a permutation of $X$.
+\item\label{funct2:58} Let $f\colon X\to X$ be one-to-one.
+  For all objects $x_{1}\in X$ and $x_{2}\in X$, if $f(x_{1})=f(x_{2})$,
+  then $x_{1}=x_{2}$.
+\end{thm}
+
+Observe, when $f$ and $g$ are onto partial functions from $X$ to $X$,
+$f\cdot g$ is an onto partial function from $X$ to $X$.
+Observe the composition of permutations is a permutation.
+Observe for any function $f\colon X\to X$, if $f$ is reflexive and
+total, then it is automatically a permutation.
+
+\begin{definition}
+Let $X$ be a set, let $f$ be a permutation of $X$.
+We redefine the type of $f^{-1}$ to be a permutation of $X$.
+\end{definition}
+
+Let $f$, $g$ be permutations of $X$
+We can prove the following four propositions:
+\begin{thm}
+\item\label{funct2:59} If $g\circ f=g$, then $f=\id_{X}$.
+\item\label{funct2:60} If $g\circ f=\id_{X}$, then $g=f^{-1}$.
+\item\label{funct2:61} We have $f^{-1}\circ f=\id_{X}$ and $f\circ f^{-1}=\id_{X}$.
+\item\label{funct2:62} If $P\subset X$, then $f\bigl(f^{-1}(P)\bigr)=P$
+  and $f^{-1}\bigl(f(P)\bigr)=P$.
+\end{thm}
+
+Observe the composition of quasitotal partial functions is a quasitotal
+partial function.
+
+\begin{definition}
+Let $C$ be a nonempty set, let $D$ be a set. Let $f\colon C\to D$
+be a function, let $c$ be an element of $C$.
+We redefine the type of $f(c)$ to be an element of $D$.
+\end{definition}
+
+\begin{scheme}[FuncExD]
+Let $\mathcal{C}$, $\mathcal{D}$ be nonempty sets, let $P[-,-]$ be a
+binary predicate of objects.
+There exists a function $f$ from $\mathcal{C}$ to $\mathcal{D}$ such
+that for each element $x$ of $\mathcal{C}$ satisfies $P[x,f(x)]$;
+provided
+\begin{enumerate}
+\item For each element $x$ of $\mathcal{C}$ there exists an element $y$
+  of $\mathcal{D}$ such that $P[x,y]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[LambdaC]
+Let $\mathcal{C}$, $\mathcal{D}$ be nonempty sets, let $\mathcal{F}(-)$
+be an element of $\mathcal{D}$ parametrized by an element of $\mathcal{C}$.
+There exists a function $f$ from $\mathcal{C}$ to $\mathcal{D}$ such
+that for each element $x$ of $\mathcal{C}$ we have $f(x)=\mathcal{F}(x)$.
+\end{scheme}
+
+We now have the following three propositions:
+\begin{thm}
+\item\label{funct2:63} Let $f_{1},f_{2}\colon X\to Y$.
+  If for each element $x$ of $X$ we have $f_{1}(x)=f_{2}(x)$,
+  then $f_{1}=f_{2}$.
+\item\label{funct2:64} Let $P$ be a set, let $f\colon X\to Y$,
+  let $y\in f(P)$ be an object. Then there exists an object $x\in X$
+  such that $x\in P$ and $y=f(x)$.
+\item\label{funct2:65} Let $f\colon X\to Y$ be a function, let $y\in f(P)$
+  be an object. Then there exists an element $c$ of $X$ such that $c\in P$
+  and $y=f(c)$.
+\end{thm}
+
+\section{Partial Functions}
+
+We have the following proposition:
+\begin{thm}
+\item\label{funct2:66} Let $f$ be a set.
+  If $f\in\Funcs(X,Y)$, then $f\colon X\to Y$ is a function.
+\end{thm}
+
+\begin{scheme}[Lambda1C]
+  Let $\mathcal{A}$, $\mathcal{B}$ be sets. Let $C[-]$ be a unary
+  predicate of objects. Let $\mathcal{F}(-)$ and $\mathcal{G}(-)$ be
+  objects parametrized by objects.
+  There exists a function $f\colon\mathcal{A}\to\mathcal{B}$ such that
+  every object $x\in\mathcal{A}$ has $f(x)=\mathcal{F}(x)$ when $C[x]$,
+  and $f(x)=\mathcal{G}(x)$ when not $C[x]$; provided
+  \begin{enumerate}
+  \item for each object $x\in\mathcal{A}$, we have $C[x]$ implies
+    $\mathcal{F}(x)\in\mathcal{B}$ and $\neg C[x]$ implies $\mathcal{G}(x)\in\mathcal{B}$.
+  \end{enumerate}
+\end{scheme}
+
+Now, let $f$ be a \textbf{partial function} from $X$ to $Y$.
+We have the following results.
+\begin{thm}
+\item\label{funct2:67} If $\dom(f)=X$, then $f$ is a function from $X$ to $Y$.
+\item\label{funct2:68} If $f$ is total, then $f$ is a function from $X$ to $Y$.
+\item\label{funct2:69} If $f$ is a function from $X$ to $Y$ and either
+  $Y\neq\emptyset$ or $X=\emptyset$, then $f$ is total.
+\item\label{funct2:70} Let $f\colon X\to Y$ be a function.
+  If either $Y\neq\emptyset$ or $X=\emptyset$,
+  then $f_{|X\to Y}$ is total.
+\end{thm}
+
+Let $X$ be a set, let $f\colon X\to X$. Observe $f_{|X\to X}$ is total.
+
+We have the following results:
+\begin{thm}
+\item\label{funct2:71} Let $f$ be a partial function from $X$ to $Y$. If
+  either $Y\neq\emptyset$ or $X=\emptyset$, then there exists a function
+  $g\colon X\to Y$ such that for each object $x\in\dom(f)$ we have $g(x)=f(x)$.
+\item\label{funct2:72} $\Funcs(X,Y)\subset\PFuncs(X,Y)$
+\item\label{funct2:73} Let $f,g\colon X\to Y$ be functions.
+  If $f$ tolerates $g$ and either $Y\neq\emptyset$ or $X=\emptyset$,
+  then $f=g$.
+\item\label{funct2:74} Let $f,g\colon X\to X$ be functions.
+  If $f$ tolerates $g$, then $f=g$.
+\item\label{funct2:75} Let $f$ be a partial function from $X$ to $Y$,
+  let $g\colon X\to Y$. Suppose $Y\neq\emptyset$ or $X=\emptyset$.
+  Then $f$ tolerates $g$ if and only if every object $x\in\dom(f)$
+  satisfies $f(x)=g(x)$.
+\item\label{funct2:76} Let $f$ be a partial function from $X$ to $X$,
+  let $g\colon X\to X$ be a function.
+  Then $f$ tolerates $g$ if and only if every object $x\in\dom(f)$
+  satisfies $f(x)=g(x)$.
+\item\label{funct2:77} Let $f$ be a partial function from $X$ to $Y$.
+  If either $Y\neq\emptyset$ or $X=\emptyset$, then there exists a
+  function $g\colon X\to Y$ such that $f$ tolerates $g$.
+\item\label{funct2:78} Let $f$ and $g$ be partial functions from $X$ to
+  $X$, let $h\colon X\to X$ be a function.
+  If $f$ tolerates $h$ and $g$ tolerates $h$, then $f$ tolerates $g$.
+\item\label{funct2:79} Let $f$ and $g$ be partial functions from $X$ to $Y$.
+  If $f$ tolerates $g$ and either $Y\neq\emptyset$ or $X=\emptyset$,
+  then there exists a function $h\colon X\to Y$ such that $f$ tolerates
+  $h$ and $g$ tolerates $h$.
+\item\label{funct2:80} Let $f$ be a partial function from $X$ to $Y$,
+  let $g\colon X\to Y$ be a function. If $f$ tolerates $g$ and either
+  $Y\neq\emptyset$ or $X=\emptyset$, then $g\in\TotFuncs(f)$.
+\item\label{funct2:81} Let $f$ be a partial function from $X$ to $X$,
+  let $g\colon X\to X$. If $f$ tolerates $g$, then $g\in\TotFuncs(f)$.
+\item\label{funct2:82} Let $f$ be a partial function from $X$ to $Y$,
+  let $g$ be a set. If $g\in\TotFuncs(f)$, then $g$ is a function from
+  $X$ to $Y$.
+\item\label{funct2:83} Let $f$ be a partial function from $X$ to $Y$.
+  Then $\TotFuncs(f)\subset\Funcs(X,Y)$.
+\item\label{funct2:84} $\TotFuncs\emptyset_{|X\to Y}=\Funcs(X,Y)$
+\item\label{funct2:85} Let $f\colon X\to Y$. If $Y\neq\emptyset$ or
+  $X=\emptyset$, then $\TotFuncs(f_{|X\to Y})=\{f\}$.
+\item\label{funct2:86} Let $f\colon X\to X$. Then $\TotFuncs(f_{|X\to X})=\{f\}$.
+\item\label{funct2:87} Let $f$ be a partial function from $X$ to $\{y\}$,
+  let $g\colon X\to\{y\}$ be a function. Then $\TotFuncs(f)=\{g\}$.
+\item\label{funct2:88} Let $f$ and $g$ be partial functions from $X$ to $Y$.
+  If $g\subset f$, then $\TotFuncs(f)\subset\TotFuncs(g)$.
+\item\label{funct2:89} Let $f$ and $g$ be partial functions from $X$ to $Y$.
+  If $\dom(g)\subset\dom(f)$ and $\TotFuncs(f)\subset\TotFuncs(g)$,
+  then $g\subset f$.
+\item\label{funct2:90} Let $f$ and $g$ be partial functions from $X$ to $Y$. 
+  If $\TotFuncs(f)\subset\TotFuncs(g)$ and there is no object $y$ such
+  that $Y=\{y\}$, then $g\subset f$.
+\item\label{funct2:91} Let $f$ and $g$ be partial functions from $X$ to $Y$.
+  If $\TotFuncs(f)=\TotFuncs(g)$ and there is no object $y$ such that $Y=\{y\}$,
+  then $f=g$.
+\end{thm}
+
+Observe functions between nonempty sets are nonempty.
+
+\begin{scheme}[LambdaSep1]
+Let $\mathcal{D}$, $\mathcal{R}$ be nonempty sets, let $\mathcal{A}$ be
+an element of $\mathcal{D}$, let $\mathcal{B}$ be an element of $\mathcal{R}$,
+let $\mathcal{F}(-)$ be an element of $\mathcal{R}$ parametrized by an
+arbitrary object.
+There exists a function $f\colon\mathcal{D}\to\mathcal{R}$ such that
+$f(\mathcal{A})=\mathcal{B}$ and for every element $x\in\mathcal{D}$
+if $x\neq\mathcal{A}$ then $f(x)=\mathcal{F}(x)$.
+\end{scheme}
+
+\begin{scheme}[LambdaSep2]
+Let $\mathcal{D}$, $\mathcal{R}$ be nonempty sets, let $\mathcal{A}_{1}$
+and $\mathcal{A}_{2}$ be elements of $\mathcal{D}$, let
+$\mathcal{B}_{1}$ and $\mathcal{B}_{2}$ be elements of $\mathcal{R}$,
+let $\mathcal{F}(-)$ be an element of $\mathcal{R}$ parametrized by an
+arbitrary object.
+There exists a function $f\colon\mathcal{D}\to\mathcal{R}$ such that
+$f(\mathcal{A}_{1})=\mathcal{B}_{1}$
+and $f(\mathcal{A}_{2})=\mathcal{B}_{2}$
+and for every element $x\in\mathcal{D}$
+if $x\neq\mathcal{A}_{1}$ and $x\neq\mathcal{A}_{2}$ then $f(x)=\mathcal{F}(x)$;
+provided
+\begin{enumerate}
+\item $\mathcal{A}_{1}\neq\mathcal{A}_{2}$.
+\end{enumerate}
+\end{scheme}
+
+We can prove the following result.
+\begin{thm}
+\item\label{funct2:92} Let $A$ and $B$ be sets,
+  let $f$ be a \hyperlink{definition:funct1:nm1}{function}.
+  If $f\in\Funcs(A,B)$, then $\dom(f)=A$ and $\rng(f)\subset B$.
+\end{thm}
+
+\begin{scheme}[FunctRealEx]
+Let $\mathcal{X}$ be a nonempty set, let $\mathcal{Y}$ be a set, let
+$\mathcal{F}(-)$ be an object parametrized by an arbitrary object.
+There exists a function $f\colon\mathcal{X}\to\mathcal{Y}$ such that for
+every element $x$ of $\mathcal{X}$ we have $f(x)=\mathcal{F}(x)$;
+provided
+\begin{enumerate}
+\item for each element $x$ of $\mathcal{X}$, we have $\mathcal{F}(x)\in\mathcal{Y}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[KappaMD]
+Let $\mathcal{X}$, $\mathcal{Y}$ be nonempty sets, let $\mathcal{F}(-)$
+be an object parametrized by an arbitrary object.
+There exists a function $f\colon\mathcal{X}\to\mathcal{Y}$ such that
+every element $x$ of $\mathcal{X}$ satisfies $f(x)=\mathcal{F}(x)$;
+provided
+\begin{enumerate}
+\item For each element $x$ of $\mathcal{X}$, we have $\mathcal{F}(x)$ is
+  an element of $\mathcal{Y}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{definition}
+Let $A$, $B$, $C$ be nonempty sets, let $f\colon A\to B\times C$ be a
+function.
+We redefine $\pr1(f)$ to be a function from $A$ to $B$ satisfying
+\begin{defn}
+\item for each element $x$ of $A$ we have $\bigl(\pr1(f)\bigr)(x)=\bigl(f(x)\bigr)_{1}$.
+\end{defn}
+We redefine $\pr2(f)$ to be a function from $A$ to $C$ satisfying
+\begin{defn}
+\item for each element $x$ of $A$ we have $\bigl(\pr2(f)\bigr)(x)=\bigl(f(x)\bigr)_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A_{1}$ be a set, let $B_{1}$ be a nonempty set, let $A_{2}$ be a
+set, let $B_{2}$ be a nonempty set. Let $f_{1}\colon A_{1}\to B_{1}$ be
+a function, let $f_{2}\colon A_{2}\to B_{2}$ be a function.
+We redefine the predicate $f_{1}=f_{2}$ to mean
+\begin{defn}
+\item $A_{1}=A_{2}$ and every element $a$ of $A_{1}$ we have $f_{1}(a)=f_{2}(a)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$ and $B$ be sets, let $f_{1},f_{2}\colon A\to B$ be functions.
+We redefine the predicate $f_{1}=f_{2}$ to mean
+\begin{defn}
+\item for each element $a$ of $A$, we have $f_{1}(a)=f_{2}(a)$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{funct2:93} Let $N$ be a set, let $f\colon N\to\powerset(N)$.
+  There exists a relation $R$ of $N$ such that for each set $i\in N$, we
+  have $\RelIm{R}{i}=f(i)$.
+\item\label{funct2:94} Let $A$ be a subset of $X$. Then $\id_{X}^{-1}(A)=A$.
+\end{thm}
+
+Let $A$ and $B$ be nonempty sets. We have the following results:
+\begin{thm}
+\item\label{funct2:95} Let $f\colon A\to B$, let $A_{0}$ be a subset of
+  $A$, let $B_{0}$ be a subset of $B$. Then $f(A_{0})\subset B_{0}$ if
+  and only if $A_{0}\subset f^{-1}(B_{0})$.
+\item\label{funct2:96} Let $f\colon A\to B$, let $A_{0}$ be a nonempty
+  subset of $A$, let $f_{0}\colon A_{0}\to B$.
+  If every element $c$ of $A$ such that $c\in A_{0}$ satisfies $f(c)=f_{0}(c)$,
+  then $f|_{A_{0}}=f_{0}$.
+\item\label{funct2:97} Let $f$ be a \hyperlink{definition:funct1:nm1}{function},
+  let $A_{0}$ and $C$ be sets. If $C\subset A_{0}$, then $f(C)=f|_{A_{0}}(C)$.
+\item\label{funct2:98} Let $f$ be a \hyperlink{definition:funct1:nm1}{function},
+  let $A_{0}$ and $D$ be sets. If $f^{-1}(D)\subset A_{0}$,
+  then $f^{-1}(D)=f|_{A_{0}}^{-1}(D)$.
+\end{thm}
+
+\begin{scheme}[MChoice]
+Let $\mathcal{A}$ and $\mathcal{B}$ be nonempty sets, let $\mathcal{F}(-)$
+be a set parametrized by an arbitrary object.
+There exists a function $t\colon\mathcal{A}\to\mathcal{B}$ such that for
+each element $a$ of $\mathcal{A}$ we have $t(a)\in\mathcal{F}(a)$;
+provided
+\begin{enumerate}
+\item For each element $a$ of $\mathcal{A}$, we have $\mathcal{B}$ meets $\mathcal{F}(a)$.
+\end{enumerate}
+\end{scheme}
+
+We have the following results:
+\begin{thm}
+\item\label{funct2:99} Let $X$, $D$ be nonempty sets, let $p\colon X\to D$
+  be a function, let $i$ be an element of $X$. Then $p(i)=p(i)$ (Mizar:
+  ``\verb#p/.i=p.i#'').
+\end{thm}
+From this result, we can identify \verb#p/.i# with \verb#p.i# in Mizar.
+
+Now we have the following two results:
+\begin{thm}
+\item\label{funct2:100} Let $S$, $X$ be sets, let $f\colon S\to X$ be a
+  function, let $A$ be a subset of $X$. If $X\neq\emptyset$ or
+  $S=\emptyset$,
+  then $\bigl(f^{-1}(A)\bigr)^{\complement}=f^{-1}(A^{\complement})$.
+\item\label{funct2:101} Let $X$, $Y$, $Z$ be sets, let $D$ be a nonempty
+  set, let $f\colon X\to D$. If $Y\subset X$ and $f(Y)\subset Z$, then
+  $f|_{Y}\colon Y\to Z$.
+\end{thm}
+
+\begin{definition}
+Let $T$, $S$ be nonempty sets, let $f\colon T\to S$ be a function.
+Let $G$ be a subset-family of $S$.
+We define the term $f^{-1}G$ to be the subset-family of $T$ satisfying
+\begin{defn}
+\item for every subset $A$ of $T$, we have $A\in f^{-1}G$ if and only if
+  there exists a subset $B$ of $S$ such that $B\in G$ and $A=f^{-1}(B)$.
+\end{defn}
+\end{definition}
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{funct2:102} Let $T$, $S$ be nonempty sets, let $f\colon T\to S$,
+  let $A$ and $B$ be subset-families of $S$. If $A\subset B$, then
+  $f^{-1}A\subset f^{-1}B$.
+\end{thm}
+
+\begin{definition}
+Let $T$, $S$ be sets, let $f\colon T\to S$, let $G$ be a subset-family
+of $T$. We define the term $f(G)$ to be the subset-family of $S$
+satisfying
+\begin{defn}
+\item For each subset $A$ of $S$, we have $A\in f(G)$ if and only if
+  there exists a subset $B$ of $T$ such that $B\in G$ and $A=f(B)$.
+\end{defn}
+\end{definition}
+
+We now can prove the following five propositions:
+\begin{thm}
+\item\label{funct2:103} Let $T$, $S$ be sets, let $f\colon T\to S$,
+  let $A$ and $B$ be subset-families of $T$. If $A\subset B$,
+  then $f(A)\subset f(B)$.
+\item\label{funct2:104} Let $T$, $S$ be nonempty sets, let $f\colon T\to S$,
+  let $B$ be a subset-family of $S$, let $P$ be a subset of $S$.
+  If $f(f^{-1}B)$ is a cover of $P$, then $B$ is a cover of $P$.
+\item\label{funct2:105} Let $T$, $S$ be nonempty sets, let $f\colon T\to S$,
+  let $B$ be a subset-family of $T$, let $P$ be a subset of $T$.
+  If $B$ is a cover of $P$, then $f^{-1}\bigl(f(B)\bigr)$ is a cover of $P$.
+\item\label{funct2:106} Let $T$, $S$ be nonempty sets, let $f\colon T\to S$,
+  let $Q$ be a subset-family of $S$. We have $\union f(f^{-1}Q)\subset\union Q$.
+\item\label{funct2:107} Let $T$, $S$ be nonempty sets, let $f\colon T\to S$,
+  let $P$ be a subset-family of $T$.
+  We have $\union P\subset\union f^{-1}(f(P))$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Z$ be sets, let $Y$ be nonempty set. Let $f\colon X\to Y$,
+let $p$ be a $Z$-valued function. Assume $\rng(f)\subset\dom(p)$.
+We define the term $p_{*}f$ (Mizar: ``\verb#p /* f#'') to be the function from $X$ to $Z$ equal to
+\begin{defn}
+\item $p_{*}f=p\circ f$.
+\end{defn}
+\end{definition}
+
+Let $X$ be a set, $Y$ be a nonempty set, $f\colon X\to Y$, $p$ be a
+partial function from $Y$ to $Z$, and $x$ be an element of $X$. Let
+$g\colon X\to X$. We can
+prove the following results:
+\begin{thm}
+\item\label{funct2:108} If $X\neq\emptyset$ and $\rng(f)\subset\dom(p)$,
+  then $(p_{*}f)(x)=p(f(x))$ (Mizar: ``\verb#(p/*f).x = p.(f.x)#'')
+\item\label{funct2:109} If $X\neq\emptyset$ and $\rng(f)\subset\dom(p)$,
+  then $(p_{*}f)(x)=p(f(x))$ (Mizar: ``\verb#(p/*f).x = p/.(f.x)#'')
+\item\label{funct2:110} If $\rng(f)\subset\dom(p)$, then $(p_{*}f)\circ g=p_{*}(f\circ g)$
+\item\label{funct2:111} Let $X$, $Y$ be nonempty sets, let $f\colon X\to Y$.
+  Then $f$ is constant if and only if there exists some element $y$ of
+  $Y$ such that $\rng(f)=\{y\}$.
+\item\label{funct2:112} Let $A$, $B$ be nonempty sets, let $x$ be an
+  element of $A$, let $f\colon A\to B$. Then $f(x)\in\rng(f)$.
+\item\label{funct2:113} Let $A$, $B$ be sets, let $f\colon A\to B$.
+  If $y\in\rng(f)$, then there exists an element $x$ of $A$ such that $y=f(x)$.
+\item\label{funct2:114} Let $A$, $B$ be nonempty sets, let $f\colon A\to B$.
+  If every element $x$ of $A$ satisfies $f(x)\in Z$,
+  then $\rng(f)\subset Z$.
+\end{thm}
+
+Let $X$, $Y$ be nonempty sets. Let $Z$, $S$, $T$ be sets. Let $f\colon X\to Y$.
+Let $g$ be a partial function from $Y$ to $Z$. Let $x$ be an element of
+$X$. We have the following results:
+\begin{thm}
+\item\label{funct2:115} If $g$ is total, then $(g_{*}f)(x)=g(f(x))$
+  (Mizar: ``\verb#(g/*f).x = g.(f.x)#'')
+\item\label{funct2:116} If $g$ is total, then $(g_{*}f)(x)=g(f(x))$
+  (Mizar: ``\verb#(g/*f).x = g/.(f.x)#'') 
+\item\label{funct2:117} If $\rng(f)\subset\dom(g|_{S})$, then $(g|_{S})_{*}f=g_{*}f$.
+\item\label{funct2:118} If $\rng(f)\subset\dom(g|_{S})$ and $S\subset T$,
+  then $(g|_{S})_{*}f=(g|_{T})_{*}f$.
+\item\label{funct2:119} Let $H\colon D\to A\times B$ be a function, let
+  $d$ be an element of $D$. Then $H(d)=(\pr1(H)(d),\pr2(H)(d))$.
+\item\label{funct2:120} Let $A_{1}$, $A_{2}$, $B_{1}$, $B_{2}$ be sets,
+  let $f\colon A_{1}\to A_{2}$ and $g\colon B_{1}\to B_{2}$ be functions.
+  If $f$ tolerates $g$, then $f\cap g\colon A_{1}\cap B_{1}\to A_{2}\cap B_{2}$ is a function.
+\end{thm}
+
+Observe $\Funcs(A,B)$ is functional.
+
+\begin{definition}
+Let $A$, $B$ be sets. We define the mode \define{nonempty set of functions from
+  $A$ to $B$} (Mizar: ``\verb#FUNCTION_DOMAIN of A,B#'') to be the nonempty set satisfying
+\begin{defn}
+\item for each element $x$ of it, we have
+  $x\colon A\to B$ is a function.
+\end{defn}
+\end{definition}
+
+Observe the set of functions from $A$ to $B$ is functional.
+
+\begin{thm}
+\item\label{funct2:121} For each function $f\colon P\to Q$,
+  we see that $\{f\}$ is a nonempty set of functions from $P$ to $Q$.
+\item\label{funct2:122} $\Funcs(P,B)$ is a nonempty set of functions
+  from $P$ to $B$.
+\end{thm}
+
+\begin{definition}
+Let $A$ be a set, let $B$ be a nonempty set.
+We redefine the type of the term $\Funcs(A,B)$ to be a nonempty set of
+functions from $A$ to $B$.
+Let $F$ be a nonempty set of functions from $A$ to $B$.
+We redefine the type of the mode ``Element of $F$'' to be a function
+from $A$ to $B$.
+\end{definition}
+
+Observe $\id_{I}$ is total.
+
+\begin{definition}
+Let $X$, $A$ be sets, let $F\colon X\to A$, let $x$ be a set. Assume
+$x\in X$. We redefine the term $F(x)$ (Mizar: ``\verb#F /. x#'') to
+equal
+\begin{defn}
+\item $F(x)=F(x)$ (Mizar: ``\verb#F /. x = F . x#'')
+\end{defn}
+\end{definition}
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{funct2:123} Let $X$ be a set, let $Y$ be a nonempty set,
+  let $f\colon X\to Y$, let $g$ be an $X$-valued \hyperlink{definition:funct1:nm1}{function}.
+  Then $\dom(f\circ g)=\dom(g)$.
+\item\label{funct2:124} Let $X$ be a nonempty set, let $f\colon X\to X$.
+  If every element $x$ of $X$ satisfies $f(x)=x$, then $f=\id_{X}$.
+\end{thm}
+
+\begin{definition}
+Let $O$, $E$ be sets.
+We define the mode \define{Action of $O$ on $E$} to be a function from
+$O$ to $\Funcs(E,E)$.
+\end{definition}
+\begin{remark}
+This is motivated from Bourbaki's definition of action, as found in
+their \textit{Algebra} chapter I.
+\end{remark}
+
+We can prove the following propositions:
+\begin{thm}
+\item\label{funct2:125} Let $x$ and $A$ be sets, let $f,g\colon\{x\}\to A$.
+  If $f(x)=g(x)$, then $f=g$.
+\item\label{funct2:126} Let $A$ be a set. Then $\id_{A}\in\Funcs(A,A)$.
+\item\label{funct2:127} $\Funcs(\emptyset,\emptyset)=\{\id_{\emptyset}\}$.
+\item\label{funct2:128} Let $A$, $B$, $C$ be sets, let $f$, $g$
+  be \hyperlink{definition:funct1:nm1}{functions}. If $f\in\Funcs(A,B)$
+  and $g\in\Funcs(B,C)$, then $g\circ f\in\Funcs(A,C)$.
+\item\label{funct2:129} Let $A$, $B$, $C$ be sets.
+  If $\Funcs(A,B)\neq\emptyset$ and $\Funcs(B,C)\neq\emptyset$, then
+  $\Funcs(A,C)\neq\emptyset$. 
+\item\label{funct2:130} Let $A$ be a set. Then $\emptyset$ if a function
+  from $A\to\emptyset$.
+\end{thm}
+
+\begin{scheme}[Lambda1]
+Let $\mathcal{X}$, $\mathcal{Y}$ be sets, let $\mathcal{F}(-)$ be an
+object parametrized by objects.
+There exists a function $f\colon\mathcal{X}\to\mathcal{Y}$ such that for
+each set $x$, if $x\in\mathcal{X}$, then $f(x)=\mathcal{F}(x)$; provided
+\begin{enumerate}
+\item for each set $x$, if $x\in\mathcal{X}$, then $\mathcal{F}(x)\in\mathcal{Y}$.
+\end{enumerate}
+\end{scheme}
+
+\end{document}

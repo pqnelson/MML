@@ -128,3 +128,11 @@
 \let\partmark\gobble
 \let\chaptermark\gobble
 \let\sectionmark\gobble
+
+% Theorem spacing should have more spacing after the end of a definition
+\def\thm@space@setup{%
+  \thm@preskip=.5\baselineskip\@plus.2\baselineskip
+                             \@minus.2\baselineskip
+  \thm@postskip=0.75\bigskipamount
+}
+\thm@space@setup

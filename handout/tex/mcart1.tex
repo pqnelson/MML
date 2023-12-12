@@ -197,42 +197,224 @@ We can prove the following two propositions concerning ordered pairs:
 
 \section{Triples}
 
+Let $X_{1}$, $X_{2}$, $X_{3}$ be nonempty sets. Let $x$ be an element of
+$X_{1}\times X_{2}\times X_{3}$.
 \begin{thm}
-\item\label{mcart1:64} 
-\item\label{mcart1:65} 
-\item\label{mcart1:66} 
-\item\label{mcart1:67} 
-\item\label{mcart1:68} 
-\item\label{mcart1:69} 
-\item\label{mcart1:70} 
+\item\label{mcart1:64} If $x=(x_{1},x_{2},x_{3})$, then
+  $x_{\mathbf{1},3}=x_{1}$ and
+  $x_{\mathbf{2},3}=x_{2}$ and
+  $x_{\mathbf{3},3}=x_{3}$.
+\item\label{mcart1:65} Let $x_{1}$ be an element of $X_{1}$,
+  $x_{2}$ be an element of $X_{2}$,
+  $x_{3}$ be an element of $X_{3}$.
+  Suppose $x=(x_{1},x_{2},x_{3})$ implies $y_{1}=x_{1}$.
+  Then $y_{1}=x_{\mathbf{1},3}$.
+\item\label{mcart1:66} Let $x_{1}$ be an element of $X_{1}$,
+  $x_{2}$ be an element of $X_{2}$,
+  $x_{3}$ be an element of $X_{3}$.
+  Suppose $x=(x_{1},x_{2},x_{3})$ implies $y_{2}=x_{2}$.
+  Then $y_{2}=x_{\mathbf{2},3}$.
+\item\label{mcart1:67} Let $x_{1}$ be an element of $X_{1}$,
+  $x_{2}$ be an element of $X_{2}$,
+  $x_{3}$ be an element of $X_{3}$.
+  Suppose $x=(x_{1},x_{2},x_{3})$ implies $y_{3}=x_{3}$.
+  Then $y_{3}=x_{\mathbf{3},3}$.
+\end{thm}
+
+Now let $X_{1}$, $X_{2}$, $X_{3}$ be arbitrary sets.
+\begin{thm}
+\item\label{mcart1:68} If $z\in X_{1}\times X_{2}\times X_{3}$,
+  then there exists objects $x_{1}$, $x_{2}$, $x_{3}$ such that
+  $x_{1}\in X_{1}$ and $x_{2}\in X_{2}$ and $x_{3}\in X_{3}$ and
+  $z=(x_{1},x_{2},x_{3})$. 
+\item\label{mcart1:69} $(x_{1},x_{2},x_{3})\in X_{1}\times X_{2}\times X_{3}$
+  if and only if $x_{1}\in X_{1}$ and $x_{2}\in X_{2}$ and $x_{3}\in X_{3}$.
+\item\label{mcart1:70} Suppose every object $z$ satisfies $z\in Z$
+  if and only if there exists objects $x_{1}$, $x_{2}$, $x_{3}$ such that
+  $x_{1}\in X_{1}$ and $x_{2}\in X_{2}$ and $x_{3}\in X_{3}$ and
+  $z=(x_{1},x_{2},x_{3})$. Then $Z=X_{1}\times X_{2}\times X_{3}$.
 \item\label{mcart1:71} (Cancelled)
-\item\label{mcart1:72} 
-\item\label{mcart1:73} 
+\item\label{mcart1:72} Let $X_{1}$, $X_{2}$, $X_{3}$ be nonempty sets.
+  Let $A_{1}$ be a nonempty subset of $X_{1}$,
+  let $A_{2}$ be a nonempty subset of $X_{2}$,
+  let $A_{3}$ be a nonempty subset of $X_{3}$.
+  Let $x$ be an element of $X_{1}\times X_{2}\times X_{3}$.
+  If $x\in A_{1}\times A_{2}\times A_{3}$,
+  then $x_{\mathbf{1},3}\in A_{1}$ and
+  $x_{\mathbf{2},3}\in A_{2}$ and
+  $x_{\mathbf{3},3}\in A_{3}$.
+\item\label{mcart1:73} If $X_{1}\subset Y_{1}$ and
+  $X_{2}\subset Y_{2}$ and
+  $X_{3}\subset Y_{3}$,
+  then $X_{1}\times X_{2}\times X_{3}\subset Y_{1}\times Y_{2}\times Y_{3}$.
 \end{thm}
 
 \section{Quadruples}
 
+Let $X_{1}$, $X_{2}$, $X_{3}$, $X_{4}$ be nonempty sets.
+Let $x$ be an element of $X_{1}\times X_{2}\times X_{3}\times X_{4}$.
 \begin{thm}
-\item\label{mcart1:74} 
-\item\label{mcart1:75} 
-\item\label{mcart1:76} 
-\item\label{mcart1:77} 
-\item\label{mcart1:78} 
-\item\label{mcart1:79} 
-\item\label{mcart1:80} 
-\item\label{mcart1:81} 
+\item\label{mcart1:74} Let $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$ be sets.
+  If $x=(x_{1},x_{2},x_{3},x_{4})$, then
+  $x_{\mathbf{1},4}=x_{1}$ and
+  $x_{\mathbf{2},4}=x_{2}$ and
+  $x_{\mathbf{3},4}=x_{3}$ and
+  $x_{\mathbf{4},4}=x_{4}$.
+\item\label{mcart1:75} Let $y_{1}$ be an object.
+  Suppose for any elements $x_{1}$ of $X_{1}$, $x_{2}$ of $X_{2}$,
+  $x_{3}$ of $X_{3}$, $x_{4}$ of $X_{4}$,
+  we have $x=(x_{1},x_{2},x_{3},x_{4})$ implies $y_{1}=x_{1}$.
+  Then $y_{1}=x_{\mathbf{1},4}$.
+\item\label{mcart1:76} Let $y_{2}$ be an object.
+  Suppose for any elements $x_{1}$ of $X_{1}$, $x_{2}$ of $X_{2}$,
+  $x_{3}$ of $X_{3}$, $x_{4}$ of $X_{4}$,
+  we have $x=(x_{1},x_{2},x_{3},x_{4})$ implies $y_{2}=x_{2}$.
+  Then $y_{2}=x_{\mathbf{2},4}$.
+\item\label{mcart1:77} Let $y_{3}$ be an object.
+  Suppose for any elements $x_{1}$ of $X_{1}$, $x_{2}$ of $X_{2}$,
+  $x_{3}$ of $X_{3}$, $x_{4}$ of $X_{4}$,
+  we have $x=(x_{1},x_{2},x_{3},x_{4})$ implies $y_{3}=x_{3}$.
+  Then $y_{3}=x_{\mathbf{3},4}$.
+\item\label{mcart1:78} Let $y_{4}$ be an object.
+  Suppose for any elements $x_{1}$ of $X_{1}$, $x_{2}$ of $X_{2}$,
+  $x_{3}$ of $X_{3}$, $x_{4}$ of $X_{4}$,
+  we have $x=(x_{1},x_{2},x_{3},x_{4})$ implies $y_{4}=x_{4}$.
+  Then $y_{4}=x_{\mathbf{4},4}$.
+\end{thm}
+
+Let $X_{1}$, \dots, $X_{4}$ be arbitrary sets. Then we have the
+following results:
+\begin{thm}
+\item\label{mcart1:79} If $z\in X_{1}\times X_{2}\times X_{3}\times X_{4}$,
+  then there exists objects $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$ such that
+  $x_{1}\in X_{1}$, $x_{2}\in X_{2}$, $x_{3}\in X_{3}$, $x_{4}\in X_{4}$,
+  and $z=(x_{1},x_{2},x_{3},x_{4})$.
+\item\label{mcart1:80} $(x_{1},x_{2},x_{3},x_{4})\in X_{1}\times X_{2}\times X_{3}\times X_{4}$
+  if and only if
+  $x_{1}\in X_{1}$, $x_{2}\in X_{2}$, $x_{3}\in X_{3}$ and $x_{4}\in X_{4}$.
+\item\label{mcart1:81} Suppose every object $z$ satisfies $z\in Z$
+  if and only if there exists objects $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$
+  such that
+  $x_{1}\in X_{1}$ and $x_{2}\in X_{2}$ and $x_{3}\in X_{3}$ and
+  $x_{4}\in X_{4}$ and $z=(x_{1},x_{2},x_{3},x_{4})$.
+  Then $Z=X_{1}\times X_{2}\times X_{3}\times X_{4}$.
 \item\label{mcart1:82} (Cancelled)
-\item\label{mcart1:83} 
-\item\label{mcart1:84} 
-\item\label{mcart1:85} 
-\item\label{mcart1:86} 
-\item\label{mcart1:87} 
-\item\label{mcart1:88} 
-\item\label{mcart1:89} 
-\item\label{mcart1:90} 
-\item\label{mcart1:91} 
-\item\label{mcart1:92} 
-\item\label{mcart1:93} 
+\item\label{mcart1:83} Let $X_{1}$, \dots, $X_{4}$ be nonempty sets.
+  Let $A_{1}$ be a nonempty subset of $X_{1}$,
+  let $A_{2}$ be a nonempty subset of $X_{2}$,
+  let $A_{3}$ be a nonempty subset of $X_{3}$,
+  let $A_{4}$ be a nonempty subset of $X_{4}$,
+  and let $x$ be an element of $X_{1}\times X_{2}\times X_{3}\times X_{4}$.
+  If $x\in A_{1}\times A_{2}\times A_{3}\times A_{4}$,
+  then $x_{\mathbf{1},4}\in A_{1}$
+  and $x_{\mathbf{2},4}\in A_{2}$
+  and $x_{\mathbf{3},4}\in A_{3}$
+  and $x_{\mathbf{4},4}\in A_{4}$.
+\item\label{mcart1:84} If $X_{1}\subset Y_{1}$,
+  $X_{2}\subset Y_{2}$, $X_{3}\subset Y_{3}$, $X_{4}\subset Y_{4}$,
+  then $X_{1}\times X_{2}\times X_{3}\times X_{4}\subset Y_{1}\times Y_{2}\times Y_{3}\times Y_{4}$.
+\end{thm}
+
+\begin{definition}
+Let $X_{1}$, $X_{2}$ be sets, let $A_{1}$ be a subset of $X_{1}$, let
+$A_{2}$ be a subset of $X_{2}$. We redefine the type of $A_{1}\times A_{2}$
+to be a subset of $X_{1}\times X_{2}$.
+\end{definition}
+
+\begin{definition}
+Let $X_{1}$, $X_{2}$, $X_{3}$ be sets, let $A_{1}$ be a subset of $X_{1}$, let
+$A_{2}$ be a subset of $X_{2}$, let $A_{3}$ be a subset of $X_{3}$.
+We redefine the type of $A_{1}\times A_{2}\times A_{3}$
+to be a subset of $X_{1}\times X_{2}\times X_{3}$.
+\end{definition}
+
+\begin{definition}
+Let $X_{1}$, $X_{2}$, $X_{3}$, $X_{4}$ be sets,
+let $A_{1}$ be a subset of $X_{1}$, let
+$A_{2}$ be a subset of $X_{2}$, let $A_{3}$ be a subset of $X_{3}$,
+let $A_{4}$ be a subset of $X_{4}$.
+We redefine the type of $A_{1}\times A_{2}\times A_{3}\times A_{4}$
+to be a subset of $X_{1}\times X_{2}\times X_{3}\times X_{4}$.
+\end{definition}
+
+\begin{definition}
+Let $f$ be a function. We define $\pr1(f)$ (Mizar: ``\verb#pr1 f#'')
+to be a function defined by:
+\begin{defn}
+\item $\dom(\pr1(f))=\dom(f)$ and for $x$ be any object such that $x\in\dom(f)$
+we have $\pr1(f)(x)=(f(x))_{1}$.
+\end{defn}
+We define the term $\pr2(f)$ to be the function satisfying
+\begin{defn}
+\item $\dom(\pr2(f))=\dom(f)$ and for $x$ be any object such that $x\in\dom(f)$
+we have $\pr2(f)(x)=(f(x))_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $x$ be an object.
+We define the term $x_{11}$ (Mizar: ``\verb#x`11#'') to be the set equal
+to
+\begin{defn}
+\item $(x_{1})_{1}$
+\end{defn}
+We define the term $x_{12}$ (Mizar: ``\verb#x`12#'') to be the set equal
+to
+\begin{defn}
+\item $(x_{1})_{2}$
+\end{defn}
+We define the term $x_{21}$ (Mizar: ``\verb#x`21#'') to be the set equal
+to
+\begin{defn}
+\item $(x_{2})_{1}$
+\end{defn}
+We define the term $x_{22}$ (Mizar: ``\verb#x`22#'') to be the set equal
+to
+\begin{defn}
+\item $(x_{2})_{2}$
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{mcart1:85} The following results are all provable:
+  \begin{enumerate}[label=(\roman*)]
+  \item $((x_{1},x_{2}),y)_{11}=x_{1}$
+  \item $((x_{1},x_{2}),y)_{12}=x_{2}$
+  \item $(x,(y_{1},y_{2}))_{21}=y_{1}$
+  \item $(x,(y_{1},y_{2}))_{22}=y_{2}$
+  \end{enumerate}
+\item\label{mcart1:86} If $x\in R$, then $x_{1}\in\dom(R)$ and $x_{2}\in\rng(R)$. 
+\item\label{mcart1:87} Let $R$ be a nonempty relation, let $x$ be an object.
+  Then $\RelIm{R}{x}=\{I_{2}\mbox{ where $I$ is Element of }R\mid I_{1}=x\}$.
+\item\label{mcart1:88} If $x\in R$,
+  then $x_{2}\in\RelIm{R}{x_{1}}$.
+\item\label{mcart1:89} If $x\in R$, $y\in R$, $x_{1}=y_{1}$, and
+  $x_{2}=y_{2}$,
+  then $x=y$.
+\item\label{mcart1:90} Let $R$ be a nonempty relation, let $x$ and $y$
+  be elements of $R$. If $x_{1}=y_{1}$ and $x_{2}=y_{2}$, then $x=y$.
+\item\label{mcart1:91} $\proj1\bigl(\proj1\{(x_{1},x_{2},x_{3}),(y_{1},y_{2},y_{3})\}\bigr)=\{x_{1},y_{1}\}$.
+\item\label{mcart1:92} $\proj1\bigl(\proj1\{(x_{1},x_{2},x_{3})\}\bigr)=\{x_{1},\}$.
+\end{thm}
+
+\begin{scheme}[BiFuncEx]
+Let $\mathcal{A}$, $\mathcal{B}$, and $\mathcal{C}$ be sets, let $P[-,-,-]$
+be a ternary predicate of objects.
+There exists functions $f$ and $g$ such that
+$\dom(f)=\mathcal{A}$ and $\dom(g)=\mathcal{A}$ and for all objects
+$x\in\mathcal{A}$ we have $P[x,f(x),g(x)]$;
+provided
+\begin{enumerate}
+\item If $x\in\mathcal{A}$,
+  then there exists objects $y\in\mathcal{B}$ and $z\in\mathcal{C}$ such
+  that $P[x,y,z]$.
+\end{enumerate}
+\end{scheme}
+
+We have the final result:
+\begin{thm}
+\item\label{mcart1:93} If $((x_{1},x_{2}),(x_{3},x_{4}))=((y_{1},y_{2}),(y_{3},y_{4}))$,
+then $x_{1}=y_{1}$ and $x_{2}=y_{2}$ and $x_{3}=y_{3}$ and $x_{4}=y_{4}$.
 \end{thm}
 
 \end{document}

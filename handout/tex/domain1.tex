@@ -1,0 +1,206 @@
+\documentclass{article}
+
+
+\title{Domains and Their Cartesian Products}
+\author{Andrzej Trybulec}
+\date{April 3, 1989}
+\begin{document}
+\maketitle
+
+Let $a$ be a set, let $X_{1}$, $X_{2}$ be nonempty sets. Let $x_{1}$ be
+an element of $X_{1}$, let $x_{2}$ be an element of $X_{2}$.
+\begin{thm}
+\item\label{domain1:1} If $a\in X_{1}\times X_{2}$, then there exists
+  elements $x_{1}$ of $X_{1}$ and $x_{2}$ of $X_{2}$ such that $a=(x_{1},x_{2})$.
+\item\label{domain1:2} For all elements $x$ and $y$ of $X_{1}\times X_{2}$,
+  if $x_{1}=y_{1}$ and $x_{2}=y_{2}$, then $x=y$.
+\end{thm}
+
+\begin{definition}
+Let $X_{1}$, $X_{2}$ be nonempty sets, let $x_{1}$ be an element of $X_{1}$,
+let $x_{2}$ be an element of $X_{2}$.
+We redefine the type of $(x_{1},x_{2})$ to be an element of $X_{1}\times X_{2}$.
+\end{definition}
+
+\begin{definition}
+Let $X_{1}$, $X_{2}$ be nonempty sets, let $x$ be an element of
+$X_{1}\times X_{2}$.
+We redefine the type of the term $x_{1}$ (Mizar: ``\verb#x`1#'') to be
+an element of $X_{1}$.
+We redefine the type of the term $x_{2}$ (Mizar: ``\verb#x`2#'') to be
+an element of $X_{2}$.
+\end{definition}
+
+We can prove the following three propositions:
+\begin{thm}
+\item\label{domain1:3} $a\in X_{1}\times X_{2}\times X_{3}$ if and only
+  if there exists elements $x_{1}$ of $X_{1}$, $x_{2}$ of $X_{2}$,
+  $x_{3}$ of $X_{3}$ such that $a=(x_{1},x_{2},x_{3})$.
+\item\label{domain1:4} Suppose for all sets $a$, $a\in D$ if and only if
+  there exists elements $x_{1}$ of $X_{1}$, $x_{2}$ of $X_{2}$,
+  $x_{3}$ of $X_{3}$ such that $a=(x_{1},x_{2},x_{3})$.
+  Then $D=X_{1}\times X_{2}\times X_{3}$.
+\item\label{domain1:5} The following are logically equivalent:
+  \begin{enumerate}[label=(\roman*)]
+  \item $D=X_{1}\times X_{2}\times X_{3}$;
+  \item for all sets $a$, $a\in D$ if and only if there exists elements $x_{1}$ of $X_{1}$, $x_{2}$ of $X_{2}$,
+  $x_{3}$ of $X_{3}$ such that $a=(x_{1},x_{2},x_{3})$.
+  \end{enumerate}
+\end{thm}
+
+\begin{definition}
+Let $X_{1}$, $X_{2}$, $X_{3}$ be nonempty sets, let $x_{i}$ be an
+element of $X_{i}$ for $i=1,2,3$.
+We redefine the type of $(x_{1},x_{2},x_{3})$ to be an element of
+$X_{1}\times X_{2}\times X_{3}$.
+\end{definition}
+
+\begin{thm}
+\item\label{domain1:6} $a=x_{\mathbf{1},3}$ iff for all elements $x_{i}$ of $X_{i}$ (for $i=1,2,3$) such that $x=(x_{1},x_{2},x_{3})$ satisfies $a=x_{1}$.
+\item\label{domain1:7} $a=x_{\mathbf{2},3}$ iff for all elements $x_{i}$ of $X_{i}$ (for $i=1,2,3$) such that $x=(x_{1},x_{2},x_{3})$ satisfies $a=x_{2}$.
+\item\label{domain1:8} $a=x_{\mathbf{3},3}$ iff for all elements $x_{i}$ of $X_{i}$ (for $i=1,2,3$) such that $x=(x_{1},x_{2},x_{3})$ satisfies $a=x_{3}$.
+\item\label{domain1:9} If $x_{\mathbf{1},3}=y_{\mathbf{1},3}$ and
+  $x_{\mathbf{2},3}=y_{\mathbf{2},3}$ and
+  $x_{\mathbf{3},3}=y_{\mathbf{3},3}$, then $x=y$
+\item\label{domain1:10} $a\in X_{1}\times X_{2}\times X_{3}\times X_{4}$
+  if and only if there exists elements $x_{i}$ of $X_{i}$ (for $i=1,2,3,4$)
+  such that $a=(x_{1},x_{2},x_{3},x_{4})$.
+\item\label{domain1:11} Suppose every $a$, $a\in D$ if and only if there
+  exists elements $x_{i}$ of $X_{i}$ (for $i=1,2,3,4$) such that
+  $a=(x_{1},x_{2},x_{3},x_{4})$.
+  Then $D=X_{1}\times X_{2}\times X_{3}\times X_{4}$.
+\item\label{domain1:12} The following are logically equivalent:
+  \begin{enumerate}[label=(\roman*)]
+  \item $D=X_{1}\times X_{2}\times X_{3}\times X_{4}$
+  \item for all sets $a$, $a\in D$ if and only if there exists elements
+    $x_{i}$ of $X_{i}$ (for $i=1,2,3,4$) such that $a=(x_{1},x_{2},x_{3},x_{4})$.
+  \end{enumerate}
+\end{thm}
+
+\begin{definition}
+Let $X_{1}$, \dots, $X_{4}$ be nonempty sets, let $x_{i}$ be an element
+of $X_{i}$ (for $i=1,2,3,4$). Redefine the type of the term
+$(x_{1},x_{2},x_{3},x_{4})$ to be an element of $X_{1}\times X_{2}\times X_{3}\times X_{4}$.
+\end{definition}
+
+Let $a$, $b$, $c$, $d$ be sets. Then we can prove the following:
+\begin{thm}
+\item\label{domain1:13} $a=x_{\mathbf{1},4}$ if and only if for elements
+  $x_{i}$ of $X_{i}$ (for $i=1,2,3,4$) with
+  $x=(x_{1},x_{2},x_{3},x_{4})$ satisfies $a=x_{1}$.
+\item\label{domain1:14} $a=x_{\mathbf{2},4}$ if and only if for elements
+  $x_{i}$ of $X_{i}$ (for $i=1,2,3,4$) with
+  $x=(x_{1},x_{2},x_{3},x_{4})$ satisfies $a=x_{2}$.
+\item\label{domain1:15} $a=x_{\mathbf{3},4}$ if and only if for elements
+  $x_{i}$ of $X_{i}$ (for $i=1,2,3,4$) with
+  $x=(x_{1},x_{2},x_{3},x_{4})$ satisfies $a=x_{3}$.
+\item\label{domain1:16} $a=x_{\mathbf{4},4}$ if and only if for elements
+  $x_{i}$ of $X_{i}$ (for $i=1,2,3,4$) with
+  $x=(x_{1},x_{2},x_{3},x_{4})$ satisfies $a=x_{4}$.
+\item\label{domain1:17} For all elements $x$ and $y$ of $X_{1}\times X_{2}\times X_{3}\times X_{4}$,
+  if $x_{\mathbf{1},4}=y_{\mathbf{1},4}$ and
+  $x_{\mathbf{2},4}=y_{\mathbf{2},4}$ and
+  $x_{\mathbf{3},4}=y_{\mathbf{3},4}$ and
+  $x_{\mathbf{4},4}=y_{\mathbf{4},4}$,
+  then $x=y$.
+\end{thm}
+
+\begin{scheme}[Fraenkel1]
+Let $P[-]$ be a unary predicate of objects.
+For all nonempty sets $X_{1}$, we have $\{x_{1}\mid P[x_{1}]\}$ is a
+subset of $X_{1}$.
+\end{scheme}
+
+\begin{scheme}[Fraenkel2]
+Let $P[-,-]$ be a binary predicate of objects.
+For all nonempty sets $X_{1}$ and $X_{2}$, we have
+$\{(x_{1},x_{2})\mid P[x_{1},x_{2}]\}$ is a
+subset of $X_{1}\times X_{2}$.
+\end{scheme}
+
+\begin{scheme}[Fraenkel3]
+Let $P[-,-,-]$ be a ternary predicate of objects.
+For all nonempty sets $X_{1}$, $X_{2}$, and $X_{3}$, we have
+$\{(x_{1},x_{2},x_{3})\mid P[x_{1},x_{2},x_{3}]\}$ is a
+subset of $X_{1}\times X_{2}\times X_{3}$.
+\end{scheme}
+
+\begin{scheme}[Fraenkel4]
+Let $P[-,-,-,-]$ be a quaternary predicate of objects.
+For all nonempty sets $X_{1}$, $X_{2}$, $X_{3}$, and $X_{4}$, we have
+$\{(x_{1},x_{2},x_{3},x_{4})\mid P[x_{1},x_{2},x_{3},x_{4}]\}$ is a
+subset of $X_{1}\times X_{2}\times X_{3}\times X_{4}$.
+\end{scheme}
+
+\begin{scheme}[Fraenkel5]
+Let $P[-]$ and $Q[-]$ be a unary predicates of objects.
+For all nonempty sets $X_{1}$,
+if every element $x_{1}$ of $X_{1}$ has $P[x_{1}]$ implies $Q[x_{1}]$,
+then we have $\{y_{1}\mid P[y_{1}]\}\subset\{z_{1}\mid P[z_{1}]\}$.
+\end{scheme}
+
+\begin{scheme}[Fraenkel6]
+Let $P[-]$ and $Q[-]$ be a unary predicates of objects.
+For all nonempty sets $X_{1}$,
+if every element $x_{1}$ of $X_{1}$ has $P[x_{1}]$ iff $Q[x_{1}]$,
+then we have $\{y_{1}\mid P[y_{1}]\}=\{z_{1}\mid P[z_{1}]\}$.
+\end{scheme}
+
+\begin{scheme}[SubsetD]
+Let $\mathcal{D}$ be a nonempty set and let $P[-]$ be a unary predicate of objects.
+We have $\{d\mbox{where $d$ is an element of }\mathcal{D}\mid P[d]\}$
+is a subset of $\mathcal{D}$.
+\end{scheme}
+
+Let $x_{i}$ be an arbitrary element of $X_{i}$ for $i=1,2,3,4,5$.
+We can now prove the following theorems:
+\begin{thm}
+\item\label{domain1:18} $X_{1}$ is equal to the set of all $x_{1}$.
+\item\label{domain1:19} $X_{1}\times X_{2}$ is equal to the set of all $(x_{1},x_{2})$.
+\item\label{domain1:20} $X_{1}\times X_{2}\times X_{3}$ is equal to the set of all $(x_{1},x_{2},x_{3})$.
+\item\label{domain1:21} $X_{1}\times X_{2}\times X_{3}\times X_{4}$ is equal to the set of all $(x_{1},x_{2},x_{3},x_{4})$. 
+\item\label{domain1:22} $A_{1}=\{x_{1}\mid x_{1}\in A_{1}\}$.
+\item\label{domain1:23} $A_{1}\times A_{2}=\{(x_{1},x_{2})\mid x_{1}\in A_{1},x_{2}\in A_{2}\}$.
+\item\label{domain1:24} $A_{1}\times A_{2}\times A_{3}=\{(x_{1},x_{2},x_{3})\mid x_{1}\in A_{1},x_{2}\in A_{2},x_{3}\in A_{3}\}$.
+\item\label{domain1:25} $A_{1}\times A_{2}\times A_{3}\times A_{4}=\{(x_{1},x_{2},x_{3},x_{4})\mid x_{1}\in A_{1},x_{2}\in A_{2},x_{3}\in A_{3},x_{4}\in A_{4}\}$.
+\item\label{domain1:26} $\emptyset_{X_{1}}=\{x_{1}\mid\contradiction\}$.
+\item\label{domain1:27} $A_{1}^{\complement}=\{x_{1}\mid x_{1}\notin A_{1}\}$.
+\item\label{domain1:28} $A_{1}\cap B_{1}=\{x_{1}\mid x_{1}\in A_{1}\mbox{ and }x_{1}\in B_{1}\}$.
+\item\label{domain1:29} $A_{1}\cup B_{1}=\{x_{1}\mid x_{1}\in A_{1}\mbox{ or }x_{1}\in B_{1}\}$.
+\item\label{domain1:30} $A_{1}\setminus B_{1}=\{x_{1}\mid x_{1}\in A_{1}\mbox{ and }x_{1}\notin B_{1}\}$.
+\item\label{domain1:31} $A_{1}\symdiff B_{1}=\{x_{1}\mid (x_{1}\in A_{1}\mbox{ and }x_{1}\notin B_{1})\mbox{or}(x_{1}\notin A_{1}\mbox{ and }x_{1}\in B_{1})\}$.
+\item\label{domain1:32} $A_{1}\symdiff B_{1}=\{x_{1}\mid x_{1}\notin A_{1}\mbox{ iff }x_{1}\in B_{1}\}$.
+\item\label{domain1:33} $A_{1}\symdiff B_{1}=\{x_{1}\mid x_{1}\in A_{1}\mbox{ iff }x_{1}\notin B_{1}\}$.
+\item\label{domain1:34} $A_{1}\symdiff B_{1}=\{x_{1}\mid \mbox{not}(x_{1}\in A_{1}\mbox{ iff }x_{1}\in B_{1})\}$.
+\end{thm}
+
+\begin{definition}
+Let $D$ be a nonempty set, let $x_{i}$ be an element of $D$ for $i=1,\dots,n$.
+We redefine the type of $\{x_{1},\dots,x_{n}\}$ to be a subset of $D$,
+for $n=1,\dots,10$.
+\end{definition}
+
+\begin{scheme}[SubsetFD]
+Let $\mathcal{A}$ and $\mathcal{D}$ be nonempty sets,
+let $\mathcal{F}(-)$ be an element of $\mathcal{D}$ parametrized by an
+object, let $P[-]$ be a predicate of objects.
+$\{\mathcal{F}(x)\mbox{ where $x$ is an element of }\mathcal{A}\mid P[x]\}$
+is a subset of $\mathcal{D}$.
+\end{scheme}
+
+\begin{scheme}[SubsetFD2]
+Let $\mathcal{A}$, $\mathcal{B}$, $\mathcal{D}$ be nonempty sets,
+let $\mathcal{F}(-,-)$ be an element of $\mathcal{D}$ parametrized by
+two objects, let $P[-,-]$ be a binary predicate of objects.
+$\{\mathcal{F}(x,y)\mbox{ where $x$ is an element of }\mathcal{A}, y \mbox{ is an element of }B\mid P[x,y]\}$
+is a subset of $\mathcal{D}$.
+\end{scheme}
+
+\begin{scheme}[AndScheme]
+Let $\mathcal{A}$ be a nonempty set, let $P[-]$ and $Q[-]$ be unary
+predicates of objects.
+$\{a\mbox{ where }a\mbox{ is element of }\mathcal{A}\mid P[a]\mbox{ and }Q[a]\} =\{a_{1}\mbox{ where }a_{1}\mbox{ is element of }\mathcal{A}\mid P[a_{1}]\}\cap \{a_{2}\mbox{ where }a_{2}\mbox{ is element of }\mathcal{A}\mid Q[a_{2}]\}$
+\end{scheme}
+
+
+\end{document}

@@ -1,0 +1,397 @@
+\documentclass{article}
+
+\title{Binary Operations (BINOP-1)}
+\author{Czes{\l}aw Byli\'nski}
+\date{April 14, 1989}
+
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $f$ be a \hyperlink{definition:funct1:nm1}{function},
+let $a$ and $b$ be objects.
+We define the term $f(a,b)$ (Mizar: ``\verb#f . (a, b)#'') to equal
+\begin{defn}
+\item $f(a,b)=f((a,b))$ (Mizar: ``\verb#f.(a,b) = f.[a,b]#'').
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$, $B$ be nonempty sets, let $C$ be a set, let $f\colon A\times B\to C$.
+Let $a$ be an element of $A$, let $b$ be an element of $B$.
+We redefine the type of the term $f(a,b)$ to be an element of $C$.
+\end{definition}
+
+Let $x$, $x_{1}$, $y$, $z$ be objects.
+We can prove the following two propositions:
+\begin{thm}
+\item\label{binop1:1} Let $X$, $Y$, $Z$ be sets,
+  let $f_{1},f_{2}\colon X\times Y\to Z$.
+  If every sets $x$ and $y$ such that $x\in X$ and $y\in Y$ satisfy
+  $f_{1}(x,y)=f_{2}(x,y)$,
+  then $f_{1}=f_{2}$.
+\item\label{binop1:2} Let $X$, $Y$, $Z$ be sets,
+  let $f_{1},f_{2}\colon X\times Y\to Z$.
+  If every element $a$ of $A$ and $b$ of $B$ satisfies $f_{1}(a,b)=f_{2}(a,b)$,
+  then $f_{1}=f_{2}$.
+\end{thm}
+
+\begin{definition}
+  Let $A$ be a set.
+  We define the mode \define{Unary Operator of $A$} to be a function
+  from $A$ to $A$.
+  We define the mode \define{Binary Operator of $A$} to be a function
+  from $A\times A$ to $A$.
+\end{definition}
+
+\begin{scheme}[FuncEx2]
+Let $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{Z}$ be sets, let $P[-,-,-]$
+be a ternary predicate of objects.
+There exists a function $f\colon\mathcal{X}\times\mathcal{Y}\to\mathcal{Z}$
+such that for all objects $x\in\mathcal{X}$ and $y\in\mathcal{Y}$, we
+have $P[x,y,f(x,y)]$; provided
+\begin{enumerate}
+\item for all objects $x\in\mathcal{X}$ and $y\in\mathcal{Y}$, there
+  exists an object $z\in\mathcal{Z}$ such that $P[x,y,z]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[Lambda2]
+Let $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{Z}$ be sets, let
+$\mathcal{F}(-,-)$ be an object parametrized by any pair of objects.
+There exists a function $f\colon\mathcal{X}\times\mathcal{Y}\to\mathcal{Z}$
+such that for all objects $x\in\mathcal{X}$ and $y\in\mathcal{Y}$, we
+have $f(x,y)=\mathcal{F}(x,y)$; provided
+\begin{enumerate}
+\item for all objects $x\in\mathcal{X}$ and $y\in\mathcal{Y}$,
+  we have $\mathcal{F}(x,y)\in\mathcal{Z}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[FuncEx2D]
+Let $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{Z}$ be sets, let $P[-,-,-]$
+be a ternary predicate of objects.
+There exists a function $f\colon\mathcal{X}\times\mathcal{Y}\to\mathcal{Z}$
+such that for elements $x$ of $\mathcal{X}$ and $y$ of $\mathcal{Y}$, we
+have $P[x,y,f(x,y)]$; provided
+\begin{enumerate}
+\item for elements $x$ of $\mathcal{X}$ and $y$ of $\mathcal{Y}$, there
+  exists an element $z$ of $\mathcal{Z}$ such that $P[x,y,z]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[Lambda2D]
+Let $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{Z}$ be nonempty sets, let
+$\mathcal{F}(-,-)$ be an element of $\mathcal{Z}$ parametrized by an
+element of $\mathcal{X}$ and an element of $\mathcal{Y}$.
+There exists a function $f\colon\mathcal{X}\times\mathcal{Y}\to\mathcal{Z}$
+such that for all elements $x$ of $\mathcal{X}$ and $y$ of $\mathcal{Y}$, we
+have $f(x,y)=\mathcal{F}(x,y)$.
+\end{scheme}
+
+\begin{definition}
+  Let $A$ be a set, let $f$ be a binary operator of $A$.
+  We define the attribute $f$ is \define{commutative} means
+  \begin{defn}
+  \item for all elements $a$, $b$ of $A$, we have $f(a,b)=f(b,a)$.
+  \end{defn}
+  We define the attribute $f$ is \define{associative} means
+  \begin{defn}
+  \item for all elements $a$, $b$, $c$ of $A$, we have $f(a,f(b,c))=f(f(a,b),c)$.
+  \end{defn}
+  We define the attribute $f$ is \define{idempotent} means
+  \begin{defn}
+  \item for all elements $a$ of $A$, we have $f(a,a)=a$.
+  \end{defn}
+\end{definition}
+
+Observe every binary operator of $\emptyset$ is empty, associative, and
+commutative.
+
+\begin{definition}
+Let $A$ be a set, let $e$ be an object, let $f$ be a binary operator of
+$A$.
+We define the predicate \define{$e$ is a left unity with respect to $f$}
+(Mizar: ``\verb#is_a_left_unity_wrt#'') to mean
+\begin{defn}
+\item for all elements $a$ of $A$, we have $f(e,a)=a$.
+\end{defn}
+We define the predicate \define{$e$ is a right unity with respect to $f$}
+(Mizar: ``\verb#is_a_right_unity_wrt#'') to mean
+\begin{defn}
+\item for all elements $a$ of $A$, we have $f(a,e)=a$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$ be a set, let $e$ be an object, let $f$ be a binary operator of $A$.
+We define the predicate \define{$e$ is a unity with respect to $f$}
+(Mizar: ``\verb#is_a_unity_wrt#'') to mean
+\begin{defn}
+\item $e$ is a left unity with respect to $f$, and $e$ is a right unity
+  with respect to $f$.
+\end{defn}
+\end{definition}
+
+Let $A$ be a set.
+Let $e$, $e_{1}$, $e_{2}$ be elements of $A$,
+let $f$ be a binary operator of $A$.
+We can prove the following results:
+\begin{thm}
+\item\label{binop1:3} $e$ is a unity with respect to $f$ if and only if
+  for all elements $a$ of $A$ we have $f(e,a)=a$ and $f(a,e)=a$.
+\item\label{binop1:4} If $f$ is commutative,
+  then $e$ is a unity with respect to $f$ iff every element $a$ of $A$
+  satisfies $f(e,a)=a$.
+\item\label{binop1:5} If $f$ is commutative,
+  then $e$ is a unity with respect to $f$ iff every element $a$ of $A$
+  satisfies $f(a,e)=a$.
+\item\label{binop1:6} If $f$ is commutative,
+  then $e$ is a unity with respect to $f$ iff $e$ is a left unity with
+  respect to $f$.
+\item\label{binop1:7} If $f$ is commutative,
+  then $e$ is a unity with respect to $f$ iff $e$ is a right unity with
+  respect to $f$.
+\item\label{binop1:8} If $f$ is commutative,
+  then $e$ is a left unity with respect to $f$ iff $e$ is a right unity with
+  respect to $f$.
+\item\label{binop1:9} If $e_{1}$ is a left unity with respect to $f$,
+  and if $e_{2}$ is a right unity with respect to $f$, then $e_{1}=e_{2}$.
+\item\label{binop1:10} If $e_{1}$ and $e_{2}$ are unities with respect
+  to $f$, then $e_{1}=e_{2}$.
+\end{thm}
+
+\begin{definition}
+Let $A$ be a set, let $f$ be a binary operator of $A$.
+Assume there exists an element $e$ of $A$ which is a unity with respect
+to $f$.
+We define the term \define{the unity with respect to $f$} (Mizar: ``\verb#the_unity_wrt f#'')
+to be the element of $A$ satisfying
+\begin{defn}
+\item it is a unity with respect to $f$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$ be a set, let $f_{1}$, $f_{2}$ be binary operators of $A$.
+We define the predicate $f_{1}$ is \define{left distributive with respect to} $f_{2}$
+(Mizar: ``\verb#f1 is_left_distributive_wrt f2#'') means
+\begin{defn}
+\item for all elements $a$, $b$, $c$ of $A$, we have
+  $f_{1}(a,f_{2}(b,c))=f_{2}(f_{1}(a,b), f_{1}(a,c))$.
+\end{defn}
+We define the predicate $f_{1}$ is \define{right distributive with respect to} $f_{2}$
+(Mizar: ``\verb#f1 is_right_distributive_wrt f2#'') means
+\begin{defn}
+\item for all elements $a$, $b$, $c$ of $A$, we have
+  $f_{1}(f_{2}(a,b),c)=f_{2}(f_{1}(a,c), f_{1}(b,c))$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$ be a set, let $f_{1}$, $f_{2}$ be binary operators of $A$.
+We define the predicate $f_{1}$ is \define{distributive with respect to}
+$f_{2}$ to mean
+\begin{defn}
+\item $f_{1}$ is both left and right distributive with respect to $f_{2}$.
+\end{defn}
+\end{definition}
+
+Let $f_{1}$, $f_{2}$ be binary operators of $A$. We can prove the
+following six propositions:
+\begin{thm}
+\item\label{binop1:11} $f_{1}$ is distributive with respect to $f_{2}$
+  if and only if for all elements $a$, $b$, $c$ of $A$ we have
+  $f_{1}(a,f_{2}(b,c))=f_{2}(f_{1}(a,b),f_{1}(a,c))$ and
+  $f_{1}(f_{2}(a,b),c)=f_{2}(f_{1}(a,c),f_{1}(b,c))$.
+\item\label{binop1:12} Let $A$ be a nonempty set. If $f_{1}$ be a
+  commutative binary operator of $A$,
+  then $f_{1}$ is distributive with respect to $f_{2}$ iff for all
+  elements $a$, $b$, $c$ of $A$ we have $f_{1}(a,f_{2}(b,c))=f_{2}(f_{1}(a,b),f_{1}(a,c))$.
+\item\label{binop1:13} Let $A$ be a nonempty set. If $f_{1}$ be a
+  commutative binary operator of $A$,
+  then $f_{1}$ is distributive with respect to $f_{2}$ iff for all
+  elements $a$, $b$, $c$ of $A$ we have $f_{1}(f_{2}(a,b),c)=f_{2}(f_{1}(a,c),f_{1}(b,c))$.
+\item\label{binop1:14} Let $A$ be a nonempty set. If $f_{1}$ is
+  commutative, then $f_{1}$ is distributive with respect to $f_{2}$ iff
+  $f_{1}$ is left distributive with respect to $f_{2}$. 
+\item\label{binop1:15} Let $A$ be a nonempty set. If $f_{1}$ is
+  commutative, then $f_{1}$ is distributive with respect to $f_{2}$ iff
+  $f_{1}$ is right distributive with respect to $f_{2}$.
+\item\label{binop1:16} Let $A$ be a nonempty set. If $f_{1}$ is
+  commutative, then $f_{1}$ is left distributive with respect to $f_{2}$ iff
+  $f_{1}$ is right distributive with respect to $f_{2}$.
+\end{thm}
+
+\begin{definition}
+Let $A$ be a set, let $u$ be a unary operator of $A$, let $f$ be a
+binary operator of $A$. We define the predicate
+$u$ is \define{distributive with respect to} $f$ (Mizar: ``\verb#u is_distributive_wrt f#'')
+to mean
+\begin{defn}
+\item for all elements $a$, $b$ of $A$, we have $u(f(a,b))=f(u(a),u(b))$.\addtocounter{defni}{3}
+\end{defn}
+\end{definition}
+
+The next 3 definitions were cancelled.
+
+\begin{definition}
+Let $A$ be a nonempty set, let $e$ be an object, let $f$ be a binary
+operator of $A$.
+We redefine the predicate $e$ is a left unity with respect to $f$ to mean
+\begin{defn}
+\item for all elements $a$ of $A$ we have $f(e,a)=a$.
+\end{defn}
+We redefine the predicate $e$ is a right unity with respect to $f$ to
+mean
+\begin{defn}
+\item\label{binop1:def17} for all elements $a$ of $A$ we have $f(a,e)=a$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$ be a nonempty set, let $f_{1}$ and $f_{2}$ be binary operators
+of $A$.
+We redefine the predicate $f_{1}$ is left distributive with respect to
+$f_{2}$ to mean
+\begin{defn}
+\item for all elements $a$, $b$, $c$ of $A$ we have $f_{1}(a,f_{2}(b,c))=f_{2}(f_{1}(a,b),f_{1}(a,c))$.
+\end{defn}
+We redefine the predicate $f_{1}$ is right distributive with respect to
+$f_{2}$ to mean
+\begin{defn}
+\item for all elements $a$, $b$, $c$ of $A$ we have $f_{1}(f_{2}(a,b),)=f_{2}(f_{1}(a,c),f_{1}(b,c))$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$ be a nonempty set, let $u$ be a unary operator of $A$, let $f$
+be a binary operator of $A$. We redefine the predicate $u$ is
+distributive with respect to $f$ to mean
+\begin{defn}
+\item for all elements $a$, $b$ of $A$, we have $u(f(a,b))=f(u(a),u(b))$.
+\end{defn}
+\end{definition}
+
+We can prove the following four propositions:
+\begin{thm}
+\item\label{binop1:17} Let $x$ and $y$ be objects, let $f\colon X\times Y\to Z$.
+  If $x\in X$ and $y\in Y$ and $Z\neq\emptyset$,
+  then $f(x,y)\in Z$.
+\item\label{binop1:18} Let $x$, $y$ be objects, let $X$, $Y$, $Z$ be
+  sets,
+  let $f\colon X\times Y\to Z$, let $g$ be a \hyperlink{definition:funct1:nm1}{function}.
+  If $Z\neq\emptyset$, $x\in X$, and $y\in Y$,
+  then $(g\circ f)(x,y)=g\bigl(f(x,y)\bigr)$.
+\item\label{binop1:19}
+  Let $f$ be a \hyperlink{definition:funct1:nm1}{function},
+  suppose $\dom(f)=X\times Y$.
+  Then $f$ is constant if and only if for all objects $x_{1},x_{2}\in X$
+  and $y_{1},y_{2}\in Y$ we have $f(x_{1},y_{1})=f(x_{2},y_{2})$.
+\item\label{binop1:20} Let $f_{1}$, $f_{2}$ be partial functions from
+  $X\times Y$ to $Z$. Suppose $\dom(f_{1})=\dom(f_{2})$.
+  If every $(x,y)\in\dom(f_{1})$ satisfies $f_{1}(x,y)=f_{2}(x,y)$,
+  then $f_{1}=f_{2}$.
+\end{thm}
+
+\begin{scheme}[PartFuncEx2]
+Let $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{Z}$ be sets, let $P[-,-,-]$
+be a ternary predicate of objects.
+There exists a partial function $f$ from $\mathcal{X}\times\mathcal{Y}$
+to $\mathcal{Z}$ such that
+\begin{enumerate}[label=(\roman*)]
+\item for all objects $x$ and $y$, we have $(x,y)\in\dom(f)$ if and only
+  if $x\in\mathcal{X}$ and $y\in\mathcal{Y}$ and there exists an object
+  $z$ such that $P[x,y,z]$; and
+\item for all objects $x$ and $y$, if $(x,y)\in\dom(f)$, then $P[x,y,f(x,y)]$.
+\end{enumerate}
+provided:
+\begin{enumerate}
+\item for all objects $x$, $y$, and $z$, if $x\in\mathcal{X}$, $y\in\mathcal{Y}$, and $P[,y,z]$,
+  then we have $z\in\mathcal{Z}$; and
+\item for all objects $x$, $y$, $z_{1}$, $z_{2}$,
+  if $x\in\mathcal{X}$ and $y\in\mathcal{Y}$ and $P[x,y,z_{1}]$ and
+  $P[x,y,z_{2}]$, then $z_{1}=z_{2}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[LambdaR2]
+Let $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{Z}$ be sets,
+let $\mathcal{F}(-,-)$ be an object parametrized by two objects,
+let $P[-,-]$ be a binary predicate of objects.
+There exists a partial function $f$ from $\mathcal{X}\times\mathcal{Y}$
+to $\mathcal{Z}$ such that
+\begin{enumerate}[label=(\roman*)]
+\item for all objects $x$ and $y$, we have $(x,y)\in\dom(f)$ if and only
+  if $x\in\mathcal{X}$ and $y\in\mathcal{Y}$ and $P[x,y]$; and
+\item for all objects $x$ and $y$, if $(x,y)\in\dom(f)$, then $f(x,y)=\mathcal{F}(x,y)$;
+\end{enumerate}
+provided
+\begin{enumerate}
+\item for all objects $x$, $y$, if $P[x,y]$, then $\mathcal{F}(x,y)\in\mathcal{Z}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[PartLambda2]
+Let $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{Z}$ be sets,
+let $\mathcal{F}(-,-)$ be an object parametrized by two objects,
+let $P[-,-]$ be a binary predicate of objects.
+There exists a partial function $f$ from $\mathcal{X}\times\mathcal{Y}$
+to $\mathcal{Z}$ such that
+\begin{enumerate}[label=(\roman*)]
+\item for all objects $x$ and $y$, we have $(x,y)\in\dom(f)$ if and only
+  if $x\in\mathcal{X}$ and $y\in\mathcal{Y}$ and $P[x,y]$; and
+\item for all objects $x$ and $y$, if $(x,y)\in\dom(f)$, then $f(x,y)=\mathcal{F}(x,y)$;
+\end{enumerate}
+provided
+\begin{enumerate}
+\item for all objects $x$, $y$, if $x\in\mathcal{X}$ and
+  $y\in\mathcal{Y}$ and $P[x,y]$, then $\mathcal{F}(x,y)\in\mathcal{Z}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}
+Let $\mathcal{X}$, $\mathcal{Y}$ be nonempty sets,
+let $\mathcal{Z}$ be sets,
+let $\mathcal{F}(-,-)$ be an object parametrized by two objects,
+let $P[-,-]$ be a binary predicate of objects.
+There exists a partial function $f$ from $\mathcal{X}\times\mathcal{Y}$
+to $\mathcal{Z}$ such that
+\begin{enumerate}[label=(\roman*)]
+\item for all elements $x$ of $\mathcal{X}$ and $y$ of $\mathcal{Y}$, we have $(x,y)\in\dom(f)$ if and only $P[x,y]$; and
+\item for all elements $x$ of $\mathcal{X}$ and $y$ of $\mathcal{Y}$, if $(x,y)\in\dom(f)$, then $f(x,y)=\mathcal{F}(x,y)$;
+\end{enumerate}
+provided
+\begin{enumerate}
+\item for all elements $x$ of $\mathcal{X}$ and $y$ of $\mathcal{Y}$,
+  if $P[x,y]$, then $\mathcal{F}(x,y)\in\mathcal{Z}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{definition}
+Let $A$ be a set, let $f$ be a binary operator of $A$, let $a$ and $b$
+be elements of $A$.
+We redefine the type of $f(a,b)$ to be an element of $A$.
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$, $Z$ be sets, let $f_{1},f_{2}\colon X\times Y\to Z$.
+We redefine the predicate $f_{1}=f_{2}$ to mean
+\begin{defn}
+\item for all sets $x$ and $y$, if $x\in X$ and $y\in Y$, then $f_{1}(x,y)=f_{2}(x,y)$.
+\end{defn}
+\end{definition}
+
+\begin{scheme}
+Let $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{Z}$ be sets, let $P[-,-,-]$
+be a ternary predicate of objects.
+There exists a function $f\colon\mathcal{X}\times\mathcal{Y}\to\mathcal{Z}$
+such that for all sets $x$ and $y$, if $x\in\mathcal{X}$ and $y\in\mathcal{Y}$,
+then $P[x,y,f(x,y)]$; provided:
+\begin{enumerate}
+\item for all sets $x$ and $y$, if $x\in\mathcal{X}$ and $y\in\mathcal{Y}$,
+then there exists a set $z\in\mathcal{Z}$ such that $P[x,y,z]$.
+\end{enumerate}
+\end{scheme}
+
+\end{document}

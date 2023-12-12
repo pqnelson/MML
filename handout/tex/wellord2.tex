@@ -1,0 +1,108 @@
+\documentclass{article}
+
+\title[Zermelo Theorem and Axiom of Choice (WELLORD2)]{Zermelo Theorem and Axiom of Choice. The correspondence of well ordering relations and ordinal numbers (WELLORD2)}
+\author{Grzegorz Bancerek}
+\date{June 26, 1989}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $X$ be a set. We define the term $\RelIncl{X}$ (Mizar:
+``\verb#RelIncl X#'') to be the relation satisfying
+\begin{defn}
+\item $\field(\RelIncl{X})=X$, and for all sets $Y$ and $Z$ if $Y\in X$
+and $Z\in X$, then $(Y,Z)\in\RelIncl{X}$ iff $Y\subset Z$.
+\end{defn}
+\end{definition}
+When $X$ is a set, observe $\RelIncl{X}$ is reflexive, transitive, antisymmetric.
+When $A$ is an Ordinal, $\RelIncl{A}$ is connected and well founded.
+
+Let $X$, $Y$, $Z$ be sets. Let $R$ be a relation. Let $A$, $B$, $C$ be Ordinals.
+We have the following results:
+\begin{thm}
+\item\label{wellord2:1} (Cancelled)
+\item\label{wellord2:2} (Cancelled)
+\item\label{wellord2:3} (Cancelled)
+\item\label{wellord2:4} (Cancelled)
+\item\label{wellord2:5} (Cancelled)
+\item\label{wellord2:6} (Cancelled)
+\item\label{wellord2:7} If $Y\subset X$, then $\RelIncl{X}|^{Y}_{Y}=\RelIncl{Y}$.
+\item\label{wellord2:8} For all ordinals $A$ and sets $X$,
+  if $X\subset A$, then $\RelIncl{X}$ is well-ordering.
+\item\label{wellord2:9} If $A\in B$, then $A=(\RelIncl{B})-\Seg(A)$.
+\item\label{wellord2:10} If $\RelIncl{A}$ is isomorphic to $\RelIncl{B}$,
+  then $A=B$.
+\item\label{wellord2:11} If $R$ is isomorphic to $\RelIncl{A}$,
+  and if $R$ and $\RelIncl{B}$ are isomorphic,
+  then $A=B$.
+\item\label{wellord2:12} If $R$ is well-ordering, then there exists an
+  Ordinal $A$ such that $R$ is isomorphic to $\RelIncl{A}$.
+\item\label{wellord2:13} 
+\end{thm}
+
+\begin{definition}
+Let $R$ be a relation. Assume $R$ is well-ordering.
+We define the term \define{order type of $R$} to be an Ordinal
+satisfying
+\begin{defn}
+\item $R$ and $\RelIncl{\mbox{order type of $R$}}$ are isomorphic.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$ be an Ordinal, let $R$ be a relation.
+We define the predicate \define{$A$ is order type of $R$} to mean
+\begin{defn}
+\item $A = $ order type of $R$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{wellord2:14} If $X\subset A$, then the order type of
+  $\RelIncl{X}\subset A$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$ be sets.
+We redefine the predicate $X$ and $Y$ \define{are equipotent}
+means
+\begin{defn}
+\item There exists a function $f$ such that $f$ is one-to-one and
+  $\dom(f)=X$ and $\rng(f)=Y$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+The $\rng(f)=Y$ condition is the same as $f$ being surjective. Hence
+this definition matches our intuition that equipotent sets are the same
+thing as bijective sets.
+\end{remark}
+
+\begin{thm}
+\item\label{wellord2:15} If $X\equipotent Y$ and $Y\equipotent Z$ are
+  equipotent,
+  then $X\equipotent Z$ is equipotent.
+\item\label{wellord2:16} If $R$ well orders $X$,
+  then $\field(R|^{X}_{X})=X$ and $R|^{X}_{X}$ is well-ordering.
+\item\label{wellord2:17} (\textsc{Zermelo's Theorem}\index{Zermelo's Theorem})
+  For any set $X$, there exists a relation $R$ such that $R$ well orders $X$.
+\item\label{wellord2:18} (\textsc{Axiom of Choice}\index{Axiom of Choice}\index{Choice!Axiom})
+  Let $M$ be a nonempty set.
+  If every $X\in M$ is nonempty,
+  and if every $X\in M$ and $Y\in M$ with $X\neq Y$ has $X$ misses $Y$,
+  then there exists a set $C$ such that for all sets $X\in M$ there
+  exists an object $x$ such that $C\cap X=\{x\}$.
+\item\label{wellord2:19} $\RelIncl{X}$ is reflexive in $X$.
+\item\label{wellord2:20} $\RelIncl{X}$ is transitive in $X$.
+\item\label{wellord2:21} $\RelIncl{X}$ is antisymmetric in $X$.
+\end{thm}
+Observe $\RelIncl\emptyset$ is empty.
+Let $X$ be a nonempty set, then we observe $\RelIncl{X}$ is nonempty.
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{wellord2:22} $\RelIncl{\{x\}}=\{(x,x)\}$.
+\item\label{wellord2:23} $\RelIncl{X}\subset X\times X$.
+\end{thm}
+
+\end{document}
