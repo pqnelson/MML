@@ -24,8 +24,6 @@
 \def\ZZ{\mathbb{Z}}
 
 
-\def\card#1{|#1|}
-
 \def\proj#1{\pi_{#1}}
 \def\pr#1{\pi_{#1}}
 %\def\proj2{\pi_{2}}
@@ -104,6 +102,14 @@
 
 % ORDINAL2
 \DeclareMathOperator\last{last}
+
+% ORDINAL3
+\let\og@mod\mod
+\def\mod#1{\,\,{\operator@font mod}\,\,#1}
+
+% CARD1
+\def\card#1{|#1|}
+\def\nextcard#1{#1^{+}}
 
 % STRUCT0
 \def\carrier#1{\operatorname{the\ carrier\ of\ }#1}

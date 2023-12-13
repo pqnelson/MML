@@ -1,0 +1,81 @@
+\chapter{Appendix on Mizar}
+
+A fantastic introduction to Mizar may be found in ``Mizar in a
+Nutshell''~\cite{mizar-in-a-nutshell}.
+This appendix is more of an explanation of how I transcribe Mizar into
+English. There's little justification needed, since Mizar is so close to
+the mathematical vernacular.
+
+\section{Formulas}
+
+In Mizar, formulas are straightforwardly translated. There are some
+idiosyncracies, for example ``\verb#for all x being T st x in A holds P[x]#''
+might be translated as a theorem statement as ``Let $x$ be a $T$.
+If $x\in A$, then $P[x]$.'' This is how mathematicians standardly write
+universally quantified statements.
+
+When ``\verb#for all x being T st x in A holds P[x]#'' appears as a
+premise, we sometimes transcribe it as ``Every $x\in A$ satisfies $P[x]$''.
+
+I freely reorder premises, since it's easier to transcribe ``\texttt{A
+  or B \&\ C implies D}'' as ``If $C$ and either $A$ or $B$, then $D$.''
+
+\section{Definitions}
+
+We can define, in Mizar, one of several possible things:
+\begin{enumerate}
+\item types (which Mizar calls ``modes''),
+\item attributes or adjectives (which modify types),
+\item terms (which Mizar calls ``functors'')
+\item predicates,
+\item structures (which are unordered key-value structures with inheritance).
+\end{enumerate}
+
+We transcribe these definitions as:
+\begin{enumerate}
+\item ``\verb#mode T1 is A1 A2 ... An T#''
+  is translated as ``We define the mode $T_{1}$ is an $A_{1}$ \dots
+  $A_{n}$ $T$''
+\item ``\verb#attr t is A means formula#'' is translated as ``We define
+  the attribute [\verb#t#] is \textbf{``A''} means (Def.\ $n$) [\verb#formula#]''.
+\item ``\verb#func t -> T means formula#'' is translated as ``We define the
+  term [\verb#t#] to be the [\verb#T#] such that (Def.\ $n$) [\verb#formula#]''
+\item ``\verb#pred P means formula#'' is translated as ``We define the
+  predicate \textbf{``P''} means (Def.\ $n$) [\verb#formula#]''.
+\end{enumerate}
+
+\subsection{Associativity}
+We often define binary operators as infixed terms (e.g., $A+B$ defines $+$).
+Mizar parses $A+B+C$ from left to right, i.e., as $(A+B)+C$.
+
+\subsection{Redefinitions}
+Redefinitions occur when we want to change the type of the term defined,
+or if we want a simpler-but-equivalent definition for a term.
+
+Redefinitions are ``flat'', in the sense that if $D_{1}$ redefines $D$
+and $D_{2}$ tries to redefine $D_{1}$ then Mizar really uses $D_{2}$ to
+redefine $D$.
+
+\section{Theorems}
+
+\subsection{Schemes}
+Schemes are theorems using free second-order variables. I write schemes
+out by first enumerating the second-order variables, which are written
+using caligraphic font ($\mathcal{A}$, $\mathcal{B}$, $\mathcal{C}$,
+\dots, $\mathcal{Z}$), then give the conclusion, then give the premises
+after writing ``provided''. Schematically, it looks like:
+
+\begin{scheme}
+  Let $\mathcal{A}_{1}$ be a $\langle$type${}_{1}\rangle$, \dots, let
+  $\mathcal{A}_{n}$ be a $\langle$type${}_{n}\rangle$.
+  We have $\langle$formula$\rangle$, provided:
+\begin{enumerate}
+\item $\langle$formula${}_{1}\rangle$; and
+\item[] \dots; and
+\item[$(k)$] $\langle$formula${}_{k}\rangle$.
+\end{enumerate}
+\end{scheme}
+
+Predicates are written using square brackets (e.g., $\mathcal{P}[x]$)
+whereas functors are written using parentheses (e.g., $\mathcal{F}(x,y)$).
+We describe functors as ``terms parametrized by [terms of specific types]''.

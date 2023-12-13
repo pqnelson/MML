@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\title{Zermelo's Theorem (WELLSET1)}
+\author{Bogdan Nowak and S{\l}awomir Bia{\l}ecki}
+\date{October 27, 1989}
+\begin{document}
+\maketitle
+
+Let $R$ be a relation, let $W$, $X$, $Y$, be sets.
+We can prove the following two propositions:
+\begin{thm}
+\item\label{wellset:1} Let $x$ be a set. Then $x\in\field(R)$ if and
+  only if there exists an object $y$ such that either $(x,y)\in R$ or
+  $(y,x)\in R$.
+\item\label{wellset:2} If $X\neq\emptyset$ and $Y\neq\emptyset$ and
+  $W=X\times Y$, then $\field(W)=X\cup Y$.
+\end{thm}
+
+\begin{scheme}
+Let $\mathcal{A}$ be a set, let $\mathcal{P}[-]$ be a unary predicate of sets.
+There exists a set $B$ such that every relation $R$ satisfies $R\in B$
+if and only if $R\in\mathcal{A}$ and $\mathcal{P}[R]$.
+\end{scheme}
+
+Let $x$, $y$ be sets, let $F$ be a function. We can prove the following
+four propositions:
+\begin{thm}
+\item\label{wellset:3} If $x\in\field(W)$ and $y\in\field(W)$ and $W$ is
+  well-ordering, then $x\notin W-\Seg(y)$ implies $(y,x)\in W$.
+\item\label{wellset:4} If $x\in\field(W)$ and $y\in\field(W)$ and $W$ is
+  well-ordering, then $x\in W-\Seg(y)$ implies $(y,x)\notin W$.
+\item\label{wellset:5} Let $F$ be a function, let $D$ be a set.
+  If every set $X\in D$ satisfies $F(X)\notin X$ and $F(X)\in\union D$,
+  then there exists a relation $R$ such that
+  $\field(R)\subset\union D$ and $R$ is well-ordering and
+  $\field(R)\notin D$ every set $y\in\field(R)$ satisfies $R-\Seg(y)\in D$
+  and $F(R-\Seg(y))=y$.
+\item\label{wellset:6} (\textsc{Zermelo's Theorem}\index{Zermelo's Theorem})
+  For any set $N$ there exists a relation $R$ such
+  that $R$ is well-ordering and $\field(R)=N$.
+\end{thm}
+
+\end{document}

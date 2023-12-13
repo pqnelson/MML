@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\title{Three-Argument Operations and Four-Argument Operations (MULTOP-1)}
+\author{Michal Muzalewski and Wojciech Skaba}
+\date{October 2, 1990}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $f$ be a function, let $a$, $b$, $c$ be objects.
+We define the term $f(a,b,c)$ to be the set equal to
+\begin{defn}
+\item $f(a,b,c) = f((a,b,c))$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$, $B$, $C$, $D$ be nonempty sets, let $f\colon A\times B\times C\to D$,
+let $a$ be an element of $A$, $b$ be an element of $B$, $c$ be an
+element of $C$.
+We redefine the type of the term $f(a,b,c)$ to be an element of $D$.
+\end{definition}
+
+Let $A$, $B$, $C$, $D$ be nonempty sets, let $f\colon A\times B\times C\to D$,
+let $a$ be an element of $A$, $b$ be an element of $B$, $c$ be an
+element of $C$. Let $X$, $Y$, $Z$ be sets.
+\begin{thm}
+\item\label{multop1:1} Let $f_{1},f_{2}\colon X\times Y\times Z\to D$.
+  If every $x\in X$, $y\in Y$, and $z\in Z$ satisfies $f_{1}(x,y,z)=f_{2}(x,y,z)$,
+  then $f_{1}=f_{2}$.
+\item\label{multop1:2} Let $f_{1},f_{2}\colon A\times B\times C\to D$.
+  If every $a\in A$, $b\in B$, and $c\in C$ satisfies $f_{1}(a,b,c)=f_{2}(a,b,c)$,
+  then $f_{1}=f_{2}$.
+\item\label{multop1:3} Let $f_{1},f_{2}\colon A\times B\times C\to D$.
+  If every elements $a$ of $A$, $b$ of $B$, and $c$ of $C$ satisfies $f_{1}(a,b,c)=f_{2}(a,b,c)$,
+  then $f_{1}=f_{2}$.
+\end{thm}
+
+\begin{definition}
+Let $A$ be a set. We define the mode, a \define{Ternary Operator of $A$}
+(Mizar: ``\verb#TriOp of A#'') to be a Function from $A\times A\times A$
+to $A$.
+\end{definition}
+
+\begin{scheme}[FuncEx3D]
+Let $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{Z}$, $\mathcal{T}$ be
+nonempty sets, let $\mathcal{P}[-,-,-,-]$ be a tetradic predicate
+of objects.
+There exists $f\colon\mathcal{X}\times\mathcal{Y}\times\mathcal{Z}\to\mathcal{T}$
+such that every element $x$ of $\mathcal{X}$, $y$ of $\mathcal{Y}$, $z$
+of $\mathcal{Z}$ satisfies $\mathcal{P}[x,y,z,f(x,y,z)]$; provided:
+\begin{enumerate}
+\item For any elements $x$ of $\mathcal{X}$, $y$ of $\mathcal{Y}$, $z$
+of $\mathcal{Z}$, there exists an element $t$ of $\mathcal{T}$ such that $\mathcal{P}[x,y,z,t]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{thm}
+\item\label{multop1:4} 
+\item\label{multop1:5} 
+\item\label{multop1:6} 
+\end{thm}
+
+\end{document}

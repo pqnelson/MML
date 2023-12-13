@@ -1,0 +1,286 @@
+\documentclass{article}
+
+
+\title{Cardinal Numbers (CARD-1)}
+\author{Grzegorz Bancerek}
+\date{September 19, 1989}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $X$ be an object.
+We define the attribute $X$ is \define{cardinal} to mean
+\begin{defn}
+\item There exists an Ordinal $B$ such that $X=B$ and for any Ordinal
+  $A$ such that $A\equipotent B$ are equipotent, we have $B\subset A$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+We define a new mode, a \define{Cardinal} is a cardinal set.
+\end{definition}
+
+Let $M$, $N$ be Cardinals. We can prove the following three propositions:
+\begin{thm}
+\item\label{card1:1} (Cancelled)
+\item\label{card1:2} If $M\equipotent N$ are equipotent, then $M=N$.
+\item\label{card1:3} $M\in N$ if and only if $M\subset N$ and $M\neq N$.
+\item\label{card1:4} $M\in N$ if and only if $N\nsubset M$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set.
+We define the term $\card{X}$ (Mizar: ``\verb#card X#'') to be the
+Cardinal satisfying
+\begin{defn}
+\item $X\equipotent\card{X}$ are equipotent.
+\end{defn}
+Observe this is projective (in the sense that $\card{(\card{X})}=\card{X}$).
+\end{definition}
+
+\begin{remark}
+The journal \textit{Formalized Mathematics} typesets $\card{X}$ as
+$\overline{\overline{X}}$, which appears in Polish texts on logic.
+\end{remark}
+
+Observe when $C$ is a Cardinal, we can reduce $\card{C}$ to $C$.
+
+Let $A$ be an Ordinal.
+Let $X$, $Y$, $Z$ be sets, let $R$ be a relation. We can prove the
+following propositions:
+\begin{thm}
+\item\label{card1:5} $X\equipotent Y$ if and only if $\card{X}=\card{Y}$.
+\item\label{card1:6} If $R$ is well-ordering, then $\field(R)$ is
+  equipotent to the order type of $R$.
+\item\label{card1:7} If $X\subset M$, then $\card{X}\subset M$
+\item\label{card1:8} $\card{A}\subset A$.
+\item\label{card1:9} If $X\in M$, then $\card{X}\in M$.
+\item\label{card1:10} (\textsc{Cantor--Bernstein Theorem}\index{Cantor--Bernstein Theorem})
+  $\card{X}\subset\card{Y}$ if and only if there exists a function $f$
+  such that $f$ is one-to-one and $\dom(f)=X$ and $\rng(f)\subset Y$.
+\item\label{card1:11} If $X\subset Y$, then $\card{X}\subset\card{Y}$.
+\item\label{card1:12} $\card{X}\subset\card{Y}$ if and only if there
+  exists a function $f$ such that $\dom(f)=Y$ and $X\subset\rng(f)$.
+\item\label{card1:13} $X\not\equipotent\powerset(X)$ are not equipotent.
+\item\label{card1:14} (\textsc{Cantor's Theorem}\index{Cantor's Theorem})
+  $\card{X}\in\card{\powerset(X)}$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set.
+We define the term $\nextcard X$ (Mizar: ``\verb#nextcard X#'') is the
+Cardinal satisfying
+\begin{defn}
+\item $\card{X}\in\nextcard{X}$ and for any cardinal $M$ if $\card{X}\in M$
+  we have $\nextcard{X}\subset M$.
+\end{defn}
+\end{definition}
+
+Now we can prove the following four theorems:
+\begin{thm}
+\item\label{card1:15} $\emptyset\in\nextcard X$.
+\item\label{card1:16} If $\card{X}=\card{Y}$, then $\nextcard X=\nextcard Y$.
+\item\label{card1:17} If $X\equipotent Y$ are equipotent, then
+  $\nextcard X=\nextcard Y$.
+\item\label{card1:18} For any Ordinal $A$, $A\in\nextcard A$.
+\end{thm}
+
+\begin{definition}
+Let $M$ be a Cardinal. We define the attribute $M$ is a \define{limit cardinal}
+to mean
+\begin{defn}
+\item There is no cardinal $N$ such that $M=\nextcard N$.
+\end{defn}
+\end{definition}
+
+\begin{definition}\index{$\aleph_{A}$}
+Let $A$ be an Ordinal. We define the term $\aleph_{A}$ (Mizar:
+``\verb#aleph A#'') to be the set satisfying
+\begin{defn}
+\item There existsa sequence such that
+  \begin{enumerate}[label=(\roman*)]
+  \item $\aleph_{A}=\last(S)$, and
+  \item $\dom(S)=\succ(A)$, and
+  \item $S_{0}=\card{\omega}$, and
+  \item for any Ordinal $B$, if $\succ(B)\in\succ(A)$, then
+    $S_{\succ(B)}=\nextcard{S_{B}}$,
+    and
+  \item for any Ordinal $B\in\succ A$ which is a nonzero limit Ordinal,
+    we have $S_{B}=\card{\sup(S|_{B})}$.
+  \end{enumerate}
+\end{defn}
+\end{definition}
+
+Observe $\aleph_{A}$ is automatically cardinal.
+
+We can prove the following results:
+\begin{thm}
+\item\label{card1:19} $\aleph_{\succ(A)}=\nextcard{\aleph_{A}}$.
+\item\label{card1:20} Let $A\neq\emptyset$ be a limit Ordinal,
+  Let $S$ be a sequence with $\dom(S)=A$.
+  If every Ordinal $B\in A$ has $S_{B}=\aleph_{B}$,
+  then $\aleph_{A}=\card{\sup(S)}$.
+\item\label{card1:21} $A\in B$ if and only if $\aleph_{A}\in\aleph_{B}$.
+\item\label{card1:22} If $\aleph_{A}=\aleph_{B}$, then $A=B$.
+\item\label{card1:23} $A\subset B$ if and only if
+  $\aleph_{A}\subset\aleph_{B}$.
+\item\label{card1:24} If $X\subset Y$ and $Y\subset Z$ and $X\equipotent Z$
+  are equipotent, then $X\equipotent Y$ and $Y\equipotent Z$ are equipotent.
+\item\label{card1:25} If $\powerset(Y)\subset X$,
+  then $\card{Y}\in\card{X}$ and $Y\not\equipotent X$ are not equipotent.
+\item\label{card1:26} If $X\equipotent\emptyset$ are equipotent, then
+  $X=\emptyset$. 
+\item\label{card1:27} $\card{\emptyset}=0$.
+\item\label{card1:28} Let $x$ be an object. Then $\card{X}=\card{\{x\}}$
+  if and only if there exists an object $x_{0}$ such that $X=\{x_{0}\}$.
+\item\label{card1:29} Let $x$ be an object.
+  Then $X\equipotent\{x\}$ are equipotent
+  if and only if there exists an object $x_{0}$ such that $X=\{x_{0}\}$.
+\item\label{card1:30} For any object $x$, we have $\card{\{x\}}=1$.
+\item\label{card1:31} If $X$ misses $X_{1}$ and $Y$ misses $Y_{1}$ and
+  $X\equipotent Y$ and $X_{1}\equipotent Y_{1}$ are equipotent,
+  then $X\cup X_{1}\equipotent Y\cup Y_{1}$ are equipotent.
+\item\label{card1:32} If $x\in X$ and $y\in X$,
+  then $X\setminus\{x\}\equipotent X\setminus\{y\}$ are equipotent.
+\item\label{card1:33} If $X\subset\dom(f)$ and $f$ is injective,
+  then $X\equipotent f(X)$ are equipotent.
+\item\label{card1:34} If $X\equipotent Y$ are equipotent, $x\in X$, and
+  $y\in Y$, then $X\setminus\{x\}\equipotent Y\setminus\{y\}$ are equipotent.
+\item\label{card1:35} If $\succ(X)\equipotent\succ(Y)$ are equipotent,
+  then $X\equipotent Y$ are equipotent.
+\item\label{card1:36} For any natural number $n$,
+  either $n=\emptyset$ or there exists a natural number $m$ such that
+  $n=\succ(m)$. 
+\item\label{card1:37} If $x\in\omega$, then $x$ is cardinal.
+\item\label{card1:38} If $X\equipotent Y$ are equipotent and $X$ is
+  finite,
+  then $Y$ is finite.
+\end{thm}
+
+Let $k$, $m$, $n$ be natural numbers. Then we have the following results:
+\begin{thm}
+\item\label{card1:39} $n$ is finite and $\card{n}$ is finite.
+\item\label{card1:40} If $\card{m}=\card{n}$, then $m=n$.
+\item\label{card1:41} $\card{m}\subset\card{n}$ if and only if $m\subset n$
+\item\label{card1:42} $\card{m}\in\card{n}$ if and only if $m\in n$.
+\item\label{card1:43} (Cancelled)
+\item\label{card1:44} $\nextcard{\card{n}}=\card{\succ(n)}$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a finite set.
+We redefine the type of $\card{X}$ to be an element of $\omega$.
+\end{definition}
+
+We can prove the following result:
+\begin{thm}
+\item\label{card1:45} If $X$ is finite, then $\nextcard X$ is finite.
+\end{thm}
+
+\begin{scheme}[CardinalInd]
+Let $\mathcal{S}[-]$ be a unary predicate of sets.
+We have for all Cardinals $M$, $\mathcal{S}[M]$; provided:
+\begin{enumerate}
+\item $\mathcal{S}[\emptyset]$; and
+\item for any Cardinal $M$, if $\mathcal{S}[M]$, then
+  $\mathcal{S}[\nextcard M]$; and
+\item for any nonzero limit Cardinal $M$,
+  if every cardinal $N\in M$ satisfies $\mathcal{S}[N]$, 
+  then $\mathcal{S}[M]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[CardinalCompInd]
+Let $\mathcal{S}[-]$ be a unary predicate of sets.
+For any Cardinal $M$ we have $\mathcal{S}[M]$, provided:
+\begin{enumerate}
+\item For any Cardinal $M$,
+  if every Cardinal $N\in M$ satisfies $\mathcal{S}[N]$,
+  then $\mathcal{S}[M]$.
+\end{enumerate}
+\end{scheme}
+
+Observe $\omega$ is a cardinal.
+
+We can prove the following two theorems:
+\begin{thm}
+\item\label{card1:46} $\aleph_{0}=\omega$.
+\item\label{card1:47} $\card{\omega}=\omega$.
+\end{thm}
+
+Observe $\omega$ is a limit cardinal, and every element of $\omega$ is finite.
+We register that $\omega$ is infinite, the cardinality of infinite sets
+is infinite.
+
+We can prove the following:
+\begin{thm}
+\item\label{card1:48} For any finite Cardinal $M$, there exists a
+  natural number $n$ such that $M=\card{n}$.
+\end{thm}
+
+We now have the meaning of numerals:\index{numerals}
+\begin{thm}
+\item\label{card1:49} $1=\{0\}$
+\item\label{card1:50} $2=\{0,1\}$
+\item\label{card1:51} $3=\{0,1,2\}$
+\item\label{card1:52} $4=\{0,1,2,3\}$
+\item\label{card1:53} $5=\{0,1,2,3,4\}$
+\item\label{card1:54} $6=\{0,1,2,3,4,5\}$
+\item\label{card1:55} $7=\{0,1,2,3,4,5,6\}$
+\item\label{card1:56} $8=\{0,1,2,3,4,5,6,7\}$
+\item\label{card1:57} $9=\{0,1,2,3,4,5,6,7,8\}$
+\item\label{card1:58} $10=\{0,1,2,3,4,5,6,7,8,9\}$.
+\end{thm}
+
+Now we have the following result:
+\begin{thm}
+\item\label{card1:59} Let $f$ be a function. If $f$ is injective and
+  $\dom(f)$ is infinite, then $\rng(f)$ is infinite.
+\end{thm}
+
+\begin{definition}
+Let $n$ be a natural number. We redefine the type of $\Segm(n)$ to be a
+subset of $\omega$.
+\end{definition}
+
+We can prove the following:
+\begin{thm}
+\item\label{card1:60} If $A\equipotent n$, then $A=n$.
+\item\label{card1:61} $A$ is finite if and only if $A\in\omega$.
+\item\label{card1:62} For any function $f$, we have $\card{f}=\card{\dom(f)}$.
+\item\label{card1:63} If $\RelIncl{X}$ is finite, then $X$ is finite.
+\item\label{card1:64} $\card{k\constantto x}=k$.
+\end{thm}
+
+\skipdefn
+
+\begin{definition}
+Let $N$ be an object, $X$ be a set. We define the attribute $X$ is
+\define{$N$-element} (Mizar: ``\verb#N-element#'') to mean
+\begin{defn}[start=7]
+\item $\card{X}=N$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a nonempty set.
+We define a new mode, a \define{Singleton of $X$} (Mizar:
+``\verb#Singleton of X#'') is a 1-element subset of $X$.
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{card1:65} For any nonempty set $X$ and for any singleton $A$
+  of $X$, there exists an element $x$ of $X$ such that $A=\{x\}$.
+\item\label{card1:66} $\card{X}\subset\card{Y}$ if and only if there
+  exists a function $f$ such that $X\subset f(Y)$.
+\item\label{card1:67} $\card{f(X)}\subset\card{X}$.
+\item\label{card1:68} If $\card{X}\in\card{Y}$, then $Y\setminus X\neq\emptyset$.
+\item\label{card1:69} For any object $x$, we have $X\equipotent X\times\{x\}$
+  are equipotent and $\card{X}=\card{X\times\{x\}}$.
+\item\label{card1:70} For any function $f$, if $f$ is injective, then $\card{\dom(f)}=\card{\rng(f)}$.
+\item\label{card1:71} Let $f$ be a function, let $x$ and $y$ be objects.
+  Then $\card{f\frown(x,y)}=\card{f}$.
+\end{thm}
+
+\end{document}

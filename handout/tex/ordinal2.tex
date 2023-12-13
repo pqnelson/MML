@@ -6,6 +6,11 @@
 \begin{document}
 \maketitle
 
+\begin{remark}
+There are about two dozen schemes in this article, and I transcribed
+about half of them. I should return and continue transcribing one day.
+\end{remark}
+
 \begin{scheme}[OrdinalInd]
 Let $P[-]$ be a unary predicate of Ordinals.
 We have for every Ordinal $A$, $P[A]$; provided:
@@ -250,32 +255,290 @@ provided:
 \end{enumerate}
 \end{scheme}
 
+\begin{scheme}[TSResultL]
+Let $\mathcal{L}$ be a sequence, let $\mathcal{A}$ be an Ordinal,
+let $\mathcal{F}(-)$ be a set parametrized by an Ordinal, let $\mathcal{B}$
+be a set, let $\mathcal{C}(-,-)$ be a set parametrized by an Ordinal and
+a set, let $\mathcal{D}(-,-)$ be a set parametrized by an Ordinal and a
+seqence.
+
+We have $\mathcal{F}(\mathcal{A})=\mathcal{D}(\mathcal{A},\mathcal{L})$;
+provided:
+\begin{enumerate}
+\item for all Ordinals $A$ and sets $x$, we have $x=\mathcal{F}(A)$ if
+  and only if there exists a sequence $L$ such that
+  \begin{enumerate}[label=(\roman*)]
+  \item $x=\last(L)$; and
+  \item $\dom(L)=\succ(A)$; and 
+  \item $L(0)=\mathcal{B}$; and
+  \item for all Ordinals $C$, if $\succ(C)\in\succ(A)$, then
+    $L(\succ(C))=\mathcal{C}(C,L(C))$; and
+  \item for all nonzero limit Ordinals $C$, if $C\in\succ(A)$, then $L(C)=\mathcal{D}(C,L|_{C})$.
+  \end{enumerate}
+\item $\mathcal{A}\neq0$; and
+\item $\mathcal{A}$ is a limit ordinal; and
+\item $\dom(\mathcal{L})=\mathcal{A}$; and
+\item for all Ordinals $A$, if $A\in\mathcal{A}$, then $\mathcal{L}(A)=\mathcal{F}(A)$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[OSExist]
+Let $\mathcal{A}$ and $\mathcal{B}$ be Ordinals, let $\mathcal{C}(-,-)$
+be an Ordinal parametrized by Ordinals, $\mathcal{D}(-,-)$ be an Ordinal
+parametrized by an Ordinal and a Sequence.
+
+There exists a Ordinal-sequence $\varphi$ such that
+\begin{enumerate}[label=(\roman*)]
+\item $\dom(\varphi)=\mathcal{A}$; and
+\item If $0\in\mathcal{A}$, then $\varphi(0)=\mathcal{B}$;
+\item For all Ordinals $A$, if $\succ(A)\in\mathcal{A}$, then $\varphi(\succ(A))=\mathcal{C}(A,\varphi(A))$;
+and
+\item for all nonzero limit Ordinals $A\in\mathcal{A}$, we have $\varphi(A)=\mathcal{D}(A,\varphi|_{A})$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[OSResult]
+Let $\mathcal{P}$ be an Ordinal-Sequence, let $\mathcal{F}(-)$ be an
+Ordinal parametrized by Ordinals, let $\mathcal{A}$ and $\mathcal{B}$ be
+Ordinals, let $\mathcal{C}(-,-)$ be an Ordinal parametrized by two
+Ordinals, and let $\mathcal{D}(-,-)$ be an Ordinal parametrized by an
+Ordinal and a Sequence.
+
+For every Ordinal $A$, if $A\in\dom(\mathcal{P})$, then $\mathcal{P}(A)=\mathcal{F}(A)$;
+provided:
+\begin{enumerate}
+\item For all ordinals $A$ and $B$, we have $B=\mathcal{F}(A)$ if and
+  only if there exists an Ordinal-sequence $\varphi$ such that
+  \begin{enumerate}[label=(\roman*)]
+  \item $B=\last(\varphi)$; and
+  \item $\dom(\varphi)=\succ(A)$; and
+  \item $\varphi(0)=\mathcal{B}$; and
+  \item every Ordinal $C$, if $\succ(C)\in\succ(A)$, then
+    $\varphi(\succ(C))=\mathcal{C}(C,\varphi(C))$; and
+  \item every nonzero limit Ordinal $C$ satisfies $\varphi(C)=\mathcal{D}(C,\varphi|_{C})$;
+  \end{enumerate}
+\item $\dom(\mathcal{P})=\mathcal{A}$; and
+\item If $0\in\mathcal{A}$, then $\mathcal{P}(0)=\mathcal{B}$; and
+\item For all Ordinals $A$, if $\succ(A)\in\mathcal{A}$, then
+  $\mathcal{P}(\succ(A))=\mathcal{C}(A,\mathcal{P}(A))$; and
+\item Every nonzero limit Ordinal $A\in\mathcal{A}$ satisfies $\mathcal{P}(A)=\mathcal{D}(A,\mathcal{P}|_{A})$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[OSDef]
+
+\end{scheme}
+
+\begin{definition}\index{Sequence!Supremum}\index{$\sup(L)$}\index{Supremum!Sequence}\index{Sequence!Infinimum}\index{$\inf(L)$}\index{Infinimum!Sequence}
+Let $L$ be a Sequence.
+We define $\sup(L)$ to be the Ordinal equal to
+\begin{defn}
+\item $\sup(L):=\sup(\rng(L))$
+\end{defn}
+We define $\inf(L)$ to be the Ordinal equal to
+\begin{defn}
+\item $\inf(L):=\inf(\rng(L))$
+\end{defn}
+\end{definition}
+
+We can prove the following proposition:
 \begin{thm}
 \item\label{ordinal2:26} 
-\item\label{ordinal2:27} 
-\item\label{ordinal2:28} 
-\item\label{ordinal2:29} 
-\item\label{ordinal2:30} 
-\item\label{ordinal2:31} 
-\item\label{ordinal2:32} 
-\item\label{ordinal2:33} 
-\item\label{ordinal2:34} 
-\item\label{ordinal2:35} 
-\item\label{ordinal2:36} 
-\item\label{ordinal2:37} 
-\item\label{ordinal2:38} 
-\item\label{ordinal2:39} 
-\item\label{ordinal2:40} 
-\item\label{ordinal2:41} 
-\item\label{ordinal2:42} 
-\item\label{ordinal2:43} 
-\item\label{ordinal2:44} 
-\item\label{ordinal2:45} 
-\item\label{ordinal2:46} 
-\item\label{ordinal2:47} 
-\item\label{ordinal2:48} 
-\item\label{ordinal2:49} 
-\item\label{ordinal2:50} 
+\end{thm}
+
+\begin{definition}\index{$\liminf(L)$}\index{$\limsup(L)$}
+Let $L$ be a sequence. We define $\limsup(L)$ to be the Ordinal
+satisfying
+\begin{defn}
+\item There exists an Ordinal-sequence $\varphi$
+  such that $\limsup(L)=\inf(\varphi)$
+  and $\dom(\varphi)=\dom(L)$ and
+  every Ordinal $A\in\dom(L)$ satisfies
+  $\varphi(A)=\sup(\rng(L|_{\dom(L)\setminus A}))$.
+\end{defn}
+We define $\liminf(L)$ to be the Ordinal satisfying
+\begin{defn}
+\item There exists an Ordinal-sequence $\varphi$ such that
+  $\liminf(L)=\sup(\varphi)$ and $\dom(\varphi)=\dom(L)$ and every
+  Ordinal $A\in\dom(L)$ satisfies
+  $\varphi(A)=\inf(\rng(L|_{\dom(L)\setminus A}))$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$ be an Ordinal, let $\varphi$ be an Ordinal-sequence.
+We define the predicate \define{$A$ is the limit of $\varphi$}
+(Mizar: ``\verb#A is_limes_of fi#'')
+is defined by
+\begin{defn}
+\item Per cases by $A$:
+  \begin{enumerate}[label=(\roman*)]
+  \item (When $A=0$): There exists an Ordinal $B\in\dom(\varphi)$ such that for every
+    Ordinal $C$, if $B\subset C$ and $C\in\dom(\varphi)$, then $\varphi(C)=0$;
+  \item (Otherwise) For all Ordinals $B$ and $C$, if $B\in A$ and $A\in C$, 
+    then there exists an Ordinal $D\in\dom(\varphi)$ such that every
+    Ordinal $E\in\dom(\varphi)$ satisfies if $D\subset E$ then
+    $B\in\varphi(E)$ and $\varphi(E)\in C$.
+  \end{enumerate}
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $\varphi$ be an Ordinal-sequence. Assume there exists an Ordinal
+which is the limit of $\varphi$.
+Then we define the term \define{the limit of $\varphi$} (Mizar:
+``\verb#lim fi#'') is the Ordinal satisfying:
+\begin{defn}
+\item it is the limit of $\varphi$.
+\end{defn}
+\end{definition}
+
+\begin{definition}\index{$\lim_{A}\varphi$}
+Let $A$ be an Ordinal, let $\varphi$ be an Ordinal-sequence.
+We define the term $\lim_{A}\varphi$ (Mizar: ``\verb#lim(A,fi)#'')
+to be the Ordinal equal to
+\begin{defn}
+\item $\lim_{A}\varphi=\lim\varphi|_{A}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $L$ be an Ordinal-sequence.
+We define the attribute $L$ is \define{increasing} to mean
+\begin{defn}
+\item For all Ordinals $A\in B$ and $B\in\dom(L)$, we have $L(A)\in L(B)$.
+\end{defn}
+We define the attribute $L$ is \define{continuous} to mean
+\begin{defn}
+\item For all Ordinals $A\in\dom(L)$ and $B=L(A)$, if $A\neq 0$ is a
+  limit ordinal, then $B$ is the limit of $L|_{A}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}\index{Ordinal!Addition}
+Let $A$ and $B$ be Ordinals.
+We define the term $A+B$ (Mizar: ``\verb#A +^ B#'') to be the Ordinal
+satisfying
+\begin{defn}
+\item There exists an Ordinal-sequence $\varphi$ such that
+  \begin{enumerate}[label=(\roman*)]
+  \item $A+B=\last(\varphi)$, and
+  \item $\dom(\varphi)=\succ(B)$, and
+  \item $\varphi(0)=A$, and
+  \item for all Ordinals $C$, if $\succ(C)\in\succ(B)$, then $\varphi(\succ(C))=\succ(\varphi(C))$,
+    and
+  \item for all nonzero limit Ordinals $C$, if $C\in\succ(B)$, then $\varphi(C)=\sup(\varphi|_{C})$.
+  \end{enumerate}
+\end{defn}
+\end{definition}
+
+\begin{remark}
+Intuitively, this means that $\varphi_{0}=A$ and $\varphi_{n+1}=1+\varphi_{n}$
+and $A+B=\varphi_{B}$. Observe this gives us the identity $A+0=A$ automatically.
+\end{remark}
+
+\begin{definition}\index{Ordinal!Multiplication}
+Let $A$ and $B$ be Ordinals.
+We define the term $A\cdot B$ (Mizar: ``\verb#A *^ B#'')
+to be the Ordinal satisfying
+\begin{defn}
+\item There exists an Ordinal-sequence $\varphi$ such that
+  \begin{enumerate}[label=(\roman*)]
+  \item $A\cdot B=\last(\varphi)$; and
+  \item $\dom(\varphi)=\succ(A)$; and
+  \item $\varphi(0)=0$; and
+  \item for all Ordinals $C$, if $\succ(C)\in\succ(B)$,
+    then $\varphi(\succ(C))=\varphi(C)+B$;
+    and
+  \item for all nonzero limit Ordinals $C$, if $C\in\succ(B)$, then $\varphi(C)=\union(\sup(\varphi|_{C}))$.
+  \end{enumerate}
+\end{defn}
+\end{definition}
+
+\begin{remark}
+Intuitively, this means for $A\cdot B$ that $\varphi_{0}=0$ and
+$\varphi_{n+1}=\varphi_{n}+B$, so $A\cdot B=\varphi_{A}$. This gives us
+$0\cdot B=0$ automatically.
+\end{remark}
+
+\begin{definition}
+Let $A$ and $B$ be Ordinals.
+We define the term $A^{B}$ (Mizar: ``\verb#exp(A,B)#'') to be the
+Ordinal satisfying
+\begin{defn}
+\item There exists an Ordinal-sequence $\varphi$ such that
+  \begin{enumerate}[label=(\roman*)]
+  \item $A^{B}=\last(\varphi)$; and
+  \item $\dom(\varphi)=\succ(B)$; and
+  \item $\varphi(0)=1$; and
+  \item for all Ordinals $C$, if $\succ(C)\in\succ(B)$,
+    then $\varphi(\succ(C))=A\cdot\varphi(C)$;
+    and
+  \item for all nonzero limit Ordinals $C$, if $C\in\succ(B)$, then $\varphi(C)=\lim(\varphi|_{C})$.
+  \end{enumerate}
+\end{defn}
+\end{definition}
+
+\begin{remark}
+Observe, for $A^{B}$, this intuitively is encoded by $\varphi_{0}=1$ and
+$\varphi_{n+1}=A\cdot\varphi_{n}$. 
+\end{remark}
+
+We can now prove the following results:
+\begin{thm}
+\item\label{ordinal2:27} $A+0=A$.
+\item\label{ordinal2:28} $A+\succ(B)=\succ(A+B)$.
+\item\label{ordinal2:29} Let $B\neq0$ is a limit ordinal. If every
+  Ordinal-sequence $\varphi$ such that $\dom(\varphi)=B$ and every
+  Ordinal $C\in B$ satisfies $\varphi(C)=A+C$,
+  then $A+B=\sup(\varphi)$.
+\item\label{ordinal2:30} $0+A=A$.
+\item\label{ordinal2:31} $A+1=\succ(A)$.
+\item\label{ordinal2:32} If $A\in B$, then $C+A\in C+B$.
+\item\label{ordinal2:33} If $A\subset B$, then $C+A\subset C+B$.
+\item\label{ordinal2:34} If $A\subset B$, then $A+C\subset B+C$.
+\item\label{ordinal2:35} $0\cdot A=0$.
+\item\label{ordinal2:36} $(\succ(B))\cdot A=B\cdot A+A$.
+\item\label{ordinal2:37} Let $B$ be a nonzero limit Ordinal.
+  Let $\varphi$ be an Ordinal Sequence. If $\dom(\varphi)=B$ and every
+  Ordinal $C\in B$ satisfies $\varphi(C)=C\cdot A$, then $B\cdot A=\union(\sup(\varphi))$.
+\item\label{ordinal2:38} $A\cdot 0=0$.
+\item\label{ordinal2:39} $1\cdot A=A$ and $A\cdot 1=A$.
+\item\label{ordinal2:40} If $C\neq0$ and $A\in B$, then $A\cdot C\in B\cdot C$.
+\item\label{ordinal2:41} If $A\subset B$, then $A\cdot C\subset B\cdot C$.
+\item\label{ordinal2:42} If $A\subset B$, then $C\cdot A\subset C\cdot B$.
+\item\label{ordinal2:43} $A^{0}=1$.
+\item\label{ordinal2:44} $A^{\succ(B)}=A\cdot A^{B}$.
+\item\label{ordinal2:45} Let $B$ be a nonzero limit Ordinal, let
+  $\varphi$ be an Ordinal Sequence. If $\dom(\varphi)=B$ and every
+  Ordinal $C\in B$ satisfies $\varphi(C)=A^{C}$, then $A^{B}=\lim\varphi$.
+\item\label{ordinal2:46} $A^{1}=A$ and $1^{A}=1$.
+\item\label{ordinal2:47} For any Ordinal $A$ there exists Ordinals $B$
+  and $C$ such that $B$ is a limit Ordinal and $C$ is natural and $A=B+C$.
+\end{thm}
+
+\begin{definition}
+Let $A$ and $B$ be Ordinals.
+We define the predicate $A$ is \define{Cofinal} with $B$ to mean
+\begin{defn}
+\item There exists an Ordinal-Sequence $\xi$ such that
+  \begin{enumerate}[label=(\roman*)]
+  \item $\dom(\xi)=B$, and
+  \item $\rng(\xi)\subset A$, and
+  \item $\xi$ is increasing, and
+  \item $A=\sup(\xi)$.
+  \end{enumerate}
+\end{defn}
+Observe every Ordinal is cofinal with itself (i.e., Cofinality is a
+reflexive predicate).
+\end{definition}
+
+Let $X$, $Y$ be sets. Let $\psi$ be an Ordinal-sequence.
+We can now prove the following three propositions:
+\begin{thm}
+\item\label{ordinal2:48} If $X\in\rng(\psi)$, then $X$ is an Ordinal.
+\item\label{ordinal2:49} $\rng(\psi)\subset\sup(\psi)$.
+\item\label{ordinal2:50} If $A$ is cofinal with 0, then $A=0$.
 \end{thm}
 
 \end{document}

@@ -1,0 +1,203 @@
+\documentclass{article}
+
+\title{Ordinal Arithmetics (ORDINAL3)}
+\author{Grzegorz Bancerek}
+\date{March 1, 1990}
+\begin{document}
+\maketitle
+
+Let $X$ and $Y$ be sets. Let $A$, $A_{1}$, $B$, $C$, $D$ be
+Ordinals. We have the following results:
+\begin{thm}
+\item\label{ordinal3:1} $X\subset\succ(X)$
+\item\label{ordinal3:2} If $\succ(X)\subset Y$, then $X\subset Y$.
+\item\label{ordinal3:3} $A\in B$ if and only if $\succ(A)\in\succ(B)$.
+\item\label{ordinal3:4} If $X\subset A$, then $\union X$ is
+  an $\in$-transitive $\in$-connected set.
+\item\label{ordinal3:5} $\union\On(X)$ is $\in$-transitive
+  $\in$-connected set.
+\item\label{ordinal3:6} If $X\subset A$, then $\On(X)=X$.
+\item\label{ordinal3:7} $\On\{A\}=\{A\}$.
+\item\label{ordinal3:8} If $A\neq\emptyset$, then $\emptyset\in A$.
+\item\label{ordinal3:9} $\inf(A)=\emptyset$.
+\item\label{ordinal3:10} $\inf\{A\}=A$.
+\item\label{ordinal3:11} If $X\subset A$, them $\meet X$ is an Ordinal.
+\end{thm}
+
+Observe $A\cup B$ and $A\cap B$ are ordinals.
+
+We now can prove the following:
+\begin{thm}
+\item\label{ordinal3:12} $A\cup B=A$ or $A\cup B=B$.
+\item\label{ordinal3:13} $A\cap B=A$ or $A\cap B=B$.
+\item\label{ordinal3:14} If $A\in 1$, then $A=\emptyset$.
+\item\label{ordinal3:15} $1=\{\emptyset\}$.
+\item\label{ordinal3:16} If $A\subset1$, then either $A=\emptyset$ or $A=1$.
+\item\label{ordinal3:17} If $C\in D$ and either $A\subset B$ or $A\in B$,
+  then $A+C\in B+D$.
+\item\label{ordinal3:18} If $A\subset B$ and $C\subset D$,
+  then $A+C\subset B+D$.
+\item\label{ordinal3:19} If $A\in B$ and either $C\in D$ or both $C\subset D$ 
+  and $D\neq\emptyset$, then  $A\cdot C\in B\cdot D$.
+\item\label{ordinal3:20} If $A\subset B$ and $C\subset D$, then $A\cdot C\subset B\cdot D$.
+\item\label{ordinal3:21} If $B+C=B+D$, then $C=D$.
+\item\label{ordinal3:22} If $B+C\in B+D$, then $C\in D$.
+\item\label{ordinal3:23} If $B+C\subset B+D$, then $C\subset D$.
+\item\label{ordinal3:24} $A\subset A+B$ and $B\subset A+B$.
+\item\label{ordinal3:25} If $A\in B$, then $A\in B+C$ and $A\in C+B$.
+\item\label{ordinal3:26} If $A+B=\emptyset$, then $A=\emptyset$ and $B=\emptyset$.
+\item\label{ordinal3:27} If $A\subset B$, then there exists an Ordinal
+  $C$ such that $B=A+C$.
+\item\label{ordinal3:28} If $A\in B$, then there exists an Ordinal
+  $C$ such that $B=A+C$ and $C\neq\emptyset$. 
+\item\label{ordinal3:29} If $A$ is a nonzero limit Ordinal, then $B+A$
+  is a limit ordinal.
+\item\label{ordinal3:30} $(A+B)+C=A+(B+C)$.
+\item\label{ordinal3:31} If $A\cdot B=\emptyset$, then $A=\emptyset$ or $B=\emptyset$.
+\item\label{ordinal3:32} If $A\in B$ and $C\neq\emptyset$, then $A\in B\cdot C$
+  and $A\in C\cdot B$.
+\item\label{ordinal3:33} If $B\cdot A=C\cdot A$ and $A\neq\emptyset$,
+  then $B=C$.
+\item\label{ordinal3:34} If $B\cdot A\in C\cdot A$, then $B\in C$.
+\item\label{ordinal3:35} If $B\cdot A\subset C\cdot A$ and $A\neq\emptyset$,
+  then $B\subset C$.
+\item\label{ordinal3:36} If $B\neq\emptyset$, then $A\subset A\cdot B$
+  and $A\subset B\cdot A$.
+\item\label{ordinal3:37} If $A\cdot B=1$, then $A=1$ and $B=1$.
+\item\label{ordinal3:38} If $A\in B+C$,
+  then either $A\in B$ or there exists an Ordinal $D$ such that $D\in C$
+  and $A=B+D$.
+\end{thm}
+
+\begin{definition}
+Let $C$ be an Ordinal and $\varphi$ be an Ordinal-Sequence.
+We define the term $C+\varphi$ (Mizar: ``\verb#C +^ fi#'') to be the
+Ordinal-Sequence satisfying
+\begin{defn}
+\item $\dom(C+\varphi)=\dom(\varphi)$, and every Ordinal $A\in\dom(\varphi)$
+  satisfies $(C+\varphi)_{A}=C+\varphi_{A}$.
+\end{defn}
+We define the term $\varphi+C$ (Mizar: ``\verb#fi +^ C#'') to be the
+Ordinal-Sequence satisfying
+\begin{defn}
+\item $\dom(\varphi+C)=\dom(\varphi)$, and every Ordinal $A\in\dom(\varphi)$
+  satisfies $(\varphi+C)_{A}=\varphi_{A}+C$.
+\end{defn}
+We define the term $C\cdot\varphi$ (Mizar: ``\verb#C *^ fi#'') to be the
+Ordinal-Sequence satisfying
+\begin{defn}
+\item $\dom(C\cdot\varphi)=\dom(\varphi)$, and every Ordinal $A\in\dom(\varphi)$
+  satisfies $(C\cdot\varphi)_{A}=C\cdot\varphi_{A}$.
+\end{defn}
+We define the term $\varphi\cdot C$ (Mizar: ``\verb#fi *^ C#'') to be the
+Ordinal-Sequence satisfying
+\begin{defn}
+\item $\dom(\varphi\cdot C)=\dom(\varphi)$, and every Ordinal $A\in\dom(\varphi)$
+  satisfies $(\varphi\cdot C)_{A}=\varphi_{A}\cdot C$.
+\end{defn}
+\end{definition}
+
+Let $\varphi$, $\psi$ be Ordinal-sequences. We can now prove the
+following results:
+\begin{thm}
+\item\label{ordinal3:39} If $\dom(\varphi)\neq\emptyset$,
+  $\dom(\varphi)=\dom(\psi)$, and for all ordinals $A\in\dom(\varphi)$
+  and $B=\varphi_{A}$ we have $\psi_{A}=C+B$,
+  then $\sup(\psi)=C+\sup(\varphi)$.
+\item\label{ordinal3:40} If $A$ is a limit ordinal, then  $A\cdot B$ is
+  a limit ordinal.
+\item\label{ordinal3:41} If $A\in B\cdot C$ and $B$ is a limit ordinal,
+  then there exists an ordinal $D\in B$ such that $A\in D\cdot C$.
+\item\label{ordinal3:42} If $\dom(\varphi)=\dom(\psi)$, $C\neq\emptyset$,
+  $\sup(\varphi)$ is a limit ordinal, and every ordinals
+  $A\in\dom(\varphi)$ and $B=\varphi_{A}$ satisfies $\psi_{A}=B\cdot C$,
+  then $\sup(\psi)=(\sup(\varphi))\cdot C$.
+\item\label{ordinal3:43} If $\dom(\varphi)\neq\emptyset$, then $\sup(C+\varphi)=C+\sup(\varphi)$.
+\item\label{ordinal3:44} If $\dom(\varphi)\neq\emptyset$, $C\neq\emptyset$,
+  and $\sup(\varphi)$ is a limit ordinal, then $\sup(\varphi\cdot C)=(\sup(\varphi))\cdot C$.
+\item\label{ordinal3:45} If $B\neq\emptyset$, then $\union(A+B)=A+\union(B)$.
+\item\label{ordinal3:46} $(A+B)\cdot C=A\cdot C+B\cdot C$.
+\item\label{ordinal3:47} (``Division algorithm: existence'') If $A\neq\emptyset$,
+  then there exists Ordinals $C$ and $D$ satisfying $B=C\cdot A+D$ and $D\in A$.
+\item\label{ordinal3:48} (``Division algorithm: uniqueness'') For all Ordinals $C_{1}$, $D_{1}$, $C_{2}$, $D_{2}$,
+  if $C_{1}\cdot A+D_{1}=C_{2}\cdot A+D_{2}$ and $D_{1}\in A$ and
+  $D_{2}\in A$, then $C_{1}=C_{2}$ and $D_{1}=D_{2}$.
+\item\label{ordinal3:49} Suppose $1\in B$, $A\neq\emptyset$, and $A$ is a
+  limit ordinal. For all Ordinal-sequences $\varphi$, if $\dom(\varphi)=A$
+  and every Ordinal $C\in A$ satisfies $\varphi_{C}=C\cdot B$,
+  then $A\cdot B=\sup(\varphi)$.
+\item\label{ordinal3:50} (Associativity of Ordinal Multiplication) $(A\cdot B)\cdot C=A\cdot(B\cdot C)$.\index{Ordinal!Multiplication!Associativity}\index{Associativity!Ordinal Multiplication}
+\end{thm}
+
+\begin{definition}
+Let $A$ and $B$ be Ordinals.
+We define the term $A-B$ (Mizar: ``\verb#A -^ B#'') to be the Ordinal
+satisfying
+\begin{defn}
+\item $A=B+(A-B)$ if $B\subset A$, otherwise $A-B=\emptyset$.
+\end{defn}
+We define the term $A\div B$ (Mizar: ``\verb#A div^ B#'') to be the
+Ordinal satisfying
+\begin{defn}
+\item There exists an Ordinal $C$ such that $A=(A\div B)\cdot B+C$
+  and $C\in B$ if $B\neq\emptyset$, otherwise $A\div B=\emptyset$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$ and $B$ be Ordinals.
+We define the term $A\mod B$ (Mizar: ``\verb#A mod^ B#'') to be the
+Ordinal equal to
+\begin{defn}
+\item $A\mod B:=A-(A\div B)\cdot B$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{ordinal3:51} If $A\in B$, then $B=A+(B-A)$.
+\item\label{ordinal3:52} $A+(B-A)=B$.
+\item\label{ordinal3:53} If $A\in B$ and either $C\subset A$ or $C\in A$,
+  then $A-C\in B-C$.
+\item\label{ordinal3:54} $A-A=\emptyset$.
+\item\label{ordinal3:55} If $A\in B$, then $B-A\neq\emptyset$ and
+  $\emptyset\in B-A$.
+\item\label{ordinal3:56} $A-\emptyset=A$ and $\emptyset-A=\emptyset$.
+\item\label{ordinal3:57} $A-(B+C)=(A-B)-C$.
+\item\label{ordinal3:58} If $A\subset B$, then $C-B\subset C-A$.
+\item\label{ordinal3:59} If $A\subset B$, then $A-C\subset B-C$.
+\item\label{ordinal3:60} If $C\neq\emptyset$ and $A\in B+C$,
+  then $A-B\in C$.
+\item\label{ordinal3:61} If $A+B\in C$, then $B\in C-A$.
+\item\label{ordinal3:62} $A\subset B+(A-B$.
+\item\label{ordinal3:63} $A\cdot C-B\cdot C=(A-B)\cdot C$.
+\item\label{ordinal3:64} $(A\div B)\cdot B\subset A$.
+\item\label{ordinal3:65} $A=(A\div B)\cdot B+(A\mod B)$.
+\item\label{ordinal3:66} If $A=B\cdot C+D$ and $D\in C$,
+  then $B=A\div C$ and $D=A\mod C$.
+\item\label{ordinal3:67} If $A\in B\cdot C$, then
+  $A\div C\in B$ and $A\mod C\in C$.
+\item\label{ordinal3:68} If $B\neq\emptyset$, then $A\cdot B\div B=A$.
+\item\label{ordinal3:69} $A\cdot B\mod B=\emptyset$
+\item\label{ordinal3:70} $\emptyset\div A=\emptyset$ and $\emptyset\mod A=\emptyset$
+  and $A\mod\emptyset=A$.
+\item\label{ordinal3:71} $A\div1=A$ and $A\mod1=\emptyset$.
+\item\label{ordinal3:72} $\sup(X)\subset\succ(\union\On(X))$.
+\item\label{ordinal3:73} $\succ(A)$ is cofinal with $1$.
+\item\label{ordinal3:74} Let $A$ and $B$ be Ordinals. If $A+B$ is
+  natural, then $A\in\omega$ and $B\in\Omega$.
+\item\label{ordinal3:75} Let $A$ and $B$ be Ordinals. If $A\cdot B$ is
+  nonempty natural, then $A\in\omega$ and $B\in\Omega$.
+\end{thm}
+
+\begin{definition}
+Let $A$ and $B$ be natural Ordinals.
+We redefine the term $A+B$ to be commutative.
+\end{definition}
+
+\begin{definition}
+Let $A$ and $B$ be natural Ordinals.
+We redefine the term $A\cdot B$ to be commutative.
+\end{definition}
+
+\end{document}

@@ -1,0 +1,163 @@
+\documentclass{article}
+
+\title{Finite Sets (FINSET1)}
+\author{Agata Darmochwa\l}
+\date{April 6, 1989}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $X$ be a set.
+We define the attribute, saying $X$ is \define{finite} to mean
+\begin{defn}
+\item There exists a function $p$ such that $\rng(p)=X$ and $\dom(p)\in\omega$.
+\end{defn}
+\end{definition}
+
+\begin{notation}
+Let $X$ be a set.
+We say $X$ is \define{infinite} as the antonym for $X$ is finite.
+\end{notation}
+
+Observe there exists a nonempty finite set. We also observe empty sets
+are automatically finite.
+
+\begin{scheme}[OLambdaC]
+Let $\mathcal{A}$ be a set, let $\mathcal{C}[-]$ be a unary predicate of
+objects, let $\mathcal{F}(-)$ and $\mathcal{G}(-)$ be objects
+parametrized by an object.
+There exists a function $f$ such that $\dom(f)=\mathcal{A}$ and for each
+ordinal $x\in\mathcal{A}$ we have $C[x]$ implies $f(x)=\mathcal{F}(x)$
+and $\neg C[x]$ implies $f(x)=\mathcal{G}(x)$.
+\end{scheme}
+
+Observe $\{x_{1},\dots,x_{n}\}$ is finite for arbitrary objects $x_{1}$,
+\dots, $x_{n}$ for $n=1,\dots,8$.
+
+Observe, when $B$ is a finite set, any subset of $B$ is automatically finite.
+When $X$ and $Y$ are finite sets, $X\cup Y$ is automatically finite.
+
+Let $A$, $B$, $X$, $Y$, $Z$, $x$, $y$ be sets.
+Let $f$ be a function.
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{finset1:1} If $A\subset B$ and $B$ is finite, then $A$ is finite.
+\item\label{finset1:2} If $A$ and $B$ are both finite, then $A\cup B$ is finite.
+\end{thm}
+
+Observe when $A$ is a finite set and $B$ is any set that $A\cap B$ and
+$B\cap A$ are finite, and $A\setminus B$ is finite. When $f$ is a
+function, $f(A)$ is finite.
+
+We now can prove the following three propositions:
+\begin{thm}
+\item\label{finset1:3} If $A$ is finite, then $A\cap B$ is finite.
+\item\label{finset1:4} If $A$ is finite, then $A\setminus B$ is finite.
+\item\label{finset1:5} If $A$ is finite, then $f(A)$ is finite.
+\end{thm}
+
+\begin{scheme}[Finite]
+Let $\mathcal{A}$ be a set, let $\mathcal{P}[-]$ be a unary predicate of sets.
+We have $\mathcal{P}[\mathcal{A}]$ provided
+\begin{enumerate}
+\item $\mathcal{A}$ is finite; and
+\item $\mathcal{P}[\emptyset]$; and
+\item for any sets $x$ and $B$, if $x\in\mathcal{A}$ and $B\subset\mathcal{B}$
+  and $\mathcal{P}[B]$, then $\mathcal{P}[B\cup\{x\}]$.
+\end{enumerate}
+\end{scheme}
+
+Let $A$, $B$, $C$, $D$ be finite sets. We observe $A\times B$, $A\times B\times C$,
+and $A\times B\times C\times D$ are automatically finite sets. We also
+see $\powerset(A)$ is automatically finite.
+
+We can prove the following four propositions.
+\begin{thm}
+\item\label{finset1:6} If $A$ is finite, then for each subset-family $X$
+  of $A$ with $X\neq\emptyset$ there exists a set $x\in X$ such that
+  every set $B\in X$ satisfies $x\subset B$ implies $B=X$.
+\item\label{finset1:7} $A$ is finite and every set $X\in A$ is finite if
+  and only if $\union A$ is finite.
+\item\label{finset1:8} If $\dom(f)$ is finite, then $\rng(f)$ is finite.
+\item\label{finset1:9} If $Y\subset\rng(f)$ and $f^{-1}(Y)$ is finite,
+  then $Y$ is finite.
+\end{thm}
+
+We observe, when $X$ is a finite set, then there exists a finite subset
+of $X$. Also, when $X$ is a finite nonempty set, there exists a finite
+nonempty subset of $X$. Observe when $X$ and $Y$ are finite sets,
+$X\symdiff Y$ is automatically finite.
+
+We can prove the following three propositions:
+\begin{thm}
+\item\label{finset1:10} $\dom(f)$ is finite if and only if $f$ is finite.
+\item\label{finset1:11} Let $F$ be a set. If $F$ is finite and
+  $F\neq\emptyset$ and $F$ is $\subset$-linear,
+  then there exists a set $m\in F$ such that every set $C\in F$
+  satisfies $m\subset C$.
+\item\label{finset1:12} Let $F\neq\emptyset$ be a finite set. If $F$ is
+  $\subset$-linear, then there exists a set $m\in F$ such that every set
+  $C\in F$ satisfies $C\subset m$.
+\end{thm}
+
+\begin{definition}
+Let $R$ be a Relation. We define the attribute $R$ is
+\define{finite-yielding} to mean
+\begin{defn}
+\item For each set $x\in\rng(R)$, we have $x$ is finite.
+\end{defn}
+\end{definition}
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{finset1:13} If $X$ is finite and $X\subset Y\times Z$,
+  then there exists sets $A\subset Y$ and $B\subset Z$ such that $A$ and
+  $B$ are both finite and $X\subset A\times B$.
+\item\label{finset1:14} If $X$ is finite and $X\subset Y\times Z$,
+  then there exists a finite set $A\subset Y$ such that $X\subset A\times Z$.
+\end{thm}
+
+Observe the domains and ranges of a finite relations are finite,
+the composition of finite functions is finite,
+functions on a finite domain is finite.
+
+\begin{definition}
+Let $F$ be a set.
+We define the attribute that $F$ is \define{centered} to mean
+\begin{defn}
+\item $F\neq\emptyset$ and every set $G\neq\emptyset$ such that
+  $G\subset F$ and $G$ is finite satisfies $\meet G\neq\emptyset$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $f$ be a function.
+We redefine the attribute $f$ is \define{finite-yielding} meaning
+\begin{defn}
+\item for each object $i\in\dom(f)$, we have $f(i)$ is finite.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $I$ be a set, let $f$ be an $I$-defined function.
+We redefine the attribute $f$ is \define{finite-yielding} meaning
+\begin{defn}
+\item for each object $i\in I$, we have $f(i)$ is finite.
+\end{defn}
+\end{definition}
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{finset1:15} If $B$ is infinite, then $B\notin A\times B$.
+\end{thm}
+
+\begin{definition}
+Let $A$ be a set.
+We define the attribute $A$ is \define{finite-membered} to mean
+\begin{defn}
+\item for each set $B\in A$, we have $B$ is finite.
+\end{defn}
+\end{definition}
+
+\end{document}
