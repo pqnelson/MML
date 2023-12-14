@@ -1,0 +1,411 @@
+\documentclass{article}
+\title{Homomorphisms and Isomorphisms of Groups. Quotient Group. (GROUP-6)}
+\author{Wojciech A. Trybulec and Micha{\l} J. Trybulec}
+\date{October 3, 1991}
+
+\begin{document}
+
+\maketitle
+
+We have the following result:
+\begin{thm}
+\item\label{group6:1} Let $A$, $B$ be nonempty sets, let $f\colon A\to B$.
+  Then $f$ is injective if and only if for all elements $a$ and $b$ of $A$
+  if $f(a)=f(b)$ then $a=b$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $A$ be a subgroup of $G$.
+We redefine the type of the mode ``subgroup of $A$'' to be a subgroup of $G$.
+\end{definition}
+
+Observe for any group $G$, $\trivialSubgroup{G}$ and $\Omega_{G}$ are
+both normal.
+
+Let $G$ be a group, let $A$ and $B$ be subgroups of $G$.
+Let $a$, $b$ be elements of $G$.
+We can prove the following results:
+\begin{thm}
+\item\label{group6:2} Let $X$ be a subgroup of $A$, let $x$ be an
+  element of $A$. If $x=a$, then $x\cdot X=a\cdot X$ and $X\cdot x=X\cdot a$.
+\item\label{group6:3} Let $X$, $Y$ be subgroups of $A$.
+  Then $X\cap Y$ as subgroups of $G$ equals $X\cap Y$.
+\item\label{group6:4} $(a\cdot b)\cdot a^{-1}=b^{a^{-1}}$ and
+  $a\cdot(b\cdot a^{-1})=b^{a^{-1}}$.
+\item\label{group6:5} $(a\cdot A)\cdot A=a\cdot A$ and $a\cdot(A\cdot A)=a\cdot A$
+  and $(A\cdot A)\cdot a=A\cdot a$ and $A\cdot(A\cdot a)=A\cdot a$.
+\item\label{group6:6} Let $A_{1}$ be a subset of $G$.
+  If $A_{1}$ is the set of all $[a,b]$ where $a$ and $b$ are elements of $G$,
+  then $G'=\gr{A_{1}}$.
+\item\label{group6:7}  Let $G$ be a strict group, let $B$ be a strict
+  subgroup of $G$. Then $G'$ is a subgroup of $B$ if and only if for all
+  elements $a$ and $b$ of $G$ we have $[a,b]\in B$.
+\item\label{group6:8} Let $N$ be a normal subgroup of $G$.
+  If $N$ is a subgroup of $B$, then $N$ is a normal subgroup of $B$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $B$ be a subgroup of $G$. Let $N$ be a normal
+subgroup of $G$. Assume the magma underlying $N$ is a subgroup of $B$.
+We define the term $(N)_{B}$ (Mizar: ``\verb#(B, M)`*`#'') to be the
+strict normal subgroup of $B$ equal to
+\begin{defn}
+\item $(N)_{B}:=N$.
+\end{defn}
+\end{definition}
+
+We can prove the following result:
+\begin{thm}
+\item\label{group6:9} $B\cap N$ is a normal subgroup of $B$, and $N\cap B$
+  is a normal subgroup of $B$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $B$ be a subgroup of $G$.
+Let $N$ be a normal subgroup of $G$.
+We redefine the type of $B\cap N$ to be a strict normal subgroup of $B$.
+\end{definition}
+
+\begin{definition}
+Let $G$ be a group, let $B$ be a subgroup of $G$.
+Let $N$ be a normal subgroup of $G$.
+We redefine the type of $N\cap B$ to be a strict normal subgroup of $B$.
+\end{definition}
+
+
+
+\begin{definition}
+Let $G$ be a nonempty 1-sorted object. We redefine the attribute that
+$G$ is \define{trivial} (Mizar: ``\verb#trivial#'') to mean:
+\begin{defn}
+\item There exists an object $x$ such that the carrier of $G$ equals $\{x\}$.
+\end{defn}
+\end{definition}
+
+We can prove the following result:
+\begin{thm}
+\item\label{group6:10} $\trivialSubgroup{G}$ is trivial.
+\end{thm}
+
+We register the fact that $\trivialSubgroup{G}$ is trivial for any group $G$.
+Observe there exists a strict trivial group.
+
+Now we continue proving the next two propositions:
+\begin{thm}
+\item\label{group6:11} We have the following two results:
+  \begin{enumerate}[label=(\roman*)]
+  \item Every trivial group $G$ satisfies $\card{G}=1$
+  and $G$ is finite; and
+  \item Every finite group $G$, if $\card{G}=1$, then $G$ is trivial. 
+  \end{enumerate}
+\item\label{group6:12} Let $G$ be a strict trivial group. Then $\trivialSubgroup{G}=G$.
+\end{thm}
+
+\begin{notation}
+Let $G$ be a group, let $N$ be a normal subgroup of $G$. We define the
+synonym \define{Cosets of $N$} (Mizar: ``\verb#Cosets N#'') for the set
+of left cosets of $N$. We also denote this as $\Cosets(N)$.
+\end{notation}
+
+Observe the Cosets of $N$ is nonempty.
+
+We can prove the following results:
+\begin{thm}
+\item\label{group6:13} Let $x$ be an object, let $N$ be a normal
+  subgroup of $G$. If $x\in\Cosets(N)$, then there exists an element $a$
+  of $G$ such that $x=a\cdot N$ and $x=N\cdot a$.
+\item\label{group6:14} Let $N$ be a normal subgroup of $G$.
+  Then $a\cdot N\in\Cosets(N)$ and $N\cdot a\in\Cosets(N)$.
+\item\label{group6:15} Let $N$ be a normal subgroup of $G$. If
+  $x\in\Cosets(N)$, then $x$ is a subset of $G$.
+\item\label{group6:16} Let $N$ be a normal subgroup of $G$.
+  If $A_{1}\in\Cosets(N)$ and $A_{2}\in\Cosets(N)$,
+  then $A_{1}\cdot A_{2}\in\Cosets(N)$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $N$ be a normal subgroup of $G$.
+We define the term $\CosOp_{N}$ (Mizar: ``\verb#CosOp N#'') to be a
+binary operator of $\Cosets(N)$ satisfying
+\begin{defn}
+\item for all elements $W_{1}$, $W_{2}$ of $\Cosets(N)$,
+  for all subsets $A_{1}$, $A_{2}$ of $G$, if $W_{1}=A_{1}$ and $W_{2}=A_{2}$,
+  then $\CosOp_{N}(W_{1},W_{2})=A_{1}\cdot A_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $G$ be a group, let $N$ be a normal subgroup of $G$.
+We define the \define{Quotient Group}, denoted $G/N$ (Mizar: ``\verb#G ./. N#''), to be the
+multiplicative magma equal to
+\begin{defn}
+\item $G/N:=\langle\Cosets(N),\CosOp_{N}\rangle$.
+\end{defn}
+\end{definition}
+\begin{remark}
+This will be registered as associative and group-like, and therefore
+$G/N$ is a \textit{bona fide} group.
+\end{remark}
+
+Let $G$ be a group, $N$ be a normal subgroup of $G$. Observe $G/N$ is
+then strict and nonempty.
+
+\begin{thm}
+\item\label{group6:17} Let $N$ be a normal subgroup of $G$.
+  Then the carrier of $G/N$ is equal to $\Cosets(N)$.
+\item\label{group6:18} Let $N$ be a normal subgroup of $G$.
+  Then the operation of $G/N$ is equal to $\CosOp(N)$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, $N$ be a normal subgroup of $G$, let $S$ be an
+element of $G/N$.
+We define the term $@S$ to be the subset of $G$ equal to
+\begin{defn}
+\item $@S := S$.
+\end{defn}
+\end{definition}
+\begin{remark}
+This definition is used for casting types.
+\end{remark}
+
+Let $N$ be a normal subgroup of $G$,
+  let $T_{1}$ and $T_{2}$ be elements of $G/N$.
+We can prove the following two propositions:
+\begin{thm}
+\item\label{group6:19} $(@T_{1})\cdot(@T_{2})=T_{1}\cdot T_{2}$.
+\item\label{group6:20} $@(T_{1}\cdot T_{2})=(@T_{1})\cdot(@T_{2})$.
+\end{thm}
+
+Observe $G/N$ is associative and group-like (i.e., $G/N$ is a group).
+
+Let $S$ be an element of $G/N$.
+We can continue proving results concerning the quotient group:
+\begin{thm}
+\item\label{group6:21} There exists an element $a$ of $G$ such that
+  $S=a\cdot N$ and $S=N\cdot a$.
+\item\label{group6:22} $N\cdot a$ is an element of $G/N$ and $a\cdot N$
+  is an element of $G/N$ and $\carr(N)$ is an element of $G/N$.
+\item\label{group6:23} Let $x$ be an object.
+  Then $x\in G/N$ if and only if there exists an element $a$ of $G$ such
+  that $x=a\cdot N$ and $x=N\cdot a$
+\item\label{group6:24} $1_{G/N} = \carr(N)$
+\item\label{group6:25} If $S=a\cdot N$, then $S^{-1}=a^{-1}\cdot N$.
+\item\label{group6:26} $\card{G/N}=\Index{G}{N}$
+\item\label{group6:27} If the set of left cosets of $N$ is finite,
+  then $\card{G/N}=\Index{G}{N}_{\NN}$.
+\item\label{group6:28} Let $M$ be a strict normal subgroup of $G$.
+  If $M$ is a subgroup of $B$, then $B/(M)_{B}$ is a subgroup of $G/M$.
+\item\label{group6:29} Let $N$ and $M$ be strict normal subgroups of $G$.
+  If $M$ is a subgroup of $N$, then $N/(M)_{N}$ is a subgroup of $G/M$.
+\item\label{group6:30} Let $G$ be a strict group, let $N$ be a strict
+  normal subgroup of $G$. Then $G/N$ is a commutative group if and only
+  if $G'$ is a subgroup of $N$.
+\end{thm}
+
+\begin{definition}
+Let $G$, $H$ be nonempty multiplicative magmas.
+Let $f\colon G\to H$ be a function.
+We define the attribute that $f$ is \define{multiplicative} to mean
+\begin{defn}
+\item For all elements $a$ and $b$ of $G$, we have
+  $f(a\cdot b) = f(a)\cdot f(b)$.
+\end{defn}
+\end{definition}
+
+Let $G$ and $H$ be unital nonempty multiplicative magmas. There exists a
+multiplicative function from $G$ to $H$.
+
+\begin{definition}
+Let $G$, $H$ be groups.
+We define a new mode, a \define{Homomorphism from $G$ to $H$} (Mizar:
+``\verb#Homomorphism of G,H#'') is a multiplicative function from $G$ to $H$.
+\end{definition}
+
+Let $g$ be a homomorphism from $G$ to $H$. We can prove the following result:
+\begin{thm}
+\item\label{group6:31} $g(1_{G})=1_{H}$.
+\end{thm}
+We can register the fact that homomorphisms are \hyperlink{group1:def13}{unity-preserving}.
+
+We can continue proving results concerning morphisms:
+\begin{thm}
+\item\label{group6:32} $g(a^{-1})=(g(a))^{-1}$
+\item\label{group6:33} $g(a^{b})=(g(a))^{g(b)}$
+\item\label{group6:34} $g([a,b])=[g(a),g(b)]$
+\item\label{group6:35} $g([a_{1},a_{2},a_{3}]=[g(a_{1}),g(a_{2}),g(a_{3})]$
+\item\label{group6:36} $g(a^{n})=(g(a))^{n}$
+\item\label{group6:37} $g(a^{i})=(g(a))^{i}$
+\item\label{group6:38} Let $G$ be a nonempty multiplicative magma.
+  Then $\id_{\carrier{G}}$ is multiplicative.
+\item\label{group6:39} Let $G$, $H$, $I$ be unital nonempty
+  multiplicative magmas, let $h\colon G\to H$ be multiplicative, let
+  $h_{1}\colon H\to I$ be multiplicative. Then $h_{1}\circ h$ is multiplicative.
+\end{thm}
+We register the fact that composition of multiplicative functions is multiplicative.
+
+\begin{definition}
+Let $G$, $H$ be nonempty multiplicative magmas.
+We define the term $\trivialmap{G}{H}$ (Mizar: ``\verb#1:(G,H)#'') to be the
+function from $G$ to $H$ equal to
+\begin{defn}
+\item $\trivialmap{G}{H}:=G\constantto 1_{H}$.
+\end{defn}
+\end{definition}
+
+Observe $\trivialmap{G}{H}$ is multiplicative.
+
+We can prove the following result:
+\begin{thm}
+\item\label{group6:40} Let $h_{1}\colon H\to I$, $h\colon G\to H$ be homomorphisms.
+  Then $h_{1}\circ\trivialmap{G}{H}=\trivialmap{G}{I}$ and
+  $\trivialmap{H}{I}\circ h=\trivialmap{G}{I}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $N$ be a normal subgroup of $G$.
+We define the term $\nathom{N}$ (Mizar: ``\verb#nat_hom N#'')
+called the \define{Natural Morphism of $N$} which is the function from
+$G$ to $G/N$ satisfying
+\begin{defn}
+\item for all elements $a$ of $G$, we have $\nathom{N}(a)=a\cdot N$.
+\end{defn}
+\end{definition}
+We register the fact that $\nathom{N}$ is multiplicative.
+
+\begin{definition}
+Let $G$, $H$ be groups, let $g\colon G\to H$ be a homomorphism.
+We define the term $\Ker(g)$ (Mizar: ``\verb#Ker g#''), called the
+\define{Kernel} of $g$, to be the strict Subgroup of $G$ satisfying
+\begin{defn}
+\item $\carrier{\Ker(g)}=\{a\mid g(a)=1_{H}\}$.
+\end{defn}
+\end{definition}
+We register the fact that $\Ker(g)$ is a normal subgroup.
+
+We can prove the following three propositions:
+\begin{thm}
+\item\label{group6:41} $a\in\Ker(h)$ if and only if $h(a)=1_{H}$
+\item\label{group6:42} Let $G$, $H$ be strict groups. Then $\Ker(\trivialmap{G}{H})=G$.
+\item\label{group6:43} Let $N$ be a strict normal subgroup of $G$, then $\Ker(\nathom{N})=N$.
+\end{thm}
+
+\begin{definition}
+Let $G$, $H$ be groups, let $g\colon G\to H$ be a homomorphism.
+We define the term $\Image(g)$ (Mizar: ``\verb#Image g#'') to be the
+strict subgroup of $H$ satisfying
+\begin{defn}
+\item $\carrier{\Image(g)}=g(\carrier{G})$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{group6:44} $\rng(g)=\carrier{\Image(g)}$.
+\item\label{group6:45} For any object $x$, we have $x\in\Image(g)$ if
+  and only if there exists an element $a$ of $G$ such that $x=g(a)$.
+\item\label{group6:46} $\Image(g)=\gr{\rng(g)}$.
+\item\label{group6:47} $\Image{\trivialmap{G}{H}}=\trivialSubgroup{H}$.
+\item\label{group6:48} Let $N$ be a normal subgroup of $G$. Then $\Image(\nathom{N})=G/N$.
+\item\label{group6:49} Let $h\colon G\to H$ be a morphism. Then $h$ is a
+  morphism from $G$ to $\Image(h)$.
+\item\label{group6:50} If $G$ is finite, then $\Image(g)$ is finite. (We
+  register this fact.)
+\item\label{group6:51} If $G$ is a commutative group, then $\Image(g)$
+  is commutative. 
+\item\label{group6:52} $\card{\Image(g)}\subset\card{G}$. 
+\item\label{group6:53} Let $G$ be a finite group, let $H$ be any group,
+  let $g\colon G\to H$ be a homomorphism. Then $\card{\Image(g)}\leq\card{G}$.
+\item\label{group6:54} If $\varphi$ is injective and
+  $c\in\Image(\varphi)$,
+  then $\varphi(\varphi^{-1}(c))=c$.
+\item\label{group6:55} If $\varphi$ is injective, then $\varphi^{-1}$ is
+  a morphism from $\Image(\varphi)$ to $G$.
+\item\label{group6:56} $\varphi$ is injective if and only if $\Ker(\varphi)=\trivialSubgroup{G}$.
+\item\label{group6:57} Let $H$ be a strict group, let $\varphi\colon G\to H$
+  be a group morphism. Then $\varphi$ is surjective if and only if $\Image(\varphi)=H$.
+\item\label{group6:58} Let $A$, $B$ be nonempty sets, let $f\colon A\to B$.
+  If $f$ is surjective, then for each element $b$ of $B$ there exists an
+  element $a$ of $A$ such that $f(a)=b$.
+\item\label{group6:59} $\nathom{N}$ is surjective.
+\item\label{group6:60} Let $A$, $B$ be sets, let $f\colon A\to B$.
+  Then $f$ is bijective if and only if $\rng(f)=B$ and $f$ is injective.
+\item\label{group6:61} Let $A$ be a set, let $B$ be a nonempty set,
+  let $f\colon A\to B$. If $f$ is bijective, then $\dom(f)=A$ and $\rng(f)=B$.
+\item\label{group6:62} Let $G$, $H$ be groups, let $\varphi\colon G\to H$
+  be a group morphism. If $\varphi$ is bijective, then $\varphi^{-1}$ is
+  a group morphism from $H$ to $G$.
+\item\label{group6:63} Let $A$ be a set, let $B$ be a nonempty set, let
+  $f\colon A\to B$ be a function and $g\colon B\to A$ be a function.
+  If $f$ is bijective and $g=f^{-1}$, then $g$ is bijective.
+\item\label{group6:64} Let $A$ be a set, let $B$ and $C$ be nonempty sets.
+  Let $f_{1}\colon A\to B$ and $f_{2}\colon B\to C$ be functions.
+  If $f_{1}$ and $f_{2}$ are bijective, then $f_{2}\circ f_{1}$ is bijective.
+\item\label{group6:65} $\nathom{\trivialSubgroup{G}}$ is bijective.
+\end{thm}
+
+\begin{definition}
+  Let $G$ and $H$ be groups.
+  We define the predicate \define{$G$ and $H$ are isomorphic}
+  (Mizar: ``\verb#G,H are_isomorphic#'') means
+  \begin{defn}
+  \item There exists a group morphism $\varphi\colon G\to H$ such that
+    $\varphi$ is bijective.
+  \end{defn}
+  Observe this is reflexive ($G$ is always isomorphic to itself).
+\end{definition}
+
+\begin{remark}
+I'll sometimes write ``$G$ is isomorphic to $H$'' or ``$G$ is isomorphic
+with $H$'' for variety. They are just literary synonyms for $G$ and $H$
+are isomorphic. It is also common to write ``$G\cong H$'' as shorthand
+for ``$G$ and $H$ are isomorphic''.
+\end{remark}
+
+We can prove the following result:
+\begin{thm}
+\item\label{group6:66} Let $G$, $H$ be groups. If $G$ is isomorphic to $H$,
+  then $H$ is isomorphic to $G$.
+\end{thm}
+
+\begin{definition}
+We redefine the predicate ``$G$ and $H$ are isomorphic'' to note that it
+is symmetric.
+\end{definition}
+
+We continue proving results:
+\begin{thm}
+\item\label{group6:67} (Transitivity) If $G$ is isomorphic to $H$, and
+  $H$ is isomorphic to $I$, then $G$ is isomorphic to $I$.
+\item\label{group6:68} Let $\varphi\colon G\to H$ be a group morphism.
+  Then $G$ is isomorphic to $\Image(\varphi)$.
+\item\label{group6:69} Let $G$, $H$ be strict groups. If $G$ is trivial,
+  and if $H$ is trivial, then $G$ is isomorphic to $H$.
+\item\label{group6:70} $\trivialSubgroup{G}$ is isomorphic to $\trivialSubgroup{H}$.
+\item\label{group6:71} $G$ is isomorphic to $G/\trivialSubgroup{G}$.
+\item\label{group6:72} $G/\Omega_{G}$ is trivial.
+\item\label{group6:73} Let $G$, $H$ be strict groups.
+  If $G$ is isomorphic to $H$, then $\card{G}=\card{H}$.
+\item\label{group6:74} If $G$ is isomorphic to $H$, and if $G$ is
+  finite, then $H$ is finite.
+\item\label{group6:75} Let $G$, $H$ be strict groups.
+  If $G$ is isomorphic to $H$, then $\card{G}=\card{H}$.
+\item\label{group6:76} Let $G$ be a strict trivial group, let $H$ be a
+  strict group. If $G$ is isomorphic to $H$, then $H$ is trivial.
+\item\label{group6:77} If $G$ is isomorphic to $H$, if $G$ is
+  commutative, then $H$ is commutative.
+\item\label{group6:78} $G/\Ker(\varphi)$ is isomorphic to $\Image(\varphi)$.
+\item\label{group6:79} (\textsc{First Isomorphism Theorem}) There exists
+  a group morphism $\psi\colon G/\Ker(\varphi)\to\Image(\varphi)$
+  such that $\psi$ is bijective and $\varphi=\psi\circ\nathom{\Ker(\varphi)}$.
+\item\label{group6:80} (\textsc{Third Isomorphism Theorem}) Let $N$ be a
+  normal subgroup of $G$, let $M$ be a
+  strict normal subgroup of $G$, let $J$ be a strict normal subgroup of $G/M$.
+  If $M$ is a subgroup of $N$ and $J=N/(M)_{N}$, then $(G/M)/J$ is
+  isomorphic to $G/N$.
+\item\label{group6:81} (\textsc{Second Isomorphism Theorem}) Let $N$ be
+  a strict normal subgroup of $G$, let $B$ be a subgroup of $G$.
+  Then $(B\join N)/(N)_{B\join N}$ is isomorphic to $B/(B\cap N)$. 
+\end{thm}
+
+\end{document}

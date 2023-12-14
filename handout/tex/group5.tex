@@ -1,0 +1,294 @@
+\documentclass{article}
+\title{Commutator and Center of a Group (GROUP-5)}
+\author{Wojciech A. Trybulec}
+\date{May 15, 1991}
+\begin{document}
+\maketitle
+
+Let $G$ be a group, let $H$, $H_{1}$, $H_{2}$ be subgroups of $G$, let
+$a$, $b$, $c$ be elements of $G$. Let $x$, $y$ be sets. Then we have the
+following results:
+\begin{thm}
+\item\label{group5:1} $x\in\trivialSubgroup{G}$ if and only if $x=1_{G}$.
+\item\label{group5:2} If $a\in H$ and $b\in H$, then $a^{b}\in H$.
+\item\label{group5:3} Let $N$ be a strict normal subgroup of $G$.
+  If $a\in N$, then $a^{b}\in N$.
+\item\label{group5:4} $x\in H_{1}\cdot H_{2}$ if and only if there
+  exists elements $a$ and $b$ of $G$ such that $x=a\cdot b$ and $a\in H_{1}$ and $b\in H_{2}$.
+\item\label{group5:5} If $H_{1}\cdot H_{2}=H_{2}\cdot H_{1}$, then
+  $x\in H_{1}\join H_{2}$ iff there exists elements $a$, $b$ of $G$ such
+  that $x=a\cdot b$ and $a\in H_{1}$ and $b\in H_{2}$.
+\item\label{group5:6} Let $G$ be a commutative group.
+  Then $x\in H_{1}\join H_{2}$ if and only if there exists elements $a$,
+  $b$ of $G$ such that $x=a\cdot b$, $a\in H_{1}$, $b\in H_{2}$.
+\item\label{group5:7} Let $N_{1}$, $N_{2}$ be strict normal subgroups of $G$.
+  Then $x\in N_{1}\join N_{2}$ if and only if there exists elements $a$
+  and $b$ of $G$ such that $x=a\cdot b$, $a\in N_{1}$, $b\in N_{2}$.
+\item\label{group5:8} Let $N$ be a normal subgroup of $G$. Then $H\cdot N=N\cdot H$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $F$ be a finite sequence of elements of $G$, let
+$a$ be an element of $G$. We define the term $F^{a}$ to be the finite
+sequence of elements of $G$ satisfying
+\begin{defn}
+\item $\len(F^{a})=\len(F)$ and every natural number $k\in\dom(F)$
+  satisfies $F^{a}(k)=(F(k))^{a}$.
+\end{defn}
+\end{definition}
+
+Let $F_{1}$, $F_{2}$ be sequences of elements of $G$.
+We can prove the following:
+\begin{thm}
+\item\label{group5:9} $(F_{1}^{a})\concat(F_{2}^{a})=(F_{1}\concat F_{2})^{a}$.
+\item\label{group5:10} $(\langle\rangle)^{a}=\emptyset$.
+\item\label{group5:11} $\langle a\rangle^{b}=\langle a^{b}\rangle$.
+\item\label{group5:12} $\langle a,b\rangle^{c}=\langle a^{c},b^{c}\rangle$.
+\item\label{group5:13} $\langle a,b,c\rangle^{d}=\langle a^{d},b^{d},c^{d}\rangle$
+\item\label{group5:14} $\prod F^{a}=(\prod F)^{a}$.
+\item\label{group5:15} $(F^{a})^{I}=(F^{I})^{a}$.
+\end{thm}
+
+\section{Commutators}
+
+\begin{definition}
+Let $G$ be a group, let $a$ and $b$ be elements of $G$.
+We define the term $[a,b]$ (Mizar: ``\verb#[. a , b .]#'') to be the
+element of $G$ equal to
+\begin{defn}
+\item $[a,b]:=a^{-1}\cdot b^{-1}\cdot a\cdot b$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{group5:16} We have the following results:
+  \begin{enumerate}[label=(\roman*)]
+  \item $[a,b]=((a^{-1}\cdot b^{-1})\cdot a)\cdot b$
+  \item $[a,b]=(a^{-1}(\cdot b^{-1}\cdot a))\cdot b$
+  \item $[a,b]=a^{-1}\cdot((b^{-1}\cdot a)\cdot b)$
+  \item $[a,b]=a^{-1}\cdot((b^{-1}\cdot (a\cdot b))$
+  \item $[a,b]=(a^{-1}\cdot b^{-1})\cdot (a\cdot b)$
+  \end{enumerate}
+\item\label{group5:17} $[a,b]=(b\cdot a)^{-1}\cdot(a\cdot b)$
+\item\label{group5:18} $[a,b]=(b^{-1})^{a}\cdot b$ and $[a,b]=a^{-1}\cdot(a^{b})$.
+\item\label{group5:19} $[1_{G},a]=1_{G}$ and $[a,1_{G}]=1_{G}$.
+\item\label{group5:20} $[a,a]=1_{G}$
+\item\label{group5:21} $[a,a^{-1}]=1_{G}$ and $[a^{-1},a]=1_{G}$.
+\item\label{group5:22} $[a,b]^{-1}=[b,a]$
+\item\label{group5:23} $[a,b]^{c}=[a^{c},b^{c}]$
+\item\label{group5:24} $[a,b] = ((a^{-1})^{2})\cdot((a\cdot b^{-1})^{2})\cdot(b^{2})$.
+\item\label{group5:25} $[a\cdot b,c]=[a,c]^{b}\cdot[b,c]$.
+\item\label{group5:26} $[a,b\cdot c]=[a,c]\cdot([a,b]^{c})$
+\item\label{group5:27} $[a^{-1},b]=[b,a]^{a^{-1}}$.
+\item\label{group5:28} $[a,b^{-1}]=[b,a]^{b^{-1}}$.
+\item\label{group5:29} $[a^{-1},b^{-1}]=[a,b]^{(a\cdot b)^{-1}}$ and
+  $[a^{-1},b^{-1}]=[a,b]^{(b\cdot a)^{-1}}$
+\item\label{group5:30} $[a,b^{a^{-1}}]=[b,a^{-1}]$
+\item\label{group5:31} $[a^{b^{-1}},b]=[b^{-1},a]$
+\item\label{group5:32} $[a^{n},b]=a^{-n}\cdot((a^{b})^{n})$
+\item\label{group5:33} $[a,b^{n}]=((b^{a})^{-n})\cdot(b^{n})$.
+\item\label{group5:34} $[a^{i},b]=(a^{-i})\cdot((a^{b})^{i})$.
+\item\label{group5:35} $[a,b^{i}]=(b^{a})^{-i}\cdot(b^{i})$.
+\item\label{group5:36} $[a,b]=1_{G}$ if and only if $a\cdot b=b\cdot a$.
+\item\label{group5:37} $G$ is a commutative group if and only if all
+  elements $a$ and $b$ of $G$ satisfy $[a,b]=1_{G}$.
+\item\label{group5:38} If $a\in H$ and $b\in H$, then $[a,b]\in H$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $a$, $b$, $c$ be elements of $G$.
+We define the term $[a,b,c]$ (Mizar: ``\verb#[. a, b, c .]#'') to be the
+element of $G$ satisfying
+\begin{defn}
+\item $[a,b,c]:=[[a,b],c]$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{group5:39} $[a,b,1_{G}]=1_{G}$ and $[a,1_{G},b]=1_{G}$
+  and $[1_{G},a,b]=1_{G}$.
+\item\label{group5:40} $[a,a,b]=1_{G}$
+\item\label{group5:41} $[a,b,a]=[a^{b},a]$
+\item\label{group5:42} $[b,a,a]=([b,a^{-1}]\cdot[b,a])^{a}$
+\item\label{group5:43} $[a,b,b^{a}]=[b,[b,a]]$
+\item\label{group5:44} $[a\cdot b,c]=[a,c]\cdot[a,c,b]\cdot[b,c]$
+\item\label{group5:45} $[a,b\cdot c]=[a,c]\cdot[a,b]\cdot[a,b,c]$.
+\item\label{group5:46} (\textsc{Hall Identity}\index{Hall Identity})
+  $[a,b^{-1},c]^{b}\cdot[b,c^{-1},a]^{c}\cdot[c,a^{-1},b]^{a}=1_{G}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $A$ and $B$ be subsets of $G$.
+We define the \define{Commutators of $A$ and $B$} (Mizar: ``\verb#commutators(A,B)#'')
+to be the subset of $G$ equal to
+\begin{defn}
+\item the commutators of $A$ and $B$ is equal to $\{[a,b]\mid a\in A,b\in B\}$
+\end{defn}
+\end{definition}
+
+\begin{remark}
+CAUTION: the set of commutators of $A$ and $B$ \emph{is not} the same as
+$[A,B]$ which will be defined later.
+\end{remark}
+
+We can prove the following:
+\begin{thm}
+\item\label{group5:47} $x$ belongs to the commutators of $A$ and $B$ if
+  and only if there exists elements $a$ and $b$ of $G$ such that
+  $x=[a,b]$, $a\in A$, $b\in B$.
+\item\label{group5:48} The commutators of $\emptyset_{G}$ and $B$ is
+  equal to $\emptyset$, and the commutators of $A$ and $\emptyset_{G}$
+  is equal to $\emptyset$.
+\item\label{group5:49} The commutators of $\{a\}$ and $\{b\}$ is equal
+  to $\{[a,b]\}$.
+\item\label{group5:50} If $A\subset B$ and $C\subset D$ are subsets of $G$,
+  then the commutators of $A$ and $C$ is contained in 
+\item\label{group5:51} $G$ is a commutative group if and only if the
+  commutators of nonempty subsets of $G$ equals $\{1_{G}\}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H_{1}$ and $H_{2}$ be a subgroup of $G$.
+We define the \define{Commutators of $H_{1}$ with $H_{2}$} (Mizar: ``\verb#commutators(H1,H2)#'')
+to be the subset of $G$ equal to
+\begin{defn}
+\item the commutators of $\carr(H_{1})$ with $\carr(H_{2})$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{group5:52} $x$ belongs to the commutators of $H_{1}$ with
+  $H_{2}$ if and only if there exists elements $a$, $b$ of $G$ such that
+  $x=[a,b]$, $a\in H_{1}$, $b\in H_{2}$
+\item\label{group5:53} $1_{G}$ belongs to the commutators of $H_{1}$
+  with $H_{2}$.
+\item\label{group5:54} The commutators of $\trivialSubgroup{G}$ with
+  $H_{2}$ is equal to $\{1_{G}\}$. The commutators of $H_{1}$ with
+  $\trivialSubgroup{G}$ is equal to $\{1_{G}\}$.
+\item\label{group5:55} Let $N$ be a strict normal subgroup of $G$.
+  The commutators of $H$ with $N$ is a subset of $\carr(N)$, and the set
+  of commutators of $N$ with $H$ is a subset of $\carr(N)$.
+\item\label{group5:56} Let $H_{1}$ be a subgroup of $H_{2}$,
+  let $H_{3}$ be a subgroup of $H_{4}$.
+  Then the set of commutators of $H_{1}$ with $H_{3}$ is contained in
+  the set of commutators of $H_{2}$ with $H_{4}$.
+\item\label{group5:57} $G$ is a commutative group if and only if the
+  commutators of any two subgroups is equal to the set $\{1_{G}\}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group. We define the set of \define{Commutators of $G$}
+to be the subset of $G$ equal to
+\begin{defn}
+\item the set of commutators of $\Omega_{G}$ with $\Omega_{G}$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{group5:58} $x$ belongs to the commutators of $G$ if and only
+  if there exists elements $a$ and $b$ of $G$ such that $x=[a,b]$.
+\item\label{group5:59} $G$ is a commutative group if and only if the
+  commutators of $G$ is equal to $\{1_{G}\}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $A$ and $B$ be subsets of $G$.
+We define the term $[A,B]$ (Mizar: ``\verb#[. A, B .]#'') to be the
+strict subgroup of $G$ equal to
+\begin{defn}
+\item $[A,B]:=\gr{\mbox{the commutators of $A$ with $B$}}$.
+\end{defn}
+\end{definition}
+
+
+\begin{thm}
+\item\label{group5:60} If $a\in A$, $b\in B$, then $[a,b]\in[A,B]$.
+\item\label{group5:61} $x\in[A,B]$ if and only if there exists sequences
+  $F$ and $I$ such that $\len(F)=\len(I)$, $\rng(F)$ is contained in the
+  set of commutators of $A$ with $B$, and $x=\prod F^{I}$.
+\item\label{group5:62} If $A\subset C$, $B\subset D$, then $[A,B]$ is a
+  subgroup of $[C,D]$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H_{1}$ and $H_{2}$ be subgroups of $G$.
+We define the term $[H_{1},H_{2}]$ (Mizar: ``\verb#[. H1, H2 .]#'')
+to be the strict subgroup of $G$ equal to
+\begin{defn}
+\item $[H_{1},H_{2}]:=[\carr(H_{1}),\carr(H_{2})]$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{group5:63} $[H_{1},H_{2}]$ is equal to $\gr{\mbox{the commutators of $H_{1}$ with $H_{2}$}}$.
+\item\label{group5:64} $x\in[H_{1},H_{2}]$ if and only if there exists
+  sequences $F$, $I$ such that $\len(F)=\len(I)$, $\rng(F)$ is a subset
+  of the commutators of $H_{1}$ with $H_{2}$, $x=\prod F^{I}$.
+\item\label{group5:65} If $a\in H_{1}$, $b\in H_{2}$, then $[a,b]\in[H_{1},H_{2}]$.
+\item\label{group5:66} Let $H_{1}$ be a subgroup of $H_{2}$, let $H_{3}$
+  be a subgroup of $H_{4}$. Then we have $[H_{1},H_{3}]$ is a subgroup
+  of $[H_{2},H_{4}]$.
+\item\label{group5:67} Let $N$ be a strict normal subgroup of $G$.
+  Then $[H,N]$ is a subgroup of $N$ and $[N,H]$ is a subgroup of $N$.
+\item\label{group5:68} Let $N_{1}$, $N_{2}$ be strict normal subgroups
+  of $G$. Then $[N_{1},N_{2}]$ is a normal subgroup of $G$.
+\item\label{group5:69} $[N_{1},N_{2}]=[N_{2},N_{1}]$.
+\item\label{group5:70} Let $N_{1}$, $N_{2}$, $N_{3}$ be strict normal subgroups
+  of $G$. Then $[N_{1}\join N_{2},N_{3}]=[N_{1},N_{3}]\join[N_{2},N_{3}]$.
+\item\label{group5:71} Let $N_{1}$, $N_{2}$, $N_{3}$ be strict normal subgroups
+  of $G$. Then $[N_{1},N_{2}\join N_{3}]=[N_{1},N_{2}]\join[N_{1},N_{3}]$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group. We define the \define{Derived Subgroup} of $G$,
+denoted either $[G,G]$ or $G'$ (Mizar: ``\verb#G `#''), to be the strict
+normal subgroup of $G$ equal to:
+\begin{defn}
+\item $G' := [\Omega_{G},\Omega_{G}]$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{group5:72} $G'=\gr{\mbox{the commutators of $G$}}$.
+\item\label{group5:73} $x\in G'$ if and only if there exists a finite
+  sequence $F$ of elements of $G$ and a finite sequence $I$ of integers
+  such that $\len(F)=\len(I)$, $\rng(F)$ is contained in the set of
+  commutators of $G$, and $x=\prod F^{I}$.
+\item\label{group5:74} Let $G$ be a strict group, let $a$ and $b$ be
+  elements of $G$. Then $[a,b]\in G'$.
+\item\label{group5:75} Let $G$ be a strict group.
+  Then $G$ is a commutative group if and only if $G'=\trivialSubgroup{G}$.
+\item\label{group5:76} Let $H$ be a strict subgroup of $G$.
+  If the set of left cosets of $H$ is finite and $\Index{G}{H}=2$,
+  then $G'$ is a subgroup of $H$.
+\end{thm}
+
+\section{Center of a Group}
+
+\begin{definition}
+Let $G$ be a group.
+We define the \define{Center} of $G$ to be the strict subgroup of $G$
+denoted $Z(G)$ (Mizar: ``\verb#center G#'') satisfying
+\begin{defn}
+\item the underlying set of $Z(G)$ is equal to $\{a\mid\forall b\in G,a\cdot b=b\cdot a\}$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{group5:77} $a\in Z(G)$ if and only if for each element $b$
+  of $G$ we have $a\cdot b=b\cdot a$.
+\item\label{group5:78} The center of $G$ is a normal subgroup of $G$.
+\item\label{group5:79} Let $H$ be a subgroup of $G$. If $H$ is a
+  subgroup of the center of $G$, then $H$ is a normal subgroup of $G$.
+\item\label{group5:80} The center of $G$ is commutative.
+\item\label{group5:81} $a\in Z(G)$ if and only if the conjugacy class of
+  $a$ equals $\{a\}$.
+\item\label{group5:82} Let $G$ be a strict group.
+  Then $G$ is a commutative group if and only if $Z(G)=G$.
+\end{thm}
+
+\end{document}

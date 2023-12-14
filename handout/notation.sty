@@ -111,6 +111,18 @@
 \def\card#1{|#1|}
 \def\nextcard#1{#1^{+}}
 
+% PBOOLE
+\newcommand\EmptyMS[1]{\emptyset_{#1}}
+
+% FINSUB1
+\DeclareMathOperator\Fin{Fin}
+
+% FINSEQ1
+\DeclareMathOperator\Sgm{Sgm}
+\let\concat\frown
+\DeclareMathOperator\len{len}
+
+
 % STRUCT0
 \def\carrier#1{\operatorname{the\ carrier\ of\ }#1}
 \DeclareMathOperator\NonZero{NonZero}
@@ -128,5 +140,20 @@
 % GROUP3
 \def\Subgroups#1{\operatorname{Subgroups}(#1)}
 \def\normalizer#1#2{N_{#1}(#2)}
+
+% GROUP4
+\newcommand\gr[1]{\langle#1\rangle}
+\newcommand\join{\sqcup}
+\DeclareMathOperator\SubJoin{SubJoin}
+\DeclareMathOperator\SubMeet{SubMeet}
+\newcommand\lattice[1]{\mathbb{L}_{#1}}
+
+% GROUP6
+\DeclareMathOperator\Cosets{Cosets}
+\DeclareMathOperator\CosOp{CosOp}
+\DeclareMathOperator\Ker{Ker}
+\DeclareMathOperator\Image{Im}
+\newcommand\trivialmap[2]{\varphi_{#1\mapsto 1_{#2}}}
+\newcommand\nathom[1]{\pi_{#1}}
 
 \DeclareMathOperator\contradiction{contradiction}

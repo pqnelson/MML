@@ -1,0 +1,333 @@
+\documentclass{article}
+\title{Lattice of Subgroups of a Group. Frattini Subgroup (GROUP-4)}
+\author{Wojciech A. Trybulec}
+\date{August 22, 1990}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $D$ be a nonempty set, let $F$ be a finite sequence of $D$, let $X$
+be a set.
+We redefine the type of the term $F-X$ to be a finite sequence of $D$.
+\end{definition}
+
+\begin{remark}
+Recall, $F-X$ is defined to be $F\circ(\Sgm((\dom(F))\setminus(F^{-1}X)))$.
+\end{remark}
+
+\begin{scheme}[MeetSbgEx]
+Let $\mathcal{G}$ be a group, let $\mathcal{P}[-]$ be a unary predicate
+of sets.
+There exists a strict subgroup $H$ of $\mathcal{G}$ such that the
+carrier of $H$ is equal to $\meet\{\carr(K)\mid K\in\Subgroups{G},\mathcal{P}[K]\}$,
+provided:
+\begin{enumerate}
+\item There exists a strict Subgroup $H$ of $\mathcal{G}$ such that $\mathcal{P}[H]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[SubgrSep]
+Let $\mathcal{G}$ be a group, let $\mathcal{P}$ be a predicate of sets.
+There exists a set $X$ such that $X\subset\Subgroups{\mathcal{G}}$ and every
+strict Subgroup $H$ of $\mathcal{G}$ satisfies $H\in X$ iff $\mathcal{P}[H]$.
+\end{scheme}
+
+\begin{definition}
+Let $i$ be an integer. We define $@i$ to be element of $\ZZ$ equal to
+\begin{defn}
+\item $@i:=i$.
+\end{defn}
+\end{definition}
+
+Let $a$, $b$ be elements of $G$, let $H$ be a subgroup of $G$,
+let $h$ be elements of $H$. Let $i$ be an integer, let $n$ be a natural number.
+We have the following results:
+\begin{thm}
+\item\label{group4:1} If $a=h$, then $a^{n}=h^{n}$.
+\item\label{group4:2} If $a=h$, then $a^{i}=h^{i}$.
+\item\label{group4:3} If $a\in H$, then $a^{n}\in H$.
+\item\label{group4:4} If $a\in H$, then $a^{i}\in H$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a nonempty multiplicative magma, let $F$ be a finite sequence
+of elements of $G$. We define the term $\prod F$ to be the element of
+$G$ satisfying
+\begin{defn}
+\item $\prod F :=$ the operation of $G$ $\odot F$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{group4:5} Let $M$ be an associative unital nonempty
+  multiplicative magma, let $F_{1}$ and $F_{2}$ be finite sequences of
+  elements of $M$. Then $\prod(F_{1}\concat F_{2})=(\prod F_{1})\cdot(\prod F_{2})$.
+\item\label{group4:6} Let $M$ be an associative unital nonempty
+  multiplicative magma, let $F$ be a finite sequence of
+  elements of $M$, let $a$ be an element of $F$.
+  Then $\prod(F\concat\langle a\rangle)=(\prod F)\cdot a$.
+\item\label{group4:7} Let $M$ be an associative unital nonempty
+  multiplicative magma, let $F$ be a finite sequence of
+  elements of $M$, let $a$ be an element of $F$.
+  Then $\prod(\langle a\rangle\concat F)=a\cdot(\prod F)$.
+\item\label{group4:8} Let $M$ be an unital nonempty
+  multiplicative magma, then $\prod\langle\rangle=1_{M}$.
+\item\label{group4:9} Let $M$ be an nonempty
+  multiplicative magma, let $a$ be an element of $M$.
+  Then $\prod\langle a\rangle = a$.
+\item\label{group4:10} Let $M$ be an nonempty
+  multiplicative magma, let $a$, $b$ be elements of $M$.
+  Then $\prod\langle a,b\rangle = a\cdot b$.
+\item\label{group4:11} Let $a$, $b$, $c$ be elements of $G$.
+  Then $\prod\langle a,b,c\rangle = (a\cdot b)\cdot c$
+  and $\prod\langle a,b,c\rangle = a\cdot(b\cdot c)$.
+\item\label{group4:12} $\prod(n\constantto a)=a^{n}$.
+\item\label{group4:13} $\prod(F-\{1_{G}\})=\prod F$.
+\item\label{group4:14} If $\len(F_{1})=\len(F_{2})$ and every $k\in\dom(F_{1})$
+  satisfies $F_{2}(\len(F_{1})-k+1)=F_{1}(k)^{-1}$, then $\prod F_{1}=(\prod F_{2})^{-1}$.
+\item\label{group4:15} If $G$ is a commutative group,
+  then for every permutation $P$ of $\Seg(\len(F_{1}))$ such that
+  $F_{2}=F_{1}\circ P$ we have $\prod F_{1}=\prod F_{2}$.
+\item\label{group4:16} If $G$ is a commutative group, $F_{1}$ is
+  injective, $F_{2}$ is injective, and $\rng(F_{1})=\rng(F_{2})$,
+  then $\prod F_{1}=\prod F_{2}$.
+\item\label{group4:17} If $G$ is a commutative group, $\len(F)=\len(F_{1})=\len(F_{2})$,
+  and if every integer $k\in\dom(F)$ satisfies $F(k)=F_{1}(k)\cdot F_{2}(k)$,
+  then $\prod F=(\prod F_{1})\cdot(\prod F_{2})$.
+\item\label{group4:18} 
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $I$ be a finite sequence of integers, let $F$ be
+a finite sequence of elements of $G$. We define the term $F^{I}$ to be
+the finite sequence of elements of $G$ such that
+\begin{defn}
+\item $\len(F^{I})=\len(F)$ and for each integer $k\in\dom(F)$, $F^{I}(k)=F(k)^{@I(k)}$.
+\end{defn}
+\end{definition}
+
+Let $i$, $i_{1}$, $i_{2}$, $i_{3}$, $j$ be integers.
+Let $I_{1}$, $I_{2}$ be sequences of integers. Then we have the following:
+\begin{thm}
+\item\label{group4:19} If $\len(F_{1})=\len(I_{1})$ and
+  $\len(F_{2})=\len(I_{2})$, then $(F_{1}\concat F_{2})^{I_{1}\concat I_{2}}=(F_{1}^{I_{1}})\concat(F_{2}^{I_{2}})$.
+\item\label{group4:20} If $\rng(F)\subset H$, then $\prod F^{I}\in H$.
+\item\label{group4:21} $(\langle\rangle_{G})^{\langle\rangle_{\ZZ}}=\emptyset$.
+\item\label{group4:22} $\langle a\rangle^{\langle i\rangle}=\langle a^{i}\rangle$.
+\item\label{group4:23} $\langle a,b\rangle^{\langle i,j\rangle}=\langle a^{i},b^{j}\rangle$.
+\item\label{group4:24} $\langle a,b,c\rangle^{\langle i_{1}, i_{2}, i_{3}\rangle} = \langle a^{i_{1}}, b^{i_{2}}, c^{i_{3}}\rangle$
+\item\label{group4:25} $F^{\len(F)\constantto 1}=F$.
+\item\label{group4:26} $F^{\len(F)\constantto 0}=\len(F)\constantto 1_{G}$.
+\item\label{group4:27} If $\len(I)=n$, then $(n\constantto 1_{G})^{I}=n\constantto 1_{G}$
+\end{thm}
+
+\begin{definition}\index{$\gr{A}$}
+Let $G$ be a group, let $A$ be a subset of $G$.
+We define the \define{subgroup generated by $A$}, denoted $\langle A\rangle$
+(Mizar: ``\verb#gr A#''),
+to be the strict subgroup of $G$ satisfying
+\begin{defn}
+\item $A\subset\gr{A}$ and every strict subgroup $H$ of $G$ such that
+  $A\subset\carr(H)$ satisfies $\langle A\rangle$ is a subgroup of $H$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+Mizar denotes $\gr{A}$ as $\operatorname{gr}(A)$, and I think this was
+standard notation a few decades ago.
+\end{remark}
+
+We can prove the following:
+\begin{thm}
+\item\label{group4:28} $a\in\gr{A}$ if and only if there exists
+  sequences $F$ and $I$ such that $\len(F)=\len(I)$, $\rng(F)\subset A$,
+  and $\prod F^{I}=a$.
+\item\label{group4:29} If $a\in A$, then $a\in\gr{A}$.
+\item\label{group4:30} $\gr{\emptyset_{G}}=\trivialSubgroup{G}$
+\item\label{group4:31} For each strict subgroup $H$ of $G$, we have $\gr{\carr(H)}=H$.
+\item\label{group4:32} If $A\subset G$, then $\gr{A}$ is a subgroup of $\gr{B}$.
+\item\label{group4:33} $\gr{A\cap B}$ is a subgroup of $\gr{A}\cap\gr{B}$.
+\item\label{group4:34} The carrier of $\gr{A}$ is equal to
+  $\meet\{\carr{H}\mid H\mbox{ is strict subgroup of }G, A\subset\carr{H}\}$.
+\item\label{group4:35} $\gr{A}=\gr{A\setminus\{1_{G}\}}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $a$ be an element of $G$.
+We define the attribute $a$ is \define{generating} to mean
+\begin{defn}
+\item No subset $A$ of $G$ such that $\gr{A}=G$ satisfies $\gr{A\setminus\{a\}}=G$.
+\end{defn}
+\end{definition}
+
+We can prove the following:
+\begin{thm}
+\item\label{group4:36} $1_{G}$ is not generating.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H$ be a subgroup.
+We define the attribute $H$ is \define{maximal} to mean
+\begin{defn}
+\item the magma underlying $H$ is not equal to the magma underlying $G$,
+  and for any strict subgroup $K$ of $G$ if $H\neq K$ and $H$ is a
+  subgroup of $G$, then $K$ equals the magma underlying $G$.
+\end{defn}
+\end{definition}
+
+We can prove the following result:
+\begin{thm}
+\item\label{group4:37} Let $G$ be a strict group, let $H$ be a strict
+  subgroup, let $a$ be an element of $G$.
+  If $H$ is maximal and $a\notin H$, then $\gr{\carr(H)\cup\{a\}}=G$.
+\end{thm}
+
+\section{Frattini Subgroup}
+
+\begin{definition}
+Let $G$ be a group. We define the \define{Frattini Subgroup} of $G$ to
+be the strict subgroup of $G$, denoted $\Phi(G)$, satisfying
+\begin{defn}
+\item its underlying set is equal to
+  \[\meet\{A\mbox{ where }A\mbox{ is a Subset of }G\mid\exists H\mbox{
+    being strict Subgroup of }G\mbox{ such that } A=\carr(H),H\mbox{ is maximal}\}\]
+  when there exists a maximal subgroup of $G$; otherwise $\Phi(G)=\Omega_{G}$.
+\end{defn}
+\end{definition}
+
+We can prove the following five propositions:
+\begin{thm}
+\item\label{group4:38} Let $a$ be an element of $G$.
+  If there exists a maximal strict subgroup of $G$,
+  then $a\in\Phi(G)$ iff every maximal strict Subgroup $H$ of $G$
+  contains $a\in H$.
+\item\label{group4:39} Let $a$ be an element of $G$.
+  If there does not exist a maximal strict subgroup
+  of $G$, then $a\in\Phi(G)$. 
+\item\label{group4:40} Let $H$ be a strict subgroup of $G$. If $H$ is
+  maximal, then $\Phi(G)$ is a subgroup of $H$.
+\item\label{group4:41} Let $G$ be a strict group.
+  Then the carrier of $\Phi(G)$ is equal to $\{a\mid a\mbox{ is nongenerating}\}$.
+\item\label{group4:42} Let $G$ be a strict group, let $a$ be an element
+  of $G$. Then $a\in\Phi(G)$ if and only if $a$ is nongenerating.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H_{1}$ and $H_{2}$ be subgroups of $G$.
+We define the term $H_{1}\cdot H_{2}$ to be the subset of $G$ satisfying
+\begin{defn}
+\item $H_{1}\cdot H_{2}=\carr(H_{1})\cdot\carr(H_{2})$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{group4:43} $H_{1}\cdot H_{2}=\carr(H_{1})\cdot\carr(H_{2})$
+  $H_{1}\cdot H_{2}=H_{1}\cdot\carr(H_{2})$
+  $H_{1}\cdot H_{2}=\carr(H_{1})\cdot H_{2}$
+\item\label{group4:44} (Associativity) $(H_{1}\cdot H_{2})\cdot H_{3}=H_{1}\cdot(H_{2}\cdot H_{3})$
+\item\label{group4:45} $(a\cdot H_{1})\cdot H_{2}=a\cdot(H_{1}\cdot H_{2})$.
+\item\label{group4:46} $(H_{1}\cdot H_{2})\cdot a=H_{1}\cdot(H_{2}\cdot a)$.
+\item\label{group4:47} $(A\cdot H_{1})\cdot H_{2}=A\cdot(H_{1}\cdot H_{2})$
+\item\label{group4:48} $(H_{1}\cdot H_{2})\cdot A=H_{1}\cdot(H_{2}\cdot A)$.
+\end{thm}
+
+\section{Lattice of Subgroups}
+
+\begin{definition}
+Let $G$ be a group, let $H_{1}$ and $H_{2}$ be subgroups of $G$.
+We define the term $H_{1}\join H_{2}$ to be the strict subgroup of $G$
+equal to
+\begin{defn}
+\item $H_{1}\join H_{2}:=\gr{\carr(H_{1})\cup\carr(H_{2})}$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{group4:49} $a\in H_{1}\join H_{2}$ if and only if there
+  exists sequences $F$ and $I$ such that $\len(F)=\len(I)$ and
+  $\rng(F)\subset\carr(H_{1})\cup\carr(H_{2})$ and $a=\prod F^{I}$.
+\item\label{group4:50} $H_{1}\join H_{2}=\gr{H_{1}\cdot H_{2}}$.
+\item\label{group4:51} If $H_{1}\cdot H_{2}=H_{2}\cdot H_{1}$,
+  then the carrier of $H_{1}\join H_{2}$ equal to $H_{1}\cdot H_{2}$.
+\item\label{group4:52} If $G$ is a commutative group, then the carrier
+  of $H_{1}\join H_{2}$ is equal to $H_{1}\cdot H_{2}$.
+\item\label{group4:53} Let $N_{1}$, $N_{2}$ be strict normal subgroups
+  of $G$. Then the set underlying $N_{1}\join N_{2}$ is equal to
+  $N_{1}\cdot N_{2}$.
+\item\label{group4:54} Let $N_{1}$, $N_{2}$ be strict normal subgroups
+  of $G$. Then $N_{1}\join N_{2}$ is a normal subgroup of $G$.
+\item\label{group4:55} Let $H$ be a strict subgroup of $G$.
+  Then $H\join H=H$.
+\item\label{group4:56} (Commutativity) $H_{1}\join H_{2}=H_{2}\join H_{1}$ 
+\item\label{group4:57} (Associativity)
+  $(H_{1}\join H_{2})\join H_{3}=H_{1}\join(H_{2}\join H_{3})$.
+\item\label{group4:58} Let $H$ be a strict subgroup of $G$.
+  Then $\trivialSubgroup{G}\join H=H$ and $H\join\trivialSubgroup{G}=H$.
+\item\label{group4:59} $\Omega_{G}\join H=\Omega_{G}$ and $H\join\Omega_{G}=\Omega_{G}$.
+\item\label{group4:60} $H_{1}$ is a subgroup of $H_{1}\join H_{2}$ and
+  $H_{2}$ is a subgroup of $H_{1}\join H_{2}$.
+\item\label{group4:61} Let $H_{2}$ be a strict subgroup of $G$.
+  Then $H_{1}$ is a subgroup of $H_{2}$ if and only if $H_{1}\join H_{2}=H_{2}$.
+\item\label{group4:62} If $H_{1}$ is a subgroup of $H_{2}$,
+  then $H_{1}$ is a subgroup of $H_{2}\join H_{3}$.
+\item\label{group4:63} Let $H_{3}$ be a strict subgroup of $G$.
+  If $H_{1}$ is a subgroup of $H_{3}$, if $H_{2}$ is a subgroup of $H_{3}$,
+  then $H_{1}\join H_{2}$ is a subgroup of $H_{3}$.
+\item\label{group4:64} Let $H_{2}$, $H_{3}$ be strict subgroups of $G$.
+  If $H_{1}$ is a subgroup of $H_{2}$, then $H_{1}\join H_{3}$ is a
+  subgroup of $H_{2}\join H_{3}$.
+\item\label{group4:65} $H_{1}\cap H_{2}$ is a subgroup of $H_{1}\join H_{2}$.
+\item\label{group4:66} Let $H_{2}$ be a strict subgroup of $G$.
+  Then $(H_{1}\cap H_{2})\join H_{2}=H_{2}$.
+\item\label{group4:67} Let $H_{1}$ be a strict subgroup of $G$.
+  Then $H_{1}\cap(H_{1}\join H_{2})=H_{1}$.
+\item\label{group4:68} Let $H_{1}$ and $H_{2}$ be strict subgroups of $G$.
+  Then $H_{1}\join H_{2}=H_{2}$ if and only if $H_{1}\cap H_{2}=H_{1}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group. We define the term $\SubJoin_{G}$ (Mizar:
+``\verb#SubJoin G#'') to be a binary
+operator on $\Subgroups{G}$ satisfying
+\begin{defn}
+\item For all strict subgroups $H_{1}$, $H_{2}$ of $G$ we have
+  $\SubJoin_{G}(H_{1},H_{2})=H_{1}\join H_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+This will be the ``join'' operator for the lattice of subgroups.
+\end{remark}
+
+\begin{definition}
+Let $G$ be a group. We define the term $\SubMeet_{G}$ (Mizar:
+``\verb#SubMeet G#'') to be a binary
+operator on $\Subgroups{G}$ satisfying
+\begin{defn}
+\item For all strict subgroups $H_{1}$, $H_{2}$ of $G$ we have
+  $\SubMeet_{G}(H_{1},H_{2})=H_{1}\cap H_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $G$ be a group.
+We define the \define{Subgroup Lattice} of $G$ (Mizar: ``\verb#lattice G#'')
+is the strict lattice, denoted $\lattice{G}$, equal to
+\begin{defn}
+\item $\lattice{G}:=\langle\Subgroups{G},\SubJoin_{G},\SubMeet_{G}\rangle$.
+\end{defn}
+\end{definition}
+
+Now we can prove the following results:
+\begin{thm}
+\item\label{group4:69} The carrier of $\lattice{G}$ is equal to $\Subgroups{G}$.
+\item\label{group4:70} The join operation of $\lattice{G}$ is $\SubJoin_{G}$.
+\item\label{group4:71} The meet operation of $\lattice{G}$ is $\SubMeet_{G}$.
+\item\label{group4:72} The bottom of $\lattice{G}$ is $\trivialSubgroup{G}$.
+\item\label{group4:73} The top of $\lattice{G}$ is $\Omega_{G}$.
+\end{thm}
+
+\end{document}

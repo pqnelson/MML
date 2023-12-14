@@ -1,0 +1,512 @@
+\documentclass{article}
+
+\title{Manysorted Sets (PBOOLE)}
+\author{Andrzej Trybulec}
+\date{July 7, 1993}
+\begin{document}
+\maketitle
+
+Let $i$, $j$, $e$, $u$ be objects. We have the following two theorems:
+\begin{thm}
+\item\label{pboole:1} For any function $f$, if $f$ is nonempty, then
+  $\rng(f)$ is with nonempty elements.
+\item\label{pboole:2} For any function $f$, then $f$ is empty-yielding
+  if and only if $f=\emptyset$ or $\rng(f)=\{\emptyset\}$.
+\end{thm}
+
+Let $I$ be a set (of indices).
+Observe there exists a total $I$-defined function.
+
+\begin{definition}
+Let $I$ be a set.
+We define a new mode, a \define{Many-Sorted Set of $I$} (Mizar:
+``\verb#ManySortedSet of I#'') is a total $I$-defined function.
+\end{definition}
+
+\begin{remark}
+These many-sorted sets are actually \emph{index families of sets}.
+\end{remark}
+
+Let $x$, $X$, $Y$, $Z$, $V$ be many-sorted sets of $I$.
+
+\begin{scheme}[KuratowskiFunction]
+Let $\mathcal{A}$ be a set, let $\mathcal{F}(-)$ be a set parametrized
+by an object.
+There exists a many-sorted set $f$ of $\mathcal{A}$ such that for each
+object $e\in\mathcal{A}$ we have $f(e)\in\mathcal{F}(e)$; provided:
+\begin{enumerate}
+\item for each object $e\in\mathcal{A}$, we have $\mathcal{F}(e)\neq\emptyset$.
+\end{enumerate}
+\end{scheme}
+
+\begin{definition}
+Let $I$ be a set, let $X$ and $Y$ be many-sorted sets of $I$.
+We define the predicate $X\in Y$ to mean
+\begin{defn}
+\item for each object $i\in I$, we have $X(i)\in Y(i)$.
+\end{defn}
+We define the predicate $X\subset Y$ to mean
+\begin{defn}
+\item for each object $i\in I$, we have $X(i)\subset Y(i)$.
+\end{defn}
+Observe this predicate is reflexive ($X\subset X$ for any many-sorted
+set of $I$).
+\end{definition}
+
+\begin{definition}
+Let $I$ be a nonempty set, let $X$ and $Y$ be many-sorted
+sets of $I$. We redefine the predicate $X\in Y$ to be asymmetric
+(there is no many-sorted set $X$ of $I$ such that $X\in X$).
+\end{definition}
+
+\begin{scheme}[PSeparation]
+Let $\mathcal{I}$ be a set, let $\mathcal{A}$ be a many-sorted set of
+$\mathcal{I}$, let $\mathcal{P}[-,-]$ be a binary predicate of objects.
+There exists a many-sorted set $X$ of $\mathcal{I}$ such that
+for each object $i\in\mathcal{I}$, for each object $e$ we have $e\in X(i)$
+if and only if $e\in\mathcal{A}(i)$ and $\mathcal{P}[i,e]$.
+\end{scheme}
+We can prove the following proposition:
+\begin{thm}
+\item\label{pboole:3} Suppose every object $\in I$ satisfies $X(i)=Y(i)$.
+  Then $X=Y$.
+\end{thm}
+
+\begin{definition}
+  Let $I$ be a set.
+
+  We define the term $\EmptyMS{I}$ (Mizar: ``\verb#EmptyMS I#'')
+  to be the many-sorted set of $I$ equal to
+  \begin{defn}
+  \item $\EmptyMS{I}:= I\constantto\emptyset$.
+  \end{defn}
+  Let $X$ and $Y$ be many-sorted sets of $I$.
+  We define the term $X\cup Y$ (Mizar: ``\verb#X \cup Y#'') to be the
+  many-sorted set of $I$ satisfying
+  \begin{defn}
+  \item for each object $i\in I$, we have $(X\cup Y)(i)=X(i)\cup Y(i)$.
+  \end{defn}
+  Observe this is commutative ($X\cup Y=Y\cup X$) and idempotent ($X\cup X=X$).
+
+  Now we define the term $X\cap Y$ (Mizar: ``\verb#X \cap Y#'') to be
+  the many-sorted set of $I$ satisfying
+  \begin{defn}
+  \item For each object $i\in I$, we have $(X\cap Y)(i)=X(i)\cap Y(i)$.
+  \end{defn}
+  Observe this is commutative ($X\cap Y=Y\cap X$) and idempotent ($X\cap X=X$).
+
+  We define the term $X\setminus Y$ (Mizar: ``\verb#X \setminus Y#'') to be
+  the many-sorted set of $I$ satisfying
+  \begin{defn}
+  \item for each object $i\in I$, we have $(X\setminus Y)(i)=X(i)\setminus Y(i)$.
+  \end{defn}
+
+  We define the predicate $X$ \define{overlaps} $Y$ to mean
+  \begin{defn}
+  \item for each object $i\in I$, we have $X(i)$ meets $Y(i)$.
+  \end{defn}
+  Observe this is symmetric (every $X$ overlaps with itself).
+
+  We define the predicate $X$ \define{misses} $Y$ to mean
+  \begin{defn}
+  \item For each object $i\in I$, we have $X(i)$ misses $Y(i)$.
+  \end{defn}
+  Observe this is symmetric (if $X$ misses $Y$, then $Y$ misses $X$).
+\end{definition}
+
+\begin{notation}
+  Let $I$ be a set, let $X$ and $Y$ be many-sorted sets of $I$.
+  We introduce the antonym $X$ \define{meets} $Y$ as the antonym for $X$
+  misses $Y$.
+\end{notation}
+
+\begin{definition}
+  Let $I$ be a set, let $X$ and $Y$ be many-sorted sets of $I$.
+  We define the term $X\symdiff Y$ (Mizar: ``\verb#X \+\ Y#'') to be the
+  many-sorted set of $I$ equal to
+  \begin{defn}
+  \item $X\symdiff Y:=(X\setminus Y)\cup(Y\setminus X)$.
+  \end{defn}
+  Observe this is commutative ($X\symdiff Y=Y\symdiff X$).
+\end{definition}
+
+We can now prove the following results:
+\begin{thm}
+\item\label{pboole:4} For each object $i\in I$, we have $(X\symdiff Y)(i)=X(i)\symdiff Y(i)$.
+\item\label{pboole:5} For each object $i$, we have $\EmptyMS{I}(i)=\emptyset$.
+\item\label{pboole:6} Suppose for each object $i\in I$ we have $X(i)=\emptyset$.
+  Then $X=\EmptyMS{I}$.
+\item\label{pboole:7} If $x\in X$ or $x\in Y$, then $x\in X\cup Y$.
+\item\label{pboole:8} $x\in X\cap Y$ if and only if $x\in X$ and $x\in Y$.
+\item\label{pboole:9} If $x\in X$ and $X\subset Y$, then $x\in Y$.
+\item\label{pboole:10} If $x\in X$ and $x\in Y$, then $X$ overlaps $Y$.
+\item\label{pboole:11} If $X$ overlaps $Y$, there exists a many-sorted
+  set $x$ of $I$ such that $x\in X$ and $x\in Y$.
+\item\label{pboole:12} If $x\in X\setminus Y$, then $x\in X$.
+\end{thm}
+
+\begin{definition}
+Let $I$ be a set, let $X$ and $Y$ be many-sorted sets of $I$.
+We redefine the predicate $X=Y$ to mean
+\begin{defn}
+\item for each object $i\in I$, we have $X(i)=Y(i)$.
+\end{defn}
+\end{definition}
+
+We resume proving results:
+\begin{thm}
+\item\label{pboole:13} If $X\subset Y$ and $Y\subset Z$, then $X\subset Z$.
+\item\label{pboole:14} $X\subset X\cup Y$.
+\item\label{pboole:15} $X\cap Y\subset X$.
+\item\label{pboole:16} If $X\subset Z$ and $Y\subset Z$, then $X\cup Y\subset Z$.
+\item\label{pboole:17} If $Z\subset X$ and $Z\subset Y$,
+  then $Z\subset X\cap Y$.
+\item\label{pboole:18} If $X\subset Y$, then $X\cup Z\subset Y\cup Z$.
+\item\label{pboole:19} If $X\subset Y$, then $X\cap Z\subset Y\cap Z$.
+\item\label{pboole:20} If $X\subset Y$ and $Z\subset V$, then $X\cup Z\subset Y\cup V$.
+\item\label{pboole:21} If $X\subset Y$ and $Z\subset V$, then $X\cap Z\subset Y\cap V$.
+\item\label{pboole:22} If $X\subset Y$, then $X\cup Y=Y$.
+\item\label{pboole:23} If $X\subset Y$, then $X\cap Y=Y$.
+\item\label{pboole:24} $X\cap Y\subset X\cup Z$.
+\item\label{pboole:25} If $X\subset Z$, then $X\cup(Y\cap Z)=(X\cup Y)\cap Z$.
+\item\label{pboole:26} $X=Y\cup Z$ if and only if $Y\subset X$ and
+  $Z\subset X$ and every many-sorted set $V$ of $I$ with $Y\subset V$
+  and $Z\subset V$ satisfies $X\subset V$.
+\item\label{pboole:27} $X=Y\cap Z$ if and only if $X\subset Y$ and
+  $X\subset Z$ and every many-sorted set $V$ of $I$ with $V\subset Y$
+  and $V\subset Z$ satisfies $V\subset X$.
+\item\label{pboole:28} (Associativity) $(X\cup Y)\cup Z=X\cup(Y\cup Z)$.
+\item\label{pboole:29} (Associativity) $(X\cap Y)\cap Z=X\cap(Y\cap Z)$.
+\item\label{pboole:30} $X\cap(X\cup Y)=X$.
+\item\label{pboole:31} $X\cup(X\cap Y)=X$.
+\item\label{pboole:32} $X\cap(Y\cup Z)=(X\cap Y)\cup(X\cap Z)$.
+\item\label{pboole:33} $X\cup (Y\cap Z)=(X\cup Y)\cap(X\cup Z)$
+\item\label{pboole:34} If $(X\cap Y)\cup(X\cap Z)=X$, then $X\subset Y\cup Z$.
+\item\label{pboole:35} If $(X\cup Y)\cap(X\cup Z)=X$,
+  then $Y\cap Z\subset X$.
+\item\label{pboole:36} $((X \cap Y) \cup (Y \cap Z)) \cup (Z \cap X) = ((X \cup Y) \cap (Y \cup Z)) \cap (Z \cup X)$
+\item\label{pboole:37} If $X \cup Y \subset Z$, then $X \subset Z$
+\item\label{pboole:38} If $X \subset Y \cap Z$, then $X \subset Y$
+\item\label{pboole:39} $(X \cup Y) \cup Z = (X \cup Z) \cup (Y \cup Z)$
+\item\label{pboole:40} $(X \cap Y) \cap Z = (X \cap Z) \cap (Y \cap Z)$
+\item\label{pboole:41} $X \cup (X \cup Y) = X \cup Y$
+\item\label{pboole:42} $ X \cap (X \cap Y) = X \cap Y$
+\item\label{pboole:43} $\EmptyMS{I}\subset X$
+\item\label{pboole:44} If $X\subset\EmptyMS{I}$, then $X=\EmptyMS{I}$
+\item\label{pboole:45} If $X \subset Y$, $X \subset Z$, and $Y \cap Z = \EmptyMS{I}$,
+  then $X = \EmptyMS{I}$
+\item\label{pboole:46} If $X \subset Y$ and $Y \cap Z = \EmptyMS{I}$,
+  then $X \cap Z = \EmptyMS{I}$
+\item\label{pboole:47} $X \cup (\EmptyMS I) = X$ and
+  $(\EmptyMS I) \cup X = X$
+\item\label{pboole:48} If $X \cup Y = \EmptyMS I$, then
+  $X = \EmptyMS I$
+\item\label{pboole:49} $X \cap (\EmptyMS I) = \EmptyMS I$
+\item\label{pboole:50} If $X \subset Y \cup Z$ and $X \cap Z = \EmptyMS I$, then
+  $X \subset Y$
+\item\label{pboole:51} If $Y \subset X$ and $X \cap Y = \EmptyMS I$, then
+  $Y = \EmptyMS I$
+\item\label{pboole:52} $X \setminus Y = \EmptyMS I$ if and only if $X \subset Y$
+\item\label{pboole:53} If $X \subset Y$, then $X \setminus Z \subset Y \setminus Z$
+\item\label{pboole:54} If $X \subset Y$, then $Z \setminus Y \subset Z \setminus X$
+\item\label{pboole:55} If $X \subset Y$ and $Z \subset V$, then $X \setminus V \subset Y \setminus Z$
+\item\label{pboole:56} $X \setminus Y \subset X$
+\item\label{pboole:57} If $X \subset Y \setminus X$, then $X = \EmptyMS I$
+\item\label{pboole:58} $X \setminus X = \EmptyMS I$
+\item\label{pboole:59} $X \setminus (\EmptyMS I) = X$
+\item\label{pboole:60} $(\EmptyMS I) \setminus X = \EmptyMS I$
+\item\label{pboole:61} $X \setminus (X \cup Y) = \EmptyMS I$
+\item\label{pboole:62} $X \cap (Y \setminus Z) = (X \cap Y) \setminus Z$
+\item\label{pboole:63} $(X \setminus Y) \cap Y = \EmptyMS I$
+\item\label{pboole:64} $X \setminus (Y \setminus Z) = (X \setminus Y) \cup (X \cap Z)$
+\item\label{pboole:65} $(X \setminus Y) \cup (X \cap Y) = X$
+\item\label{pboole:66} If $X \subset Y$, then $Y = X \cup (Y \setminus X)$
+\item\label{pboole:67} $X \cup (Y \setminus X) = X \cup Y$
+\item\label{pboole:68} $X \setminus (X \setminus Y) = X \cap Y$
+\item\label{pboole:69} $X \setminus (Y \cap Z) = (X \setminus Y) \cup (X \setminus Z)$
+\item\label{pboole:70} $X \setminus (X \cap Y) = X \setminus Y$
+\item\label{pboole:71} $X \cap Y = \EmptyMS I$ if and only if $X \setminus Y = X$
+\item\label{pboole:72} $(X \cup Y) \setminus Z = (X \setminus Z) \cup (Y \setminus Z)$
+\item\label{pboole:73} $(X \setminus Y) \setminus Z = X \setminus (Y \cup Z)$
+\item\label{pboole:74} $(X \cap Y) \setminus Z = (X \setminus Z) \cap (Y \setminus Z)$
+\item\label{pboole:75} $(X \cup Y) \setminus Y = X \setminus Y$
+\item\label{pboole:76} If $X \subset Y \cup Z$, then $X \setminus Y \subset Z$ and $X \setminus Z \subset Y$
+\item\label{pboole:77} $(X \cup Y) \setminus (X \cap Y) = (X \setminus Y) \cup (Y \setminus X)$
+\item\label{pboole:78} $(X \setminus Y) \setminus Y = X \setminus Y$
+\item\label{pboole:79} $X \setminus (Y \cup Z) = (X \setminus Y) \cap (X \setminus Z)$
+\item\label{pboole:80} If $X \setminus Y = Y \setminus X$, then $X=Y$
+\item\label{pboole:81} $X \cap (Y \setminus Z) = (X \cap Y) \setminus (X \cap Z)$
+\item\label{pboole:82} If $X \setminus Y \subset Z$, then $X \subset Y \cup Z$
+\item\label{pboole:83} $X \setminus Y \subset X \symdiff Y$
+\item\label{pboole:84} $ X \symdiff (\EmptyMS I) = X$
+\item\label{pboole:85} $X \symdiff X = \EmptyMS I$
+\item\label{pboole:86} $X \cup Y = (X \symdiff Y) \cup (X \cap Y)$
+\item\label{pboole:87} $X \symdiff Y = (X \cup Y) \setminus (X \cap Y)$
+\item\label{pboole:88} $(X \symdiff Y) \setminus Z = (X \setminus (Y \cup Z)) \cup (Y \setminus (X \cup Z))$
+\item\label{pboole:89} $X \setminus (Y \symdiff Z) = (X \setminus (Y \cup Z)) \cup ((X \cap Y) \cap Z)$
+\item\label{pboole:90} $(X \symdiff Y) \symdiff Z = X \symdiff (Y \symdiff Z)$
+\item\label{pboole:91} If $X \setminus Y \subset Z$ and $Y \setminus X \subset Z$, then $X \symdiff Y \subset Z$
+\item\label{pboole:92} $X \cup Y = X \symdiff (Y \setminus X)$
+\item\label{pboole:93} $X \cap Y = X \symdiff (X \setminus Y)$
+\item\label{pboole:94} $X \setminus Y = X \symdiff (X \cap Y)$
+\item\label{pboole:95} $Y \setminus X = X \symdiff (X \cup Y)$
+\item\label{pboole:96} $X \cup Y = (X \symdiff Y) \symdiff (X \cap Y)$
+\item\label{pboole:97} $X \cap Y = (X \symdiff Y) \symdiff (X \cup Y)$
+\item\label{pboole:98} If $X$ overlaps $Y$ or $X$ overlaps $Z$, then $X$
+  overlaps $Y\cup Z$.
+\item\label{pboole:99} If $X$ overlaps $Y$ and $Y\subset Z$, then $X$
+  overlaps $Z$.
+\item\label{pboole:100} If $X$ overlaps $Y$ and $X\subset Z$, then $X$
+  overlaps $Z$
+\item\label{pboole:101} If $X\subset Y$, $Z\subset V$, and $X$ overlaps $Z$,
+  then $Y$ overlaps $V$.
+\item\label{pboole:102} If $X$ overlaps $Y\cap Z$, then $X$ overlaps $Y$
+  and $X$ overlaps $Z$.
+\item\label{pboole:103} If $X$ overlaps $Z$ and $X\subset V$, then $X$
+  overlaps $Z\cap V$.
+\item\label{pboole:104} If $X$ overlaps $Y\setminus Z$, then $X$
+  overlaps $Y$.
+\item\label{pboole:105} If $Y$ does not overlap $Z$, then $X\cap Y$ does
+  not overlap $X\cap Z$.
+\item\label{pboole:106} If $X$ overlaps $Y\setminus Z$, then $Y$
+  overlaps $X\setminus Z$.
+\item\label{pboole:107} If $X$ meets $Y$ and $Y\subset Z$, then $X$
+  meets $Z$.
+\item\label{pboole:108} $Y$ misses $X\setminus Y$.
+\item\label{pboole:109} $X\cap Y$ misses $X\setminus Y$.
+\item\label{pboole:110} $X\cap Y$ misses $X\symdiff Y$.
+\item\label{pboole:111} If $X$ misses $Y$, then $X\cap Y=\EmptyMS{I}$
+\item\label{pboole:112} If $X\neq\EmptyMS{I}$, then $X$ meets $X$.
+\item\label{pboole:113} If $X\subset Y$, $X\subset Z$, and $Y$ misses $Z$,
+  then $X=\EmptyMS{I}$.
+\item\label{pboole:114} If $Z\cup V=X\cup Y$, $X$ misses $Y$, and $Y$
+  misses $V$, then $X=V$ and $Y=Z$.
+\item\label{pboole:115} If $X$ misses $Y$, then $X\setminus Y=X$.
+\item\label{pboole:116} If $X$ misses $Y$, then $(X\cup Y)\setminus Y=X$.
+\item\label{pboole:117} If $X\setminus Y=X$, then $X$ misses $Y$.
+\item\label{pboole:118} $X\setminus Y$ misses $Y\setminus X$.
+\end{thm}
+
+\section{The Second Inclusion}
+
+\begin{definition}
+Let $I$ be a set, let $X$ and $Y$ be a many-sorted set of $I$.
+We define the predicate $X \sqsubseteq  Y$ (Mizar: ``\verb#X \sqsubseteq Y#'')
+meaning:
+\begin{defn}
+\item for each many-sorted set $x$ of $I$, if $x\in X$, then $x\in Y$.
+\end{defn}
+Observe this predicate is reflexive (every many-sorted set $X$ of $I$
+satisfies $X \sqsubseteq X$).
+\end{definition}
+
+We can continue proving properties:
+\begin{thm}
+\item\label{pboole:119} If $X \subset Y$, then $X \sqsubseteq Y$
+\item\label{pboole:120} If $X \sqsubseteq Y$ and $Y \sqsubseteq Z$, then $X \sqsubseteq Z$.
+\item\label{pboole:121} $\EmptyMS{\emptyset}\in\EmptyMS{\emptyset}$.
+\item\label{pboole:122} Let $X$ be a many-sorted set of
+  $\emptyset$. Then $X=\emptyset$.
+\item\label{pboole:123} If $X$ overlaps $Y$, then $X$ meets $Y$.
+\item\label{pboole:124} There is no many-sorted set $x$ of $I$ such that $x\in\EmptyMS{I}$.
+\item\label{pboole:125} If $x\in X$ and $x\in Y$, then
+  $X \cap Y\neq\EmptyMS I$
+\item\label{pboole:126} There is no many-sorted set $X$ of $I$ such that
+  $X$ overlaps $\EmptyMS{I}$.
+\item\label{pboole:127} If $X \cap Y = \EmptyMS I$, then
+  $X$ does not overlap $Y$.
+\item\label{pboole:128} If $X$ overlaps $X$, then $X\neq\EmptyMS I$.
+\end{thm}
+
+\begin{definition}
+Let $I$ be a set, let $X$ be a many-sorted set of $I$.
+We redefine the attribute $X$ is empty-yielding to mean
+\begin{defn}
+\item for each object $i\in I$, we have $X(i)$ is empty.
+\end{defn}
+We redefine the attribute $X$ is non-empty to mean
+\begin{defn}
+\item for each object $i\in I$, we have $X(i)$ is nonempty.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{pboole:129} $X$ is empty-yielding iff $X = \EmptyMS I$.
+\item\label{pboole:130} If $Y$ is empty-yielding and $X\subset Y$, then
+  $X$ is empty-yielding.
+\item\label{pboole:131} If $X$ is non-empty and $X\subset Y$, then $Y$
+  is non-empty.
+\item\label{pboole:132} If $X$ is non-empty and $X \sqsubseteq Y$, then $X\subset Y$.
+\item\label{pboole:133} If $X$ is non-empty and $X \sqsubseteq Y$, then $Y$ is non-empty.
+\end{thm}
+
+From here on out, let $X$ be a non-empty many-sorted set of $I$. We
+continue proving the results:
+\begin{thm}
+\item\label{pboole:134} There exists a many-sorted set $x$ of $I$ such
+  that $x\in X$.
+\item\label{pboole:135} Suppose for all many-sorted sets $x$ of $I$ we have
+  $x\in X$ if and only if $x\in Y$. Then $X=Y$.
+\item\label{pboole:136} Suppose for all many-sorted sets $x$ of $I$, we
+  have $x\in X$ if and only if $x\in Y$ and $x\in Z$.
+  Then $X=Y\cap Z$.
+\end{thm}
+
+\begin{scheme}[MSSEx]
+Let $\mathcal{I}$ be a set, let $\mathcal{P}[-,-]$ be a binary predicate
+of objects.
+There exists a many-sorted set $f$ of $\mathcal{I}$ such that for each
+object $i\in\mathcal{I}$ we have $\mathcal{P}[i,f(i)]$; provided
+\begin{enumerate}
+\item for each object $i\in\mathcal{I}$, there exists an object $j$ such
+  that $\mathcal{P}[i,j]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[MSSLambda]
+Let $\mathcal{I}$ be a set, let $\mathcal{F}(-)$ be an object
+parametrized by an object.
+There exists a many-sorted set $f$ of $\mathcal{I}$ such that for each
+object $i\in\mathcal{I}$ we have $f(i)=\mathcal{F}(i)$.
+\end{scheme}
+
+We can prove the proposition:
+\begin{thm}
+\item\label{pboole:137} There is no non-empty many sorted set $M$ of $I$
+  such that $\emptyset\in\rng(M)$.
+\end{thm}
+
+\begin{definition}
+Let $M$ be a function. We define the mode, a \define{Component of $M$}
+is an element of $\rng(M)$.
+\end{definition}
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{pboole:138} Let $I$ be a nonempty set, let $M$ be a
+  many-sorted set of $I$, and let $A$ be a component of $M$. There
+  exists an object $i\in I$ such that $A=M(i)$.
+\item\label{pboole:139} Let $M$ be a many-sorted set of $I$, let $i$ be
+  an object. If $i\in I$, then $M(i)$ is a component of $M$.
+\end{thm}
+
+\begin{definition}
+Let $I$ be a set, let $B$ be a many-sorted set of $I$.
+We define the mode, an \define{Element of $B$} is a many-sorted set of
+$I$ such that
+\begin{defn}
+\item for each object $i\in I$, we have $\mbox{it}(i)$ is an element of $B(i)$.
+\end{defn}
+\end{definition}
+
+\section{Many-Sorted Functions}
+
+\begin{definition}
+Let $I$ be a set, let $A$ and $B$ be many-sorted sets of $I$.
+We define a new mode, a \define{Many-Sorted Function from $A$ to $B$}
+(Mizar: ``\verb#ManySortedFunction of A,B#'') is a many-sorted set of
+$I$ satisfying
+\begin{defn}
+\item for each object $i\in I$, we have $\mbox{it}(i)$ is a function
+  from $A(i)$ to $B(i)$.
+\end{defn}
+\end{definition}
+
+\begin{scheme}[LambdaDMS]
+Let $\mathcal{D}$ be a nonempty set, let $\mathcal{F}(-)$ be an object
+parametrized by objects. There exists a many-sorted set $X$ of
+$\mathcal{D}$ such that for each element $d$ of $\mathcal{D}$ we have $X(d)=\mathcal{F}(d)$.
+\end{scheme}
+
+\begin{definition}
+Let $I$ be a set, let $X$ and $Y$ be many-sorted sets of $I$.
+We define the term $X\times Y$ (Mizar: ``\verb#[|X,Y|]#'') to be the
+many-sorted of $I$ satisfying
+\begin{defn}
+\item for each object $i\in I$, we have $\mbox{it}(i)=X(i)\times Y(i)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $I$ be a set, let $X$ and $Y$ be many-sorted sets of $I$.
+We define the term $\Funcs(X,Y)$ (Mizar: ``\verb#(Funcs) (X,Y)#'')
+to be the many-sorted set of $I$ satisfying
+\begin{defn}
+\item for each object $i\in I$, we have $\mbox{it}(i)=\Funcs(X(i),Y(i))$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $I$ be a set, let $M$ be a many-sorted set of $I$.
+We define the mode, a \define{Many-sorted subset of $M$} (Mizar:
+``\verb#ManySortedSubset of M#'') to be a many-sorted set of $I$ such that
+\begin{defn}
+\item $\mbox{it}\subset M$
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $F$, $G$ be function-yielding functions.
+We define the term $G\circ F$ (Mizar: ``\verb#G ** F#'') to be the function satisfying
+\begin{defn}
+\item $\dom(G\circ F)=\dom(F)\cap\dom(G)$ and
+  for each object $i\in\dom(G\circ F)$, $(G\circ F)(i)=G(i)\circ F(i)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $I$ be a set, let $A$ be a many-sorted set of $I$, let $F$ be a
+many-sorted function of $I$. We define the term $F(A)$ (Mizar:
+``\verb#F.:.:A#'') to be the many-sorted set of $I$ satisfying
+\begin{defn}
+\item for each set $i\in I$, $(F(A))(i)=F(i)\bigl(A(i)\bigr)$.
+\end{defn}
+\end{definition}
+
+\begin{scheme}[MSSExD]
+Let $\mathcal{I}$ be a nonempty set, let $\mathcal{P}[-,-]$ be a binary
+predicate of objects. There exists a many-sorted set $f$ of
+$\mathcal{I}$ such that for each element $i$ of $\mathcal{I}$ we have
+$\mathcal{P}[i,f(i)]$; provided:
+\begin{enumerate}
+\item for each element $i$ of $\mathcal{I}$ there exists an object $j$
+  such that $\mathcal{P}[i,j]$.
+\end{enumerate}
+\end{scheme}
+
+We can prove the following results:
+\begin{thm}
+\item\label{pboole:140} Let $F$, $G$, $H$ be function-yielding functions.
+  Then $(H\circ G)\circ F=H\circ(G\circ F)$.
+\item\label{pboole:141} Let $f$ be a non-empty many-sorted set of $I$,
+  let $p$ be an $f$-compatible $I$-defined function, there exists an
+  $f$-compatible many-sorted set $s$ of $I$ such that $p\subset s$.
+\item\label{pboole:142} Let $I$ and $A$ be sets, let $s$ and $t$ be
+  many-sorted sets of $I$. Then $(t\plusdot s|_{A})|_{A}=s|_{A}$.
+\item\label{pboole:143} Let $I$, $Y$ be nonempty sets, let $M$ be a
+  $Y$-valued many-sorted set of $I$, let $x$ be an element of $I$. Then
+  $M(x)=M(x)$ (Mizar: ``\verb#M.x = M/.x#'').
+\item\label{pboole:144} Let $f$ be a function, let $M$ be a many-sorted
+  set of $I$. Then $(f\plusdot M)|_{I}=M$.
+\item\label{pboole:145} Let $I$ be a set, $Y$ be a nonempty set, let $p$
+  be a $Y$-valued $I$-defined functions. There exists a $Y$-valued
+  many-sorted set $s$ of $I$ such that $p\subset s$.
+\item\label{pboole:146} If $X\subset Y$ and $Y\subset X$, then $X=Y$.
+\end{thm}
+
+\begin{definition}
+Let $I$ be a nonempty set, let $A$ and $B$ be many-sorted sets of $I$.
+We redefine the predicate $A=B$ to mean
+\begin{defn}
+\item for each element $i$ of $I$, we have $A(i)=B(i)$.
+\end{defn}
+\end{definition}
+
+\begin{scheme}[MSSLambda]
+Let $\mathcal{I}$ be a set, let $\mathcal{F}(-)$ be an object
+parametrized by objects. There exists a many-sorted set $f$ of
+$\mathcal{I}$ such that for each set $i\in I$ we have $f(i)=\mathcal{F}(i)$.
+\end{scheme}
+
+\end{document}

@@ -1,0 +1,109 @@
+\documentclass{article}
+
+\title{Boolean Domains}
+\author{Andrzej Trybulec and Agata Darmochwa\l}
+\date{April 14, 1989}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $A$ be a set.
+We define the attribute that $X$ is \define{cup-closed} to mean
+\begin{defn}
+\item For all sets $X$ and $Y$, if $X\in A$ and $Y\in A$, the $X\cup Y\in A$.
+\end{defn}
+We defne the attribute that $A$ is \define{cap-closed} to mean
+\begin{defn}
+\item For all sets $X$ and $Y$, if $X\in A$ and $Y\in A$, the $X\cap Y\in A$.
+\end{defn}
+We define the attribute that $A$ is \define{diff-closed} to mean
+\begin{defn}
+\item For all sets $X$ and $Y$, if $X\in A$ and $Y\in A$, the $X\setminus Y\in A$.
+\end{defn}
+\end{definition}
+\end{document}
+
+\begin{definition}
+Let $A$ be a set.
+We define the attribute that $A$ is \define{pre-Boolean} (Mizar:
+``\verb#preBoolean#'') to mean
+\begin{defn}
+\item $A$ is cup-closed and diff-closed.
+\end{defn}
+\end{definition}
+
+We can prove the following result:
+\begin{thm}
+\item\label{finsub1:1} Let $A$ be a set. Then $A$ is pre-Boolean if and
+  only if all sets $X\in A$ and $Y\in A$ satisfy $X\cup Y\in A$ and
+  $X\setminus Y\in A$.
+\end{thm}
+
+\begin{definition}
+Let $A$ be a nonempty pre-Boolean set.
+Let $X$, $Y$ be elements of $A$.
+We redefine the type of $X\cup Y$ to be an element of $A$, and we
+redefine the type of $X\setminus Y$ to be an element of $A$.
+\end{definition}
+
+Let $X$, $Y$ be sets.
+We can prove the following results:
+\begin{thm}
+\item\label{finsub1:2} If $X$ and $Y$ are elements of $A$, then $X\cap Y$
+  is an element of $A$.
+\item\label{finsub1:3} If $X$ and $Y$ are elements of $A$, then
+  $X\symdiff Y$ is an element of $A$.
+\item\label{finsub1:4} Let $A$ be a nonempty set. Suppose all elements
+  $X$ and $Y$ of $A$ satisfy $X\symdiff Y\in A$ and $X\setminus Y\in A$.
+  Then $A$ is pre-Boolean.
+\item\label{finsub1:5} Let $A$ be a nonempty set. Suppose all elements
+  $X$ and $Y$ of $A$ satisfy $X\symdiff Y\in A$ and $X\cap Y\in A$.
+  Then $A$ is pre-Boolean.
+\item\label{finsub1:6} Let $A$ be a nonempty set. Suppose all elements
+  $X$ and $Y$ of $A$ satisfy $X\symdiff Y\in A$ and $X\cup Y\in A$.
+  Then $A$ is pre-Boolean.
+\end{thm}
+
+\begin{definition}
+Let $A$ be a nonempty pre-Boolean set, let $X$ and $Y$ be elements of $A$.
+We redefine the type of $X\cap Y$ to be an element of $A$, and we
+redefine the type of $X\symdiff Y$ to be an element of $A$.
+\end{definition}
+
+Now we can prove the following two propositions:
+\begin{thm}
+\item\label{finsub1:7} $\emptyset\in A$.
+\item\label{finsub1:8} Let $A$ be a set. Then $\powerset(A)$ is pre-Boolean.
+\end{thm}
+
+Observe $\powerset(A)$ is pre-Boolean.
+
+We can prove the following result:
+\begin{thm}
+\item\label{finsub1:9} Let $A$, $B$ be nonempty pre-Boolean sets.
+  Then $A\cap B$ is a nonempty pre-Boolean set.
+\end{thm}
+
+\begin{definition}
+Let $A$ be a set. We define the term $\Fin(A)$ to be the pre-Boolean set
+satisfying
+\begin{defn}
+\item for all sets $X$, we have $X\in\Fin(A)$ if and only if $X\subset A$ and
+  $X$ is finite.
+\end{defn}
+\end{definition}
+
+We have the following results.
+\begin{thm}
+\item\label{finsub1:10} Let $A$, $B$ be sets. If $A\subset B$, then $\Fin(A)\subset\Fin(B)$.
+\item\label{finsub1:11} Let $A$, $B$ be sets. Then $\Fin(A\cap B)=\Fin(A)\cap\Fin(B)$.
+\item\label{finsub1:12} Let $A$, $B$ be sets. Then
+  $\Fin(A)\cup\Fin(B)\subset\Fin(A\cup B)$.
+\item\label{finsub1:13} Let $A$ be a set. Then $\Fin(A)\subset\powerset(A)$.
+\item\label{finsub1:14} Let $A$ be a set. If $A$ is finite, then $\Fin(A)=\powerset(A)$.
+\item\label{finsub1:15} $\Fin(\emptyset)=\{\emptyset\}$.
+\item\label{finsub1:16} Let $A$ be a set, let $X$ be an element of $\Fin(A)$.
+  Then $X$ is a subset of $A$.
+\item\label{finsub1:17} Let $A$ be a set, let $X$ be a subset of $A$.
+  If $A$ is finite, then $X$ is an element of $\Fin(A)$.
+\end{thm}

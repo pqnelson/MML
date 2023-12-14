@@ -137,3 +137,10 @@
   \thm@postskip=0.75\bigskipamount
 }
 \thm@space@setup
+
+% "Appendix" should not appear in the TOC for the index or bibliography
+\renewcommand{\tocappendix}[3]{%
+  \edef\@macros@content{#3}%
+  \ifx\bibname\@macros@content#3%
+  \else\ifx\indexname\@macros@content#3%
+  \else\indentlabel{#1\@ifnotempty{#2}{ #2}.\quad}#3\fi\fi}
