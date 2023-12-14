@@ -1,0 +1,497 @@
+\documentclass{article}
+
+\title{Classes of Conjugation. Normal Subgroups (GROUP-3)}
+\author{Wojciech A. Trybulec}
+\date{August 10, 1990}
+\begin{document}
+\maketitle
+
+Let $G$ be a group, let $a$ and $b$ be elements of $G$. Let $A$, $B$,
+$C$, $D$ be subsets of $G$. Let $H_{1}$, $H_{2}$, $H$ be Subgroups of $G$.
+We have the following:
+\begin{thm}
+\item\label{group3:1}
+  \begin{enumerate}[label=(\roman*)]
+  \item $(a\cdot b)\cdot b^{-1}=a$
+  \item $(a\cdot b^{-1})\cdot b=a$
+  \item $b^{-1}\cdot b\cdot a=a$
+  \item $b\cdot b^{-1}\cdot a=a$
+  \item $a\cdot(b\cdot b^{-1})=a$
+  \item $a\cdot(b^{-1}\cdot b)=a$
+  \item $b^{-1}\cdot(b\cdot a)=a$
+  \item $b\cdot(b^{-1}\cdot a)=a$
+  \end{enumerate}
+\item\label{group3:2} $G$ is commutative group if and only if the
+  operation of $G$ is commutative
+\item\label{group3:3} $\trivialSubgroup{G}$ is commutative
+\item\label{group3:4} If $A\subset B$ and $C\subset D$, then $A\cdot C\subset B\cdot D$.
+\item\label{group3:5} If $A\subset B$, then
+  $a\cdot A\subset a\cdot B$ and $A\cdot a\subset B\cdot a$.
+\item\label{group3:6} If $H_{1}$ is a subgroup of $H_{2}$, then $a\cdot H_{1}\subset a\cdot H_{2}$
+  and $H_{1}\cdot a\subset H_{2}\cdot a$.
+\item\label{group3:7} $a\cdot H=\{a\}\cdot H$.
+\item\label{group3:8} $H\cdot a=H\cdot\{a\}$.
+\item\label{group3:9} $(A\cdot a)\cdot H=A\cdot(a\cdot H)$.
+\item\label{group3:10} $(a\cdot H)\cdot A=a\cdot(H\cdot A)$.
+\item\label{group3:11} $(A\cdot H)\cdot a=A\cdot(H\cdot a)$.
+\item\label{group3:12} $(H\cdot a)\cdot A=H\cdot(a\cdot A)$.
+\item\label{group3:13} $(H_{1}\cdot a)\cdot H_{2}=H_{1}\cdot(a\cdot H_{2})$
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group. We define the \define{set of Subgroups of $G$} is
+the term denoted $\Subgroups{G}$ (Mizar: ``\verb#Subgroups G#'') which is the set satisfying
+\begin{defn}
+\item for all objects $x$, we have $x\in\Subgroups{G}$ if and only if
+  $x$ is a strict Subgroup of $G$.
+\end{defn}
+\end{definition}
+
+Observe $\Subgroups{G}$ is nonempty.
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{group3:14} Let $G$ be a strict group. Then $G\in\Subgroups{G}$.
+\item\label{group3:15} If $G$ is a finite group, then $\Subgroups{G}$ is
+  a finite set.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $a$ and $b$ be elements of $G$.
+We define \define{conjugation} of $a$ by $b$ to be the element $a^{b}$
+(Mizar: ``\verb#a |^ b#'') of $G$ equal to
+\begin{defn}
+\item $a^{b} := b^{-1}\cdot a\cdot b$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{group3:16} If $a^{g}=b^{g}$, then $a=b$.
+\item\label{group3:17} $(1_{G})^{a}=1_{G}$.
+\item\label{group3:18} If $a^{b}=1_{G}$, then $a=1_{G}$.
+\item\label{group3:19} $a^{1_{G}}=a$.
+\item\label{group3:20} $a^{a}=a$.
+\item\label{group3:21} $a^{a^{-1}}=a$ and $(a^{-1})^{a}=a^{-1}$.
+\item\label{group3:22} $a^{b}=a$ if and only if $a\cdot b=b\cdot a$.
+\item\label{group3:23} $(a\cdot b)^{g}=(a^{g})\cdot(b^{g})$.
+\item\label{group3:24} $(a^{g})^{h}=a^{g\cdot h}$.
+\item\label{group3:25} $(a^{b})^{b^{-1}}=a$ and $(a^{b^{-1}})^{b}=a$.
+\item\label{group3:26} $(a^{-1})^{b}=(a^{b})^{-1}$.
+\item\label{group3:27} For any natural number $n$, $(a^{n})^{b}=(a^{b})^{n}$.
+\item\label{group3:28} For any integer $i$, $(a^{i})^{b}=(a^{b})^{i}$.
+\item\label{group3:29} If $G$ is a commutative group, then $a^{b}=a$.
+\item\label{group3:30} Suppose every elements $a$ and $b$ of $G$
+  satisfies $a^{b}=a$. Then $G$ is commutative.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $A$ and $B$ be subsets of $G$.
+We define the term $A^{B}$ (Mizar: ``\verb#A |^ B#'') to be the subset
+of $G$ equal to
+\begin{defn}
+\item $A^{B}:=\{g^{h}\mid g\in A,b\in B\}$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{group3:31} $x\in A^{B}$ if and only if there exists elements
+  $g$ and $h$ of $G$ such that $x=g^{h}$ and $g\in A$ and $h\in B$.
+\item\label{group3:32} $A^{B}\neq\emptyset$ if and only if
+  $A\neq\emptyset$ and $B\neq\emptyset$.
+\item\label{group3:33} $A^{B}\subset B^{-1}\cdot A\cdot B$.
+\item\label{group3:34} $(A\cdot B)^{C}\subset (A^{C})\cdot(B^{C})$.
+\item\label{group3:35} $(A^{B})^{C} = A^{B\cdot C}$.
+\item\label{group3:36} $(A^{-1})^{B} = (A^{B})^{-1}$.
+\item\label{group3:37} $\{a\}^{\{b\}}=\{a^{b}\}$.
+\item\label{group3:38} $\{a\}^{\{b,c\}}=\{a^{b},a^{c}\}$.
+\item\label{group3:39} $\{a,b\}^{\{c\}}=\{a^{c},b^{c}\}$.
+\item\label{group3:40} $\{a,b\}^{\{c,d\}}=\{a^{c},a^{d},b^{c},b^{d}\}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $A$ be a subset of $G$, let $g$ be an element of
+$G$.
+We define the term $A^{g}$ (Mizar: ``\verb#A |^ g#'') to be the subset of $G$ equal to
+\begin{defn}
+\item $A^{g}:=A^{\{g\}}$.
+\end{defn}
+We define the term $g^{A}$ (Mizar: ``\verb#g |^ A#'') to be the subset of $G$ equal to
+\begin{defn}
+\item $g^{A}:=\{g\}^{A}$
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{group3:41} $x\in A^{g}$ if and only if there exists an
+  element $h$ of $G$ such that $x=h^{g}$ and $h\in A$.
+\item\label{group3:42} $x\in g^{A}$ if and only if there exists an
+  element $h$ of $G$ such that $x=g^{h}$ and $h\in A$. 
+\item\label{group3:43} $g^{A}\subset A^{-1}\cdot g\cdot A$.
+\item\label{group3:44} $(A^{B})^{g}=A^{B\cdot g}$.
+\item\label{group3:45} $(A^{g})^{B}=A^{g\cdot B}$.
+\item\label{group3:46} $(g^{A})^{B}=g^{A\cdot B}$.
+\item\label{group3:47} $(A^{a})^{b}=A^{a\cdot b}$.
+\item\label{group3:48} $(a^{A})^{b}=a^{A\cdot b}$.
+\item\label{group3:49} $(a^{b})^{A}=a^{b\cdot A}$.
+\item\label{group3:50} $A^{g}=g^{-1}\cdot A\cdot g$.
+\item\label{group3:51} $(A\cdot B)^{a}\subset (A^{a})\cdot(B^{a})$.
+\item\label{group3:52} $A^{1_{G}}=A$.
+\item\label{group3:53} If $A\neq\emptyset$, then $(1_{G})^{A}=\{1_{G}\}$.
+\item\label{group3:54} $(A^{a})^{a^{-1}}=A$ and $(A^{a^{-1}})^{a}=A$.
+\item\label{group3:55} $G$ is a commutative group if and only if all
+  subsets $A$ and $B$ of $G$ with $B\neq\emptyset$ satisfy $A^{B}=A$.
+\item\label{group3:56} $G$ is a commutative group if and only if every
+  subset $A$ of $G$, and every element $g$ of $G$, satisfy $A^{g}=A$.
+\item\label{group3:57} $G$ is a commutative group if and only if every
+  subset $A\neq\emptyset$ of $G$ and every element $g$ of $G$ satisfy $g^{A}=\{g\}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H$ be a subgroup of $G$, let $a$ be an element
+of $G$. We define the term $H^{a}$ (Mizar: ``\verb#H |^ a#'') to be the strict subgroup of $G$ satisfying
+\begin{defn}
+\item the carrier of $H^{a}$ is equal to $\carr(H)^{a}$.
+\end{defn}
+\end{definition}
+
+We can prove the following theorems:
+\begin{thm}
+\item\label{group3:58} $x\in H^{a}$ if and only if there exists some
+  element $g$ of $G$ such that $x=g^{a}$ and $g\in H$.
+\item\label{group3:59} the carrier of $H^{a}$ is equal to $a^{-1}\cdot H\cdot a$
+\item\label{group3:60} $(H^{a})^{b}=H^{a\cdot b}$.
+\item\label{group3:61} Every strict subgroup $H$ of $G$ satisfies $H^{1_{G}}=H$.
+\item\label{group3:62} Every strict subgroup $H$ of $G$ satisfies $(H^{a})^{a^{-1}}=H$
+  and $(H^{a^{-1}})^{a}=H$.
+\item\label{group3:63} $(H_{1}\cap H_{2})^{a}=(H_{1}^{a})\cap(H_{2}^{a})$.
+\item\label{group3:64} $\card{H}=\card{H^{a}}$.
+\item\label{group3:65} $H$ is finite if and only if $H^{a}$ is
+  finite. (This is registered with Mizar, too.)
+\item\label{group3:66} For any finite subgroup $H$ of $G$, we have $\card{H}=\card{H^{a}}$.
+\item\label{group3:67} $\trivialSubgroup{G}^{a}=\trivialSubgroup{G}$.
+\item\label{group3:68} For any strict Subgroup $H$ of $G$, if
+  $H^{a}=\trivialSubgroup{G}$, then $H=\trivialSubgroup{G}$.
+\item\label{group3:69} $\Omega_{G}^{a}=\Omega_{G}$.
+\item\label{group3:70} Let $H$ be a strict subgroup of $G$. If
+  $H^{a}=G$, then $H=G$.
+\item\label{group3:71} $\Index{G}{H}=\Index{G}{H^{a}}$.
+\item\label{group3:72} If the set of left cosets of $H$ is finite, then $\Index{G}{H}_{\NN}=\Index{G}{H^{a}}_{\NN}$.
+\item\label{group3:73} If $G$ is a commutative group, then every strict
+  subgroup $H$ of $G$ satisfies $H^{a}=H$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $a$ and $b$ be elements of $G$.
+We define the predicate $a$ and $b$ \define{are conjugated} (Mizar:
+``\verb#a,b are_conjugated#'') to mean
+\begin{defn}
+\item There exists an element $g$ of $G$ such that $a=b^{g}$.
+\end{defn}
+\end{definition}
+
+\begin{notation}
+Let $G$ be a group, let $a$ and $b$ be elements of $G$.
+We introduce the term $a$ and $b$ \textbf{are not conjugated} (Mizar:
+``\verb#a,b are_not_conjugated#'') to be the
+antonym for $a$ and $b$ are conjugated.
+\end{notation}
+
+\begin{remark}
+I will use, as synonyms, ``$a$ and $b$ are conjugates'' since this is
+how group theorists speak these days. (Group theorists \emph{wrote}
+``are conjugated'' all the time until very recently.)
+\end{remark}
+
+\begin{thm}
+\item\label{group3:74} $a$ and $b$ are conjugates if and only if there
+  exists some element $g$ of $G$ such that $b=a^{g}$.
+\item\label{group3:75} $a$ and $a$ are conjugates.
+\item\label{group3:76} If $a$ and $b$ are conjugates, then $b$ and $a$
+  are conjugates.
+\end{thm}
+
+\begin{definition}
+We redefine the predicate ``are conjugates'' to note it is reflexive and symmetric.
+\end{definition}
+
+\begin{thm}
+\item\label{group3:77} (Transitivity) If $a$ and $b$ are conjugates, and
+  if $b$ and $c$ are conjugates, then $a$ and $c$ are conjugates.
+\item\label{group3:78} If either $a$ and $1_{G}$ are conjugates or
+  $1_{G}$ and $a$ are conjugates, then $a=1_{G}$.
+\item\label{group3:79} $a^{\carr(\Omega_{G})}=\{b\mid a,b\mbox{ are conjugates}\}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $a$ be an element of $G$.
+We define the term \define{conjugacy class of $a$} (Mizar:
+``\verb#con_class a#'') to be the subset of
+$G$ equal to:
+\begin{defn}
+\item the conjugacy class of $a$ is equal to $a^{\carr(\Omega_{G})}$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{group3:80} For any object $x$, we have $x$ belongs to the conjugacy class of $a$ if and
+  only if there exists an element $b$ of $G$ such that $b=x$ and $a$ and
+  $b$ are conjugates.
+\item\label{group3:81} $a$ is in the conjugacy class of $b$ if and only
+  if $a$ and $b$ are conjugates.
+\item\label{group3:82} $a^{g}$ belongs to the conjugacy class of $a$.
+\item\label{group3:83} $a$ belongs to the conjugacy class of $a$.
+\item\label{group3:84} If $a$ belongs to the conjugacy class of $b$,
+  then $b$ belongs to the conjugacy class of $a$.
+\item\label{group3:85} The conjugacy class of $a$ is equal to the
+  conjugacy class of $b$ if and only if the conjugacy classes meet.
+\item\label{group3:86} The conjugacy class of $a$ is equal to
+  $\{1_{G}\}$ if and only if $a=1_{G}$.
+\item\label{group3:87} Let $X$ be the conjugacy class of $a$. Then
+  $X\cdot A=A\cdot X$ for any subset $A$ of $G$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $A$ and $B$ be subsets of $G$.
+We define the predicate $A$ and $B$ \define{are conjugated} (Mizar:
+``\verb#A,B are_conjugated#'') to mean
+\begin{defn}
+\item there exists some element $g$ of $G$ such that $A=B^{g}$.
+\end{defn}
+Its antonym is simply ``$A$ and $B$ are not conjugated''.
+\end{definition}
+
+\begin{remark}
+As before, we will write ``$A$ and $B$ are conjugates''
+\end{remark}
+
+We can prove the following results:
+\begin{thm}
+\item\label{group3:88} $A$ and $B$ are conjugate if and only if there
+  exists some element $g$ of $G$ such that $B=A^{g}$.
+\item\label{group3:89} $A$ is always conjugate to $A$.
+\item\label{group3:90} If $A$ is conjugate to $B$, then $B$ is conjugate
+  to $A$.
+\end{thm}
+
+\begin{definition}
+We redefine the predicate ``$A$ and $B$ are conjugates'' to be reflexive
+and symmetric.
+\end{definition}
+
+We resume proving results:
+\begin{thm}
+\item\label{group3:91} (Transitivity) If $A$ is conjugate to $B$, and
+  $B$ is conjugate to $C$, then $A$ is conjugate to $C$.
+\item\label{group3:92} $\{a\}$ and $\{b\}$ are conjugates if and only if
+  $a$ and $b$ are conjugates.
+\item\label{group3:93} If $A$ is conjugate to $\carr(H_{1})$, then there
+  exists a strict subgroup $H_{2}$ of $G$ such that the carrier of
+  $H_{2}$ is equal to $A$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $A$ be a subset of $G$.
+We define the \define{conjugacy class of $A$} (Mizar: ``\verb#con_class A#'')
+to be the subset-family of $G$ equal to
+\begin{defn}
+\item $\{B\mid A\mbox{ is conjugate to }B\}$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{group3:94} For any object $x$, we have
+  $x$ belongs to the conjugacy class of $A$ if and
+  only if there exists a subset $B$ of $G$ such that $x=B$ and $A$ is
+  conjugate to $B$.
+\item\label{group3:95} $A$ belongs to the conjugacy class of $B$ if and
+  only if $A$ is conjugate to $B$.
+\item\label{group3:96} $A^{g}$ belongs to the conjugacy class of $A$.
+\item\label{group3:97} $A$ belongs to the conjugacy class of $A$.
+\item\label{group3:98} If $A$ belongs to the conjugacy class of $B$,
+  then $B$ belongs to the conjugacy class of $A$.
+\item\label{group3:99} The conjugacy class of $A$ is equal to the
+  conjugacy class of $B$ if and only if the two conjugacy classes meet.
+\item\label{group3:100} The conjugacy class of a singleton $\{a\}$ is
+  equal to $\{\{b\}\mid b\mbox{ belongs to the conjugacy class of }a\}$.
+\item\label{group3:101} If $G$ is finite, then the conjugacy class of
+  $A$ is finite.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H_{1}$ and $H_{2}$ be subgroups of $G$.
+We define the predicate $H_{1}$ and $H_{2}$ \define{are conjugated}
+(Mizar: ``\verb#H1,H2 are_conjugated#'') to mean
+\begin{defn}
+\item There exists an element $g$ of $G$ such that $H_{1}=H_{2}^{g}$.
+\end{defn}
+Its antonym is simply: $H_{1}$ and $H_{2}$ are not conjugated (Mizar:
+``\verb#H1,H2 are_not_conjugated#'').
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{group3:102} Let $H_{1}$, $H_{2}$ be strict subgroups of $G$.
+  Then $H_{1}$ is conjugate to $H_{2}$ if and only if there exists an
+  element $g$ of $G$ such that $H_{2}=H_{1}^{g}$.
+\item\label{group3:103} Every strict subgroup $H_{1}$ of $G$ is
+  conjugate with itself.
+\item\label{group3:104} Let $H_{1}$, $H_{2}$ be strict subgroups of $G$.
+  If $H_{1}$ is conjugate to $H_{2}$, then $H_{2}$ is conjugate to $H_{1}$.
+\end{thm}
+
+\begin{definition}
+We redefine the predicate $H_{1}$ and $H_{2}$ are conjugated to register
+the fact it is symmetric and reflexive.
+\end{definition}
+
+We now prove transitivity of this predicate:
+\begin{thm}
+\item\label{group3:105} Let $H_{1}$, $H_{2}$, $H_{3}$ be strict
+  subgroups of $G$. If $H_{1}$ is conjugate to $H_{2}$, and $H_{2}$ is
+  conjugate to $H_{3}$, then $H_{1}$ is conjugate to $H_{3}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H$ be a subgroup of $H$. We define the term
+\define{conjugacy class of $H$} (Mizar: ``\verb#con_class H#'') to be
+the subset of $\Subgroups{G}$ satisfying
+\begin{defn}
+\item For all objects $x$, we have $x$ belong to the conjugacy class of
+  $H$ if and only if there exists a strict subgroup $H_{1}$ of $G$ such
+  that $x=H_{1}$ and $H_{1}$ is conjugate to $H$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{group3:106} If $x$ belongs to the conjugacy class of $H$,
+  then $x$ is a strict subgroup of $G$.
+\item\label{group3:107} Let $H_{1}$, $H_{2}$ be strict subgroups of $G$.
+  Then $H_{1}$ belongs to the conjugacy class of $H_{2}$ if and only if
+  $H_{1}$ is conjugate to $H_{2}$.
+\item\label{group3:108} Let $H$ be a strict subgroup of $G$. Then
+  $H^{g}$ belongs to the conjugacy class of $H$.
+\item\label{group3:109} Let $H$ be a strict subgroup of $G$. Then
+  $H$ belongs to the conjugacy class of $H$.
+\item\label{group3:110} Let $H_{1}$, $H_{2}$ be strict subgroups of $G$.
+  If $H_{1}$ belongs to the conjugacy class of $H_{2}$, then $H_{2}$
+  belongs to the conjugacy class of $H_{1}$.
+\item\label{group3:111} Let $H_{1}$, $H_{2}$ be strict subgroups of $G$.
+  Then the conjugacy class of $H_{1}$ is equal to the conjugacy class of
+  $H_{2}$ if and only if the conjugacy classes meet.
+\item\label{group3:112} If $G$ is finite, then the conjugacy class of
+  $H$ is finite.
+\item\label{group3:113} Let $H_{1}$ be a strict subgroup of $G$.
+  Then $H_{1}$ is conjugate to $H_{2}$ if and only if $H_{2}$ is
+  conjugate to $H_{1}$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $N$ be a subgroup of $G$.
+We define the attribute $N$ is \define{normal} to mean
+\begin{defn}
+\item For all elements $a$ of $G$, we have $N^{a}=N$.
+\end{defn}
+\end{definition}
+Observe there exists a strict normal subgroup of $G$.
+
+Let $N_{2}$ be a normal subgroup of $G$. We have the following results:
+\begin{thm}
+\item\label{group3:114} $\trivialSubgroup{G}$ is normal and $\Omega_{G}$
+  is normal.
+\item\label{group3:115} Let $N_{1}$, $N_{2}$ be strict normal subgroups of $G$.
+  Then $N_{1}\cap N_{2}$ is normal.
+\item\label{group3:116} Let $H$ be a strict normal subgroup of $G$. If
+  $G$ is commutative, then $H$ is normal.
+\item\label{group3:117} $H$ is a normal subgroup of $G$ if and only if
+  for each element $a$ of $G$ we have $a\cdot H=H\cdot a$.
+\item\label{group3:118} $H$ is a normal subgroup of $G$ if and only if
+  for each element $a$ of $G$ we have $a\cdot H\subset H\cdot a$.
+\item\label{group3:119} $H$ is a normal subgroup of $G$ if and only if
+  for each element $a$ of $G$ we have $H\cdot a\subset a\cdot H$.
+\item\label{group3:120} $H$ is a normal subgroup of $G$ if and only if
+  for each subset $A$ of $G$ we have $A\cdot H=H\cdot A$.
+\item\label{group3:121} Let $H$ be a strict Subgroup of $G$. Then $H$ is
+  a normal subgroup of $G$ if and only if for each element $a$ of $G$ we
+  have $H$ is a subgroup of $H^{a}$.
+\item\label{group3:122} Let $H$ be a strict Subgroup of $G$. Then $H$ is
+  a normal subgroup of $G$ if and only if for each element $a$ of $G$ we
+  have $H^{a}$ is a subgroup of $H$.
+\item\label{group3:123} Let $H$ be a strict Subgroup of $G$. Then $H$ is
+  a normal subgroup of $G$ if and only if the conjugacy class of $H$ is
+  the singleton $\{H\}$.
+\item\label{group3:124} Let $H$ be a strict Subgroup of $G$. Then $H$ is
+  a normal subgroup of $G$ if and only if for each element $a$ of $G$
+  with $a\in H$ we have the conjugacy class of $a$ is a subset of the
+  carrier of $H$.
+\item\label{group3:125} Let $N_{1}$, $N_{2}$ be strict normal subgroups
+  of $G$. Then $\carr(N_{1})\cdot\carr(N_{2})=\carr(N_{2})\cdot\carr(N_{1})$.
+\item\label{group3:126} Let $N_{1}$, $N_{2}$ be strict normal subgroups
+  of $G$. There exists a strict normal subgroup $N$ of $G$ such that the
+  carrier of $N$ is equal to $\carr(N_{1})\cdot\carr(N_{2})$.
+\item\label{group3:127} Let $N$ be a normal subgroup of $G$. Then the
+  left cosets of $N$ are equal to the right cosets of $N$.
+\item\label{group3:128} If the set of left cosets of $H$ is finite and
+  $\Index{G}{H}=2$, then $H$ is a normal Subgroup of $G$.
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $A$ be a subset of $G$. We define
+the \define{Normalizer} of $A$ to be the strict subgroup
+$\normalizer{G}{A}$ of $G$ satisfying
+\begin{defn}
+\item the carrier of $\normalizer{G}{A}$ is equal to $\{h\mid A^{h}=A\}$.
+\end{defn}
+\end{definition}
+
+We can prove the following five propositions:
+\begin{thm}
+\item\label{group3:129} For any object $x$, we have
+  $x\in\normalizer{G}{A}$ if and only if there exists some element $h$
+  of $G$ such that $x=h$ and $A^{h}=A$.
+\item\label{group3:130} Let $C_{A}$ be the conjugacy class of $A$. Then
+  $\card{C_{A}}=\Index{G}{\normalizer{G}{A}}$.
+\item\label{group3:131} If either the conjugacy class of $A$ is finite,
+  or if the left cosets of $\normalizer{G}{A}$ is finite, then there
+  exists a finite set $C$ such that $C$ is the conjugacy class of $A$
+  and $\card{C}=\Index{G}{\normalizer{G}{A}}$
+\item\label{group3:132} Let $C_{a}$ be the conjugacy class of $a$. Then $\card{C_{a}}=\Index{G}{\normalizer{G}{\{a\}}}$
+\item\label{group3:133} If either the conjugacy class of $a$ is finite,
+  or if the left cosets of $\normalizer{G}{\{a\}}$ is finite, then there
+  exists a finite set $C$ such that $C$ is the conjugacy class of $\{a\}$
+  and $\card{C}=\Index{G}{\normalizer{G}{\{a\}}}$
+\end{thm}
+
+\begin{definition}
+Let $G$ be a group, let $H$ be a subgroup of $G$.
+We define the \define{Normalizer} of $H$ to be the strict subgroup
+$\normalizer{G}{H}$ of $G$ to be equal to
+\begin{defn}
+\item $\normalizer{G}{\carr(H)}$.
+\end{defn}
+\end{definition}
+
+We have the following results concerning the normalizers of subgroups:
+\begin{thm}
+\item\label{group3:134} Let $H$ be a strict subgroup of $G$, let $x$ be
+  an object. Then $x\in\normalizer{G}{H}$ if and only if there exists
+  some element $h$ of $G$ such that $x=h$ and $H^{h}=H$.
+\item\label{group3:135} Let $H$ be a strict subgroup of $G$.
+  Let $C_{H}$ be the conjugacy class of $H$.
+  Then $\card{C_{H}}=\Index{G}{\normalizer{G}{H}}$.
+\item\label{group3:136} Let $H$ be a strict subgroup of $G$.
+  If either the conjugacy class of $H$ is finite or the left cosets of
+  $\normalizer{G}{H}$ is finite, then there exists a finite set $C$ such
+  that $C$ is equal to the conjugacy class of $H$ and $\card{C}=\Index{G}{\normalizer{G}{H}}$.
+\item\label{group3:137} Let $G$ be a strict group, let $H$ be a strict
+  subgroup of $G$. Then $H$ is a normal subgroup of $G$ if and only if $\normalizer{G}{H}=G$.
+\item\label{group3:138} Let $G$ be a strict group. Then $\normalizer{G}{\trivialSubgroup{G}}=G$.
+\item\label{group3:139} Let $G$ be a strict group. Then $\normalizer{G}{\Omega_{G}}=G$.
+\end{thm}
+
+\end{document}
