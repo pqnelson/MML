@@ -24,56 +24,298 @@ have the following results:
 \item\label{setwiseo:8} Let $x$ be an element of $X$. Then $\RelIm{f}{x}=\{f(x)\}$.
 \item\label{setwiseo:9} Let $B$ be an element of $\Fin(X)$.
   If $x\in B$, then $x$ is an element of $X$.
-\item\label{setwiseo:10} 
-\item\label{setwiseo:11} 
-\item\label{setwiseo:12} 
-\item\label{setwiseo:13} 
-\item\label{setwiseo:14} 
-\item\label{setwiseo:15} 
-\item\label{setwiseo:16} 
-\item\label{setwiseo:17} 
-\item\label{setwiseo:18} 
-\item\label{setwiseo:19} 
-\item\label{setwiseo:20} 
-\item\label{setwiseo:21} 
-\item\label{setwiseo:22} 
-\item\label{setwiseo:23} 
-\item\label{setwiseo:24} 
-\item\label{setwiseo:25} 
-\item\label{setwiseo:26} 
-\item\label{setwiseo:27} 
-\item\label{setwiseo:28} 
-\item\label{setwiseo:29} 
-\item\label{setwiseo:30} 
-\item\label{setwiseo:31} 
-\item\label{setwiseo:32} 
-\item\label{setwiseo:33} 
-\item\label{setwiseo:34} 
-\item\label{setwiseo:35} 
-\item\label{setwiseo:36} 
-\item\label{setwiseo:37} 
-\item\label{setwiseo:38} 
-\item\label{setwiseo:39} 
-\item\label{setwiseo:40} 
-\item\label{setwiseo:41} 
-\item\label{setwiseo:42} 
-\item\label{setwiseo:43} 
-\item\label{setwiseo:44} 
-\item\label{setwiseo:45} 
-\item\label{setwiseo:46} 
-\item\label{setwiseo:47} 
-\item\label{setwiseo:48} 
-\item\label{setwiseo:49} 
-\item\label{setwiseo:50} 
-\item\label{setwiseo:51} 
-\item\label{setwiseo:52} 
-\item\label{setwiseo:53} 
-\item\label{setwiseo:54} 
-\item\label{setwiseo:55} 
-\item\label{setwiseo:56} 
-\item\label{setwiseo:57} 
-\item\label{setwiseo:58} 
-\item\label{setwiseo:59} 
+\item\label{setwiseo:10} Let $A$ be an element of $\Fin(X)$, $B$ be a
+  set, $f\colon X\to Y$. Suppose every element $x$ of $A$ such that
+  $x\in A$ satisfies $f(x)\in B$.
+  Then $f(A)\subset B$.
+\item\label{setwiseo:11} Let $X$ be a set, $B$ be an element of $\Fin(X)$,
+  let $A$ be a set. If $A\subset B$, then $A$ is an element of $\Fin(X)$.
+\item\label{setwiseo:12} Let $B$ be an element of $\Fin(X)$. If
+  $B\neq\emptyset$, then there exists an element $x$ of $X$ such that
+  $x\in B$.
+\item\label{setwiseo:13} Let $A$ be an element of $\Fin(X)$. If
+  $f(A)=\emptyset$, then $A=\emptyset$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set.
+We define the term $\emptyset_{X}$ (Mizar: ``\verb#{}.X#'') to be the
+empty element of $\Fin(X)$ such that
+\begin{defn}
+\item $\emptyset_{X}:=\emptyset$.
+\end{defn}
+\end{definition}
+
+\begin{scheme}[FinSubFuncEx]
+Let $\mathcal{A}$ be a nonempty set, $\mathcal{B}$ be an element of
+$\Fin(\mathcal{A})$, and $\mathcal{P}[-,-]$ be a binary predicate of sets.
+There exists a function $f\colon\mathcal{A}\to\Fin(\mathcal{A})$ such
+that for all elements $b$, $a$ of $\mathcal{A}$, we have $a\in f(b)$ if
+and only if $a\in\mathcal{B}$ and $\mathcal{P}[a,b]$.
+\end{scheme}
+
+\begin{definition}
+Let $X$ be a nonempty set, let $F$ be a binary operator of $X$.
+We define the attribute $F$ is \define{having a unity} (Mizar: ``\verb#having_a_unity#'') to mean
+\begin{defn}
+\item There exists an element $x$ of $X$ such that $x$ is a
+  \hyperlink{binop1:def7}{unity with respect to} $F$.
+\end{defn}
+\end{definition}
+\begin{remark}
+We will say ``$F$ has a unity'' as synonymous with ``$F$ is having a unity''.
+\end{remark}
+
+We have the following two results:
+\begin{thm}
+\item\label{setwiseo:14} Let $X$ be a nonempty set, let $F$ be a binary
+  operator of $X$. Then $F$ has a unity if and only if the unity with
+  respect to $F$ is a unity with respect to $F$.
+\item\label{setwiseo:15} Let $X$ be a nonempty set, let $F$ be a binary
+  operator of $X$. If $F$ has a unit (let us call it $e$), then for any element $x$ of $X$ we
+  have $F(e,x)=x$ and $F(x,e)=x$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$ be nonempty sets. Let $F$ be a binary operator of $Y$.
+Let $B$ be an element of $\Fin(X)$. Let $f\colon X\to Y$ be a function.
+Assume that $F$ is commutative and associative, and either $B\neq\emptyset$
+or $F$ has a unity.
+We define the term $\iteratedBinop{F}_{B}f$ (Mizar: ``\verb#F $$ (B,f)#'')
+to be the element of $Y$ satisfying
+\begin{defn}
+\item There exists a function $G\colon\Fin(X)\to Y$ such that
+\begin{enumerate}[label=(\roman*)]
+\item $\iteratedBinop{F}_{B}f=G(B)$; and
+\item for each element $e$ of $Y$, if $e$ is a unity with respect to
+  $F$, then $G(\emptyset)=e$; and
+\item for each element $x$ of $X$ we have $G(\{x\})=x$; and
+\item for each element $B'$ of $\Fin(X)$, if $B'\subset B$ and $B'\neq\emptyset$,
+  then for each element $x\in X$ such that $x\in B\setminus B'$ satisfy $G(B'\cup\{x\})=F(G(B'),x)$.
+\end{enumerate}
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{setwiseo:16} Let $X$, $Y$ be nonempty sets.
+  Let $F$ be a binary operator of $Y$.
+  Let $B$ be an element of $\Fin(X)$.
+  Let $f\colon X\to Y$ be a function.
+  Let $y$ be an element of $Y$.
+  Assume that $F$ is commutative and associative, and either $B\neq\emptyset$
+or $F$ has a unity.
+  We have $y=\iteratedBinop{F}_{B}f$ if and only if There exists a function $G\colon\Fin(X)\to Y$ such that
+\begin{enumerate}[label=(\roman*)]
+\item $y=G(B)$; and
+\item for each element $e$ of $Y$, if $e$ is a unity with respect to
+  $F$, then $G(\emptyset)=e$; and
+\item for each element $x$ of $X$ we have $G(\{x\})=x$; and
+\item for each element $B'$ of $\Fin(X)$, if $B'\subset B$ and $B'\neq\emptyset$,
+  then for each element $x\in X$ such that $x\in B\setminus B'$ satisfy $G(B'\cup\{x\})=F(G(B'),x)$.
+\end{enumerate}
+\end{thm}
+
+Let $X$, $Y$ be nonempty sets, let $F$ be a binary operator of $Y$, let
+$B$ be an element of $\Fin(X)$, let $f\colon X\to Y$ be a function. We
+have the following results:
+\begin{thm}
+\item\label{setwiseo:17} If $F$ is associative and commutative, then for
+  each element $b$ of $X$ we have $\iteratedBinop{F}_{\{b\}}f=f(b)$.
+\item\label{setwiseo:18} If $F$ is idempotent, associative, and commutative,
+  then for all elements $a$ and $b$ of $X$ we have
+  $\iteratedBinop{F}_{\{a,b\}}f=F(f(a),f(b))$.
+\item\label{setwiseo:19} If $F$ is idempotent, associative, and commutative,
+  then for all elements $a$, $b$, and $c$ of $X$ we have
+  $\iteratedBinop{F}_{\{a,b,c\}}f=F(F(f(a),f(b)),f(c))$.
+\item\label{setwiseo:20} If $F$ is idempotent, associative, and commutative,
+  if $B\neq\emptyset$, then for any element $x$ of $X$ we have $\iteratedBinop{F}_{B\cup\{x\}}f=F(\iteratedBinop{F}_{B}f,f(x))$.
+\item\label{setwiseo:21} Let $F$ be idempotent, commutative, and associative.
+  For all elements $B_{1}$, $B_{2}$ of $\Fin(X)$, if $B_{1}\neq\emptyset$
+  and $B_{2}\neq\emptyset$, then
+  $\iteratedBinop{F}_{B_{1}\cup B_{2}}f=F(\iteratedBinop{F}_{B_{1}}f,\iteratedBinop{F}_{B_{2}}f)$.
+\item\label{setwiseo:22} Let $F$ be idempotent, commutative, and associative.
+  then for each element $x$ of $X$, if $x\in B$, then
+  $F(f(x),\iteratedBinop{F}_{B}f)=\iteratedBinop{F}_{B}f$.
+\item\label{setwiseo:23} Let $F$ be idempotent, commutative, and associative.
+  For all elements $B$, $C$ of $\Fin(X)$, if $B\neq\emptyset$
+  and $B\subset C$, then
+  $F(\iteratedBinop{F}_{B}f,\iteratedBinop{F}_{C}f)=\iteratedBinop{F}_{C}f$.
+\item\label{setwiseo:24} Let $F$ be idempotent, commutative, and associative.
+  Suppose $B\neq\emptyset$.
+  For each element $a$ of $Y$, if every element $b$ of $X$ with $b\in B$
+  satisfies $f(b)=a$, then $\iteratedBinop{F}_{B}f=a$.
+\item\label{setwiseo:25} Let $F$ be idempotent, commutative, and associative.
+  Suppose every element $a$ of $Y$ satisfies $f(B)=a$.
+  Then $\iteratedBinop{F}_{B}f=a$.
+\item\label{setwiseo:26} Let $F$ be idempotent, commutative, and associative.
+  For all functions $f,g\colon X\to Y$ and elements $A$, $B$ of $\Fin(X)$.
+  if $A\neq\emptyset$ and $f(A)=g(B)$,
+  then $\iteratedBinop{F}_{A}f=\iteratedBinop{F}_{B}g$
+\item\label{setwiseo:27} Let $F$ be idempotent, commutative, and associative.
+  Let $G$ be a binary operator of $Y$ which is distributive with respect to $F$.
+  Let $f\colon X\to Y$, let $B$ be an element of $\Fin(X)$ such that
+  $B\neq\emptyset$. Let $a$ be an element of $Y$.
+  Then $G(a,\iteratedBinop{F}_{B}f)=\iteratedBinop{F}_{B}G(a,f)$ (recall
+  \textsc{funcop-1} \ref{funcop1:def5} for $G(a,f)$).
+\item\label{setwiseo:28} Let $F$ be idempotent, commutative, and associative.
+  Let $G$ be a binary operator of $Y$ which is distributive with respect to $F$.
+  Let $B$ be an element of $\Fin(X)$ with $B\neq\emptyset$.
+  Let $f\colon X\to Y$ be a function, let $a$ be an element of $Y$.
+  Then $G(\iteratedBinop{F}_{B}f,a)=\iteratedBinop{F}_{B}G(f,a)$ (recall
+  \textsc{funcop-1} \ref{funcop1:def4} for $G(f,a)$).
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$ be nonempty sets, let $f\colon X\to Y$, let $A$ be an
+element of $\Fin(X)$.
+We redefine the type of term $f(A)$ to be an element of $\Fin(Y)$.
+\end{definition}
+
+Now we can prove the following results:
+\begin{thm}
+\item\label{setwiseo:29} Let $A$, $X$, $Y$ be nonempty sets,
+  let $F$ be a commutative, associative, idempotent binary operator of $A$.
+  Let $B$ be an element of $\Fin(X)$ with $B\neq\emptyset$.
+  Let $f\colon X\to Y$, $g\colon Y\to A$.
+  Then $\iteratedBinop{F}_{f(B)}g=\iteratedBinop{F}_{B}(g\circ f)$.
+\item\label{setwiseo:30} Let $F$ be commutative, associative, and idempotent.
+  Let $Z$ be a nonempty set, let $G$ be a commutative, associative,
+  idempotent binary operator of $Z$. Let $f\colon X\to Y$, $g\colon Y\to Z$
+  be functions. Suppose for all elements $x$, $y$ of $Y$ we have $g(F(x,y))=G(g(x),g(y))$.
+  Then for each element $B$ of $\Fin(X)$ with $B\neq\emptyset$ satisfies
+  $g(\iteratedBinop{F}_{B}f)=\iteratedBinop{G}_{B}(g\circ f)$.
+\item\label{setwiseo:31} Let $F$ be commutative, associative, and
+  suppose $F$ has a unity. Then for any function $f$ we have
+  $\iteratedBinop{F}_{\emptyset}f$ is equal to the unity with respect to $f$.
+\item\label{setwiseo:32} Let $F$ be commutative, associative, and idempotent.
+  Suppose $F$ has a unity.
+  Then for each element $x$ of $X$, we have
+  $\iteratedBinop{F}_{B\cup\{x\}}f=F(\iteratedBinop{F}_{B}f,f(x))$.
+\item\label{setwiseo:33} Let $F$ be commutative, associative, and idempotent.
+  Suppose $F$ has a unity.
+  Let $B_{1}$, $B_{2}$ be elements of $\Fin(X)$.
+  Then $\iteratedBinop{F}_{B_{1}\cup B_{2}}f=F(\iteratedBinop{F}_{B_{1}}f,\iteratedBinop{F}_{B_{2}}f)$.
+\item\label{setwiseo:34} Let $F$ be commutative, associative, and idempotent.
+  Suppose $F$ has a unity.
+  Let $f,g\colon X\to Y$ be functions, let $A$ and $B$ be elements of $\Fin(X)$.
+  If $f(A)=g(B)$, then $\iteratedBinop{F}_{A}f=\iteratedBinop{F}_{B}g$.
+\item\label{setwiseo:35} Let $A$, $X$, $Y$ be nonempty sets. Let $F$ be
+  a commutative, associative, idempotent binary operator of $A$.
+  Let $B$ be an element of $\Fin(X)$, let $f\colon X\to Y$,
+  let $g\colon Y\to A$ be functions.
+  Then $\iteratedBinop{F}_{f(B)}g=\iteratedBinop{F}_{B}(g\circ f)$.
+\item\label{setwiseo:36} Let $F$ be commutative, associative, and idempotent.
+  Suppose $F$ has a unity.
+  Let $Z$ be a nonempty set, let $G$ be a commutative, associative,
+  idempotent binary operator of $Z$. Suppose $G$ has a unity.
+  Let $f\colon X\to Y$, $g\colon Y\to Z$ be functions.
+  Suppose, if we denote the unity with respect to $F$ as $e$, then
+  $g(e)$ is the unity with respect to $G$; suppose further that for all
+  elements $x$ and $y$ of $Y$ we have $g(F(x,y))=G(g(x),g(y))$.
+  Then every element $B$ of $\Fin(X)$ satisfies
+  $g(\iteratedBinop{F}_{B}f) = \iteratedBinop{G}_{B}(g\circ f)$.
+\end{thm}
+
+\begin{definition}
+Let $A$ be a set.
+We define the term $\FinUnion_{A}$ (Mizar: ``\verb#FinUnion A#'') to be
+a binary operator of $A$ satisfying
+\begin{defn}
+\item for all elements $x$, $y$ of $\Fin(A)$, we have
+  $\FinUnion_{A}(x,y)=x\cup y$.
+\end{defn}
+\end{definition}
+
+Let $A$ be a set. Let $x$, $y$, $z$ be elements of $\Fin(A)$. We have
+the following results:
+\begin{thm}
+\item\label{setwiseo:37} $\FinUnion_{A}$ is idempotent
+\item\label{setwiseo:38} $\FinUnion_{A}$ is commutative
+\item\label{setwiseo:39} $\FinUnion_{A}$ is associative
+\item\label{setwiseo:40} $\emptyset_{A}$ is a unity with respect to $\FinUnion_{A}$
+\item\label{setwiseo:41} $\FinUnion_{A}$ has a unity
+\item\label{setwiseo:42} The unity with respect to $\FinUnion_{A}$ is a
+  unity with respect to $\FinUnion_{A}$.
+\item\label{setwiseo:43} The unity with respect to $\FinUnion_{A}$ is $\emptyset$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a nonempty set, let $A$ be an arbitrary set.
+Let $B$ be an element of $\Fin(X)$, let $f\colon X\to\Fin(A)$ be a function.
+We define the term $\FinUnion(B,f)$ (Mizar: ``\verb#FinUnion(B,f)#'') to
+be the element of $\Fin(A)$ equal to
+\begin{defn}
+\item $\FinUnion(B,f) := \union f(B)$.
+\end{defn}
+\end{definition}
+\begin{remark}
+Actually, $\FinUnion(B,f)$ is the iterated application of
+$\FinUnion_{B}$, but I cannot typeset that adequately, so I used an
+equivalent definition.
+\end{remark}
+
+Let $A$ be an arbitrary set, let $X$ and $Y$ be nonempty sets, let
+$f\colon X\to\Fin(A)$. Let $i$, $j$, $k$ be elements of $X$. We have the
+following results:
+\begin{thm}
+\item\label{setwiseo:44} $\FinUnion(\{i\},f)=f(i)$
+\item\label{setwiseo:45} $\FinUnion(\{i,j\},f)=f(i)\cup f(j)$.
+\item\label{setwiseo:46} $\FinUnion(\{i,j,k\},f)=f(i)\cup f(j)\cup f(k)$.
+\item\label{setwiseo:47} $\FinUnion(\emptyset,f)=\emptyset$
+\item\label{setwiseo:48} Let $B$ be an element of $\Fin(X)$.
+  Then $\FinUnion(B\cup\{i\},f)=\FinUnion(B,f)\cup f(i)$.
+\item\label{setwiseo:49} Let $B$ be an element of $\Fin(X)$.
+  Then $\FinUnion(B,f)=\union f(B)$.
+\item\label{setwiseo:50} Let $B_{1}$, $B_{2}$ be elements of $\Fin(X)$.
+  Then $\FinUnion(B_{1}\cup B_{2},f)=\FinUnion(B_{1},f)\cup \FinUnion(B_{2},f)$.
+\item\label{setwiseo:51} Let $B$ be an element of $\Fin(X)$, let
+  $f\colon X\to Y$, let $g\colon Y\to\Fin(A)$.
+  Then $\FinUnion(f(B),g)=\FinUnion(B,g\circ f)$.
+\item\label{setwiseo:52} Let $A$, $X$ be nonempty sets, let $Y$ be a
+  set, let $G$ be a commutative, associative, idempotent binary operator
+  of $A$. Let $B$ be an element of $\Fin(X)$ such that $B\neq\emptyset$.
+  Let $f\colon X\to\Fin(Y)$, $g\colon\Fin(Y)\to A$.
+  Suppose all elements $x$ and $y$ of $\Fin(Y)$ satisfies $g(x\cup y)=G(g(x),g(y))$.
+  Then $g(\FinUnion(B,f))=\iteratedBinop{G}_{B}(g\circ f)$.
+\item\label{setwiseo:53} Let $Z$ be a nonempty set, let $Y$ be a set.
+  Let $G$ be a commutative, associative, idempotent binary operator of $Z$.
+  Suppose $G$ has a unity.
+  Let $f\colon X\to\Fin(Y)$, $g\colon\Fin(Y)\to Z$.
+  Suppose $(g(\emptyset))(Y)$ is the unity with respect to $G$, and for
+  all elements $x$ and $y$ of $\Fin(Y)$ we have $g(x\cup y)=G(g(x),g(y))$.
+  Then for all elements $B$ of $\Fin(X)$, we have
+  $g(\FinUnion(B,f))=\iteratedBinop{G}_{B}(g\circ f)$.
+\end{thm}
+
+\begin{definition}
+Let $A$ be a set.
+We define the term $\singleton_{A}$ (Mizar: ``\verb#singleton A#'') to be a function from $A$ to $\Fin(A)$
+satisfying
+\begin{defn}
+\item for each object $x\in A$, we have $\singleton_{A}(x)=\{x\}$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{setwiseo:54} Let $A$ b a nonempty set, let $f\colon A\to\Fin(A)$.
+  Then $f=\singleton_{A}$ if and only if for each element $x$ of $A$ we
+  have $f(x)=\{x\}$.
+\item\label{setwiseo:55} Let $x$ be a set, let $y$ be an element of $X$.
+  Then $x\in\singleton_{X}(y)$ if and only if $x=y$.
+\item\label{setwiseo:56} Let $x$, $y$, $z$ be elements of $X$.
+  If $x\in\singleton_{X}(z)$ and $y\in\singleton_{X}(z)$, then $x=y$.
+\item\label{setwiseo:57} Let $B$ be an element of $\Fin(X)$, let $x$ be
+  a set. Then $x\in\FinUnion(B,f)$ if and only if there exists an
+  element $i$ of $X$ such that $i\in B$ and $x\in f(i)$.
+\item\label{setwiseo:58} Let $B$ be an element of $\Fin(X)$.
+  Then $\FinUnion(B,\singleton_{X})=B$.
+\item\label{setwiseo:59} Let $Y$, $Z$ be sets.
+  Let $f\colon X\to\Fin(Y)$, $g\colon\Fin(Y)\to\Fin(Z)$.
+  Suppose $g(\emptyset_{Y})=\emptyset_{Z}$ and for all elements $x$, $y$
+  of $\Fin(Y)$ we have $g(x\cup y)=g(x)\cup g(y)$.
+  Then for each element $B$ of $\Fin(X)$ we have
+  $g(\FinUnion(B,f))=\FinUnion(B,g\circ f)$.
 \end{thm}
 
 \end{document}

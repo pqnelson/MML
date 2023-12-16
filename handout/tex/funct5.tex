@@ -1,0 +1,259 @@
+\documentclass{article}
+
+\title{Curried and Uncurried Functions (FUNCT-5)}
+\author{Grzegorz Bancerek}
+\date{March 6, 1990}
+\begin{document}
+\maketitle
+
+\begin{scheme}[LambdaFS]
+Let $\mathcal{S}$ be a set, let $\mathcal{F}(-)$ be an object
+parametrized by an object.
+There exists a function $f$ such that $\dom(f)=\mathcal{S}$ and for each
+function $g$ such that $g\in\mathcal{S}$ we have $f(g)=\mathcal{F}(g)$.
+\end{scheme}
+
+Let $X$, $Y$, $Z$ be sets. Let $x$, $y$, $z$, $t$ be objects. Let $f$,
+$g$, $h$ be functions.
+We have the following results:
+\begin{thm}
+\item\label{funct5:1} $\converse{\emptyset}=\emptyset$.
+\item\label{funct5:2} (Cancelled)
+\item\label{funct5:3} (Cancelled)
+\item\label{funct5:4} (Cancelled)
+\item\label{funct5:5} (Cancelled)
+\item\label{funct5:6} (Cancelled)
+\item\label{funct5:7} (Cancelled)
+\item\label{funct5:8} $\proj1\emptyset=\emptyset$ and $\proj2\emptyset=\emptyset$.
+\item\label{funct5:9} If $Y\neq\emptyset$ or $X\times Y\neq\emptyset$ or
+  $Y\times X\neq\emptyset$, then $\proj1(X\times Y)=X$ and
+  $\proj2(Y\times X)=X$.
+\item\label{funct5:10} $\proj1(X\times Y)\subset X$ and $\proj2(X\times Y)\subset Y$.
+\item\label{funct5:11} If $Z\subset X\times Y$,
+  then $\proj1 Z\subset X$ and $\proj2 Z\subset Y$
+\item\label{funct5:12} $\proj1\{(x,y)\}=\{x\}$ and $\proj2\{(x,y)\}=\{y\}$.
+\item\label{funct5:13} $\proj1\{(x,y),(z,t)\}=\{x,z\}$
+  and $\proj2\{(x,y),(z,t)\}=\{y,t\}$.
+\item\label{funct5:14} If there are no objects $x$ and $y$ such that
+  $(x,y)\in X$, then $\proj1X=\emptyset$ and $\proj2X=\emptyset$.
+\item\label{funct5:15} If $\proj1X=\emptyset$ or $\proj2X=\emptyset$,
+  then there are no objects $x$ and $y$ such that $(x,y)\in X$.
+\item\label{funct5:16} $\proj1X=\emptyset$ if and only if $\proj2X=\emptyset$.
+\item\label{funct5:17} $\proj1(\dom(f))=\proj2(\dom(\converse{f}))$ and
+  $\proj2(\dom(f))=\proj1(\dom(\converse{f}))$.
+\end{thm}
+
+\begin{definition}
+Let $f$ be a function.
+We define the term $\curry(f)$ to be the function satisfying
+\begin{defn}
+\item $\dom(\curry(f))=\proj1(\dom(f))$ and for each $x\in\proj1(\dom(f))$ there exists a function $g$ such
+    that
+  \begin{enumerate}[label=(\roman*)]
+  \item $\curry(f)(x)=g$ and $\dom(g)=\proj2(\dom(f)\cap\{x\}\times\proj2(\dom(f)))$;
+    and
+  \item for each object $y\in\dom(g)$, we have $g(y)=f(x,y)$.
+  \end{enumerate}
+\end{defn}
+We define the term $\uncurry(f)$ to be the function satisfying
+\begin{defn}
+\item 
+  \begin{enumerate}[label=(\roman*)]
+  \item for each object $t$, we have $t\in\dom(\uncurry(f))$ if and only
+    if there exists objects $x$ and $y$ and a function $g$ such that
+    $t=(x,y)$ and $x\in(f)$ and $g=f(x)$ and $y\in\dom(g)$; and
+  \item for each object $x$ and each function $g$, if
+    $x\in\dom(\uncurry(f))$ and $g=(f(x_{1}))$, then $(\uncurry(f))(x)=g(x_{2})$.
+  \end{enumerate}
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $f$ be a function.
+We define the term $\curry'(f)$ to be the function equal to
+\begin{defn}
+\item $\curry'(f):=\curry(\converse{f})$.
+\end{defn}
+We define the term $\uncurry'(f)$ to be the function equal to
+\begin{defn}
+\item $\uncurry'(f):=\converse{(\uncurry(f))}$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{funct5:18} (Cancelled)
+\item\label{funct5:19} If $(x,y)\in\dom(f)$, then $x\in\dom(\curry(f))$.
+\item\label{funct5:20} If $(x,y)\in\dom(f)$
+  and $g=(\curry(f))(x)$, then $y\in\dom(g)$ and $g(y)=f(x,y)$.
+\item\label{funct5:21} If $(x,y)\in\dom(f)$, then $y\in\dom(\curry'(f))$.
+\item\label{funct5:22} If $(x,y)\in\dom(f)$
+  and $g=(\curry'(f))(y)$, then $x\in\dom(g)$ and $g(x)=f(x,y)$.
+\item\label{funct5:23} $\dom(\curry'(f))=\proj2(\dom(f))$.
+\item\label{funct5:24} If $X\times Y\neq\emptyset$ and $\dom(f)=X\times Y$,
+  then $\dom(\curry(f))=X$ and $\dom(\curry'(f))=Y$.
+\item\label{funct5:25} If $\dom(f)\subset X\times Y$, then
+  $\dom(\curry(f))\subset X$ and $\dom(\curry'(f))\subset Y$.
+\item\label{funct5:26} If $\rng(f)\subset\Funcs(X,Y)$, then
+  $\dom(\uncurry(f))=\dom(f)\times X$ and $\dom(\uncurry'(f))=X\times\dom(f)$.
+\item\label{funct5:27} If there are no objects $x$, $y$ such that
+  $(x,y)\in\dom(f)$, then $\curry(f)=\emptyset$ and $\curry'(f)=\emptyset$.
+\item\label{funct5:28} If there are no objects $x$, $y$ such that
+  $(x,y)\in\dom(f)$, then $\uncurry(f)=\emptyset$ and $\uncurry'(f)=\emptyset$.
+\item\label{funct5:29} Suppose $X\times Y\neq\emptyset$,
+  $\dom(f)=X\times Y$, and $x\in X$.
+  Then there exists a function $g$ such that $(\curry(f))(x)=g$,
+  $\dom(g)=Y$, $\rng(g)\subset\rng(f)$, and for each object $y\in Y$ we
+  have $g(y)=f(x,y)$.
+\item\label{funct5:30} If $x\in\dom(\curry(f))$, then $(\curry(f))(x)$
+  is a function.
+\item\label{funct5:31} Suppose $x\in\dom(\curry(f))$ and $g=(\curry(f))(x)$.
+  Then $\dom(g)=(\proj2(\dom(f)))\cap(\{x\}\times\proj2(\dom(f)))$,
+  $\dom(g)\subset\proj2(\dom(f))$, $\rng(g)\subset\rng(f)$,
+  and for each object $y\in\dom(g)$ we have $g(y)=f(x,y)$ and $(x,y)\in\dom(f)$.
+\item\label{funct5:32} Suppose $X\times Y\neq\emptyset$,
+  $\dom(f)=X\times Y$, and $y\in Y$.
+  Then there exists a function $g$ such that $g=(\curry'(f))(y)$,
+  $\dom(g)=X$, $\rng(g)\subset\rng(f)$, and for each $x\in X$ we have $g(x)=f(x,y)$.
+\item\label{funct5:33} If $x\in\dom(\curry'(f))$, then $(\curry'(f))(x)$
+  is a function.
+\item\label{funct5:34} Suppose $x\in\dom(\curry'(f))$ and $g=(\curry'(f))(x)$.
+  Then $\dom(g)=\proj1(\dom(f)\cap(\proj1(\dom(f))\times\{x\}))$,
+  $\dom(g)\subset\proj1(\dom(f))$,
+  $\rng(g)\subset\rng(f)$,
+  and for each object $y\in\dom(g)$ we have $g(y)=f(y,x)$ and $(y,x)\in\dom(f)$.
+\item\label{funct5:35} If $\dom(f)=X\times Y$, then
+  $\rng(\curry(f))\subset\Funcs(Y,\rng(f))$ and $\rng(\curry'(f))\subset\Funcs(X,\rng(f))$.
+\item\label{funct5:36} $\rng(\curry(f))\subset\PFuncs(\proj2(\dom(f)),\rng(f))$
+  and $\rng(\curry'(f))\subset\PFuncs(\proj1(\dom(f)),\rng(f))$.
+\item\label{funct5:37} If $\rng(f)\subset\PFuncs(X,Y)$,
+  then $\dom(\uncurry(f))\subset(\dom(f))\times X$ and
+  $\dom(\uncurry'(f))\subset X\times\dom(f)$.
+\item\label{funct5:38} If $x\in\dom(f)$, $g=f(x)$, and $y\in\dom(g)$,
+  then $(x,y)\in\dom(\uncurry(f))$ and $(\uncurry(f))(x,y)=g(y)$ and $g(y)\in\rng(\uncurry(f))$.
+\item\label{funct5:39} If $x\in\dom(f)$, $g=f(x)$, and $y\in\dom(g)$,
+  then $(y,x)\in\dom(\uncurry'(f))$, $(\uncurry'(f))(y,x)=g(y)$, and
+  $g(y)\in\rng(\uncurry'(f))$. 
+\item\label{funct5:40} If $\rng(f)\subset\PFuncs(X,Y)$, then
+  $\rng(\uncurry(f))\subset Y$ and $\rng(\uncurry'(f))\subset Y$.
+\item\label{funct5:41} If $\rng(f)\subset\Funcs(X,Y)$, then
+  $\rng(\uncurry(f))\subset Y$ and $\rng(\uncurry'(f))\subset Y$.
+\item\label{funct5:42} $\curry(\emptyset)=\emptyset$ and $\curry'(\emptyset)=\emptyset$
+\item\label{funct5:43} $\uncurry(\emptyset)=\emptyset$ and $\uncurry'(\emptyset)=\emptyset$
+\item\label{funct5:44} If $\dom(f_{1})=X\times Y$, $\dom(f_{2})=X\times Y$,
+  and $\curry(f_{1})=\curry(f_{2})$, then $f_{1}=f_{2}$.
+\item\label{funct5:45} If $\dom(f_{1})=X\times Y$, $\dom(f_{2})=X\times Y$,
+  and $\curry'(f_{1})=\curry'(f_{2})$, then $f_{1}=f_{2}$.
+\item\label{funct5:46} If $\rng(f_{1})\subset\Funcs(X,Y)$,
+  $\rng(f_{2})\subset\Funcs(X,Y)$, $X\neq\emptyset$, and
+  $\uncurry(f_{1})=\uncurry(f_{2})$, then $f_{1}=f_{2}$.
+\item\label{funct5:47} If $\rng(f_{1})\subset\Funcs(X,Y)$,
+  $\rng(f_{2})\subset\Funcs(X,Y)$, $X\neq\emptyset$, and
+  $\uncurry'(f_{1})=\uncurry'(f_{2})$, then $f_{1}=f_{2}$.
+\item\label{funct5:48} If $X\neq\emptyset$ and $\rng(f)\subset\Funcs(X,Y)$,
+  then $\curry(\uncurry(f))=f$ and $\curry'(\uncurry'(f))=f$.
+\item\label{funct5:49} If $\dom(f)=X\times Y$, then
+  $\uncurry(\curry(f))=f$ and $\uncurry'(\curry'(f))=f$.
+\item\label{funct5:50} If $\dom(f)\subset X\times Y$, then
+  $\uncurry(\curry(f))=f$ and $\uncurry'(\curry'(f))=f$.
+\item\label{funct5:51} If $\rng(f)\subset\PFuncs(X,Y)$ and
+  $\emptyset\notin\rng(f)$, then $\curry(\uncurry(f))=f$ and $\curry'(\uncurry'(f))=f$.
+\item\label{funct5:52} If $\dom(f_{1})\subset X\times Y$ and
+  $\dom(f_{2})\subset X\times Y$ and $\curry(f_{1})=\curry(f_{2})$,
+  then $f_{1}=f_{2}$.
+\item\label{funct5:53} If $\dom(f_{1})\subset X\times Y$ and
+  $\dom(f_{2})\subset X\times Y$ and $\curry'(f_{1})=\curry'(f_{2})$,
+  then $f_{1}=f_{2}$.
+\item\label{funct5:54} If $\rng(f_{1})\subset\PFuncs(X,Y)$ and
+  $\rng(f_{2})\subset\PFuncs(X,Y)$, if $\emptyset\notin\rng(f_{1})$ and
+  $\emptyset\notin\rng(f_{2})$, and if
+  $\uncurry(f_{1})=\uncurry(f_{2})$,
+  then $f_{1}=f_{2}$.
+\item\label{funct5:55} If $\rng(f_{1})\subset\PFuncs(X,Y)$ and
+  $\rng(f_{2})\subset\PFuncs(X,Y)$, if $\emptyset\notin\rng(f_{1})$ and
+  $\emptyset\notin\rng(f_{2})$, and if
+  $\uncurry'(f_{1})=\uncurry'(f_{2})$,
+  then $f_{1}=f_{2}$.
+\item\label{funct5:56} If $X\subset Y$, then $\Funcs(Z,X)\subset\Funcs(Z,Y)$.
+\item\label{funct5:57} $\Funcs(\emptyset,X)=\{\emptyset\}$.
+\item\label{funct5:58} For any object $x$, we have
+  $X\equipotent\Funcs(\{x\},X)$ are equipotent and $\card{X}=\card{\Funcs(\{x\},X)}$. 
+\item\label{funct5:59} $\Funcs(X,\{x\})=\{X\constantto x\}$.
+\item\label{funct5:60} If $X_{1}\equipotent Y_{1}$ and $X_{2}\equipotent Y_{2}$
+  are equipotent, then
+  $\Funcs(X_{1},X_{2})\equipotent\Funcs(Y_{1},Y_{2})$ are equipotent and $\card{\Funcs(X_{1},X_{2})}=\card{\Funcs(Y_{1},Y_{2})}$.
+\item\label{funct5:61} If $\card{X_{1}}=\card{X_{2}}$ and
+  $\card{Y_{1}}=\card{Y_{2}}$, then $\card{\Funcs(X_{1},X_{2})}=\card{\Funcs(Y_{1},Y_{2})}$.
+\item\label{funct5:62} Suppose $X_{1}$ misses $X_{2}$.
+  Then $\Funcs(X_{1}\cup X_{2},X)\equipotent\Funcs(X_{1},X)\times\Funcs(X_{2},X)$
+  are equipotent and
+  $\card{\Funcs(X_{1}\cup X_{2},X)}\equipotent\card{\Funcs(X_{1},X)\times\Funcs(X_{2},X)}$
+\item\label{funct5:63} $\Funcs(X\times Y,Z)\equipotent\Funcs(X,\Funcs(Y,Z))$ are equipotent and
+  $\card{\Funcs(X\times Y,Z)}=\card{\Funcs(X,\Funcs(Y,Z))}$.
+\item\label{funct5:64} $\Funcs(Z,X\times Y)\equipotent\Funcs(\Funcs(Z,X),\Funcs(Z,Y))$ are equipotent and
+  $\card{\Funcs(Z,X\times Y)}=\card{\Funcs(\Funcs(Z,X),\Funcs(Z,Y))}$.
+\item\label{funct5:65} Suppose $x\neq y$.
+  Then $\Funcs(X,\{x,y\})\equipotent\powerset(X)$ and $\card{\Funcs(X,\{x,y\})}=\card{\powerset(X)}$.
+\item\label{funct5:66} Suppose $x\neq y$.
+  Then $\Funcs(\{x,y\},X)\equipotent X\times X$ and
+  $\card{\Funcs(X,\{x,y\})}=\card{X\times X}$.
+\end{thm}
+
+\begin{definition}
+We define the term $\operatorname{op}_{0}$ to be the element of $\{0\}$
+equal to $\operatorname{op}_{0}:=0$.
+\end{definition}
+\begin{definition}
+We define the term $\operatorname{op}_{1}$ to be the unary operator of $\{0\}$
+equal to $\operatorname{op}_{1}:=\{0\}\constantto0$.
+\end{definition}
+\begin{definition}
+We define the term $\operatorname{op}_{2}$ to be the binary operator of $\{0\}$
+equal to $\operatorname{op}_{2}:=\{(0,0)\}\constantto0$.
+\end{definition}
+
+\begin{definition}
+Let $D$, $E$ be nonempty sets, let $X$ be a set.
+Let $F$ be a nonempty set of functions from $D$ to $F$.
+Let $d$ be an element of $D$.
+We redefine the type of $f(d)$ to be an element of $F$.
+\end{definition}
+
+Let $C$, $D$, $E$ be nonempty sets, let $f\colon C\times D\to E$ be a
+function. We can prove the following two propositions:
+\begin{thm}
+\item\label{funct5:67} $\curry(f)$ is a function from $C$ to $\Funcs(D,E)$.
+\item\label{funct5:68} $\curry'(f)$ is a function from $D$ to $\Funcs(C,E)$.
+\end{thm}
+
+\begin{definition}
+Let $C$, $D$, $E$ be nonempty sets, let $f\colon C\times D\to E$.
+We redefine the type of the term $\curry(f)$ to be a function from $C$
+to $\Funcs(D,E)$.
+
+We redefine the type of the term $\curry'(f)$ to be a function from $D$
+to $\Funcs(C,E)$.
+\end{definition}
+
+We can prove the following:
+\begin{thm}
+\item\label{funct5:69} $f(c,d)=((\curry(f))(c))(d)$
+\item\label{funct5:70} $f(c,d)=((\curry'(f))(d))(c)$
+\end{thm}
+
+\begin{definition}
+Let $A$, $B$, $C$ be nonempty sets.
+Let $f\colon A\to\Funcs(B,C)$ be a function.
+We redefine the type of $\uncurry(f)$ to be a function from $A\times B$
+to $C$.
+\end{definition}
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{funct5:71} For any nonempty sets $A$, $B$, $C$, for any
+  function $f\colon A\to\Funcs(B,C)$, we have $\curry(\uncurry(f))=f$.
+\item\label{funct5:72} For any nonempty sets $A$, $B$, $C$, for any
+  function $f\colon A\to\Funcs(B,C)$,
+  for any elements $a$ of $A$ and $b$ of $B$,
+  we have $(\uncurry(f))(a,b)=(f(a))(b)$.
+\end{thm}
+\end{document}

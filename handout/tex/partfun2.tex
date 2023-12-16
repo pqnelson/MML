@@ -1,0 +1,251 @@
+\documentclass{article}
+
+\title{Partial Functions from a Domain to a Domain (PARTFUN2)}
+\author{Jaros{\l}aw Kotowicz}
+\date{May 31, 1990}
+\begin{document}
+\maketitle
+
+Let $C$, $D$, $E$ be nonempty sets. Let $f$, $f_{1}$, $g$ be partial
+functions from $C$ to $D$. Let $c$ be an element of $C$.
+We have the following results:
+\begin{thm}
+\item\label{partfun2:1} If $\dom(f)=\dom(g)$ and every $c\in\dom(f)$
+  satisfies $f(c)=g(c)$, then $f=g$.
+\item\label{partfun2:2} $y\in\rng(f)$ if and only if there exists an
+  element $c$ of $C$ such that $c\in\dom(f)$ and $y=f(c)$.
+\item\label{partfun2:3} Let $s$ be a partial function from $D$ to $E$.
+  Then $h=s\circ f$ if and only if $\dom(h)=\dom(f)$ and every
+  $c\in\dom(f)$ has $f(c)\in\dom(s)$ and $h(c)=s\bigl(f(c)\bigr)$.
+\item\label{partfun2:4} If $c\in\dom(f)$ and $f(c)\in\dom(s)$,
+  then $(s\circ f)(c)=s\bigl(f(c)\bigr)$.
+\item\label{partfun2:5} If $\rng(f)\subset\dom(s)$ and $c\in\dom(f)$,
+  then $(s\circ f)(c)=s\bigl(f(c)\bigr)$.
+\end{thm}
+
+\begin{definition}
+Let $D$ be a nonemptyset, let $S$ be a subset of $D$.
+We redefine the type of $\id_{S}$ to be a partial function from $D$ to $D$.
+\end{definition}
+
+Let $S_{D}$ be a subset of $D$, let $F$ be a partial function from $D$
+to $D$.
+We can prove the following results:
+\begin{thm}
+\item\label{partfun2:6} $F=\id_{S_{D}}$ if and only if $\dom(F)=S_{D}$
+  and for all elements $d$ of $D$ such that $d\in S_{D}$ satisfies $F(d)=d$.
+\item\label{partfun2:7} If $d\in\dom(F)\cap S_{D}$, then $F(d)=(F\circ\id_{S_{D}})(d)$.
+\item\label{partfun2:8} $d\in\dom(\id_{S_{D}}\circ F)$ if and only if
+  $d\in\dom(F)$ and $F(d)\in S_{D}$.
+\item\label{partfun2:9} Suppose all elements $c_{1}$ and $c_{2}$ of $C$,
+  if $c_{1}\in\dom(f)$ and $c_{2}\in\dom(f)$ and $f(c_{1})=f(c_{2})$,
+  then $c_{1}=c_{2}$.
+  Then $f$ is injective.
+\item\label{partfun2:10} If $f$ is injective, $x\in\dom(f)$,
+  $y\in\dom(f)$, and $f(x)=f(y)$, then $x=y$.
+\end{thm}
+
+\begin{definition}
+Let $X$, $Y$ be sets. Let $f$ be an injective partial function from $X$
+to $Y$. We redefine the type of $f^{-1}$ to be a partial function from
+$Y$ to $X$.
+\end{definition}
+
+\begin{thm}
+\item\label{partfun2:11} Let $f$ be an injective partial function from
+  $C$ to $D$, let $g$ be a partial function from $D$ to $C$.
+  Then $g=f^{-1}$ if and only if $\dom(g)=\rng(f)$ and for all elements
+  $c$ of $C$ and $d$ of $D$ satisfies $d\in\rng(f)$ and $c=g(d)$ iff
+  $c\in\dom(f)$ and $d=f(c)$.
+\item\label{partfun2:12} Let $f$ be an injective partial function from
+  $C$ to $D$. If $c\in\rng(f)$, then $c=f^{-1}\bigl(f(c)\bigr)$ and
+  $c=(f^{-1}\circ f)(c)$.
+\item\label{partfun2:13} Let $f$ be an injective partial function from
+  $C$ to $D$. If $d\in\rng(f)$, then $d=f\bigl(f^{-1}(d)\bigr)$ and
+  $d=(f\circ f^{-1})(d)$.
+\item\label{partfun2:14} Let $f$ be injective, $\dom(f)=\rng(t)$,
+  $\rng(f)=\dom(t)$. Suppose every element $c$ of $C$ and every element
+  $d$ of $D$ with $c\in\dom(f)$ and $d\in\dom(t)$ satisfies $f(c)=d$ iff $t(d)=c$.
+  Then $t=f^{-1}$.
+\item\label{partfun2:15} $g=f|_{X}$ if and only if $\dom(g)=\dom(f)\cap X$
+  and for all elements $c$ of $C$ with $c\in\dom(g)$ satisfies $g(c)=f(c)$.
+\item\label{partfun2:16} If $c\in\dom(f)\cap X$, then $f|_{X}(c)=f(c)$.
+\item\label{partfun2:17} If $c\in\dom(f)$ and $c\in X$, then $f|_{X}(c)=f(c)$.
+\item\label{partfun2:18} If $c\in\dom(f)$ and $c\in X$, then $f(c)\in\rng(f|_{X})$.
+\end{thm}
+
+\begin{definition}
+Let $C$, $D$ be nonempty sets. Let $X$ be any set. Let $f$ be a partial
+function from $C$ to $D$. We redefine the type of term $f|^{X}$ to be a
+partial function from $C$ to $D$.
+\end{definition}
+
+Let $S_{C}$ be a subset of $C$.
+We can prove the following results:
+\begin{thm}
+\item\label{partfun2:19} $g=f|^{X}$ if and only if $\dom(g)=\dom(f)$ and
+  for each element $c$ of $C$, we have $f(c)\in X$ and when
+  $c\in\dom(g)$ we have $g(c)=f(c)$.
+\item\label{partfun2:20} $c\in\dom(f|^{X})$ if and only if $c\in\dom(f)$
+  and $f(c)\in X$.
+\item\label{partfun2:21} If $c\in\dom(f|^{X})$, then $f|^{X}(c)=f(c)$.
+\item\label{partfun2:22} The following are logically equivalent:
+  \begin{enumerate}[label=(\roman*)]
+  \item $S_{D}=f(X)$
+  \item for each element $d$ of $D$, we have $d\in S_{D}$ if and only if
+    there exists an element $c$ of $C$ such that $c\in\dom(f)$ and $c\in X$ 
+    and $d=f(c)$.
+  \end{enumerate}
+\item\label{partfun2:23} $d\in f(X)$ if and only if there exists an
+  element $c$ of $C$ such that $c\in\dom(f)$ and $c\in X$ and $d=f(c)$.
+\item\label{partfun2:24} If $c\in\dom(f)$, then $\RelIm{f}{c}=\{f(c)\}$.
+\item\label{partfun2:25} If $c_{1},c_{2}\in\dom(f)$,
+  then $f(\{c_{1},c_{2}\})=\{f(c_{1}),f(c_{2})\}$.
+\item\label{partfun2:26} The following are logically equivalent:
+  \begin{enumerate}[label=(\roman*)]
+  \item $S_{C}=f^{-1}(X)$ 
+  \item for each element $c$ of $C$, we have $c\in S_{C}$ if and only if
+    $c\in\dom(f)$ and $f(c)\in X$.
+  \end{enumerate}
+\item\label{partfun2:27} There exists a function $g\colon C\to D$ such
+  that for each element $c$ of $C$, if $c\in\dom(f)$, then $g(c)=f(c)$.
+\item\label{partfun2:28} $f$ tolerates $g$ if and only if for each
+  element $c$ of $C$ with $c\in\dom(f)\cap\dom(g)$ satisfies $f(c)=g(c)$.
+\end{thm}
+
+\begin{scheme}[PartFuncExD]
+Let $\mathcal{D}$ and $\mathcal{C}$ be nonempty sets, let
+$\mathcal{P}[-,-]$ be a binary predicate of objects.
+There exists a partial function $f$ from $\mathcal{D}$ to $\mathcal{C}$
+such that
+  \begin{enumerate}[label=(\roman*)]
+  \item for each element $d$ of $\mathcal{D}$, we have $d\in\dom(f)$ if
+    and only if there exists an element $c$ of $\mathcal{C}$ such that
+    $\mathcal{P}[d,c]$; and
+  \item for each element $d$ of $\mathcal{D}$, if $d\in\dom(f)$, then $\mathcal{P}[d,f(d)]$.
+  \end{enumerate}
+\end{scheme}
+
+\begin{scheme}[PartFuncPFD]
+Let $\mathcal{D}$ and $\mathcal{C}$ be nonempty sets, let
+$\mathcal{F}(-)$ be an element of $\mathcal{C}$ parametrized by a set, let
+$\mathcal{P}[-]$ be a unary predicate of setts.
+There exists a partial function $f$ from $\mathcal{D}$ to $\mathcal{C}$
+such that
+  \begin{enumerate}[label=(\roman*)]
+  \item for each element $d$ of $\mathcal{D}$, we have $d\in\dom(f)$ if
+    and only if $\mathcal{P}[d]$; and
+  \item for each element $d$ of $\mathcal{D}$, if $d\in\dom(f)$, then $f(d)=\mathcal{F}(d)$.
+  \end{enumerate}
+\end{scheme}
+
+\begin{scheme}[UnPartFuncD]
+Let $\mathcal{D}$ and $\mathcal{C}$ be nonempty sets, let
+$\mathcal{F}(-)$ be an element of $\mathcal{D}$ parametrized by a set, let
+$\mathcal{X}$ be a set.
+For all partial functions $f$, $g$ from $\mathcal{C}$ to $\mathcal{D}$, if
+  \begin{enumerate}[label=(\roman*)]
+  \item $\dom(f)=\mathcal{X}$; and 
+  \item for each element $c$ of $\mathcal{C}$, we have $d\in\dom(f)$ if
+    and only if $f(c)=\mathcal{F}(c)$; and
+  \item for each element $c$ of $\mathcal{C}$,
+    if $c\in\dom(g)$, then $g(c)=\mathcal{F}(c)$;
+  \end{enumerate}
+  then $f=g$.
+\end{scheme}
+
+\begin{definition}
+Let $C$, $D$ be nonempty sets.
+Let $S_{C}$ be a subset of $C$, let $d$ be an element of $D$.
+We redefine the type of term $S_{C}\constantto d$ to be a partial
+function from $C$ to $D$.
+\end{definition}
+
+Let $S_{E}$ be a subset of $E$.
+We have the following results:
+\begin{thm}
+\item\label{partfun2:29} If $c\in S_{C}$, then $(S_{C}\constantto d)(c)=d$.
+\item\label{partfun2:30} Suppose all elements $c$ of $C$ with
+  $c\in\dom(f)$ satisfy $f(c)=d$.
+  Then $f=(\dom(f))\constantto d$.
+\item\label{partfun2:31} If $c\in\dom(f)$, then $f\circ(S_{E}\constantto c)=S_{E}\constantto f(c)$.
+\item\label{partfun2:32} $\id_{S_{C}}$ is total if and only if $S_{C}=C$.
+\item\label{partfun2:33} If $S_{C}\constantto d$ is total, then $S_{C}\neq\emptyset$.
+\item\label{partfun2:34} $S_{C}\constantto d$ is total if and only if $S_{C}=C$.
+\end{thm}
+
+\section{Constant partial functions on a set}
+
+\begin{definition}
+Let $C$, $D$ be nonempty sets, let $f$ be a partial function from $C$ to
+$D$. We redefine the attribute $f$ is \define{constant} to mean
+\begin{defn}
+\item There exists an element $d$ of $D$ such that for each element $c$
+  of $C$ with $c\in\dom(f)$ satisfies $f(c)=d$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{partfun2:35} $f|_{X}$ is constant if and only if there
+  exists an element $d$ of $D$ such that every element $c$ of $C$ with
+  $c\in X\cap\dom(f)$ satisfies $f(c)=d$.
+\item\label{partfun2:36} $f|_{X}$ is constant if and only if for all
+  elements $c_{1}$, $c_{2}$ of $C$ with $c_{1}\in X\cap\dom(f)$
+  and $c_{2}\in X\cap\dom(f)$ satisfy $f(c_{1})=f(c_{2})$.
+\item\label{partfun2:37} Suppose $X$ meets $\dom(f)$. Then $f|_{X}$ is
+  constant if and only if there exists an element $d$ of $D$ such that $\rng(f|_{X})=\{d\}$.
+\item\label{partfun2:38} If $f|_{X}$ is constant and $Y\subset X$, then
+  $f|_{Y}$ is constant.
+\item\label{partfun2:39} If $X$ misses $\dom(f)$, then $f|_{X}$ is constant.
+\item\label{partfun2:40} If $f|_{S_{C}}=(\dom(f|_{S_{C}}))\constantto d$,
+  then $f|_{S_{C}}$ is constant.
+\item\label{partfun2:41} $f|_{\{x\}}$ is constant.
+\item\label{partfun2:42} If $f|_{X}$ and $f|_{Y}$ are constant, and
+  $X\cap Y$ meets $\dom(f)$, then $f|_{X\cup Y}$ is constant.
+\item\label{partfun2:43} If $f|_{Y}$ is constant, then $(f|_{X})|_{Y}$
+  is constant.
+\item\label{partfun2:44} $(S_{C}\constantto d)|_{S_{C}}$ is constant.
+\end{thm}
+
+\section{Partial functions from a domain to a domain}
+
+Let $e$ be an element of $E$.
+We have the following results:
+\begin{thm}
+\item\label{partfun2:45} Suppose $\dom(f)\subset\dom(g)$ and every
+  element $c$ of $C$ with $c\in\dom(f)$ satisfies $f(c)=g(c)$.
+  Then $f\subset g$.
+\item\label{partfun2:46} $c\in\dom(f)$ and $d=f(c)$ if and only if
+  $(c,d)\in f$.
+\item\label{partfun2:47} If $(c,e)\in(s\circ f)$,
+  then $(c,f(c))\in f$ and $(f(c),e)\in s$.
+\item\label{partfun2:48} If $f=\{(c,d)\}$, then $f(c)=d$.
+\item\label{partfun2:49} If $\dom(f)=\{c\}$, then $f=\{(c,f(c))\}$.
+\item\label{partfun2:50} If $f_{1}=f\cap g$ and $c\in\dom(f_{1})$,
+  then $f_{1}(c)=f(c)$ and $f_{1}(c)=g(c)$.
+\item\label{partfun2:51} If $c\in\dom(f)$ and $f_{1}=f\cup g$, then $f_{1}(c)=f(c)$.
+\item\label{partfun2:52} If $c\in\dom(f)$ and $f_{1}=f\cup g$, then $f_{1}(c)=g(c)$.
+\item\label{partfun2:53} If $c\in\dom(f_{1})$ and $f_{1}=f\cup g$,
+  then $f_{1}(c)=f(c)$ or $f_{1}(c)=g(c)$.
+\item\label{partfun2:54} $c\in\dom(f)$ and $c\in S_{C}$ if and only if
+  $(c,f(c))\in f|_{S_{C}}$.
+\item\label{partfun2:55} $c\in\dom(f)$ and $f(c)\in S_{D}$ if and only
+  if $(c,f(c))\in f|^{S_{D}}$.
+\item\label{partfun2:56} $c\in f^{-1}(S_{D})$ if and only if
+  $(c,f(c))\in f$ and $f(c)\in S_{D}$.
+\item\label{partfun2:57} $f|_{X}$ is constant if and only if there
+  exists an element $d$ such that every element $c$ of $C$ with $c\in X\cap\dom(f)$
+  satisfies $f(c)=d$.
+\item\label{partfun2:58} $f|_{X}$ is constant if and only if for all
+  elements $c_{1}$, $c_{2}$ of $C$ with $c_{1}\in X\cap\dom(f)$ and
+  $c_{2}\in X\cap\dom(f)$, we have $f(c_{1})=f(c_{2})$.
+\item\label{partfun2:59} If $d\in f(X)$, then there exists an element
+  $c$ of $C$ such that $c\in\dom(f)$ and $c\in X$ and $d=f(c)$.
+\item\label{partfun2:60} If $f$ is injective, then $d\in\rng(f)$ and
+  $c=f^{-1}(d)$ if and only if $c\in\dom(f)$ and $d=f(c)$.
+\item\label{partfun2:61} Let $Y$ be a set, let $f$ and $g$ be $Y$-valued
+  functions, let $x\in\dom(f)$. If $f\subset g$, then $f(x)=g(x)$.
+\end{thm}
+
+\end{document}

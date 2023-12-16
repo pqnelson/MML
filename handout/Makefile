@@ -6,5 +6,8 @@ all: index
 	$(TEX) $(FILE)
 
 index:
+	-rm $(FILE).ilg
+	-rm $(FILE).ind
+	-rm $(FILE).idx
 	$(TEX) $(FILE)
 	makeindex $(FILE)

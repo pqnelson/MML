@@ -1,0 +1,458 @@
+\documentclass{article}
+
+\title{K\"{o}nig's Theorem (CARD-3)}
+\author{Grzegorz Bancerek}
+\date{April 10, 1990}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $f$ be a function.
+We define the attribute $f$ is \define{Cardinal-yielding} (Mizar:
+``\verb#Cardinal-yielding#'') to mean
+\begin{defn}
+\item for each object $x\in\dom(f)$, we have $f(x)$ is a Cardinal.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+We define a new mode, a \define{Cardinal-Function} (Mizar:
+``\verb#Cardinal-Function#'') is a Cardinal-yielding function.
+\end{definition}
+
+\begin{scheme}[CFLambda]
+Let $\mathcal{A}$ be a set, let $\mathcal{F}(-)$ be an object
+parametrized by objects. There exists a cardinal-function $f$ such that
+$\dom(f)=\mathcal{A}$ and for each set $x\in\mathcal{A}$ we have $f(x)=\mathcal{F}(x)$.
+\end{scheme}
+
+\begin{definition}
+Let $f$ be a function.
+We define the term $\card{f}$ (Mizar: ``\verb#Card f#'') to be the
+cardinal-function satisfying
+\begin{defn}
+\item $\dom(\card{f})=\dom(f)$ and for each object $x\in\dom(f)$, we
+  have $\card{f}(x)=\card{f(x)}$.
+\end{defn}
+We define the term $\disjoin{f}$ (Mizar: ``\verb#disjoin f#'')
+to be the function satisfying
+\begin{defn}
+\item $\dom(\disjoin{f})=\dom(f)$ and for each object $x\in\dom(f)$, we
+  have $\disjoin{f}(x)=(f(x),x)$.
+\end{defn}
+We define the term $\Union f$ (Mizar: ``\verb#Union f#'') to be the set
+equal to
+\begin{defn}
+\item $\Union f := \union\rng(f)$.
+\end{defn}
+We define the term $\prod f$ (Mizar: ``\verb#product f#'') to be the set
+satisfying
+\begin{defn}
+\item for each object $x$, we have $x\in\prod f$ if and only if there
+  exists a function $g$ such that $x=g$ and $\dom(g)=\dom(f)$ and for
+  each object $y\in\dom(f)$ we have $g(y)\in f(y)$.
+\end{defn}
+\end{definition}
+
+Let $F$ be a Cardinal-function. Let $X$, $Y$ be sets. Let $x$, $y$ be objects.
+Let $f$, $g$ be functions.
+We have the following results:
+\begin{thm}
+\item\label{card3:1} $\card{F}=F$.
+\item\label{card3:2} $\card{X\constantto Y}=X\constantto\card{Y}$.
+\item\label{card3:3} $\disjoin{\emptyset}=\emptyset$.
+\item\label{card3:4} $\disjoin{\{x\}\constantto X} = \{x\}\constantto(X,\{x\})$.
+\item\label{card3:5} If $x\in\dom(f)$, $y\in\dom(f)$, and $x\neq y$,
+  then $\disjoin{f}(x)$ misses $\disjoin{f}(y)$.
+\item\label{card3:6} $\Union(X\constantto Y)\subset Y$.
+\item\label{card3:7} If $X\neq\emptyset$, then $\Union(X\constantto Y)=Y$.
+\item\label{card3:8} $\Union(\{x\}\constantto Y)=Y$.
+\item\label{card3:9} $g\in\prod f$ if and only if $\dom(g)=\dom(f)$ and
+  for each object $x\in\dom(f)$ we have $g(x)\in f(x)$.
+\item\label{card3:10} $\prod\emptyset=\{\emptyset\}$.
+\item\label{card3:11} $\Funcs(X,Y)=\prod(X\constantto Y)$.
+\end{thm}
+
+\begin{definition}
+Let $x$ be an object, let $X$ be a set.
+We define the term $\pi_{x}(X)$ (Mizar: ``\verb#pi(X,x)#'') to be the
+set satisfying
+\begin{defn}
+\item for all objects $y$, we have $y\in\pi_{x}(X)$ if and only if there
+  exists a function $f\in X$ such that $y=f(x)$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{card3:12} If $x\in\dom(f)$ and $\prod f\neq\emptyset$,
+  then $\pi_{x}(\prod f)=f(x)$.
+\item\label{card3:13} $\pi_{x}\emptyset=\emptyset$
+\item\label{card3:14} $\pi_{x}\{g\}=\{g(x)\}$
+\item\label{card3:15} $\pi_{x}\{f,g\}=\{f(x),g(x)\}$
+\item\label{card3:16} $\pi_{x}(X\cup Y)=\pi_{x}(X)\cup\pi_{x}(Y)$
+\item\label{card3:17} $\pi_{x}(X\cap Y)=\pi_{x}(X)\cap\pi_{x}(Y)$
+\item\label{card3:18} $\pi_{x}(X\setminus Y)=\pi_{x}(X)\setminus\pi_{x}(Y)$
+\item\label{card3:19} $\pi_{x}(X\symdiff Y)=\pi_{x}(X)\symdiff\pi_{x}(Y)$
+\item\label{card3:20} $\card{\pi_{x}(X)}\subset\card{X}$
+\item\label{card3:21} If $x\in\Union\disjoin{f}$, then there exists
+  objects $y$ and $z$ such that $x=(y,z)$.
+\item\label{card3:22} $x\in\Union\disjoin{f}$ if and only if
+  $x_{2}\in\dom(f)$ and $x_{1}\in f(x_{2})$ and $x=(x_{1},x_{2})$.
+\item\label{card3:23} If $f\subset g$, then $\disjoin{f}\subset\disjoin{g}$.
+\item\label{card3:24} If $f\subset g$, then $\Union f\subset\Union g$.
+\item\label{card3:25} $\Union\disjoin{Y\constantto X}=X\times Y$.
+\item\label{card3:26} $\prod f=\emptyset$ if and only if $\emptyset\in\rng(f)$.
+\item\label{card3:27} If $\dom(f)=\dom(g)$ and every $x\in\dom(f)$
+  satisfies $f(x)\subset g(x)$.
+  Then $\prod f\subset\prod g$.
+\end{thm}
+
+Let $F$, $G$ be Cardinal-functions. We have the following two propositions:
+\begin{thm}
+\item\label{card3:28} For each $x\in\dom(F)$, we have $\card{F(x)}=F(x)$.
+\item\label{card3:29} For each $x\in\dom(F)$, $\card{\disjoin{F}(x)}=F(x)$.
+\end{thm}
+
+\begin{definition}
+Let $F$ be a Cardinal-function.
+We define $\sum F$ (Mizar: ``\verb#Sum F#'') to be the Cardinal equal to
+\begin{defn}
+\item $\sum F :=\card{\Union\disjoin{F}}$.
+\end{defn}
+We define $\prod F$ (Mizar: ``\verb#Product F#'') to be the Cardinal
+equal to
+\begin{defn}
+\item $\prod F := \card{\prod F}$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+In Mizar, it is idiomatic to use \texttt{Sum} for summing numbers (or
+ring elements, or\dots) and \texttt{Product} for the product of numbers
+(or group elements, or ring elements, or\dots).
+\end{remark}
+
+We have the following results:
+\begin{thm}
+\item\label{card3:30} If $\dom(F)=\dom(G)$ and every $x\in\dom(F)$
+  satisfies $F(x)\subset G(x)$. Then $\sum F\subset\sum G$.
+\item\label{card3:31} $\emptyset\in\rng(F)$ if and only if $\prod F=0$.
+\item\label{card3:32} If $\dom(F)=\dom(G)$ and every object
+  $x\in\dom(F)$ satisfies $F(x)\subset G(x)$, then $\prod F\subset\prod G$.
+\item\label{card3:33} If $F\subset G$, then $\sum F\subset\sum G$
+\item\label{card3:34} If $F\subset G$ and $0\notin\rng(G)$, then $\prod F\subset\prod G$.
+\item\label{card3:35} $\sum(\emptyset\constantto K)=\emptyset$.
+\item\label{card3:36} $\prod(\emptyset\constantto K)=1$.
+\item\label{card3:37} $\sum(\{x\}\constantto K)=K$.
+\item\label{card3:38} $\prod(\{x\}\constantto K)=K$.
+\item\label{card3:39} $\card{\union f}\subset\sum\card{f}$.
+\item\label{card3:40} $\card{\union F}\subset\sum F$.
+\item\label{card3:41} (\textsc{K\"{o}nig's Theorem}\index{K\"{o}nig's Theorem})
+  If $\dom(F)=\dom(G)$ and for each object $x\in\dom(F)$ satisfies
+  $F(x)\in G(x)$, then $\sum F\in\prod G$.
+\end{thm}
+
+\begin{scheme}[FuncSeparation]
+Let $\mathcal{X}$ be a set, let $\mathcal{F}(-)$ be a set parametrized
+by an object, let $\mathcal{P}[-,-]$ be a binary predicate of objects.
+There exists a function $f$ such that $\dom(f)=\mathcal{X}$ and for each
+object $x\in\mathcal{X}$, for each object $y$, we have $y\in f(x)$ if
+and only if $y\in\mathcal{F}(x)$ and $\mathcal{P}[x,y]$.
+\end{scheme}
+
+We can prove the following five propositions:
+\begin{thm}
+\item\label{card3:42} If $X$ is finite, then $\card{X}\in\card{\omega}$.
+\item\label{card3:43} If $\card{A}\in\card{B}$, then $A\in B$.
+\item\label{card3:44} If $\card{A}\in M$, then $A\in M$.
+\item\label{card3:45} If $X$ is $\subset$-linear, then there exists a
+  set $Y$ such that $Y\subset X$, $\union Y=\union X$, and for each set
+  $Z\neq\emptyset$ with $Z\subset Y$, there exists a set $Z_{1}\in Z$
+  such that for each $Z_{2}\in Z$ we have $Z_{1}\subset Z_{2}$.
+\item\label{card3:46} Suppose each set $Z\in X$ satisfies $\card{Z}\in M$.
+  If $X$ is $\subset$-linear, then $\card{\union X}\subset M$.
+\item\label{card3:47} Let $a\neq b$, $c$, $d$ be sets. Then $\prod((a,b)\constantto(\{c\},\{d\}))=\{(a,b)\constantto(c,d)\}$.
+\item\label{card3:48} If $x\in\prod f$, then $x$ is a function.
+\end{thm}
+
+\section{Superproducts}
+
+\begin{definition}
+Let $f$ be a function.
+We define the term $\prod f$ (Mizar: ``\verb#sproduct f#'') to be the
+set satisfying:
+\begin{defn}
+\item for all objects, $x\in\prod f$ if and only if there exists a
+  function $g$ such that $x=g$, $\dom(g)\subset\dom(f)$, and for each
+  object $y\in\dom(g)$ we have $g(y)\in f(y)$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+This notion (of a superproduct) is used in exactly one other article. So
+don't worry too much about these results, and skip ahead until the next
+section. 
+\end{remark}
+
+We have the following results:
+\begin{thm}
+\item\label{card3:49} If $g\in\prod f$, then $\dom(g)\subset\dom(f)$ and
+  for each object $x\in\dom(g)$ we have $g(x)\in f(x)$.
+\item\label{card3:50} $\emptyset\in\prod f$.
+\item\label{card3:51} $\prod f\subset\prod f$ (Mizar: \verb#product f c= sproduct f#)
+\item\label{card3:52} If $x\in\prod f$, then $x$ is a partial function
+  from $\dom(f)$ to $\union\rng(f)$.
+\item\label{card3:53} If $g\in\prod f$ and $h\in\prod f$, then
+  $g\plusdot h\in\prod f$
+\item\label{card3:54} If $\prod f\neq\emptyset$, then $g\in\prod f$ if
+  and only if there exists a function $h\in\prod f$ and $g\subset h$.
+\item\label{card3:55} $\prod f\subset\PFuncs(\dom(f),\union\rng(f))$.
+\item\label{card3:56} If $f\subset g$, then $\prod f\subset\prod g$.
+\item\label{card3:57} $\prod\emptyset=\{\emptyset\}$.
+\item\label{card3:58} $\PFuncs(A,B)=\prod(A\constantto B)$.
+\item\label{card3:59} Let $A$, $B$ be nonempty sets. Let $f\colon A\to B$
+  be a function. Then $\prod f=\prod(f|_{\{x\in A\mid f(x)\neq\emptyset\}})$.
+\item\label{card3:60} $\prod f=\{\emptyset\}$ if and only if for each
+  object $x\in\dom(f)$ we have $f(x)=\emptyset$.
+\item\label{card3:61} If $x\in\dom(f)$ and $y\in f(x)$, then
+  $\{x\}\constantto y\in\prod f$.
+\item\label{card3:62} $\prod f=\{\emptyset\}$ if and only if every
+  object $x\in\dom(f)$ satisfies $f(x)=\emptyset$.
+\item\label{card3:63} Suppose $A\subset\prod f$ and all functions
+  $h_{1}\in A$ and $h_{2}\in A$ satisfies $h_{1}$ tolerates $h_{2}$.
+  Then $\union A\in\prod f$.
+\item\label{card3:64} Let $x$ be a set. If $x\subset h$ and $h\in\prod f$,
+  then $x\in\prod f$.
+\item\label{card3:65} If $g\in\prod f$, then $g|_{A}\in\prod f$.
+\item\label{card3:66} If $g\in\prod A$, then $g|_{A}\in\prod f|_{A}$.
+\item\label{card3:67} If $h\in\prod(f\plusdot g$, then there exists
+  functions $f'$, $g'$ such that $f'\in\prod f$ and $g'\in\prod g$ and
+  $h=f'\plusdot g'$.
+\item\label{card3:68} Let $f'$, $g'$ be functions.
+  If $\dom(g)$ misses $\dom(f')\setminus\dom(g')$
+  and $f'\in\prod g$ and $g'\in\prod g$,
+  then $f'\plusdot g'\in\prod(f\plusdot g)$.
+\item\label{card3:69} Let $f'$, $g'$ be functions.
+  If $\dom(gf'$ misses $\dom(g)\setminus\dom(g')$
+  and $f'\in\prod g$ and $g'\in\prod g$,
+  then $f'\plusdot g'\in\prod(f\plusdot g)$.
+\item\label{card3:70} If $g\in\prod f$ and $h\in\prod f$, then
+  $g\plusdot h\in\prod f$.
+\item\label{card3:71} Let $x_{1}$, $x_{2}$, $y_{1}$, $y_{2}$ be sets.
+  If $x_{1}\in\dom(f)$, $y_{1}\in f(x_{1})$,
+  $x_{2}\in\dom(f)$, $y_{2}\in f(x_{2})$,
+  then $(x_{1},x_{2})\constantto(y_{1},y_{2})\in\prod f$.
+\end{thm}
+
+\section{}
+
+\begin{definition}
+Let $X$ be a set.
+We define the attribute $X$ is \define{with common domain} to mean
+\begin{defn}
+\item for all functions $f\in X$ and $g\in X$ we have $\dom(f)=\dom(g)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a functional set.
+We define the term $\DOM(X)$ to be the set equal to
+\begin{defn}
+\item $\DOM(X):=\meet\{\dom(f)\mid f\in X\}$.
+\end{defn}
+\end{definition}
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{card3:72} Let $X$ be a functional set with common domain.
+  If $X=\{\emptyset\}$, then $\DOM(X)=\emptyset$.
+\end{thm}
+
+\section{Product-like sets}
+
+\begin{definition}
+Let $S$ be a functional set.
+We define ${\prod}_{S}$ (Mizar: ``\verb#product" S#'') to be the function
+satisfying
+\begin{defn}
+\item $\dom({\prod}_{S})=\DOM(S)$ and for each set $i\in\dom({\prod}_{S})$
+  we have ${\prod}_{S}(i)=\pi_{i}(S)$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{card3:73} (Cancelled)
+\item\label{card3:74} Let $S$ be a nonempty functional set, let $i$ be a set.
+  If $i\in\dom({\prod}_{S})$,
+  then ${\prod}_{S}(i)=\{f(i)\mid f\in S\}$.
+\end{thm}
+
+\begin{definition}
+Let $S$ be a set.
+We define the attribute $S$ is \define{product-like} to mean
+\begin{defn}
+\item There exists a function $f$ such that $S=\prod f$ (Mizar:
+  \verb#S = product f#)
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{card3:75} (Cancelled)
+\item\label{card3:76} (Cancelled)
+\item\label{card3:77} Let $S$ be a functional set with common domain.
+  Then $S\subset\prod({\prod}_{S})$
+\item\label{card3:78} Let $S$ be a nonempty product-like set. Then
+  $S=\prod({\prod}_{S})$.
+\item\label{card3:79} Let $f$ be a function, let $s$ and $t$ be elements
+  of $\prod f$, let $A$ be a set.
+  Then $s\plusdot (t|_{A})$ is an element of $\prod f$.
+\item\label{card3:80} Let $f$ be a nonempty function, let $p$ be an
+  element of $\prod f$ (\verb#sproduct f#),
+  then there exists an element $s$ of $\prod f$ (\verb#product f#)
+  such that $p\subset s$.
+\item\label{card3:81} If $g\in\prod f$ (\verb#product f#),
+  then $g|_{A}\in\prod f$ (\verb#sproduct f#)
+\end{thm}
+
+\begin{definition}
+Let $f$ be a nonempty function, let $g$ be an element of $\prod f$,
+let $X$ be a set.
+We redefine the type of $g|_{X}$ to be an element of $\prod f$ (i.e.,
+Mizar: ``\verb#Element of sproduct f#'').
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{card3:82} Let $f$ be a non-empty function, let $s_{1}$ and
+  $s_{2}$ be elements of $\prod f$, let $A$ be a set.
+  Then $(s_{1}\plusdot (s_{2}|_{A}))|_{A}=s_{2}|_{A}$.
+\item\label{card3:83} Let $M$ be a Cardinal, let $x\in\prod M$ be an object, let 
+  $g$ be a function. Then $x\circ g\in\prod(M\circ g)$.
+\item\label{card3:84} $X$ is finite fi and only if $\card{X}\in\omega$.
+\end{thm}
+
+Let $A$, $B$ be Ordinals. We have the following results:
+\begin{thm}
+\item\label{card3:85} $A$ is infinite if and only if $\omega\subset A$.
+\item\label{card3:86} If $N$ is finite and $M$ is infinite,
+  then $N\in M$ and $N\subset M$.
+\item\label{card3:87} $X$ is infinite if and only if there exists a set
+  $Y\subset X$ such that $\card{Y}=\omega$.
+\item\label{card3:88} $\card{X}=\card{Y}$ if and only if $\nextcard{X}=\nextcard{Y}$.
+\item\label{card3:89} If $\nextcard{M}=\nextcard{N}$, then $M=N$.
+\item\label{card3:90} $M\in N$ if and only if $\nextcard{M}\subset N$.
+\item\label{card3:91} $M\in\nextcard{N}$ if and only if $M\subset N$.
+\item\label{card3:92} If $M$ is finite and either $N\subset M$ or $N\in M$,
+  then $N$ is finite.
+\end{thm}
+
+Let $k$, $n$ be natural numbers.
+
+\begin{definition}
+Let $X$ be a set.
+We define the attribute $X$ is \define{countable} to mean
+\begin{defn} 
+\item $\card{X}\subset\omega$.
+\end{defn}
+We define the attribute $X$ is \define{denumerable} to mean
+\begin{defn}
+\item $\card{X}=\omega$.
+\end{defn}
+\end{definition}
+
+Observe countable infinite sets are automatically denumerable, and vice-versa.
+
+We have the following results:
+\begin{thm}
+\item\label{card3:93} $X$ is countable if and only if there exists a
+  function $f$ such that $\dom(f)=\omega$ and $X\subset\rng(f)$.
+\item\label{card3:94} If $X$ is countable, then $X\cap Y$ is countable.
+\item\label{card3:95} If $X$ is countable, then $X\setminus Y$ is countable.
+\item\label{card3:96} Let $A$ be a nonempty countable set. Then there exists
+  a function $f\colon\omega\to A$ such that $\rng(f)=A$.
+\item\label{card3:97} Let $f$, $g$ be non-empty functions, let $x$ be an
+  element of $\prod f$, let $y$ be an element of $\prod g$.
+  Then $x\plusdot y\in\prod(f\plusdot g)$.
+\item\label{card3:98} Let $f$, $g$ be non-empty functions, let $x$ be an
+  element of $\prod(f\plusdot g)$.
+  Then $x|_{\dom(g)}\in\prod g$.
+\item\label{card3:99} Let $f$, $g$ be non-empty functions such that $f$
+  tolerates $g$. Let $x$ be an element of $\prod(f\plusdot g)$.
+  Then $x|_{\dom(f)}\in\prod f$.
+\item\label{card3:100} Let $S$ be a functional set with common domain,
+  let $f$ be a function. If $f\in S$, then $\dom(f)=\dom({\prod}_{S})$.
+\item\label{card3:101} Let $S$ be a functional set, let $f$ be a
+  function, let $i$ be a set. If $f\in S$ and $i\in\dom({\prod}_{S})$,
+  then $f(i)\in{\prod}_{S}(i)$.
+\item\label{card3:102} Let $S$ be a functional set with common domain,
+  let $f$ be a function, let $i$ be a set.
+  If $f\in S$ and $i\in\dom(f)$, then $f(i)\in{\prod}_{S}(i)$.
+\end{thm}
+
+\begin{definition}
+Let $f$ be a function, let $x$ be an object. We define the term
+$\proj{f}{x}$ to be the function satisfying
+\begin{defn}
+\item $\dom(\proj{f}{x})=\prod f$ and for each function $y\in\dom(\proj{f}{x})$,
+  we have $(\proj{f}{x})(y)=y(x)$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{card3:103} Let $I$ be a set, let $f$ be a non-empty
+  $I$-defined function, let $p$ be an $f$-compatible $I$-defined
+  function.
+  Then $p\in\prod f$ (Mizar: ``\verb#p in sproduct f#'')
+\item\label{card3:104} Let $I$ be a set, let $f$ be a non-empty
+  $I$-defined function, let $p$ be an $f$-compatible $I$-defined
+  function.
+  There exists an element $s$ of $\prod f$ such that $p\subset s$.
+\item\label{card3:105} Let $R$, $S$ be relations.
+  If $R$ is finite, and if $R$ is isomorphic to $S$, then $S$ is finite.
+\item\label{card3:106} ${\prod}_{\{\emptyset\}}=\emptyset$.
+\item\label{card3:107} Let $I$ be a set, let $f$ be a non-empty
+  many-sorted set of $I$, let $s$ be an $f$-compatible many-sorted set
+  of $I$. Then $s\in\prod f$.
+\end{thm}
+
+\begin{definition}
+Let $I$ be a set, let $f$ be a non-empty many-sorted set of $I$, let $M$
+be an $f$-compatible many-sorted set of $I$.
+We define the term $\operatorname{down}(M)$ to be the element of $\prod f$
+equal to
+\begin{defn}
+\item $\operatorname{down}(M):=M$
+\end{defn}
+\end{definition}
+
+\begin{remark}
+This term, $\operatorname{down}(M)$, isn't used anywhere.
+\end{remark}
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{card3:108} Let $X$ be a functional set with common domain,
+  let $f$ be a function. If $f\in X$, then $\dom(f)=\DOM(X)$.
+\item\label{card3:109} Let $x$ be an object, let $X$ be a nonempty
+  functional set. Suppose every function $f\in X$ satisfies $x\in\dom(f)$.
+  Then $x\in\DOM(X)$.
+\end{thm}
+
+\begin{scheme}[FuncSepOrg]
+Let $\mathcal{X}$ be a set, let $\mathcal{F}(-)$ be a set parametrized
+by an object, let $\mathcal{P}[-,-]$ be a binary predicate of objects.
+There exists a function $f$ such that $\dom(f)=\mathcal{X}$ and for each
+set $x\in\mathcal{X}$, for each set $y$ we have $y\in f(x)$ if and only
+if $y\in\mathcal{F}(x)$ and $\mathcal{P}[x,y]$.
+\end{scheme}
+
+\begin{notation}
+Let $X$ be a set.
+We introduce the antonym saying $X$ is \define{uncountable} for the case
+when $X$ is not countable.
+\end{notation}
+
+\end{document}

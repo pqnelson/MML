@@ -38,7 +38,8 @@ We can prove the following propositions:
 
 \begin{definition}
 Let $A$ be a set, let $z$ be an object.
-We define the term $A\constantto z$ to be the set equal to
+We define the term $A\constantto z$ (Mizar: ``\verb#A --> z#'')
+to be the set equal to
 \begin{defn}
 \item $A\constantto z= A\times\{z\}$.
 \end{defn}
@@ -118,7 +119,8 @@ We can prove the following propositions:
 Let $F$, $f$ be functions, let $x$ be an object.
 We define the term $F(f,x)$ (Mizar: ``\verb#F[:](f,x)#'') to be the set equal to
 \begin{defn}
-\item $F(f,x)=F\circ\langle f,\dom(f)\constantto x\rangle$.
+\item\label{funcop1:def4}%
+$F(f,x)=F\circ\langle f,\dom(f)\constantto x\rangle$.
 \end{defn}
 \end{definition}
 
@@ -137,9 +139,10 @@ We now can prove the following five propositions:
 
 \begin{definition}
 Let $F$ be a function, let $x$ be an object, let $g$ be a function.
-We define the term $F(x,g)$ to be the set equal to
+We define the term $F(x,g)$ (Mizar: ``\verb#F [;] (x,g)#'') to be the set equal to
 \begin{defn}
-\item $F(x,g)=F\circ\langle\dom(g)\constantto x,g\rangle$.
+\item\label{funcop1:def5}%
+$F(x,g)=F\circ\langle\dom(g)\constantto x,g\rangle$.
 \end{defn}
 \end{definition}
 
