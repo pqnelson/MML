@@ -1,5 +1,11 @@
 *~
 *.aux
 *.log
+*.out
 *.toc
 *.pdf
+
+# index-related files
+*.idx
+*.ilg
+*.ind
