@@ -1,0 +1,400 @@
+\documentclass{article}
+
+\title{Partially Ordered Sets (ORDERS-1)}
+\author{Wojciech A. Trybulec}
+\date{August 30, 1989}
+
+\begin{document}
+\maketitle
+
+\section{Choice Function}
+
+\begin{definition}
+Let $f$ be a function.
+We define a new mode, a \define{Choice} of $f$ is a function such that
+\begin{defn}
+\item $\dom(\mbox{it})=\dom(f)$ and for each object $x\in\dom(f)$,
+  $\mbox{it}(x)$ is equal to the element of $f(x)$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+``The element of $f(x)$'' is how Mizar uses its hard-coded choice operator.
+\end{remark}
+
+\begin{definition}
+Let $I$ be a set, let $M$ be a many-sorted set of $I$.
+We redefine the mode \define{Choice of $M$} to be a many-sorted set of
+$I$ such that
+\begin{defn}
+\item for each object $x\in I$, $\mbox{it}(x)$ is the element of $M(x)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$ be a set.
+We define the mode \define{Choice Function of $A$} is a choice of $\id_{A}$.
+\end{definition}
+
+\begin{definition}
+Let $D$ be a set. We define the term $\BOOL(D)$ (Mizar: ``\verb#BOOL D#'')
+to be the set equal to
+\begin{defn}
+\item $\BOOL(D)=\powerset(D)\setminus\{\emptyset\}$.
+\end{defn}
+\end{definition}
+
+Let $M$, $D$ be nonempty sets. Let $X$ be a set.
+We can prove the following two results:
+\begin{thm}
+\item\label{orders1:1} $\emptyset\notin\BOOL(D)$.
+\item\label{orders1:2} $D\subset X$ if and only if $D\in\BOOL(X)$.
+\end{thm}
+
+\section{Orders}
+
+\begin{definition}
+Let $X$ be a set.
+We define a new mode, a \define{Order of $X$} is a total reflexive
+antisymmetric transitive relation of $X$.
+\end{definition}
+
+Let $P$ be a relation.
+Let $O$ be an order of $X$. We can prove the following:
+\begin{thm}
+\item\label{orders1:3} If $x\in X$, then $(x,x)\in O$.
+\item\label{orders1:4} If $x\in X$, $y\in X$, $(x,y)\in O$, and
+  $(y,x)\in O$, then $x=y$.
+\item\label{orders1:5} Let $x\in X$, $y\in X$, $z\in X$.
+  If $(x,y)\in O$ and $(y,z)\in O$, then $(x,z)\in O$.
+\item\label{orders1:6} $Y\neq\emptyset$ if and only if there exists a
+  set $X\neq\emptyset$ such that $X\in Y$.
+\item\label{orders1:7} $P$ is strongly connected in $X$ if and only if
+  $P$ is reflexive in $X$ and $P$ is connected in $X$.
+\item\label{orders1:8} If $Y\subset X$ and $P$ is reflexive in $X$, then
+  $P$ is reflexive in $Y$.
+\item\label{orders1:9} If $Y\subset X$ and $P$ is antisymmetric in $X$,
+  then $P$ is antisymmetric in $Y$.
+\item\label{orders1:10} If $Y\subset X$ and $P$ is transitive in $X$,
+  then $P$ is transitive in $Y$.
+\item\label{orders1:11} If $Y\subset X$ and $P$ is strongly connected in
+  $X$, then $P$ is strongly connected in $Y$.
+\item\label{orders1:12} Let $R$ be a total relation of $X$. Then $\field(R)=X$.
+\item\label{orders1:13} Let $A$ be a set, let $R$ be a relation of $A$.
+  If $R$ is reflexive in $A$, then $\dom(R)=A$ and $\field(R)=A$.
+\item\label{orders1:14} $\dom(O)=X$ and $\rng(O)=X$.
+\item\label{orders1:15} $\field(O)=X$.
+\end{thm}
+
+\begin{definition}
+Let $R$ be a relation.
+We define the attribute $R$ is \define{being quasi-order} means
+\begin{defn}
+\item $R$ is reflexive and transitive.
+\end{defn}
+We say $R$ is \define{being partial-order} means
+\begin{defn}
+\item $R$ is reflexive, transitive, and antisymmetric.
+\end{defn}
+We say $R$ is \define{being linear-order} means
+\begin{defn}
+\item $R$ is reflexive, transitive, antisymmetric, connected.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+We will simply call $R$ a quasi-order (resp., partial-order, linear-order).
+\end{remark}
+
+Let $R$ be a relation.
+We can prove the following results:
+\begin{thm}
+\item\label{orders1:16} If $R$ is a quasi-order, then $\converse{R}$
+  is a quasi-order.
+\item\label{orders1:17} If $R$ is a partial-order, then
+  $\converse{R}$ is a partial-order.
+\item\label{orders1:18} If $R$ is a linear-order, then
+  $\converse{R}$ is a linear-order.
+\item\label{orders1:19} If $R$ is well-ordering, then $R$ is being
+  quasi-order and partial-order and linear-order.
+\item\label{orders1:20} If $R$ is a linear-order, then $R$ is a
+  quasi-order and $R$ is a partial-order.
+\item\label{orders1:21} If $R$ is a partial-order, then $R$ is a quasi-order.
+\item\label{orders1:22} $O$ is a partial-order.
+\item\label{orders1:23} $O$ is a quasi-order.
+\item\label{orders1:24} If $O$ is connected, then $O$ is a linear-order.
+\item\label{orders1:25} If $R$ is a quasi-order, then $R|^{X}_{X}$ is a quasi-order.
+\item\label{orders1:26} If $R$ is a partial-order, then $R|^{X}_{X}$ is
+  a partial-order.
+\item\label{orders1:27} If $R$ is a linear-order, then $R|^{X}_{X}$ is a linear-order.
+\end{thm}
+
+\begin{definition}
+Let $R$ be a relation, let $X$ be a set.
+We define the predicate $R$ \define{quasi orders} $X$ meaning
+\begin{defn}
+\item $R$ is reflexive in $X$ and $R$ is transitive in $X$.
+\end{defn}
+We define the predicate $R$ \define{partially orders} $X$ meaning
+\begin{defn}
+\item $R$ is reflexive in $X$, and $R$ is transitive in $X$, and $R$ is
+  antisymmetric in $X$.
+\end{defn}
+We define a predicate, $R$ \define{linearly orders} $X$ meaning
+\begin{defn}
+\item $R$ is reflexive in $X$, $R$ is transitive in $X$, $R$ is
+  antisymmetric in $X$, and $R$ is connected in $X$.
+\end{defn}
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{orders1:28} If $R$ well orders $X$,
+  then $R$ quasi orders $X$ and $R$ partially orders $X$ and $R$
+  linearly orders $X$.
+\item\label{orders1:29} If $R$ linearly orders $X$, then $R$ quasi
+  orders $X$ and $R$ partially orders $X$. 
+\item\label{orders1:30} If $R$ partially orders $X$, then $R$ quasi
+  orders $X$.
+\item\label{orders1:31} If $R$ is a quasi-order, then $R$ quasi orders $\field(R)$.
+\item\label{orders1:32} If $X\subset Y$ and $R$ quasi orders $Y$,
+  then $R$ quasi orders $X$.
+\item\label{orders1:33} If $R$ quasi orders $X$, then $R|^{X}_{X}$ is a quasi-order.
+\item\label{orders1:34} If $R$ is a partial-order, then $R$ partially
+  orders $\field(R)$.
+\item\label{orders1:35} If $X\subset Y$ and $R$ partially orders $Y$,
+  then $R$ partially orders $X$.
+\item\label{orders1:36} If $R$ partially orders $X$, then $R|^{X}_{X}$
+  is a partial-order.
+\item\label{orders1:37} If $R$ is a linear-order, then $R$ linear orders $\field(R)$.
+\item\label{orders1:38} If $X\subset Y$ and $R$ linearly orders $Y$,
+  then $R$ linearly orders $X$.
+\item\label{orders1:39} If $R$ linearly orders $X$, then $R|^{X}_{X}$ is
+  a linear-order.
+\item\label{orders1:40} If $R$ quasi orders $X$, then $\converse{R}$
+  quasi orders $X$.
+\item\label{orders1:41} If $R$ partially orders $X$, then $\converse{R}$
+  partially orders $X$.
+\item\label{orders1:42} If $R$ linearly orders $X$, then $\converse{R}$
+  linearly orders $X$.
+\item\label{orders1:43} $O$ quasi orders $X$ 
+\item\label{orders1:44} $O$ partially orders $X$
+\item\label{orders1:45} If $R$ partially orders $X$, then $R|^{X}_{X}$
+  is an order of $X$
+\item\label{orders1:46} If $R$ linearly orders $X$, then $R|^{X}_{X}$ is
+  an order of $X$.
+\item\label{orders1:47} If $R$ well orders $X$, then $R|^{X}_{X}$ is an
+  order of $X$.
+\item\label{orders1:48} $\id_{X}$ quasi orders $X$, and $\id_{X}$
+  partially orders $X$.
+\end{thm}
+
+\begin{definition}\index{Zorn property!lower}\index{Lower Zorn property}\index{Zorn property!upper}\index{Upper Zorn property}%
+Let $R$ be a relation, let $X$ be a set.
+We define the predicate $X$ \define{has upper Zorn property with respect to} $R$
+if
+\begin{defn}
+\item for each set $Y\subset X$, if $R|^{Y}_{Y}$ is a linear order,
+  then there exists a set $x\in X$ such that every $y\in Y$ has
+  $(y,x)\in R$.
+\end{defn}
+We define the predicate $X$ \define{has lower Zorn property with respect to}
+$R$ if
+\begin{defn}
+\item for each set $Y\subset X$, if $R|^{Y}_{Y}$ is a linear order,
+  then there exists an $x\in X$ such that every $y\in Y$ satisfies
+  $(x,y)\in R$.
+\end{defn}
+\end{definition}
+
+We can prove the following four propositions:
+\begin{thm}
+\item\label{orders1:49} If $X$ has the upper Zorn property with respect
+  to $R$, then $X\neq\emptyset$.
+\item\label{orders1:50} If $X$ has the lower Zorn property with respect
+  to $R$, then $X\neq\emptyset$.
+\item\label{orders1:51} $X$ has the upper Zorn property with respect to
+  $R$ if and only if $X$ has the lower Zorn property with respect to
+  $\converse{R}$. 
+\item\label{orders1:52} $X$ has the upper Zorn property with respect to
+  $\converse{R}$ if and only if $X$ has the lower Zorn property with respect to
+  $R$. 
+\end{thm}
+
+\begin{definition}\index{Relation!maximal element}\index{Relation!minimal element}%
+\index{Relation!inferior element of}\index{Relation!superior element of}%
+Let $R$ be a relation, let $x$ be a set.
+We define the predicate $x$ \define{is maximal in} $R$ to mean
+\begin{defn}
+\item $x\in\field(R)$ and there is no $y\in\field(R)$ such that $y\neq x$
+  and $(x,y)\in R$.
+\end{defn}
+We define the predicate $x$ \define{is minimal in} $R$ to mean
+\begin{defn}
+\item $x\in\field(R)$ and there is no $y\in\field(R)$ such that $y\neq x$
+  and $(y,x)\in R$.
+\end{defn}
+We define the predicate $x$ \define{is superior of} $R$ to mean
+\begin{defn}
+\item $x\in\field(R)$ and for all $y\in\field(R)$ such that $y\neq x$
+  satisfies $(y,x)\in R$.
+\end{defn}
+We define the predicate $x$ \define{is inferior of} $R$ to mean
+\begin{defn}
+\item $x\in\field(R)$ and for all $y\in\field(R)$ such that $y\neq x$
+  satisfies $(x,y)\in R$.
+\end{defn}
+\end{definition}
+
+We can prove the following properties:
+\begin{thm}
+\item\label{orders1:53} If $x$ is inferior of $R$, and if $R$ is
+  antisymmetric, then $x$ is maximal in $R$.
+\item\label{orders1:54} If $x$ is superior of $R$, and if $R$ is
+  antisymmetric, then $x$ is minimal in $R$.
+\item\label{orders1:55} If $R$ is connected and $x$ is minimal in $R$,
+  then $x$ is inferior of $R$.
+\item\label{orders1:56} If $R$ is connected and $x$ is maximal in $R$,
+  then $x$ is superior of $R$.
+\item\label{orders1:57} If $R$ is reflexive, $x$ is superior of $R$, and
+  $x\in X\subset\field(R)$, then $X$ has the upper Zorn property with
+  respect to $R$.
+\item\label{orders1:58} If $R$ is reflexive, $x$ is inferior of $R$, and
+  $x\in X\subset\field(R)$, then $X$ has the lower Zorn property with
+  respect to $R$.
+\item\label{orders1:59} $x$ is minimal in $R$ if and only if $x$ is
+  maximal in $\converse{R}$.
+\item\label{orders1:60} $x$ is minimal in $\converse{R}$ if and only if
+  $x$ is maximal in $R$.
+\item\label{orders1:61} $x$ is inferior of $R$ if and only if $x$ is
+  superior of $\converse{R}$
+\item\label{orders1:62} $x$ is inferior of $\converse{R}$ if and only if $x$ is
+  superior of $R$
+\end{thm}
+
+\section{Kuratowski--Zorn lemma}
+
+Let $A$, $C$ be Ordinals. We can prove the following results:
+\begin{thm}
+\item\label{orders1:63} Let $R$ be a field, let $X$ be a set.
+  If $R$ partially orders $X$, $X = \field(R)$, and $X$ has the upper
+  Zorn property with respect to $R$,
+  then there exists a set $x$ such that $x$ is maximal in $R$.
+\item\label{orders1:64} Let $R$ be a field, let $X$ be a set.
+  If $R$ partially orders $X$, $X = \field(R)$, and $X$ has the lower
+  Zorn property with respect to $R$,
+  then there exists a set $x$ such that $x$ is minimal in $R$.
+\item\label{orders1:65} (\textsc{Kuratowski--Zorn lemma}\index{Kuratowski--Zorn lemma})
+  Let $X\neq\emptyset$ be a set.
+  Suppose for each set $Z\subset X$, when $Z$ is $\subset$-linear,
+  there exists a set $Y\in X$
+  such that every set $X_{1}\in Z$ satisfies $X_{1}\subset Y$.
+  Then there exists a set $Y\in X$ such that for each $Z\in X$,
+  if $Z\neq Y$, then $Y\nsubset Z$.
+\item\label{orders1:66} Let $X\neq\emptyset$ be a set.
+  Suppose for each set $Z\subset X$, when $Z$ is $\subset$-linear,
+  there exists a set $Y\in X$
+  such that every set $X_{1}\in Z$ satisfies $Y\subset X_{1}$.
+  Then there exists a set $Y\in X$ such that for each $Z\in X$,
+  if $Z\neq Y$, then $Z\nsubset Y$.
+\item\label{orders1:67} Let $X\neq\emptyset$.
+  Suppose every set $Z\neq\emptyset$, if $Z\subset X$ and $Z$ is
+  $\subset$-linear, then $\union Z\in X$.
+  Then there exists a set $Y\in X$ such that every set $Z\in X$ with
+  $Y\neq Z$ satisfies $Y\nsubset Z$.
+\item\label{orders1:68} Let $X\neq\emptyset$.
+  Suppose every set $Z\neq\emptyset$, if $Z\subset X$ and $Z$ is
+  $\subset$-linear, then $\meet Z\in X$.
+  Then there exists a set $Y\in X$ such that every set $Z\in X$ with
+  $Y\neq Z$ satisfies $Z\nsubset Y$.
+\end{thm}
+
+\begin{scheme}[ZornMax]
+Let $\mathcal{A}$ be a nonempty set, let $\mathcal{P}[-,-]$
+be a binary predicate of sets.
+There exists an element $x$ of $\mathcal{A}$ such that every element $y$
+of $\mathcal{A}$ with $x\neq y$ satisfies $\neg\mathcal{P}[x,y]$; provided
+\begin{enumerate}
+\item for each element $x$ of $\mathcal{A}$, we have $\mathcal{P}[x,x]$; and
+\item for all elements $x$ and $y$ of $\mathcal{A}$,
+  if $\mathcal{P}[x,y]$ and $\mathcal{P}[y,x]$, then $x=y$; and
+\item for all elements $x$, $y$, $z$ of $\mathcal{A}$,
+  if $\mathcal{P}[x,y]$ and $\mathcal{P}[y,z]$, then $\mathcal{P}[x,z]$; and
+\item for all sets $X\subset\mathcal{A}$,
+  if for all elements $x$ and $y$ of $\mathcal{A}$ with $x\in X$ and
+  $y\in X$ satisfy either $\mathcal{P}[x,y]$ or $\mathcal{P}[y,x]$,
+  then there exists an element $y$ of $\mathcal{A}$ such that for all
+  elements $x$ of $\mathcal{A}$ with $x\in X$ satisfies $\mathcal{P}[x,y]$.
+\end{enumerate}
+\end{scheme}
+
+
+\begin{scheme}[ZornMin]
+Let $\mathcal{A}$ be a nonempty set, let $\mathcal{P}[-,-]$
+be a binary predicate of sets.
+There exists an element $x$ of $\mathcal{A}$ such that every element $y$
+of $\mathcal{A}$ with $x\neq y$ satisfies $\neg\mathcal{P}[y,y]$; provided
+\begin{enumerate}
+\item for each element $x$ of $\mathcal{A}$, we have $\mathcal{P}[x,x]$; and
+\item for all elements $x$ and $y$ of $\mathcal{A}$,
+  if $\mathcal{P}[x,y]$ and $\mathcal{P}[y,x]$, then $x=y$; and
+\item for all elements $x$, $y$, $z$ of $\mathcal{A}$,
+  if $\mathcal{P}[x,y]$ and $\mathcal{P}[y,z]$, then $\mathcal{P}[x,z]$; and
+\item for all sets $X\subset\mathcal{A}$,
+  if for all elements $x$ and $y$ of $\mathcal{A}$ with $x\in X$ and
+  $y\in X$ satisfy either $\mathcal{P}[x,y]$ or $\mathcal{P}[y,x]$,
+  then there exists an element $y$ of $\mathcal{A}$ such that for all
+  elements $x$ of $\mathcal{A}$ with $x\in X$ satisfies $\mathcal{P}[y,x]$.
+\end{enumerate}
+\end{scheme}
+
+We can prove the following results:
+\begin{thm}
+\item\label{orders1:69} If $\field(R)=X$ and $R$ partially orders $X$,
+  then there exists a relation $P$ such that $R\subset P$ and $P$
+  linearly orders $X$ and $\field(P)=X$.
+\item\label{orders1:70} $R\subset\field(R)\times\field(R)$.
+\item\label{orders1:71} If $R$ is reflexive and $X\subset\field(R)$,
+  then $\field(R|^{X}_{X})=X$
+\item\label{orders1:72} If $R$ is reflexive in $X$, then $R|^{X}_{X}$ is reflexive.
+\item\label{orders1:73} If $R$ is transitive in $X$, then $R|^{X}_{X}$ is transitive.
+\item\label{orders1:74} If $R$ is antisymmetric in $X$, then $R|^{X}_{X}$ is antisymmetric.
+\item\label{orders1:75} If $R$ is connected in $X$, then $R|^{X}_{X}$ is connected.
+\item\label{orders1:76} If $Y\subset X$ and $R$ is connected in $X$,
+  then $R$ is connected in $Y$.
+\item\label{orders1:77} If $Y\subset X$ and $R$ well orders $X$,
+  then $R$ well orders $Y$.
+\item\label{orders1:78} If $R$ is connected, then $\converse{R}$ is connected.
+\item\label{orders1:79} If $R$ is reflexive in $X$, then $\converse{R}$
+  is reflexive in $X$.
+\item\label{orders1:80} If $R$ is transitive in $X$, then $\converse{R}$
+  is transitive in $X$.
+\item\label{orders1:81} If $R$ is antisymmetric in $X$, then
+  $\converse{R}$ is antisymmetric in $X$.
+\item\label{orders1:82} If $R$ is connected in $X$, then $\converse{R}$
+  is connected in $X$.
+\item\label{orders1:83} $\converse{(R|^{X}_{X})}=(\converse{R})|^{X}_{X}$.
+\item\label{orders1:84} $R|^{\emptyset}_{\emptyset}=\emptyset$.
+\item\label{orders1:85} Let $Z$ be a finite set. If $Z\subset\rng(f)$,
+  then there exists a set $Y\subset\dom(f)$ such that $Y$ is finite and $f(Y)=Z$.
+\item\label{orders1:86} If $\field(R)$ is finite, then $R$ is finite.
+\item\label{orders1:87} If $\dom(R)$ and $\rng(R)$ are both finite, then
+  $R$ is finite.
+\item\label{orders1:88} The order type of $\RelIncl{A}=A$ for any
+  Ordinal $A$.
+\end{thm}
+
+\begin{definition}
+  Let $X$ be a set.
+  We redefine the type of $\RelIncl{X}$ to be an Order of $X$.
+\end{definition}
+
+We have the following two results:
+\begin{thm}
+\item\label{orders1:89} Suppose $\emptyset\notin M$. For each choice
+  function $C$ of $M$ and for each set $X\in M$, we have $C(X)\in X$.
+\item\label{orders1:90} Suppose $\emptyset\notin M$. For each choice
+  function $C$ of $M$, we see $C\colon M\to\union M$ is a function.
+\end{thm}
+
+\end{document}
