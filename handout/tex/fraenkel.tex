@@ -1,0 +1,378 @@
+\documentclass{article}
+
+\title{Function Domains and Fr{\ae}nkel Operator (FRAENKEL)}
+\author{Andrzej Trybulec}
+\date{February 7, 1990}
+\begin{document}
+
+\maketitle
+
+\begin{scheme} % sch1
+Let $\mathcal{A}$ be a set, let $\mathcal{F}(-)$ be an object
+parametrized by objects, let $\mathcal{P}[-]$ and $\mathcal{Q}[-]$ be
+unary predicates of objects.
+We have
+$\{\mathcal{F}(v)\mid v\in\mathcal{A},\mathcal{P}[v]\}\subset \{\mathcal{F}(u)\mid u\in\mathcal{A},\mathcal{Q}[u]\}$
+provided
+\begin{enumerate}
+\item for all elements $v$ of $\mathcal{A}$, if $\mathcal{P}[v]$, then $\mathcal{Q}[v]$
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch2
+Let $\mathcal{A}$ and $\mathcal{B}$ be sets, let $\mathcal{F}(-,-)$ be
+an object parametrized by a pair of objects, let $\mathcal{P}[-,-]$ and
+$\mathcal{Q}[-,-]$ be binary predicates of objects.
+We have
+$\{\mathcal{F}(u_{1},v_{1})\mid u_{1}\in\mathcal{A},v_{1}\in\mathcal{B},\mathcal{P}[u_{1},v_{1}]\}\subset \{\mathcal{F}(u_{1},v_{2})\mid u_{2}\in\mathcal{A},v_{2}\in\mathcal{B},\mathcal{Q}[u_{2},v_{2}]\}$
+provided
+\begin{enumerate}
+\item For all elements $u$ of $\mathcal{A}$ and $v$ of $\mathcal{B}$, if
+  $\mathcal{P}[u,v]$, then $\mathcal{Q}[u,v]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch3
+Let $\mathcal{A}$ be a set, let $\mathcal{F}(-)$ be an object
+parametrized by objects, let $\mathcal{P}[-]$ and $\mathcal{Q}[-]$ be
+unary predicates of objects.
+We have
+$\{\mathcal{F}(v)\mid v\in\mathcal{A},\mathcal{P}[v]\}=\{\mathcal{F}(u)\mid u\in\mathcal{A},\mathcal{Q}[u]\}$
+provided
+\begin{enumerate}
+\item for all elements $v$ of $\mathcal{A}$, we have $\mathcal{P}[v]$ if
+  and only if $\mathcal{Q}[v]$
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch4
+Let $\mathcal{A}$ and $\mathcal{B}$ be sets, let $\mathcal{F}(-,-)$ be
+an object parametrized by a pair of objects, let $\mathcal{P}[-,-]$ and
+$\mathcal{Q}[-,-]$ be binary predicates of objects.
+We have
+$\{\mathcal{F}(u_{1},v_{1})\mid u_{1}\in\mathcal{A},v_{1}\in\mathcal{B},\mathcal{P}[u_{1},v_{1}]\}=\{\mathcal{F}(u_{1},v_{2})\mid u_{2}\in\mathcal{A},v_{2}\in\mathcal{B},\mathcal{Q}[u_{2},v_{2}]\}$
+provided
+\begin{enumerate}
+\item For all elements $u$ of $\mathcal{A}$ and $v$ of $\mathcal{B}$, we have
+  $\mathcal{P}[u,v]$ if and only if $\mathcal{Q}[u,v]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch5
+Let $\mathcal{B}$ be a set, let $\mathcal{F}(-)$ and $\mathcal{G}(-)$ be
+objects parametrized by a single object, let $\mathcal{P}[-]$ be a unary
+predicate of objects.
+We have $\{\mathcal{F}(v_{1})\mid v_{1}\in\mathcal{B},\mathcal{P}[v_{1}]\} =\{\mathcal{G}(v_{2})\mid v_{2}\in\mathcal{B},\mathcal{P}[v_{2}]\}$
+provided
+\begin{enumerate}
+\item For all elements $v$ of $\mathcal{B}$,
+  we have $\mathcal{F}(v)=\mathcal{G}(v)$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch6
+Let $\mathcal{B}$ be a set, let $\mathcal{F}(-)$ and $\mathcal{G}(-)$ be
+objects parametrized by a single object, let $\mathcal{P}[-]$ be a unary
+predicate of objects.
+We have $\{\mathcal{F}(v_{1})\mid v_{1}\in\mathcal{B},\mathcal{P}[v_{1}]\} =\{\mathcal{G}(v_{2})\mid v_{2}\in\mathcal{B},\mathcal{P}[v_{2}]\}$
+provided
+\begin{enumerate}
+\item For all elements $v$ of $\mathcal{B}$ such that $\mathcal{P}[v]$,
+  we have $\mathcal{F}(v)=\mathcal{G}(v)$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch7
+Let $\mathcal{A}$ and $\mathcal{B}$ be sets,
+let $\mathcal{F}(-)$ and $\mathcal{G}(-)$ be objects parametrized by a single object,
+let $\mathcal{P}[-,-]$ be a binary predicate of objects.
+We have $\{\mathcal{F}(u_{1},v_{1})\mid u_{1}\in\mathcal{A},v_{1}\in\mathcal{B},\mathcal{P}[u_{1},v_{1}]\} =\{\mathcal{G}(u_{2},v_{2})\mid u_{2}\in\mathcal{A},v_{2}\in\mathcal{B},\mathcal{P}[u_{2},v_{2}]\}$
+provided
+\begin{enumerate}
+\item For all elements $u$ of $\mathcal{A}$ and $v$ of $\mathcal{B}$,
+  we have $\mathcal{F}(u,v)=\mathcal{G}(u,v)$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch8
+Let $\mathcal{A}$ and $\mathcal{B}$ be sets,
+let $\mathcal{F}(-)$ be an object parametrized by a single object,
+let $\mathcal{P}[-,-]$ and $\mathcal{Q}[-,-]$ be binary predicates of objects.
+We have $\{\mathcal{F}(u_{1},v_{1})\mid u_{1}\in\mathcal{A},v_{1}\in\mathcal{B},\mathcal{P}[u_{1},v_{1}]\} =\{\mathcal{G}(v_{2},u_{2})\mid u_{2}\in\mathcal{A},v_{2}\in\mathcal{B},\mathcal{Q}[u_{2},v_{2}]\}$
+provided
+\begin{enumerate}
+\item For all elements $u$ of $\mathcal{A}$ and $v$ of $\mathcal{B}$,
+  we have $\mathcal{P}[u,v]$ if and only if $\mathcal{Q}[u,v]$; and
+\item For all elements $u$ of $\mathcal{A}$ and $v$ of $\mathcal{B}$,
+  we have $\mathcal{F}(u,v)=\mathcal{F}(v,u)$.
+\end{enumerate}
+\end{scheme}
+
+We have the following three propositions:
+\begin{thm}
+\item% 1
+  Let $A$ and $B$ be sets, let $F,G\colon A\to B$. Let $X$ be a set.
+  Suppose $F|_{X}=G|_{X}$.
+  Then for all elements $x$ of $A$, if $x\in X$, then $F(x)=G(x)$.
+\item% 2
+  Let $A$, $B$ be sets. Then $\Funcs(A,B)\subset\powerset(A\times B)$.
+\item% 3
+  Let $A$, $X$, $Y$ be sets, let $B$ be a nonempty set.
+  Suppose $\Funcs(X,Y)\neq\emptyset$, $X\subset A$, and $Y\subset B$.
+  Then for all elements $f$ of $\Funcs(X,Y)$, we have $f$ is a partial
+  function from $A$ to $B$.
+\end{thm}
+
+\begin{scheme}%sch9
+Let $\mathcal{A}$, $\mathcal{B}$, $\mathcal{X}$ be sets, let
+$\mathcal{F}$, $\mathcal{G}$ be functions from $\mathcal{A}$ to
+$\mathcal{B}$, and let $\mathcal{P}[-]$ and $\mathcal{Q}[-]$ be unary
+predicates of objects.
+We have
+$\{\mathcal{F}(u')\mid u'\in\mathcal{A},\mathcal{P}[u'],u'\in\mathcal{X}\}=\{\mathcal{G}(v')\mid v'\in\mathcal{A},\mathcal{Q}[v'],v'\in\mathcal{X}\}$
+provided:
+\begin{enumerate}
+\item $\mathcal{F}|_{\mathcal{X}}=\mathcal{G}|_{\mathcal{X}}$; and
+\item for all elements $u$ of $\mathcal{A}$, if $u\in\mathcal{X}$, then
+  $\mathcal{P}[u]$ iff $\mathcal{Q}[u]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch10
+Let $\mathcal{A}$ be a nonempty set, let $\mathcal{P}$ be a unary
+predicate of sets. Then $\{x\mid x\in\mathcal{A},\mathcal{P}[x]\}\subset\mathcal{A}$.
+\end{scheme}
+
+\begin{scheme}%sch11
+Let $\mathcal{A}$ and $\mathcal{B}$ be sets, let $\mathcal{F}(-,-)$ be
+an object parametrized by a pair of objects, let $\mathcal{P}[-,-]$ be a
+binary predicate of objects, let $\mathcal{Q}[-]$ be a unary predicate
+of objects.
+For all elements $s$ of $\mathcal{A}$, for all elements $t$ of $\mathcal{B}$,
+if $\mathcal{P}[s,t]$, then $\mathcal{Q}[\mathcal{F}(s,t)]$; provided:
+\begin{enumerate}
+\item for all sets $x\in\{\mathcal{F}(s',t')\mid s'\in\mathcal{A},t'\in\mathcal{B},\mathcal{P}[s',t']\}$,
+we have $Q[x]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch12
+Let $\mathcal{A}$ and $\mathcal{B}$ be sets, let $\mathcal{F}(-,-)$ be
+an object parametrized by a pair of objects, let $\mathcal{P}[-,-]$ be a
+binary predicate of objects, let $\mathcal{Q}[-]$ be a unary predicate
+of objects.
+For all sets $x\in\{\mathcal{F}(s',t')\mid s'\in\mathcal{A},t'\in\mathcal{B},\mathcal{P}[s',t']\}$,
+we have $\mathcal{Q}[x]$; provided
+\begin{enumerate}
+\item for all elements $s$ of $\mathcal{A}$, for all elements $t$ of $\mathcal{B}$,
+if $\mathcal{P}[s,t]$, then $\mathcal{Q}[\mathcal{F}(s,t)]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch13
+Let $\mathcal{A}$, $\mathcal{B}$, and $\mathcal{C}$ be sets, let
+$\mathcal{F}(-,-)$ be an element of $\mathcal{C}$ parametrized by
+objects, let $\mathcal{P}[-,-]$ be a binary predicate of objects, let
+$\mathcal{Q}[-]$ be a unary predicate of objects.
+
+We have $\{x\in\mathcal{C}\mid x\in\{\mathcal{F}(s,t)\mid s\in\mathcal{A},t\in\mathcal{B},\mathcal{P}[s,t]\},\mathcal{Q}[x]\} =\{\mathcal{F}(s',t')\mid s'\in\mathcal{A},t'\in\mathcal{B},\mathcal{P}[s',t'], \mathcal{Q}[\mathcal{F}(s',t')]\}$.
+\end{scheme}
+
+\begin{scheme}%sch14
+Let $\mathcal{A}$ be a set, let $\mathcal{F}(-)$ be an object
+parametrized by an object, let $\mathcal{P}[-]$ and $\mathcal{Q}[-]$ be
+a unary predicate of objects.
+Then
+$\{\mathcal{F}(s)\mid s\in\{s'\mid s'\in\mathcal{A},\mathcal{Q}[s']\},\mathcal{P}[s]\}=\{\mathcal{F}(s)\mid s\in\mathcal{A},\mathcal{Q}[s],\mathcal{P}[s]\}$.
+\end{scheme}
+
+\begin{scheme}%sch15
+Let $\mathcal{A}$ and $\mathcal{B}$ be sets, let $\mathcal{F}(-,-)$ be
+an object parametrized by objects, let $\mathcal{P}[-,-]$ be a binary
+predicate of objects, let $\mathcal{Q}[-]$ be a unary predicate of objects.
+Then $\{\mathcal{F}(s,t)\mid t\in\mathcal{B},s\in\{s'\in\mathcal{A}\mid\mathcal{Q}[s']\},\mathcal{P}[s,t]\}=\{\mathcal{F}(s',t')\mid s'\in\mathcal{A},t'\in\mathcal{B},\mathcal{Q}[s'],\mathcal{P}[s',t']\}$.
+\end{scheme}
+
+\begin{scheme}%sch16
+Let $\mathcal{A}$, $\mathcal{B}$ be sets, let $\mathcal{F}(-,-)$ be an
+object parametrized by objects, let $\mathcal{P}[-,-]$ and
+$\mathcal{Q}[-,-]$ be binary predicates of objects.
+$\{\mathcal{F}(s,t)\mid s\in\mathcal{A},t\in\mathcal{B},\mathcal{P}[s,t]\}\subset\{\mathcal{F}(s',t')\mid s'\in\mathcal{A},t'\in\mathcal{B},\mathcal{Q}[s',t']\}$
+provided:
+\begin{enumerate}
+\item for all elements $s$ of $\mathcal{A}$ and $t$ of $\mathcal{B}$
+  satifying $\mathcal{P}[s,t]$, there exists an element $s'$ of
+  $\mathcal{A}$ such that $\mathcal{Q}[s',t]$ and $\mathcal{F}(s,t)=\mathcal{F}(s',t)$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch17
+Let $\mathcal{D}$ and $\mathcal{A}$ be sets, let $\mathcal{P}[-]$ be a
+unary predicate of objects, let $\mathcal{F}(-)$ be an object
+parametrized by objcets.
+We have $\{\mathcal{F}(y)\mid y\in\mathcal{D},\mathcal{F}(y)\in\mathcal{A},\mathcal{P}[y]\}\subset\mathcal{A}$.
+\end{scheme}
+
+\begin{scheme}%sch18
+Let $\mathcal{D}$ and $\mathcal{A}$ be sets, let $\mathcal{Q}[-]$ be a
+unary predicate of objects, let $\mathcal{F}(-)$ be an object
+parametrized by objects.
+We have $\{\mathcal{F}(y)\mid y\in\mathcal{D},\mathcal{Q}[y],\mathcal{F}(y)\notin\mathcal{A}\}$
+misses $\mathcal{A}$.
+\end{scheme}
+
+\begin{scheme}%sch19
+Let $\mathcal{A}$ and $\mathcal{B}$ be sets, let $\mathcal{F}(-,-)$ be
+an object parametrized by objects, let $\mathcal{X}$ be an element of
+$\mathcal{B}$, let $\mathcal{P}[-,-]$ and $\mathcal{Q}[-,-]$ be binary
+predicates of objects.
+We have
+$\{\mathcal{F}(s,t)\mid s\in\mathcal{A},t\in\mathcal{B},\mathcal{Q}[s,t]\}=\{\mathcal{F}(s',\mathcal{X})\mid s'\in\mathcal{A},\mathcal{P}[s',\mathcal{X}]\}$,
+provided:
+\begin{enumerate}
+\item for all elements $s$ of $\mathcal{A}$ and $t$ of $\mathcal{B}$, we
+  have $\mathcal{Q}[s,t]$ if and only if $t=\mathcal{X}$ and $\mathcal{P}[s,t]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch20
+Let $\mathcal{A}$ and $\mathcal{B}$ be sets, let $\mathcal{F}(-,-)$ be
+an object parametrized by objects, let $\mathcal{X}$ be an element of
+$\mathcal{B}$, let $\mathcal{P}[-,-]$ be a binary predicate of objects.
+We have
+$\{\mathcal{F}(s,t)\mid s\in\mathcal{A},t\in\mathcal{B},t=\mathcal{X},\mathcal{P}[s,t]\}=\{\mathcal{F}(s',\mathcal{X})\mid s'\in\mathcal{A},\mathcal{P}[s',\mathcal{X}]\}$.
+\end{scheme}
+
+
+% domains of functions
+
+\subsection*{Domains of Functions}
+
+\begin{thm}
+\item%4
+  Let $X$, $Y$ be sets. Suppose $\Funcs(X,Y)\neq\emptyset$, $X\subset A$, and $Y\subset B$.
+  For each element $f$ of $\Funcs(X,Y)$, there exists an element
+  $\varphi$ of $\Funcs(A,B)$ such that $\varphi|_{X}=f$.
+\item%
+  Let $B$ be a nonempty set, let $A$, $X$ be sets.
+  Let $\varphi$ be an element of $\Funcs(A,B)$.
+  Then $\varphi|_{X}=\varphi|_{A\cap X}$.
+\end{thm}
+
+\subsection*{Finite Sets}
+% finite sets?
+
+\begin{scheme}%sch21
+Let $\mathcal{A}$ and $\mathcal{X}$ be sets, let $\mathcal{F}(-)$ be an
+object parametrized by objects.
+We have $\{\mathcal{F}(w)\mbox{where $w$ is an element of }\mathcal{A}\mid w\in\mathcal{X}\}$ is finite, provided:
+\begin{enumerate}
+\item $\mathcal{X}$ is finite.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch22
+Let $\mathcal{A}$ and $\mathcal{B}$ be nonempty sets, let $\mathcal{X}$
+and $\mathcal{Y}$ be sets, let $\mathcal{F}(-,-)$ be an object
+parametrized by objects.
+We have $\{\mathcal{F}(u,v)\mid u\in\mathcal{A},v\in\mathcal{B},u\in\mathcal{X},v\in\mathcal{Y}\}$
+is finite, provided:
+\begin{enumerate}
+\item $\mathcal{X}$ is finite, and
+\item $\mathcal{Y}$ is finite.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch23
+Let $\mathcal{A}$ be a nonempty set, let $\mathcal{B}$ be an element of
+$\Fin(\mathcal{A})$, let $\mathcal{P}[-,-]$ be a binary predicate of
+elements of $\mathcal{A}$.
+For all elements $x$ of $\mathcal{A}$ with $x\in\mathcal{B}$, there
+exists an element $y$ of $\mathcal{B}$ such that $y\in\mathcal{B}$ and
+$\mathcal{P}[y,x]$ and every element $z$ of $\mathcal{A}$ with
+$z\in\mathcal{B}$ and $\mathcal{P}[z,y]$ satisfies $\mathcal{P}[y,z]$;
+provided
+\begin{enumerate}
+\item for each element $x$ of $\mathcal{A}$, we have $\mathcal{P}[x,x]$; and
+\item for all elements $x$, $y$, $z$ of $\mathcal{A}$ with
+  $\mathcal{P}[x,y]$ and $\mathcal{P}[y,z]$, we have $\mathcal{P}[x,z]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch24
+Let $\mathcal{A}$ and $\mathcal{B}$ be nonempty sets, let $\mathcal{X}$
+be an element of $\Fin(\mathcal{B})$, let $\mathcal{F}(-)$ be an element
+of $\mathcal{A}$ parametrized by objects, let $\mathcal{P}[-,-]$ be a
+binary predicate of objects.
+
+There exists an element $c$ of $\Fin(\mathcal{A})$ such that for each
+element $t$ of $\mathcal{A}$ satisfies $t\in c$ if and only if there
+exists an element $t'$ of $\mathcal{B}$ such that $t'\in\mathcal{X}$ and
+$t=\mathcal{F}(t')$ and $\mathcal{P}[t,t']$.
+\end{scheme}
+
+We have the following result:
+\begin{thm}
+\item%6
+Let $A$, $B$ be sets. If $A$ and $B$ are finite, then $\Funcs(A,B)$ is finite.
+\end{thm}
+
+\begin{scheme}%sch25
+Let $\mathcal{A}$ be a set, let $\mathcal{B}$ be a nonempty set, let
+$\mathcal{X}$ and $\mathcal{Y}$ be sets, let $\mathcal{F}(-)$ be an
+object parametrized by objects.
+Then
+$\{\mathcal{F}(\varphi)\mid\varphi\in\Funcs(\mathcal{A},\mathcal{B}),\varphi(\mathcal{X})\subset\mathcal{Y}\}$
+is finite, provided:
+\begin{enumerate}
+\item $\mathcal{X}$ is finite, and
+\item $\mathcal{Y}$ is finite, and
+\item for all elements $\phi$ and $\psi$ of $\Funcs(\mathcal{A},\mathcal{B})$,
+we have if $\phi|_{\mathcal{X}}=\psi|_{\mathcal{X}}$, then $\mathcal{F}(\phi)=\mathcal{F}(\psi)$.
+\end{enumerate}
+\end{scheme}
+
+% schemes 26,27,28 relate to choice
+\subsection*{Choice}
+
+\begin{scheme}%sch26
+Let $\mathcal{A}$ and $\mathcal{B}$ be nonempty sets, let
+$\mathcal{P}[-,-]$ be a predicate of an element of $\mathcal{A}$ and
+an element of $\mathcal{B}$, let $\mathcal{X}$ be an element of
+$\Fin(\mathcal{A})$.
+There exists a function $f\colon\mathcal{A}\to\mathcal{B}$ such that
+every element $t$ of $\mathcal{A}$ with $t\in\mathcal{X}$ satisfies
+$\mathcal{P}[t,f(t)]$; provided
+\begin{enumerate}
+\item for each element $t$ of $\mathcal{A}$ with $t\in\mathcal{X}$,
+  there exists an element $b$ of $\mathcal{B}$ such that $\mathcal{P}[t,b]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch27
+Let $\mathcal{A}$ and $\mathcal{B}$ be a nonempty set, let
+$\mathcal{P}[-,-]$ be a predicate of elements of $\mathcal{A}$ and
+$\mathcal{B}$, let $\mathcal{X}$ be an element of $\Fin(\mathcal{A})$.
+There exists an element $f$ of $\Funcs(\mathcal{A},\mathcal{B})$ such
+that for each element $a$ of $\mathcal{A}$ with $a\in\mathcal{X}$
+satisfies $\mathcal{P}[a,f(a)]$; provided
+\begin{enumerate}
+\item for each element $a$ of $\mathcal{A}$ with $a\in\mathcal{X}$,
+  there exists an element $b$ of $\mathcal{B}$ such that $\mathcal{P}[a,b]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}%sch28
+Let $\mathcal{A}$ and $\mathcal{B}$ be nonempty sets, let $\mathcal{X}$
+be a set, let $\mathcal{P}[-,-]$ be a binary predicate of objects.
+We have $\{x\in\mathcal{B}\mid\exists w,w\in\mathcal{A}\land\mathcal{P}[w,x]\land w\in\mathcal{X}\}$ is finite, provided:
+\begin{enumerate}
+\item $\mathcal{X}$ is finite; and
+\item for all elements $x$, $y$ of $\mathcal{B}$ and for all elements
+  $w$ of $\mathcal{A}$, if $\mathcal{P}[w,x]$ and $\mathcal{P}[w,y]$,
+  then $x=y$.
+\end{enumerate}
+\end{scheme}
+
+
+\end{document}
