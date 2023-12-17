@@ -1,0 +1,294 @@
+\documentclass{article}
+
+\title{Cartesian Product of Functions (FUNCT-6)}
+\author{Grzegorz Bancerek}
+\date{September 30, 1991}
+\begin{document}\setcounter{defni}{0}
+
+\maketitle
+
+Let $f$, $g$ be functions. Let $x$, $y$, $z$ be objects. Let $X$, $Y$,
+$Z$, $V_{}$, $V_{2}$ be sets.
+
+\section{Curried and uncurried functions of some functions}
+
+We have the following results:
+\begin{thm}
+\item\label{funct6:1} $\prod f\subset\Funcs(\dom(f),\union f)$.
+\item\label{funct6:2} If $x\in\dom(\converse{f})$, then there exists
+  objects $y$ and $z$ such that $x=(y,z)$.
+\item\label{funct6:3} $\converse{(X\times Y\constantto z)}=Y\times X\constantto z$
+\item\label{funct6:4} $\curry(f)=\curry'(\converse{f})$ and $\uncurry(f)=\converse{(\uncurry'(f))}$.
+\item\label{funct6:5} If $X\times Y\neq\emptyset$,
+  then $\curry(X\times Y\constantto z)=X\constantto(Y\constantto z)$
+  and $\curry'(X\times Y\constantto z)=Y\constantto(X\constantto z)$
+\item\label{funct6:6} $\uncurry(X\constantto(Y\constantto z))=X\times Y\constantto z$
+  and $\uncurry'(X\constantto(Y\constantto z))=Y\times X\constantto z$
+\item\label{funct6:7} If $x\in\dom(f)$ and $g=f(x)$, then
+  $\rng(g)\subset\rng(\uncurry(f))$ and $\rng(g)\subset\rng(\uncurry'(f))$.
+\item\label{funct6:8}
+\begin{enumerate}[label=(\roman*]
+\item $\dom(\uncurry(X\constantto f))=X\times\dom(f)$, and
+\item $\rng(\uncurry(X\constantto f))\subset\rng(f)$, and
+\item $\dom(\uncurry'(X\constantto f))=\dom(f)\times X$, and
+\item $\rng(\uncurry'(X\constantto f))\subset\rng(f)$.
+\end{enumerate}
+\item\label{funct6:9} If $X\neq\emptyset$, then
+  $\rng(\uncurry(X\constantto f))=\rng(f)$ and
+  $\rng(\uncurry'(X\constantto f))=\rng(f)$.
+\item\label{funct6:10} If $X\times Y\neq\emptyset$ and
+  $f\in\Funcs(X\times Y,Z)$, then $\curry(f)\in\Funcs(X,\Funcs(Y,Z))$
+  and $\curry'(f)\in\Funcs(Y,\Funcs(X,Z))$.
+\item\label{funct6:11} If $f\in\Funcs(X,\Funcs(Y,Z))$, then
+  $\uncurry(f)\in\Funcs(X\times Y,Z)$ and $\uncurry'(f)\in\Funcs(Y\times X,Z)$.
+\item\label{funct6:12} If $\dom(f)\subset V_{1}\times V_{2}$ and either $\curry(f)\in\Funcs(X,\Funcs(Y,Z))$
+  or $\curry'(f)\in\Funcs(Y,\Funcs(X,Z))$,
+  then $f\in\Funcs(X\times Y,Z)$.
+\item\label{funct6:13} If $\rng(f)\subset\PFuncs(V_{1},V_{2})$ and $\dom(f)=X$
+  and either $\uncurry(f)\in\Funcs(X\times Y,Z)$
+  or $\uncurry'(f)\in\Funcs(Y\times X,Z)$,
+  then $f\in\Funcs(X,\Funcs(Y,Z))$.
+\item\label{funct6:14} If $f\in\PFuncs(X\times Y,Z)$,
+  then $\curry(f)\in\PFuncs(X,\PFuncs(Y,Z))$ and
+  $\curry'(f)\in\PFuncs(Y,\PFuncs(X,Z))$.
+\item\label{funct6:15} If $f\in\PFuncs(X,\PFuncs(Y,Z))$,
+  then $\uncurry(f)\in\PFuncs(X\times Y,Z)$
+  and $\uncurry'(f)\in\PFuncs(Y\times X,Z)$
+\item\label{funct6:16} If $\dom(f)\subset V_{1}\times V_{2}$ and either $\curry(f)\in\PFuncs(X,\PFuncs(Y,Z))$
+  or $\curry'(f)\in\PFuncs(Y,\PFuncs(X,Z))$,
+  then $f\in\PFuncs(X\times Y,Z)$.
+\item\label{funct6:17} If $\rng(f)\subset\PFuncs(V_{1},V_{2})$ and
+  $\dom(f)\subset X$
+  and either $\uncurry(f)\in\PFuncs(X\times Y,Z)$
+  or $\uncurry'(f)\in\PFuncs(Y\times X,Z)$,
+  then $f\in\PFuncs(X,\PFuncs(Y,Z))$.
+\end{thm}
+
+\section{Functions yielding functions}
+
+\skipdefn
+
+\begin{definition}
+Let $f$ be a Function-yielding function. We define the term $\doms(f)$
+(Mizar: ``\verb#doms f#'') to be the function satisfying
+\begin{defn}[start=2]
+\item $\dom(\doms(f))=\dom(f)$ and for each object $x\in\dom(f)$ we have $(\doms(f))(x)=\proj1{f(x)}$.
+\end{defn}
+We define the term $\rngs(f)$ (Mizar: ``\verb#rngs f#'') to be the
+function satisfying:
+\begin{defn}
+\item $\dom(\rngs(f))=\dom(f)$ and for each object $x\in\dom(f)$ we have $(\rngs(f))(x)=\proj2{f(x)}$.
+\end{defn}
+\end{definition}
+
+\begin{remark}
+We should probably think of $\doms(f)$ as a family of sets indexed by
+each function yielded by $f$, and $\rngs(f)$ is similarly viewed as a
+family of sets indexed by each function yielded by $f$.
+\end{remark}
+
+\begin{definition}
+Let $f$ be a function.
+We define the term $\meet f$ to be the set equal to
+\begin{defn}
+\item $\meet f=\meet\rng(f)$.
+\end{defn}
+\end{definition}
+
+We have the following theorems:
+\begin{thm}
+\item\label{funct6:18} (Cancelled)
+\item\label{funct6:19} (Cancelled)
+\item\label{funct6:20} (Cancelled)
+\item\label{funct6:21} (Cancelled)
+\item\label{funct6:22} Let $f$ be a function-yielding function.
+  If $x\in\dom(f)$ and $g=f(x)$, then $x\in\dom(\doms(f))$ and
+  $(\doms(f))(x)=\dom(g)$ and $x\in\dom(\rngs(f))$ and $(\rngs(f))(x)=\rng(g)$.
+\item\label{funct6:23} $\doms(\emptyset)=\emptyset$ and $\rngs(\emptyset)=\emptyset$.
+\item\label{funct6:24} $\doms(X\constantto f)=X\constantto\dom(f)$ and
+  $\rngs(X\constantto f)=X\constantto\rng(f)$.
+\item\label{funct6:25} Suppose $f\neq\emptyset$. Then for all objects
+  $x$, we have $x\in\meet f$ if and only if every object $y\in\dom(f)$
+  satisfies $x\in f(y)$.
+\item\label{funct6:26} $\Union(\emptyset\constantto Y)=\emptyset$ and 
+  $\meet(\emptyset\constantto Y)=\emptyset$.
+\item\label{funct6:27} Suppose $X\neq\emptyset$.
+  Then $\Union(X\constantto Y)=Y$ and $\meet(X\constantto Y)=Y$.
+\end{thm}
+
+\begin{definition}
+Let $f$ be a function, let $x$ and $y$ be objects.
+We define the term $f(x)(y)$ (Mizar: ``\verb#f..(x,y)#'')
+to be the set equal to
+\begin{defn}
+\item $f(x)(y) := (\uncurry(f))(x,y)$.
+\end{defn}
+\end{definition}
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{funct6:28} If $x\in X$ and $y\in\dom(f)$,
+  then $(X\constantto f)(x)(y)=f(y)$.
+\end{thm}
+
+\section{Cartesian product of functions with the same domain}
+
+\begin{definition}
+Let $f$ be a function-yielding function.
+We define the term ${\prod}^{*}f$ (Mizar: ``\verb#<:f:>#'') to be the
+function equal to
+\begin{defn}
+\item ${\prod}^{*}f := \curry(\uncurry'(f))|_{{\meet\doms(f)}\times\dom(f)}$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{funct6:29} Let $f$ be a function-yielding function.
+  Then $\dom({\prod}^{*}f)=\meet\doms(f)$ and $\rng({\prod}^{*}f)\subset\prod\rngs(f)$.
+\item\label{funct6:30} (Cancelled)
+\item\label{funct6:31} Let $f$ be a function-yielding function.
+  If $x\in\dom({\prod}^{*}f)$ and $g=({\prod}^{*}f)(x)$, then
+  $\dom(g)=\dom(f)$ and all objects $y\in\dom(g)$ satisfy
+  $(y,x)\in\dom(\uncurry(f))$ and $g(y)=(\uncurry(f))(y,x)$.
+\item\label{funct6:32} Let $f$ be a function-yielding function, let $x\in\dom({\prod}^{*}f)$,
+  let $g\in\rng(f)$ be a function. Then $x\in\dom(g)$.
+\item\label{funct6:33} Let $f$ be a function-yielding function, let
+  $g\in\rng(f)$ be a function. Suppose every function $h\in\rng(f)$
+  satisfies $x\in\dom(g)$.
+  Then $x\in\dom({\prod}^{*}f)$.
+\item\label{funct6:34} Let $f$ be a function-yielding function. Suppose
+  $x\in\dom(f)$, $g=f(x)$, $y\in\dom({\prod}^{*}f)$, and $h=({\prod}^{*}f)(y)$.
+  Then $g(y)=h(x)$.
+\item\label{funct6:35} Let $f$ be a function-yielding function.
+  If $x\in\dom(f)$, $f(x)$ is a function, and $y\in\dom({\prod}^{*}f)$,
+  then $f(x)(y)=({\prod}^{*}f)(y)(x)$.
+\end{thm}
+
+\section{Cartesian product of functions}
+
+\begin{definition}
+Let $f$ be a function-yielding function.
+We define the term $\Frege{f}$ (Mizar: ``\verb#Frege f#'') to be the
+function satisfying
+\begin{defn}
+\item $\dom(\Frege{f})=\prod\doms(f)$, and for each function $g\in\prod\doms(f)$,
+  there exists a function $h$ such that $(\Frege{f})(g)=h$ and
+  $\dom(h)=\dom(f)$ and for all objects $x\in\dom(h)$ we have $h(x)=(\uncurry(f))(x,g(x))$.
+\end{defn}
+\end{definition}
+
+We can prove the following four propositions:
+\begin{thm}
+\item\label{funct6:36} Let $f$ be a function-yielding function. If
+  $g\in\prod\doms(f)$ and $x\in\dom(g)$, then $(\Frege{f})(g)(x)=f(x)(g(x))$.
+\item\label{funct6:37} Let $f$ be a function-yielding function, let $h'$
+  be a function.
+  If $x\in\dom(f)$, $g=f(x)$, $h\in\prod\doms(f)$, and $h'=(\Frege{f})(h)$,
+  then $h(x)\in\dom(g)$, $h'(x)=g\bigl(h(x)\bigr)$, and $h'\in\prod\rngs(f)$.
+\item\label{funct6:38} Let $f$ be a function-yielding function.
+  Then $\rng(\Frege{f})=\prod\rngs(f)$.
+\item\label{funct6:39} Let $f$ be a function-yielding function.
+  Suppose $\emptyset\notin\rng(f)$.
+  Then $\Frege{f}$ is injective if and only if each function
+  $g\in\rng(f)$ is injective.
+\end{thm}
+
+\section{Properties of Cartesian products of functions}
+
+We have the following results:
+\begin{thm}
+\item\label{funct6:40} ${\prod}^{*}\emptyset=\emptyset$ and $\Frege{\emptyset}=\emptyset$.
+\item\label{funct6:41} Suppose $X\neq\emptyset$.
+  Then $\dom({\prod}^{*}(X\constantto f))=\dom(f)$ and for each object $x\in\dom(f)$
+  we have $({\prod}^{*}(X\constantto f))(x)=X\constantto f(x)$.
+\item\label{funct6:42}
+  \begin{enumerate}[label=(\roman*)]
+  \item $\dom(\Frege{X\constantto f})=\Funcs(X,\dom(f))$; and
+  \item $\rng(\Frege{X\constantto f})=\Funcs(X,\rng(f))$; and
+  \item for each function $g\in\Funcs(X,\dom(f))$, we have
+    $(\Frege{X\constantto f})(g)=f\circ g$.
+  \end{enumerate}
+\item\label{funct6:43} Suppose $\dom(f)=X$, $\dom(g)=X$, and for each object
+  $x\in X$ we have $f(x)\equipotent g(x)$ are equipotent.
+  Then $\prod f\equipotent\prod g$ are equipotent.
+\item\label{funct6:44} Suppose $\dom(f)=\dom(h)$, $\dom(g)=\dom(h)$, $h$
+  is injective, and for each object $x\in\dom(h)$ we have
+  $f(x)\equipotent g\bigl(h(x)\bigr)$ are equipotent.
+  Then $\prod f\equipotent\prod g$ are equipotent.
+\item\label{funct6:45} Let $P$ be a permutation of $X$.
+  If $\dom(f)=X$, then $\prod f\equipotent\prod(f\circ P)$ are equipotent.
+\end{thm}
+
+\section{Function yielding powers}
+
+\begin{definition}
+Let $f$ be a function, let $X$ be a set.
+We define the terms $\Funcs(f,X)$ (Mizar: ``\verb#Funcs(f, X)#'') to be
+the function satisfying
+\begin{defn}
+\item $\dom(\Funcs(f,X))=\dom(f)$ and for each object $x\in\dom(f)$,
+  $(\Funcs(f,X))(x)=\Funcs(f(x),X)$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{funct6:46} If $\emptyset\notin\rng(f)$,
+  then $\Funcs(f,\emptyset)=\dom(f)\constantto\emptyset$.
+\item\label{funct6:47} $\Funcs(\emptyset,X)=\emptyset$.
+\item\label{funct6:48} $\Funcs(X\constantto Y,Z)=X\constantto\Funcs(Y,Z)$.
+\item\label{funct6:49} $\Funcs(\Union\disjoin f,X)\equipotent\prod\Funcs(f,X)$
+  are equipotent.
+\end{thm}
+
+\begin{definition}
+Let $f$ be a function, let $X$ be a set.
+We define the terms $\Funcs(X,f)$ (Mizar: ``\verb#Funcs(X, f)#'') to be
+the function satisfying
+\begin{defn}
+\item $\dom(\Funcs(X,f))=\dom(f)$ and for each object $x\in\dom(f)$,
+  $(\Funcs(X,f))(x)=\Funcs(X,f(x))$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{funct6:50} $\Funcs(\emptyset,f)=\dom(f)\constantto\{\emptyset\}$.
+\item\label{funct6:51} $\Funcs(X,\emptyset)=\emptyset$.
+\item\label{funct6:52} $\Funcs(X,Y\constantto Z)=Y\constantto\Funcs(X,Z)$.
+\item\label{funct6:53} $\prod\Funcs(X,f)\equipotent\Funcs(X,\prod f)$
+  are equipotent.
+\end{thm}
+
+\section{Addenda}
+
+\begin{definition}
+Let $f$ be a function. We define the term $\commute(f)$
+(Mizar: ``\verb#commute f#'') to be the function-yielding function equal
+to
+\begin{defn}
+\item $\operatorname{commute}(f) := \curry'(\uncurry(f))$
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{funct6:54} Let $x$ be a set.
+  If $x\in\dom(\commute(f))$, then $(\commute(f))(x)$ is a function.
+\item\label{funct6:55} Let $A$, $B$, $C$ be sets.
+  If $A\neq\emptyset$, $B\neq\emptyset$, and $f\in\Funcs(A,\Funcs(B,C))$,
+  then $\commute(f)\in\Funcs(B,\Funcs(A,C))$.
+\item\label{funct6:56} Let $A$, $B$, $C$ be sets.
+  Suppose $A\neq\emptyset$, $B\neq\emptyset$, and $f\in\Funcs(A,\Funcs(B,C))$,
+  Let $x$, $y$ be sets.
+  If $x\in A$, $y\in B$, $f(x)=g$, and $(\commute(f))(y)=h$, then
+  $h(x)=g(y)$ and $\dom(h)=A$ and $\dom(g)=B$ and $\rng(h)\subset C$
+  and $\rng(g)\subset C$.
+\item\label{funct6:57} Let $A$, $B$, $C$ be sets.
+  Suppose $A\neq\emptyset$, $B\neq\emptyset$, and $f\in\Funcs(A,\Funcs(B,C))$,
+  Then $\commute(\commute(f))=f$.
+\item\label{funct6:58} $\commute(\emptyset)=\emptyset$.
+\item\label{funct6:59} Let $f$ be a function-yielding function. Then $\dom(\doms(f))=\dom(f)$.
+\item\label{funct6:60} Let $f$ be a function-yielding function. Then $\dom(\rngs(f))=\dom(f)$.
+\end{thm}
+
+\end{document}

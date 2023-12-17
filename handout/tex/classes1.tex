@@ -1,0 +1,348 @@
+\documentclass{article}
+
+\title{Tarski's Classes and Ranks (CLASSES1)}
+\author{Grzegorz Bancerek}
+\date{March 23, 1990}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $B$ be a set.
+We define the attribute, saying $B$ is \define{subset-closed} to mean
+\begin{defn}
+\item for any sets $X$ and $Y$, if $X\in B$ and $Y\subset X$, then $Y\in B$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $B$ be a set.
+We define the attribute, saying $B$ is \define{Tarski} to mean
+\begin{defn}
+\item \begin{enumerate}[label=(\roman*)]
+\item $B$ is subset-closed, and
+\item each set $X\in B$ satisfies $\powerset(X)\in B$, and
+\item each set $X\subset B$ satisfies either $X\in B$ or $X\equipotent B$ are equipotent.
+\end{enumerate}
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$, $B$ be sets.
+We define the predicate $B$ \define{is Tarski-Class of } $A$ to mean
+\begin{defn}
+\item $A\in B$ and $B$ is Tarski.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$ b a set. We define the term \define{Tarski-Class of $A$},
+denoted $\TarskiClass{A}$ (Mizar:
+``\verb#Tarski-Class A#'') to be the set satisfying
+\begin{defn}
+\item $\TarskiClass{A}$ is a Tarski-Class of $A$, and for each set $D$ which is a
+  Tarski-Class of $A$ we have $\TarskiClass{A}\subset D$.
+\end{defn}
+\end{definition}
+
+Let $W$, $X$, $Y$, $Z$ be sets, let $f$ and $g$ be functions. Let $a$,
+$x$, $y$, $z$ be sets.
+We have the following results:
+\begin{thm}
+\item\label{classes1:1} $W$ is Tarski if and only if
+\begin{enumerate}[label=(\roman*)]
+\item $W$ is subset-closed, and
+\item each $X\in W$ satisfies $\powerset(X)\in W$, and
+\item for each $X\subset W$, if $\card{X}\in\card{W}$, then $X\in W$.
+\end{enumerate}
+\item\label{classes1:2} $X\in\TarskiClass{X}$.
+\item\label{classes1:3} If $Y\in\TarskiClass{X}$ and $Z\subset Y$, then $Z\in\TarskiClass{X}$.
+\item\label{classes1:4} If $Y\in\TarskiClass{X}$,
+  then $\powerset(Y)\in\TarskiClass{X}$.
+\item\label{classes1:5} If $Y\subset\TarskiClass{X}$,
+  then either $Y\in\TarskiClass{X}$ or $Y\equipotent\TarskiClass{X}$ are equipotent.
+\item\label{classes1:6} If $Y\subset\TarskiClass{X}$ and
+  $\card{Y}\in\card{\TarskiClass{X}}$, then $Y\in\TarskiClass{X}$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set, let $A$ be an Ordinal.
+We define the term $\TarskiClass[A]{X}$ (Mizar: ``\verb#Tarski-Class(X,A)#'')
+to be the set satisfying
+\begin{defn}
+\item There exists a sequence $L$ such that
+  \begin{enumerate}[label=(\roman*)]
+  \item $\TarskiClass[A]{X}=\last(L)$, and
+  \item $\dom(L)=\succ(A)$, and
+  \item $L(0)=\{X\}$, and
+  \item for each Ordinal $C$, if $\succ(C)\in\succ(A)$, then
+    $L(\succ(C))=\{u\in\TarskiClass{X}\mid\exists v\in\TarskiClass{X},v\in L(C)\land u\subset v\}\cup\{\powerset(v)\mid v\in L(c), v\in\TarskiClass{X}\}\cup(\powerset(L(C))\cap\TarskiClass{X})$,
+    and
+  \item for each nonzero limit Ordinal $C$, if $C\in\succ(A)$,
+    then $L(C)=\union(\rng(L|_{C}))\cap\TarskiClass{X}$.
+  \end{enumerate}
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a set, let $A$ be an ordinal.
+We redefine the type of term $\TarskiClass[A]{X}$ to be a subset of $\TarskiClass{X}$.
+\end{definition}
+
+Let $u$, $v$ be elements of $\TarskiClass{X}$. Let $A$, $B$, $C$ be
+Ordinals. Let $L$ be a sequence.
+We have the following results:
+\begin{thm}
+\item\label{classes1:7} $\TarskiClass[\emptyset]{X}=\{X\}$.
+\item\label{classes1:8} $\TarskiClass[\succ(A)]{X}=\{u\mid\exists v\in\TarskiClass[A]{X}, u\subset v\}\cup\{\powerset(v)\mid v\in\TarskiClass[A]{X}\}\cup(\powerset\TarskiClass[A]{X}\cap\TarskiClass{X})$.
+\item\label{classes1:9} If $A$ is a nonzero limit ordinal,
+  then $\TarskiClass[A]{X}=\{u\mid\exists B\in A,u\in\TarskiClass[B]{X}\}$.
+\item\label{classes1:10} $Y\in\TarskiClass[\succ(A)]{X}$ if and only if
+  either
+  \begin{enumerate}[label=(\roman*)]
+  \item $Y\subset\TarskiClass[A]{X}$ and $Y\in\TarskiClass{X}$, or
+  \item There exists a set $Z\in\TarskiClass[A]{X}$ such that either
+    $Y\subset Z$ or $Y=\powerset(Z)$.
+  \end{enumerate}
+\item\label{classes1:11} If $Y\subset Z$ and $Z\in\TarskiClass[A]{X}$,
+  then $Y\in\TarskiClass[\succ(A)]{X}$.
+\item\label{classes1:12} If $Y\in\TarskiClass[A]{X}$,
+  then $\powerset(Y)\in\TarskiClass[\succ(A)]{X}$.
+\item\label{classes1:13} Suppose $A$ is a nonzero limit ordinal.
+  Then $x\in\TarskiClass[A]{X}$ if and only if there exists a set $B\in A$ such that
+  $x\in\TarskiClass[B]{X}$.
+\item\label{classes1:14} Suppose $A$ is a nonzero limit ordinal.
+  If $Y\in\TarskiClass[A]{X}$ and either $Z\subset Y$ or
+  $Z=\powerset(Y)$,
+  then $Z\in\TarskiClass[A]{X}$.
+\item\label{classes1:15} $\TarskiClass[A]{X}\subset\TarskiClass[\succ(A)]{X}$.
+\item\label{classes1:16} If $A\subset B$,
+  then $\TarskiClass[A]{X}\subset\TarskiClass[B]{X}$.
+\item\label{classes1:17} There exists an Ordinal $A$ such that $\TarskiClass[A]{X}=\TarskiClass[\succ(A)]{X}$.
+\item\label{classes1:18} If $\TarskiClass[A]{X}=\TarskiClass[\succ(A)]{X}$,
+  then $\TarskiClass[A]{X}=\TarskiClass{X}$.
+\item\label{classes1:19} There exists an Ordinal $A$ such that
+  $\TarskiClass[A]{X}=\TarskiClass{X}$.
+\item\label{classes1:20} There exists an Ordinal $A$ such that
+  $\TarskiClass[A]{X}=\TarskiClass{X}$ and for each Ordinal $B\in A$
+  we have $\TarskiClass[B]{X}\neq\TarskiClass{X}$.
+\item\label{classes1:21} If $Y\neq X$ and $Y\in\TarskiClass{X}$,
+  then there exists an Ordinal $A$ such that $Y\notin\TarskiClass[A]{X}$
+  and $Y\in\TarskiClass[\succ(A)]{X}$.
+\item\label{classes1:22} If $X$ is $\in$-transitive,
+  then for all nonzero Ordinals $A$ we have $\TarskiClass[A]{X}$ is $\in$-transitive.
+\item\label{classes1:23} If $X$ is $\in$-transitive, then
+  $\TarskiClass{X}$ is $\in$-transitive.
+\item\label{classes1:24} If $Y\in\TarskiClass{X}$, then $\card{Y}\in\card{\TarskiClass{X}}$.
+\item\label{classes1:25} If $Y\in\TarskiClass{X}$,
+  then $Y\not\equipotent\TarskiClass{X}$ are not equipotent.
+\item\label{classes1:26} 
+  \begin{enumerate}[label=(\roman*)]
+  \item If $x\in\TarskiClass{X}$, then $\{x\}\in\TarskiClass{X}$; and
+  \item If $x\in\TarskiClass{X}$ and $y\in\TarskiClass{X}$, then
+    $\{x,y\}\in\TarskiClass{X}$.
+  \end{enumerate}
+\item\label{classes1:27} If $x\in\TarskiClass{X}$ and $y\in\TarskiClass{X}$, then
+  the ordered pair $(x,y)\in\TarskiClass{X}$.
+\item\label{classes1:28} If $Y\subset\TarskiClass{X}$ and $Z\subset\TarskiClass{X}$,
+  then $Y\times Z\subset\TarskiClass{X}$.
+\end{thm}
+
+\begin{definition}
+Let $A$ be an Ordinal.
+We define the term $\Rank{A}$ (Mizar: ``\verb#Rank(A)#'') called
+the \define{$A^{\text{th}}$ Stage} (or rank) to be the set satisfying
+\begin{defn}
+\item There exists a sequence $L$ such that
+  \begin{enumerate}[label=(\roman*)]
+  \item $\Rank{A}=\last(L)$, and
+  \item $\dom(L)=\succ(A)$, and
+  \item $L(0)=\emptyset$, and
+  \item for each Ordinal $C$, if $\succ(C)\in\succ(A)$, then $L(\succ(C))=\powerset(L(C))$,
+    and
+  \item for each nonzero limit Ordinal $C$, if $C\in\succ(A)$,
+    then $L(C)=\union\rng(L|_{C})$.
+  \end{enumerate}
+\end{defn}
+\end{definition}
+
+\begin{remark}
+These are precisely the cumulative hierarchy of the von Neumann
+universe, $V_{\alpha}=\Rank{\alpha}$.
+\end{remark}
+
+We have the following results:
+\begin{thm}
+\item\label{classes1:29} $\Rank{\emptyset}=\emptyset$.
+\item\label{classes1:30} $\Rank{\succ(A)}=\bool{\Rank{A}}$.
+\item\label{classes1:31} Let $A$ be a nonzero limit Ordinal.
+  Then for all sets $x$, we have $x\in\Rank{A}$ if and only if there
+  exists an Ordinal $B\in A$ such that $x\in\Rank{B}$.
+\item\label{classes1:32} $X\subset\Rank{A}$ if and only if $X\in\Rank{\succ(A)}$.
+\item\label{classes1:33} $\Rank{A}\subset\Rank{\succ(A)}$.
+\item\label{classes1:34} $\union\Rank{A}\subset\Rank{A}$.
+\item\label{classes1:35} If $X\in\Rank{A}$, then $\union X\in\Rank{A}$.
+\item\label{classes1:36} $A\in B$ if and only if $\Rank{A}\in\Rank{B}$.
+\item\label{classes1:37} $A\subset B$ if and only if $\Rank{A}\subset\Rank{B}$.
+\item\label{classes1:38} $A\subset\Rank{A}$.
+\item\label{classes1:39} If $X\in\Rank{A}$, then $X\not\equipotent\Rank{A}$
+  are not equipotent and $\card{X}\in\card{\Rank{A}}$.
+\item\label{classes1:40} $X\subset\Rank{A}$ if and only if $\powerset(X)\subset\Rank{\succ(A)}$.
+\item\label{classes1:41} If $X\subset Y$ and $Y\in\Rank{A}$, then $X\in\Rank{A}$.
+\item\label{classes1:42} $X\in\Rank{A}$ if and only if $\powerset(X)\in\Rank{\succ(A)}$
+\item\label{classes1:43} $x\in\Rank{A}$ if and only if $\{x\}\in\Rank{\succ(A)}$.
+\item\label{classes1:44} $x,y\in\Rank{A}$ if and only if $\{x,y\}\in\Rank{\succ(A)}$.
+\item\label{classes1:45} $x,y\in\Rank{A}$ if and only if $(x,y)\in\Rank{\succ(\succ(A))}$.
+\item\label{classes1:46} If $X$ is $\in$-transitive and $\Rank{A}\cap\TarskiClass{X}=\Rank{\succ(A)}\cap\TarskiClass{X}$,
+  then $\TarskiClass{X}\subset\Rank{A}$.
+\item\label{classes1:47} If $X$ is $\in$-transitive,
+  then there exists an Ordinal $A$ such that $\TarskiClass{X}\subset\Rank{A}$.
+\item\label{classes1:48} If $X$ is $\in$-transitive, then $\union X\subset X$.
+\item\label{classes1:49} If $X$ and $Y$ are both $\in$-transitive, then
+  $X\cup Y$ is $\in$-transitive.
+\item\label{classes1:50} If $X$ and $Y$ are both $\in$-transitive, then
+  $X\cap Y$ is $\in$-transitive.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set.
+We define the term the \define{transitive-closure of $X$} to be the set
+denoted $\transcl{X}$ satisfying
+\begin{defn}
+\item for all objects $x$, we have $x\in\transcl{X}$ if and only if
+  there exists a function $f$ and element $n$ of $\omega$ such that
+  $x\in f(n)$ and $\dom(f)=\omega$ and $f(0)=X$ and every natural
+  number $k$ satisfies $f(\succ(k))=\union f(k)$.
+\end{defn}
+\end{definition}
+Observe the transitive closure is automatically $\in$-transitive.
+
+We have the following results:
+\begin{thm}
+\item\label{classes1:51} $\transcl{X}$ is $\in$-transitive.
+\item\label{classes1:52} $X\subset\transcl{X}$.
+\item\label{classes1:53} If $X\subset Y$ and $Y$ is $\in$-transitive,
+  then $\transcl{X}\subset Y$.
+\item\label{classes1:54} If $X\subset Y$ and $Y$ is $\in$-transitive and
+  every set $Z$ with $X\subset Z$ is $\in$-transitive,
+  then $\transcl{X}=Y$.
+\item\label{classes1:55} If $X$ is $\in$-transitive, then $\transcl{X}=X$.
+\item\label{classes1:56} $\transcl{\emptyset}=\emptyset$.
+\item\label{classes1:57} For any Ordinal $A$, $\transcl{A}=A$.
+\item\label{classes1:58} If $X\subset Y$, then $\transcl{X}\subset\transcl{Y}$.
+\item\label{classes1:59} $\transcl{(\transcl{X})}=\transcl{X}$.
+\item\label{classes1:60} $\transcl{(X\cup Y)}=\transcl{X}\cup\transcl{Y}$.
+\item\label{classes1:61} $\transcl{(X\cap Y)}\subset\transcl{X}\cap\transcl{Y}$.
+\item\label{classes1:62} There exists an Ordinal $A$ such that $X\subset\Rank{A}$.
+\end{thm}
+
+\begin{definition}
+Let $x$ be an object.
+We define the term the \define{Rank} of $x$, denoted $\rank(x)$, (Mizar:
+``\verb#the_rank_of x#'') to be the Ordinal satisfying
+\begin{defn}
+\item $x\in\Rank{\rank(x)}$ and for all Ordinals $B$, if
+  $x\in\Rank{\succ(B)}$, then $\rank(x)\subset B$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a set.
+We redefine the term the \define{Rank} of $X$, denoted $\rank(X)$, (Mizar:
+``\verb#the_rank_of X#'') to be the Ordinal satisfying
+\begin{defn}
+\item $X\subset\Rank{\rank(X)}$ and for all Ordinals $B$, if
+  $X\subset\Rank{B}$, then $\rank(X)\subset B$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{classes1:63} $\rank(\powerset(X))=\succ(\rank(X))$
+\item\label{classes1:64} $\rank(\Rank{A})=A$.
+\item\label{classes1:65} $X\subset\Rank{A}$ if and only if
+  $\rank(X)\subset A$.
+\item\label{classes1:66} $X\in\Rank{A}$ if and only if $\rank(X)\in A$.
+\item\label{classes1:67} If $X\subset Y$, then $\rank(X)\subset\rank(Y)$.
+\item\label{classes1:68} If $X\in Y$, then $\rank(X)\in\rank(Y)$.
+\item\label{classes1:69} $\rank(X)\subset A$ if and only if
+  each set $Y\in X$ satisfies $\rank(Y)\in A$.
+\item\label{classes1:70} $A\subset\rank(X)$ if and only if for each
+  Ordinal $B\in A$ there exists a set $Y\in X$ such that $B\subset\rank(Y)$.
+\item\label{classes1:71} $\rank(X)=\emptyset$ if and only if $X=\emptyset$.
+\item\label{classes1:72} If $\rank(X)=\succ(A)$, then there exists a set
+  $Y\in X$ such that $\rank(Y)=A$.
+\item\label{classes1:73} $\rank(A)=A$.
+\item\label{classes1:74} $\rank(\TarskiClass{X})\neq\emptyset$
+  and $\rank(\TarskiClass{X})$ is a limit ordinal.
+\end{thm}
+
+\begin{scheme}[NonUniqFuncEx]
+Let $\mathcal{X}$ be a set, let $\mathcal{P}[-,-]$ be a binary predicate
+of objects.
+There exists a function $f$ such that $\dom(f)=\mathcal{X}$ and for each
+object $x\in\mathcal{X}$ we have $\mathcal{P}[x,f(x)]$; provided:
+\begin{enumerate}
+\item for each object $x\in\mathcal{X}$ there exists an object $y$ such
+  that $\mathcal{P}[x,y]$.
+\end{enumerate}
+\end{scheme}
+
+\section*{Addenda: Fibrewise Equipotency}
+
+\begin{definition}
+Let $F$, $G$ be relations.
+We define the predicate $F$ and $G$ are \define{Fibrewise Equipotent}
+(Mizar: ``\verb#F,G are_fiberwise_equipotent#'') meaning
+\begin{defn}
+\item For all objects $x$, we have $\Coim{F}{x}=\card{\Coim{G}{x}}$.
+\end{defn}
+Observe this is reflexive ($F$ is fibrewise equipotent with itself) and
+symmetric (if $F$ and $G$ are fibrewise equipotent, then $G$ and $F$ are
+fibrewise equipotent).
+\end{definition}
+
+\begin{thm}
+\item\label{classes1:75} Let $F$, $G$ be functions.
+  If $F$ and $G$ are fibrewise equipotent, then $\rng(F)=\rng(G)$.
+\item\label{classes1:76} (Transitivity) Let $F$, $G$, $H$ be functions.
+  If $F$ and $G$ are fibrewise equipotent, and if $G$ and $H$ are
+  fibrewise equipotent, then $F$ and $H$ are fibrewise equipotent.
+\item\label{classes1:77} Let $F$, $G$ be functions.
+  Then $F$ and $G$ are fibrewise equipotent if and only if there exists
+  a function $H$ such that $\dom(H)=\dom(F)$ and $\rng(H)=\dom(G)$ and
+  $H$ is injective and $F=G\circ H$.
+\item\label{classes1:78} Let $F$, $G$ be functions.
+  Then $F$ and $G$ are fibrewise equipotent if and only if for all sets
+  $X$ we have $\card{F^{-1}(X)}=\card{G^{-1}(X)}$.
+\item\label{classes1:79} Let $D$ be a nonempty set, let $F$ and $G$ be
+  functions with $\rng(F)\subset D$ and $\rng(G)\subset D$.
+  Suppose every element $d$ of $D$ satisfies $\card{\Coim{F}{d}}=\card{\Coim{G}{d}}$.
+  Then $F$ and $G$ are fibrewise equipotent.
+\item\label{classes1:80} Let $F$, $G$ be functions.
+  Suppose $\dom(F)=\dom(G)$.
+  Then $F$ and $G$ are fibrewise equipotent if and only if there exists
+  a permutation $P$ of $\dom(F)$ such that $F=G\circ P$.
+\item\label{classes1:81} Let $F$, $G$ be functions.
+  If $F$ and $G$ are fibrewise equipotent, then $\card{\dom(F)}=\card{\dom(G)}$.
+\item\label{classes1:82} Let $X$ be a set, let $R$ be a relation, let
+  $Y$ be a set. If $Y\in\rng(R)$, then $\rank(Y)\in\rank((R,X))$.
+\item\label{classes1:83} Let $f$, $g$, $h$ be functions.
+  If $\dom(f)=\dom(g)$, $\rng(f)\subset\dom(h)$, $\rng(g)\subset\dom(h)$,
+  and $f$ and $g$ are fibrewise equipotent, then $h\circ f$ and $h\circ g$
+  are fibrewise equipotent.
+\end{thm}
+
+\begin{scheme}[LambdaAB]
+Let $\mathcal{A}$ and $\mathcal{B}$ be sets, let $\mathcal{F}(-)$ be a
+set parametrized by elements of $\mathcal{B}$.
+There exists a function $f$ such that $\dom(f)=\mathcal{A}$ and for each
+element $b$ of $\mathcal{B}$ with $b\in\mathcal{A}$, we have $f(b)=\mathcal{F}(b)$.
+\end{scheme}
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{classes1:84} Let $X$, $Y$ be sets.
+  Then $\rank(X)\in\rank((X,Y))$ and $\rank(Y)\in\rank((X,Y))$.
+\end{thm}
+
+\end{document}
