@@ -1,0 +1,200 @@
+\documentclass{article}
+
+\title{Some Properties of Binary Relations (SYSREL)}
+\author{Waldemar Korczy\'nski}
+\date{January 17, 1992}
+\begin{document}
+\maketitle
+
+Let $x$, $y$, $z$, $t$ be objects; let $X$, $Y$, $Z$, $W$ be sets. Let
+$R$, $S$, $T$ be relations. We have the following results
+\begin{thm}
+\item\label{sysrel:1} $\dom(R\cap X\times Y)\subset X$ and $\rng(R\cap X\times Y)\subset Y$.
+\item\label{sysrel:2} If $X$ misses $Y$,
+  then $\dom(R\cap X\times Y)$ misses $\rng(R\cap X\times Y)$.
+\item\label{sysrel:3} If $R\subset X\times Y$,
+  then $\dom(R)\subset X$ and $\rng(R)\subset Y$.
+\item\label{sysrel:4} If $R\subset X\times Y$, then $\converse{R}\subset Y\times X$.
+\item\label{sysrel:5} $\converse{(X\times Y)}=Y\times X$.
+\item\label{sysrel:6} $(R\cup S)\cdot T=(R\cdot T)\cup(S\cdot T)$.
+\item\label{sysrel:7} We have the following:
+  \begin{enumerate}[label=(\alph*)]
+  \item if $X$ misses $Y$, $R\subset (X\times Y)\cup(Y\times X)$,
+    $(x,y)\in R$ and $x\in X$, then $x\notin Y$ and $y\notin X$ and
+    $y\in Y$; and
+  \item if $X$ misses $Y$, $R\subset (X\times Y)\cup(Y\times X)$,
+    $(x,y)\in R$ and $y\in Y$, then $y\notin X$ and $x\notin Y$ and
+    $x\in X$; and
+  \item if $X$ misses $Y$, $R\subset (X\times Y)\cup(Y\times X)$,
+    $(x,y)\in R$ and $x\in Y$, then $x\notin X$ and $y\notin Y$ and
+    $y\in X$; and
+  \item if $X$ misses $Y$, $R\subset (X\times Y)\cup(Y\times X)$,
+    $(x,y)\in R$ and $y\in X$, then $x\notin X$ and $y\notin Y$ and
+    $x\in Y$.
+  \end{enumerate}
+\item\label{sysrel:8} If $R\subset X\times Y$, then
+  $R|_{Z}=R\cap(Z\times Y)$ and $R|^{Z}=R|cap(X\times Z)$.
+\item\label{sysrel:9} If $R\subset X\times Y$ and $X=Z\cup W$,
+  then $R=(R|_{Z})\cup(R|_{W})$.
+\item\label{sysrel:10} If $X$ misses $Y$ and $R\subset(X\times Y)\cup(Y\times X)$,
+  then $R|_{X}\subset X\times Y$.
+\item\label{sysrel:11} If $R\subset S$, then $\converse{R}\subset\converse{S}$.
+\item\label{sysrel:12} $\id_{X}\cdot\id_{X}=\id_{X}$.
+\item\label{sysrel:13} For all objects $x$, we have $\id_{\{x\}}=\id_{\{(x,x)\}}$.
+\item\label{sysrel:14} We have $\id_{X\cup Y}=\id_{X}\cup\id_{Y}$,
+  $\id_{X\cap Y}=\id_{X}\cap\id_{Y}$, and $\id_{X\setminus Y}=\id_{X}\setminus\id_{Y}$.
+\item\label{sysrel:15} If $X\subset Y$, then $\id_{X}\subset\id_{Y}$.
+\item\label{sysrel:16} $\id_{X\setminus Y}\setminus\id_{X}=\emptyset$.
+\item\label{sysrel:17} If $R\subset\id_{\dom(R)}$, then $R=\id_{\dom(R)}$.
+\item\label{sysrel:18} If $\id_{X}\subset R\cup\converse{R}$,
+  then $\id_{X}\subset R$ and $\id_{X}\subset\converse{R}$.
+\item\label{sysrel:19} If $\id_{X}\subset R$, then $\id_{X}\subset\converse{R}$.
+\end{thm}
+
+\section{Closure Relation}
+
+We have the following results:
+\begin{thm}
+\item\label{sysrel:20} If $R\subset X\times X$, then
+  $R\setminus\id_{\dom(R)}=R\setminus\id_{X}$ and $R\setminus\id_{\rng(R)}=R\setminus\id_{X}$.
+\item\label{sysrel:21}
+  \begin{enumerate}[label=(\alph*)]
+  \item If $\id_{X}\cdot(R\setminus\id_{X})=\emptyset$,
+    then $\dom(R\setminus\id_{X})=\dom(R)\setminus X$; and
+  \item If $(R\setminus\id_{X})\cdot\id_{X}=\emptyset$,
+    then $\rng(R\setminus\id_{X})=\rng(R)\setminus X$.
+  \end{enumerate}
+\item\label{sysrel:22} 
+  \begin{enumerate}[label=(\alph*)]
+  \item If $R\subset R\cdot R$ and if $R\cdot(R\setminus\id_{\rng(R)})=\emptyset$,
+    then $\id_{\rng(R)}\subset R$.
+  \item If $R\subset R\cdot R$ and if $(R\setminus\id_{\dom(R)})\cdot R=\emptyset$,
+    then $\id_{\dom(R)}\subset R$.
+  \end{enumerate}
+\item\label{sysrel:23} 
+  \begin{enumerate}[label=(\alph*)]
+  \item If $R\subset R\cdot R$ and if $R\cdot(R\setminus\id_{\rng(R)})=\emptyset$,
+    then $R\cap\id_{\rng(R)}=\id_{\rng(R)}$.
+  \item If $R\subset R\cdot R$ and if $(R\setminus\id_{\dom(R)})\cdot R=\emptyset$,
+    then $R\cap\id_{\dom(R)}=\id_{\dom(R)}$.
+  \end{enumerate}
+\item\label{sysrel:24} 
+  \begin{enumerate}[label=(\alph*)]
+  \item If $R\cdot(R\setminus\id_{\rng(R)})=\emptyset$,
+    then $R\cdot(R\setminus\id_{\rng(R)})=\emptyset$.
+  \item If $(R\setminus\id_{\dom(R)})\cdot R=\emptyset$,
+    then $(R\setminus\id_{\dom(R)})\cdot R=\emptyset$.
+  \end{enumerate}
+\end{thm}
+
+\begin{definition}
+Let $R$ be a relation.
+We define the term $\CL(R)$ to be the relation equal to
+\begin{defn}
+\item $\CL(R):=R\cap\id_{\dom(R)}$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{sysrel:25} If $(x,y)\in\CL(R)$, then $x\in\dom(\CL(R))$ and $x=y$.
+(That is to say, $\CL(R)$ is coreflexive.)
+\item\label{sysrel:26} $\dom(\CL(R))=\rng(\CL(R))$
+\item\label{sysrel:27}
+  \begin{enumerate}[label=(\roman*)]
+  \item $x\in\dom(\CL(R))$ if and only if $x\in\dom(R)$ and $(x,x)\in R$; and
+  \item $x\in\rng(\CL(R))$ if and only if $x\in\dom(R)$ and $(x,x)\in R$; and
+  \item $x\in\rng(\CL(R))$ if and only if $x\in\rng(R)$ and $(x,x)\in R$; and
+  \item $x\in\dom(\CL(R))$ if and only if $x\in\rng(R)$ and $(x,x)\in R$.
+  \end{enumerate}
+\item\label{sysrel:28} $\CL(R)=\id_{\dom(\CL(R))}$.
+\item\label{sysrel:29} 
+  \begin{enumerate}[label=(\roman*)]
+  \item If $R\cdot R=R$, $R\cdot(R\setminus\CL(R))=\emptyset$, $(x,y)\in R$,
+    and $x\neq y$, then $x\in\dom(R)\setminus\dom(\CL(R))$ and $y\in\dom(\CL(R))$.
+  \item If $R\cdot R=R$, $(R\setminus\CL(R))\cdot R=\emptyset$, $(x,y)\in R$,
+    and $x\neq y$, then $y\in\dom(R)\setminus\dom(\CL(R))$ and $x\in\dom(\CL(R))$.
+  \end{enumerate}
+\item\label{sysrel:30} 
+  \begin{enumerate}[label=(\roman*)]
+  \item If $R\cdot R=R$, $R\cdot(R\setminus\id_{\dom(R)})=\emptyset$,
+    $(x,y)\in R$, and $x\neq y$, then
+    $x\in\dom(R)\setminus\dom(\CL(R))$
+    and $y\in\dom(\CL(R))$.
+  \item If $R\cdot R=R$, $(R\setminus\id_{\dom(R)})\cdot R=\emptyset$, $(x,y)\in R$,
+    and $x\neq y$, then $y\in\rng(R)\setminus\dom(\CL(R))$ and $x\in\dom(\CL(R))$.
+  \end{enumerate}
+\item\label{sysrel:31} 
+  \begin{enumerate}[label=(\roman*)]
+  \item If $R\cdot R=R$ and $R\cdot(R\setminus\id_{\dom(R)})=\emptyset$,
+    then $\dom(\CL(R))=\rng(R)$ and $\rng(\CL(R))=\rng(R)$
+  \item If $R\cdot R=R$ and $(R\setminus\id_{\dom(R)})\cdot R=\emptyset$
+    then $\dom(\CL(R))=\dom(R)$ and $\rng(\CL(R))=\dom(R)$
+  \end{enumerate}
+\item\label{sysrel:32} 
+  \begin{enumerate}[label=(\roman*)]
+  \item $\dom(\CL(R))\subset\dom(R)$; and
+  \item $\rng(\CL(R))\subset\rng(R)$; and
+  \item $\rng(\CL(R))\subset\dom(R)$; and
+  \item $\dom(\CL(R))\subset\rng(R)$.
+  \end{enumerate}
+\item\label{sysrel:33} 
+  \begin{enumerate}[label=(\roman*)]
+  \item $\id_{\dom(\CL(R))}\subset\id_{\dom(R)}$; and
+  \item $\id_{\rng(\CL(R))}\subset\id_{\dom(R)}$.
+  \end{enumerate}
+\item\label{sysrel:34} 
+  \begin{enumerate}[label=(\roman*)]
+  \item $\id_{\dom(\CL(R))}\subset R$; and
+  \item $\id_{\rng(\CL(R))}\subset R$.
+  \end{enumerate}
+\item\label{sysrel:35} 
+  \begin{enumerate}[label=(\roman*)]
+  \item If $\id_{X}\subset R$ and
+    $\id_{X}\cdot(R\setminus\id_{X})=\emptyset$,
+    then $R|_{X}=\id_{X}$; and
+  \item If $\id_{X}\subset R$ and $(R\setminus\id_{X})\cdot\id_{X}=\emptyset$,
+    then $R|^{X}=\id_{X}$.
+  \end{enumerate}
+\item\label{sysrel:36} 
+  \begin{enumerate}[label=(\roman*)]
+  \item If $\id_{\dom(\CL(R))}\cdot(R\setminus\id_{\dom(\CL(R))})=\emptyset$,
+    then $R|_{\dom(\CL(R))}=\id_{\dom(\CL(R))}$ and $R|_{\rng(\CL(R))}=\id_{\dom(\CL(R))}$.
+  \item If $(R\setminus\id_{\dom(\CL(R))})\cdot\id_{\dom(\CL(R))} =\emptyset$,
+    then $R|^{\dom(\CL(R))}=\id_{\dom(\CL(R))}$ and $R|^{\rng(\CL(R))}=\id_{\rng(\CL(R))}$.
+  \end{enumerate}
+\item\label{sysrel:37} 
+  \begin{enumerate}[label=(\roman*)]
+  \item If $R\cdot(R\setminus\id_{\dom(\CL(R))})=\emptyset$,
+    then $\id_{\dom(\CL(R))}\cdot(R\setminus\id_{\dom(\CL(R))}=\emptyset$; and
+  \item If $(R\setminus\id_{\dom(\CL(R))})\cdot R=\emptyset$,
+    then $(R\setminus\id_{\dom(\CL(R))})\cdot\id_{\dom(\CL(R))}=\emptyset$.
+  \end{enumerate}
+\item\label{sysrel:38} 
+  \begin{enumerate}[label=(\roman*)]
+  \item If $S\cdot R=S$ and $R\cdot(R\setminus\id_{\dom(\CL(R))})=\emptyset$,
+    then $S\cdot(R\setminus\id_{\dom(\CL(R))})=\emptyset$; and
+  \item If $R\cdot S=S$ and $(R\setminus\id_{\dom(\CL(R))})\cdot R=\emptyset$,
+    then $(R\setminus\id_{\dom(\CL(R))})\cdot S=\emptyset$.
+  \end{enumerate}
+\item\label{sysrel:39} 
+  \begin{enumerate}[label=(\roman*)]
+  \item If $S\cdot R=S$ and $R\cdot(R\setminus\id_{\dom(\CL(R))})=\emptyset$,
+    then $\CL(S)\subset\CL(R)$; and
+  \item If $R\cdot S=S$ and $(R\setminus\id_{\dom(\CL(R))})\cdot R=\emptyset$,
+    then $\CL(S)\subset\CL(R)$.
+  \end{enumerate}
+\item\label{sysrel:40} 
+  \begin{enumerate}[label=(\roman*)]
+  \item If $S\cdot R=S$ and $R\cdot(R\setminus\id_{\dom(\CL(R))})=\emptyset$
+    and $R\cdot S=R$ and $S\cdot(S\setminus\id_{\dom(S)})=\emptyset$,
+    then $\CL(S)=\CL(R)$; and
+  \item If $R\cdot S=S$ and $(R\setminus\id_{\dom(\CL(R))})\cdot R=\emptyset$
+    and $S\cdot R=R$ and $(S\setminus\id_{\dom(S)})\cdot S=\emptyset$,
+    then $\CL(S) = \CL(R)$.
+  \end{enumerate}
+\end{thm}
+
+
+
+\end{document}
