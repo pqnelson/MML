@@ -11,11 +11,17 @@
 \end{scheme}
 
 \begin{definition}
-  Let $X$ be a set. We define the attribute $X$ is \define{Empty} to mean:
+Let $X$ be a set. We define the attribute $X$ is \define{Empty}
+(Mizar: ``\verb#empty#'') to mean:
 \begin{defn}
 \item for any object $x$, we have $x\notin X$.
 \end{defn}
 \end{definition}
+
+\begin{remark}\index{nonempty!antonym of Empty}%
+We will, throughout these notes, use the word ``nonempty'' (without a
+dash [non-empty] or space [non empty]) to be the antonym of ``empty''.
+\end{remark}
 
 Observe there exists an empty set.
 
@@ -95,10 +101,10 @@ We now have the following theorems. Let $X$, $Y$ be sets.
   ($x\in Y$ iff $x\in Z$), then $X=Y\symdiff Z$.
 \end{thm}
 
-Observe $\emptyset$ is empty, $\{x\}$ is non-empty, and $\{x,y\}$ is
-non-empty. We observe there exists a non-empty set.
-When $D$ is a non-empty set, and $X$ is any set, we observe $D\cup X$ is
-non-empty and $X\cup D$ is non-empty.
+Observe $\emptyset$ is empty, $\{x\}$ is nonempty, and $\{x,y\}$ is
+nonempty. We observe there exists a nonempty set.
+When $D$ is a nonempty set, and $X$ is any set, we observe $D\cup X$ is
+nonempty and $X\cup D$ is nonempty.
 
 Let $X$, $Y$ be sets. We have the following theorems:
 \begin{thm}[resume]

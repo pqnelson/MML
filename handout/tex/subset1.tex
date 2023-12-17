@@ -10,8 +10,8 @@
 \begin{document}
 \maketitle
 
-Observe $\powerset(X)$ is non-empty. Also observe the enumerated sets
-$\{x_{1},x_{2},\dots,x_{n}\}$ are non-empty for $n=3,\dots,10$.
+Observe $\powerset(X)$ is nonempty. Also observe the enumerated sets
+$\{x_{1},x_{2},\dots,x_{n}\}$ are nonempty for $n=3,\dots,10$.
 
 \begin{definition}
 Let $X$ be a set.
@@ -34,7 +34,7 @@ is a formula (``proposition'').
 \end{remark}
 
 \begin{definition}
-Let $D$ be a non-empty set. Let $X$ be a non-empty subset of $D$.
+Let $D$ be a nonempty set. Let $X$ be a nonempty subset of $D$.
 We redefine the type ``Element of $X$'' to refer to a term with type
 ``Element of $D$''.
 \end{definition}
@@ -188,7 +188,7 @@ We have $\mathcal{X}_{1}=\mathcal{X}_{2}$ provided:
 \end{scheme}
 
 \begin{definition}
-  Let $X$ and $Y$ be non-empty sets. Observe:
+  Let $X$ and $Y$ be nonempty sets. Observe:
   \begin{enumerate}
   \item The predicate ``$X$ misses $Y$'' is irreflexive (i.e., $X$ never
     misses itself), and
@@ -206,7 +206,7 @@ We have $\mathcal{X}_{1}=\mathcal{X}_{2}$ provided:
 We have the following two schemes:
 
 \begin{scheme}[SubsetEx]
-Let $\mathcal{A}$ be a non-empty set, let $P[-]$ be a unary predicate of objects.
+Let $\mathcal{A}$ be a nonempty set, let $P[-]$ be a unary predicate of objects.
 Then there exists a subset $B$ of $\mathcal{A}$ such that for every
 element $x$ of $\mathcal{A}$, we have $x\in B$ iff $P[x]$.
 \end{scheme}
@@ -241,16 +241,16 @@ In these notes, we will use the term ``improper'' as the antonym for
 \end{definition}
 
 Observe $\Omega_{E}$ is improper, and then there exists a improper
-subset of $E$. When $E$ is non-empty, improper implies non-empty and
+subset of $E$. When $E$ is nonempty, improper implies nonempty and
 empty implies proper for subsets of $E$. We observe there exists a
-proper subset of non-empty sets.
+proper subset of nonempty sets.
 
 We have the following two propositions:
 \begin{thm}
 \item\label{subset1:43} For any sets $X$, $Y$, and $A$, and for any set $z$,
 if $z\in A$ and $A\subset X\times Y$, then there exists an element $x$
 of $X$ and an element $y$ of $Y$ such that $z=(x,y)$.
-\item\label{subset1:44} For any non-empty set $X$, for any non-empty
+\item\label{subset1:44} For any nonempty set $X$, for any nonempty
   subsets $A$ and $B$ of $X$ such that $A\properSubset B$, there exists
   an element $p$ of $X$ such that $p\in B$ and $A\subset B\setminus\{p\}$.
 \end{thm}
@@ -264,7 +264,7 @@ Let $X$ be a set. We redefine the attribute $X$ is \define{trivial}
 \end{definition}
 
 
-Observe there exists a non-empty trivial subset of any non-empty set.
+Observe there exists a nonempty trivial subset of any nonempty set.
 Also observe subsets of a trivial set are always trivial. We also
 observe there exists a non-trivial subset of non-trivial sets.
 
@@ -273,9 +273,9 @@ We have the following four propositions:
 \item\label{subset1:45} For any set $D$ and any subset $A$ of $D$, if
   $A$ is nontrivial, then there exist elements $d_{1}$ and $d_{2}$ of
   $D$ such that $d_{1}\in A$ and $d_{2}\in A$ and $d_{1}\neq d_{2}$.
-\item\label{subset1:46} For any trivial non-empty set $X$, there exists
+\item\label{subset1:46} For any trivial nonempty set $X$, there exists
   an element $x$ of $X$ such that $X=\{x\}$.
-\item\label{subset1:47} For any non-empty set $X$ and any non-empty
+\item\label{subset1:47} For any nonempty set $X$ and any nonempty
   subset $A$ of $X$, if $A$ is trivial, then there exists an element $x$
   of $X$ such that $A=\{x\}$.
 \item\label{subset1:48} For any nontrivial set $X$ and element $x$ of $X$,
@@ -288,7 +288,7 @@ term $\In{x}{X}$ (Mizar: ``\verb#In(x, X)#'') to equal
 \begin{defn}
 \item $x$.
 \end{defn}
-We can reduce $\In{x}{X}$ to $x$ when $X$ is a non-empty set and $x$ is
+We can reduce $\In{x}{X}$ to $x$ when $X$ is a nonempty set and $x$ is
 an element of $X$.
 \end{definition}
 
@@ -325,12 +325,12 @@ We have the following two propositions:
 \item\label{subset:1} For any sets $a$ and $b$,
   if $a\in b$, then $a$ is an element of $b$.
 \item\label{subset:2} For any sets $a$ and $b$,
-  if $a$ is an element of $b$ and $b$ is non-empty, then $a\in b$.
+  if $a$ is an element of $b$ and $b$ is nonempty, then $a\in b$.
 \item\label{subset:3} For any sets $a$ and $b$,
   if $a$ is a subset of $b$, then $a\subset b$.
 \item\label{subset:4} For any sets $a$, $b$, and $c$,
   if $a\in b$ and $b$ is a subset of $c$, then $a$ is an element of $c$.
 \item\label{subset:5} For any sets $a$, $b$, and $c$,
-  if $a\in b$ and $b$ is a subset of $c$, then $c$ is non-empty.
+  if $a\in b$ and $b$ is a subset of $c$, then $c$ is nonempty.
 \end{thm}
 \end{document}

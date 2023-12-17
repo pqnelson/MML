@@ -27,6 +27,11 @@ We define the term $f^{\smile}$ (Mizar: ``\verb#f~#'') to be the function satisf
 Observe this is involutive (i.e., $(f^{\smile})^{\smile}=f$).
 \end{definition}
 
+\begin{remark}
+Compare to the converse of a relation $\converse{R}$ in \textsc{relat1}~\ref{relat1:def7}.
+In future articles, I may write $\converse{f}$ as synonymous with $f^{\smile}$.
+\end{remark}
+
 We can prove the following propositions:
 \begin{thm}
 \item\label{funcop1:2} $\langle f,g\rangle=\langle g,f\rangle^{\smile}$
@@ -36,7 +41,7 @@ We can prove the following propositions:
 \item\label{funcop1:6} $\langle f,g\rangle|_{A}=\langle f,g|_{A}\rangle$.
 \end{thm}
 
-\begin{definition}
+\begin{definition}\index{$A\constantto z$}%
 Let $A$ be a set, let $z$ be an object.
 We define the term $A\constantto z$ (Mizar: ``\verb#A --> z#'')
 to be the set equal to
@@ -91,7 +96,7 @@ We can prove the following seven propositions:
 \item\label{funcop1:20} $(A\constantto(x,y))^{\smile}=A\constantto(y,x)$.
 \end{thm}
 
-\begin{definition}
+\begin{definition}\index{$F(f,g)$}%
 Let $F$, $f$, $g$ be functions.
 We define the term $F(f,g)$ (Mizar: ``\verb#F .: (f,g)#'') to be the set equal to
 \begin{defn}
@@ -115,7 +120,7 @@ We can prove the following propositions:
 \item\label{funcop1:25} $F(f,g)\circ h=F(f\circ h,g\circ h)$.
 \end{thm}
 
-\begin{definition}
+\begin{definition}\index{$F(f,x)$}\index{\texttt{F [:] (f,x)}}%
 Let $F$, $f$ be functions, let $x$ be an object.
 We define the term $F(f,x)$ (Mizar: ``\verb#F[:](f,x)#'') to be the set equal to
 \begin{defn}
@@ -137,7 +142,7 @@ We now can prove the following five propositions:
 \item\label{funcop1:30} $F(f,x)\circ\id_{A}=F(f|_{A},x)$.
 \end{thm}
 
-\begin{definition}
+\begin{definition}\index{$F(x,g)$}\index{\texttt{F [;] (x,g)}}%
 Let $F$ be a function, let $x$ be an object, let $g$ be a function.
 We define the term $F(x,g)$ (Mizar: ``\verb#F [;] (x,g)#'') to be the set equal to
 \begin{defn}
@@ -326,9 +331,9 @@ We can prove the following proposition:
 \item\label{funcop1:70} $(X\times Y\constantto z)(x,y)=z$.
 \end{thm}
 
-\begin{definition}
+\begin{definition}\index{\texttt{(a,b) .--> c}}%
 Let $a$, $b$, $c$ be objects.
-We define the term $(a,b)\constantto c$ to be the function equal to
+We define the term $(a,b)\constantto c$ (Mizar: ``\verb#(a,b) .--> c#'') to be the function equal to
 \begin{defn}
 \item $(a,b)\constantto c = \{(a,b)\}\constantto c$.
 \end{defn}
@@ -340,7 +345,7 @@ We can prove the following proposition:
   $((a,b)\constantto c)(a,b)=c$.
 \end{thm}
 
-\begin{definition}
+\begin{definition}\index{\texttt{IFEQ}}%
 Let $x$, $y$, $a$, $b$ be objects.
 We define the term $\IfEq{x}{y}{a}{b}$ (Mizar: ``\verb#IFEQ(x,y,a,b)#'')
 to be the object equal to
@@ -361,7 +366,7 @@ We redefine the type of the term $\IfEq{x}{y}{a}{b}$ to be an element of
 $D$.
 \end{definition}
 
-\begin{definition}
+\begin{definition}\index{\texttt{x .--> y}}%
 Let $x$, $y$ be objects.
 We define the term $x\constantto y$ (Mizar: ``\verb#x .--> y#'')
 to be the set equal to
@@ -400,7 +405,7 @@ We can prove the following three propositions:
 \item\label{funcop1:76} If $x\notin A$, then $(x\constantto y)|_{A}=\emptyset$.
 \end{thm}
 
-\begin{notation}
+\begin{notation}\index{\texttt{x :-> y}}%
 Let $x$ and $y$ be objects. We introduce $x\mapsto y$ (Mizar:
 ``\verb#x :-> y#'') as a synonym for $x\constantto y$.
 \end{notation}
