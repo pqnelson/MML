@@ -55,10 +55,123 @@ of $\mathcal{Z}$, there exists an element $t$ of $\mathcal{T}$ such that $\mathc
 \end{enumerate}
 \end{scheme}
 
+\begin{scheme}[TriOpEx]
+Let $\mathcal{A}$ be a nonempty set, let $\mathcal{P}[-,-,-,-]$ be a
+tetradic predicate of elements of $\mathcal{A}$.
+There exists a ternary operator $p$ of $\mathcal{A}$ such that for all
+elements $a$, $b$, $c$ of $\mathcal{A}$ we have $\mathcal{P}[a,b,c,p(a,b,c)]$;
+provided:
+\begin{enumerate}
+\item for all elements $x$, $y$, $z$ of $\mathcal{A}$, there exists an
+  element $t$ of $\mathcal{A}$ such that $\mathcal{P}[x,y,z,t]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[Lambda3D]
+Let $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{Z}$, $\mathcal{T}$ be
+nonempty sets, let $\mathcal{F}(-,-,-,)$ be an element of $\mathcal{T}$
+parametrized by an element of $\mathcal{X}$, $\mathcal{Y}$ and $\mathcal{Z}$.
+There exists a function $f\colon\mathcal{X}\times\mathcal{Y}\times\mathcal{Z}\to\mathcal{T}$
+such that for each element $x$ of $\mathcal{X}$, $y$ of $\mathcal{Y}$,
+$z$ of $\mathcal{Z}$, we have $f(x,y,z)=\mathcal{F}(x,y,z)$.
+\end{scheme}
+
+\begin{scheme}[TriOpLambda]
+Let $\mathcal{A}$, $\mathcal{B}$, $\mathcal{C}$, $\mathcal{D}$ be
+nonempty sets, let $\mathcal{F}(-,-,-)$ be an element of $\mathcal{D}$
+parametrized by an element of $\mathcal{A}$, $\mathcal{B}$, and $\mathcal{C}$.
+There existsa function $f\colon\mathcal{A}\times\mathcal{B}\times\mathcal{C}\to\mathcal{D}$
+such that for each element $a$ of $\mathcal{A}$, $b$ of $\mathcal{B}$,
+$c$ of $\mathcal{C}$, we have $f(a,b,c)=\mathcal{F}(a,b,c)$.
+\end{scheme}
+
+\begin{definition}
+Let $f$ be a function.
+Let $a$, $b$, $c$, $d$ be sets.
+We define the term $f(a,b,c,d)$ (Mizar: ``\verb#f.(a,b,c,d)#'') to be
+the set equal to
+\begin{defn}
+\item $f(a,b,c,d):=f((a,b,c,d))$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $A$, $B$, $C$, $D$, $E$ be nonempty sets, let $f\colon A\times B\times C\times D\to E$,
+let $a$ be an element of $A$, $b$ an element of $B$, $c$ of $C$, $d$ of $D$.
+We redefine the type of $f(a,b,c,d)$ to be an element of $E$.
+\end{definition}
+
+Let $X$, $Y$, $Z$, $S$ be arbitrary sets, let $A$, $B$, $C$, $D$, $E$ be
+nonempty sets.
+We have the following three results:
 \begin{thm}
-\item\label{multop1:4} 
-\item\label{multop1:5} 
-\item\label{multop1:6} 
+\item\label{multop1:4} Let $f_{1},f_{2}\colon X\times Y\times Z\times S\to D$
+  be functions. Suppose for all sets $x$, $y$, $z$, $s$ with $x\in X$,
+  $y\in Y$, $z\in Z$, $s\in S$ we have $f_{1}(x,y,z,s)=f_{2}(x,y,z,s)$.
+  Then $f_{1}=f_{2}$.
+\item\label{multop1:5} Let $f_{1},f_{2}\colon A\times B\times C\times D\to E$.
+  Suppose for all elements $a$ of $A$, $b$ of $B$, $c$ of $C$, $d$ of
+  $D$, we have $f_{1}((a,b,c,d))=f_{2}((a,b,c,d))$.
+  Then $f_{1}=f_{2}$.
+\item\label{multop1:6} Let $f_{1},f_{2}\colon A\times B\times C\times D\to E$.
+  Suppose for all elements $a$ of $A$, $b$ of $B$, $c$ of $C$, $d$ of
+  $D$, we have $f_{1}(a,b,c,d)=f_{2}(a,b,c,d)$.
+  Then $f_{1}=f_{2}$.
 \end{thm}
+
+\begin{definition}
+Let $A$ be a nonempty set.
+We define a new mode, a \define{Quaternary Operator of $A$} is a
+function from $A\times A\times A\times A$ to $A$.
+\end{definition}
+
+\begin{scheme}[FuncEx4D]
+Let $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{Z}$, $\mathcal{S}$, $\mathcal{T}$ be
+nonempty sets, let $\mathcal{P}[-,-,-,-,-]$ be a pentadic predicate of
+objects.
+There exists a function $f\colon\mathcal{X}\times\mathcal{Y}\times\mathcal{Z}\times\mathcal{S}\to\mathcal{T}$
+such that for all elements $x$ of $\mathcal{X}$, $y$ of $\mathcal{Y}$,
+$z$ of $\mathcal{Z}$, $s$ of $\mathcal{S}$, we have $\mathcal{P}[x,y,z,s,f(x,y,z,s)]$;
+provided
+\begin{enumerate}
+\item for all elements $x$ of $\mathcal{X}$, $y$ of $\mathcal{Y}$,
+$z$ of $\mathcal{Z}$, $s$ of $\mathcal{S}$,
+there exists an element $t$ of $\mathcal{T}$ such that $\mathcal{P}[x,y,z,s,t]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[QuaOpEx]
+Let $\mathcal{A}$ be a nonempty set, let $\mathcal{P}[-,-,-,-,-]$ be a
+pentadic predicate of elements of $\mathcal{A}$.
+There exists a quaternary operator $f$ of $\mathcal{A}$ such that for
+all elements $a_{1}$, $a_{2}$, $a_{3}$, $a_{4}$ of $\mathcal{A}$ we have
+$\mathcal{P}[a_{1},a_{2},a_{3},a_{4},f(a_{1},a_{2},a_{3},a_{4})]$;
+provided:
+\begin{enumerate}
+\item for all elements $x$, $y$, $z$, $s$ of $\mathcal{A}$, there exists
+  an element $t$ of $\mathcal{A}$ such that $\mathcal{P}[x,y,z,s,t]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[Lambda4D]
+Let $\mathcal{X}$, $\mathcal{Y}$, $\mathcal{Z}$, $\mathcal{S}$, $\mathcal{T}$
+be nonempty sets, let $\mathcal{F}(-,-,-,-)$ be an element of $\mathcal{T}$
+parametrized by an element of $\mathcal{X}$, $\mathcal{Y}$,
+$\mathcal{Z}$, and $\mathcal{T}$ (respectively).
+There exists a function $f\colon\mathcal{X}\times\mathcal{Y}\times\mathcal{Z}\times\mathcal{S}\to\mathcal{T}$
+such that for all elements $x$ of $\mathcal{X}$, $y$ of $\mathcal{Y}$,
+$z$ of $\mathcal{Z}$, $s$ of $\mathcal{S}$, we have $f(x,y,z,s)=\mathcal{F}(x,y,z,s)$.
+\end{scheme}
+
+\begin{scheme}[QuaOpLambda]
+Let $\mathcal{A}$ be a nonempty set, let $\mathcal{F}(-,-,-,-)$ be an
+element of $\mathcal{A}$ parametrized by four elements of $\mathcal{A}$.
+There exists a quaternary operator $f$ of $\mathcal{A}$ such that for
+all elements $a$, $b$, $c$, $d$ of $\mathcal{A}$ we have $f(a,b,c,d)=\mathcal{F}(a,b,c,d)$.
+\end{scheme}
+
+
+
+
 
 \end{document}
