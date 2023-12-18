@@ -1,0 +1,100 @@
+\documentclass{article}
+
+\title{Subsets of Complex Numbers (NUMBERS)}
+\title{Andrzej Trybulec}
+\date{November 7, 2003}
+\begin{document}
+\maketitle
+
+\begin{notation}\index{$\NN$}\index{\texttt{NAT}}%
+We define the term $\NN$ (Mizar: ``\verb#NAT#'') to be a synonym for the
+set $\omega$.
+\end{notation}
+
+\begin{definition}\index{Reals}\index{$\RR$}\index{\texttt{REAL}}%
+We define the term $\RR$ (Mizar: ``\verb#REAL#'') to be the set equal to
+\begin{defn}
+\item $\RR := (\RR_{+}\cup(\{0\}\times\RR_{+}))\setminus\{(0,0)\}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}\index{Complex numbers}\index{$\CC$}\index{\texttt{COMPLEX}}%
+We define the term $\CC$ (Mizar: ``\verb#COMPLEX#'') to be the set equal to
+\begin{defn}
+\item $\CC:=(\Funcs(\{0,1\},\RR)\setminus\{x\in\Funcs(\{0,1\},\RR)\mid x(1)=0\})\cup\RR$.
+\end{defn}\index{Rational numbers}\index{$\QQ$}\index{\texttt{RAT}}%
+We define the term $\QQ$ (Mizar: ``\verb#RAT#'') to be the set equal to
+\begin{defn}
+\item $\QQ:=(\QQ_{+}\cup(\{0\}\times\QQ_{+}))\setminus\{(0,0)\}$.
+\end{defn}\index{Integers}\index{$\ZZ$}\index{\texttt{INT}}%
+We define the term $\ZZ$ (Mizar: ``\verb#INT#'') to be the set equal to
+\begin{defn}
+\item $\ZZ:=(\NN\cup(\{0\}\times\NN))\setminus\{(0,0)\}$.
+\end{defn}
+\end{definition}
+\begin{remark}
+For the rationals and integers, we interpret $(0,x)$ as $-x$.
+For the complex numbers, we interpret $z_{0}+z_{1}\cdot\sqrt{-1}$
+as a function $z\colon\{0,1\}\to\RR$.
+We ``surgically remove'' subsets to make sure $\NN\subset\ZZ\subset\QQ\subset\RR\subset\CC$.
+\end{remark}
+
+\begin{definition}
+We redefine the type of the term $0$ to be an element of $\omega$.
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{numbers:1} $\RR\properSubset\CC$.
+\item\label{numbers:2} $\QQ\properSubset\RR$
+\item\label{numbers:3} $\QQ\properSubset\CC$
+\item\label{numbers:4} $\ZZ\properSubset\QQ$
+\item\label{numbers:5} $\ZZ\properSubset\RR$
+\item\label{numbers:6} $\ZZ\properSubset\CC$
+\item\label{numbers:7} $\NN\properSubset\ZZ$
+\item\label{numbers:8} $\NN\properSubset\QQ$
+\item\label{numbers:9} $\NN\properSubset\RR$
+\item\label{numbers:10} $\NN\properSubset\CC$
+\item\label{numbers:11} $\RR\subset\CC$
+\item\label{numbers:12} $\QQ\subset\RR$
+\item\label{numbers:13} $\QQ\subset\CC$
+\item\label{numbers:14} $\ZZ\subset\QQ$
+\item\label{numbers:15} $\ZZ\subset\RR$
+\item\label{numbers:16} $\ZZ\subset\CC$
+\item\label{numbers:17} $\NN\subset\ZZ$
+\item\label{numbers:18} $\NN\subset\QQ$
+\item\label{numbers:19} $\NN\subset\RR$
+\item\label{numbers:20} $\NN\subset\CC$.
+\item\label{numbers:21} $\RR\neq\CC$
+\item\label{numbers:22} $\QQ\neq\RR$
+\item\label{numbers:23} $\QQ\neq\CC$
+\item\label{numbers:24} $\ZZ\neq\QQ$
+\item\label{numbers:25} $\ZZ\neq\RR$
+\item\label{numbers:26} $\ZZ\neq\CC$
+\item\label{numbers:27} $\NN\neq\ZZ$
+\item\label{numbers:28} $\NN\neq\QQ$
+\item\label{numbers:29} $\NN\neq\RR$
+\item\label{numbers:30} $\NN\neq\CC$.
+\end{thm}
+
+\begin{definition}\index{Reals!Extended}\index{Extended Reals}\index{$\ExtRR$}%
+We define the term $\ExtRR$ (Mizar: ``\verb#ExtREAL#'') to be the set
+equal to
+\begin{defn}
+\item $\ExtRR := \RR\cup\{\RR,(0,\RR)\}$.
+\end{defn}
+\end{definition}
+\begin{remark}
+We interpret $(0,\RR)$ as $-\infty$ and $\RR$ as $+\infty$.
+\end{remark}
+
+We have the following results:
+\begin{thm}
+\item\label{numbers:31} $\RR\subset\ExtRR$
+\item\label{numbers:32} $\RR\neq\ExtRR$
+\item\label{numbers:33} $\RR\properSubset\ExtRR$
+\end{thm}
+
+Observe $\ZZ$, $\QQ$, $\RR$, $\CC$ are all infinite sets.
+
+\end{document}

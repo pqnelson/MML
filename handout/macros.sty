@@ -1,3 +1,4 @@
+\RequirePackage{upquote}
 \usepackage{amssymb,amsmath,amsthm}
 \@ifclassloaded{amsbook}{}{
   \usepackage[left=6pc,textwidth=30pc]{geometry}
@@ -7,7 +8,8 @@
 %\usepackage[chapter]{tocbibind}
 \RequirePackage[dvipsnames]{xcolor}
 \usepackage{etoolbox}
-\usepackage{hyperref}
+\RequirePackage{ifpdf}
+\RequirePackage[\ifpdf\else dvipdfmx\fi]{hyperref}
 % eTeX uses this color for links, it's better than BrickRed imho
 \definecolor{linkRed}{cmyk}{0.28, 1, 1, 0.35}
 \hypersetup{colorlinks=true,
@@ -48,6 +50,10 @@
   itemsep=0pt,
   parsep=0pt
 }
+\let\og@label\label
+\let\oldthm\thm
+\renewcommand\thm{\def\label##1{}\oldthm}
+
 \setlist[enumerate]{label={\normalfont(\arabic*)}}
 %% \@ifclassloaded{amsbook}{
 %%   \preto\section{%

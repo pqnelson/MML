@@ -1,0 +1,169 @@
+\documentclass{article}
+
+\title{Non negative real numbers. Part I (ARYTM-2)}
+\author{Andrzej Trybulec}
+\date{March 7, 1998}
+\begin{document}
+\maketitle
+
+Let $r$, $s$, $t$ be elements of $\QQ_{+}$.
+\begin{definition}\index{\texttt{DEDEKIND\_CUTS}}%
+We define the term the set of \define{Dedekind Cuts} (Mizar: ``\verb#DEDEKIND_CUTS#'')
+to be the subset-family of $\QQ_{+}$ equal to
+\begin{defn}
+\item $\{A\subset\QQ_{+}\mid r\in A\implies(\forall s\leq r,s\in A)\land\exists s\in A, r<s\}\setminus\QQ_{+}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}\index{$\RR_{+}$}\index{Reals!Positive}\index{\texttt{REAL+}}%
+We define the term $\RR_{+}$ (Mizar: ``\verb#REAL+#'') to be the set
+equal to
+\begin{defn}
+\item $\RR_{+}:=(\QQ_{+}\cup\mbox{Dedekind cuts})\setminus\{\{s\mid s<t\}\mid t\neq0\}$
+\end{defn}
+\end{definition}
+
+Let $x$, $y$, $z$ be elements of $\RR_{+}$. Let $x'$, $y'$, $z'$, $p$,
+$q$ be elements of $\QQ_{+}$. We have the following results:
+\begin{thm}
+\item\label{arytm2:1} $\QQ_{+}\subset\RR_{+}$.
+\item\label{arytm2:2} $\omega\subset\RR_{+}$.
+\end{thm}
+
+\begin{definition}
+Let $x$ be an element of $\RR_{+}$.
+We define the term the \define{Dedekind Cut} of $x$ (Mizar:
+``\verb#DEDEKIND_CUT x#'') to be the element of the set of Dedekind
+cuts, denoted $\DED(x)$, satisfying
+\begin{defn}
+\item \begin{itemize}
+\item If $x\in\QQ_{+}$: There exists an element $r$ of $\QQ_{+}$ such
+  that $x=r$ and it is equal to $\{s\mid s<r\}$;
+\item Otherwise, it is equal to $x$.
+\end{itemize}
+\end{defn}
+\end{definition}
+
+We can prove the following proposition:
+\begin{thm}
+\item\label{arytm2:3} There is no object $y$ such that $(\emptyset,y)\in\RR_{+}$.
+\end{thm}
+
+\begin{definition}
+Let $x$ be an element of the set of Dedekind cuts.
+We define the term GLUED $x$ to be the element of $\RR_{+}$ satisfying
+\begin{defn}
+\item \begin{itemize}
+\item %% If there exists an element $r$ of $\QQ_{+}$ such that every
+  %% element $s$ of $\QQ_{+}$ satisfies $s\in x$ iff $s<r$:
+  %% Then 
+  There exists an element $r$ of $\QQ_{+}$ such that it is equal to
+  $r$ and every element $s$ of $\QQ_{+}$ satisfies $s\in x$ iff $s<r$
+  \emph{if such an element $r$ exists};
+\item Otherwise, it is equal to $x$.
+\end{itemize}
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $x$, $y$ be elements of $\RR_{+}$.
+We define the predicate $x\leq y$ (Mizar: ``\verb#x <=' y#'') to mean
+\begin{defn}
+\item \begin{itemize}
+\item (If $x\in\QQ_{+}$ and $y\in\QQ_{+}$) There exists elements $x'$, $y'$ of $\QQ_{+}$ such that $x=x'$, $y=y'$,
+  and $x'\leq y'$;
+\item (If $x\in\QQ_{+}$ but $y\notin\QQ_{+}$) $x\in y$;
+\item (If $x\notin\QQ_{+}$ but $y\in\QQ_{+}$) $y\notin x$;
+\item Otherwise $x\subset y$.
+\end{itemize}
+\end{defn}
+This is connected (i.e., for all elements $x$ and $y$ of $\RR_{+}$,
+either $x\leq y$ or $y\leq x$).
+\end{definition}
+
+\begin{notation}
+Let $x$, $y$ be elements of $\RR_{+}$.
+We define the predicate $y<x$ is the antonym of $x\leq y$.
+\end{notation}
+
+\begin{definition}
+Let $A$, $B$ be elements of the set of Dedekind cuts.
+We define the term $A + B$ (Mizar: ``\verb#A + B#'') to be the element
+of the set of Dedekind cuts equal to
+\begin{defn}
+\item $A + B = \{r + s\mid r\in A,s\in B\}$.
+\end{defn}
+Observe this is commutative (i.e., $A+B=B+A$).
+\end{definition}
+
+\begin{definition}
+Let $A$, $B$ be elements of the set of Dedekind cuts.
+We define the term $A \cdot B$ (Mizar: ``\verb#A *' B#'') to be the element
+of the set of Dedekind cuts equal to
+\begin{defn}
+\item $A \cdot B = \{r \cdot s\mid r\in A,s\in B\}$.
+\end{defn}
+Observe this is commutative (i.e., $A\cdot B=B\cdot A$).
+\end{definition}
+
+\begin{definition}
+Let $x$, $y$ be elements of $\RR_{+}$.
+We define the term $x + y$ (Mizar: ``\verb#x + y#'') to be the element
+of $\RR_{+}$ equal to
+\begin{defn}
+\item $\displaystyle x+y:=\begin{cases}x & \mbox{if }y=0\\
+  y & \mbox{if }x=0\\
+  \mbox{GLUED}(\DED(x)+\DED(y)) & \mbox{otherwise}
+\end{cases}$
+\end{defn}
+Observe this is commutative (i.e., $x+y=y+x$).
+
+We define the term $x\cdot y$ (Mizar: ``\verb#x *' y#'') to be the
+element of $\RR_{+}$ equal to
+\begin{defn}
+\item $x\cdot y:=\mbox{GLUED}(\DED(x)\cdot\DED(y))$.
+\end{defn}
+Observe this is commutative (i.e., $x\cdot y=y\cdot x$).
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{arytm2:4} If $x=0$, then $x\cdot y=0$.
+\item\label{arytm2:5} If $x+y=0$, then $x=0$.
+\item\label{arytm2:6} (Associativity) $x+(y+z)=(x+y)+z$.
+\item\label{arytm2:7} $\{A\subset\QQ_{+}\mid r\in A\implies(\forall s\leq r,s\in A)\land\exists s\in A,r<s\}$
+  is $\subset$-linear.
+\item\label{arytm2:8} Let $X$, $Y$ be subsets of $\RR_{+}$.
+Suppose there exists an element $x$ of $\RR_{+}$ such that $x\in Y$ and
+all elements $a$ and $b$ of $\RR_{+}$ with $a\in X$ and $b\in Y$ satisfy
+$a\leq b$.
+Then there exists an element $z$ of $\RR_{+}$
+such that for all elements $x$ and $y$ of $\RR_{+}$, if $x\in X$ and
+$y\in Y$, then $x\leq z\leq y$.
+\item\label{arytm2:9} If $x\leq y$, then there exists an element $z$ of
+  $\RR_{+}$ such that $x+z=y$.
+\item\label{arytm2:10} There exists an element $z$ of $\RR_{+}$ such
+  that $x+z=y$ or $y+z=x$.
+\item\label{arytm2:11} If $x+y=x+z$, then $y=z$.
+\item\label{arytm2:12} (Associativity) $x\cdot(y\cdot z)=(x\cdot y)\cdot z$.
+\item\label{arytm2:13} (Distributivity) $x\cdot(y+z)=(x\cdot y)+(x\cdot z)$.
+\item\label{arytm2:14} If $x\neq0$, then there exists an element $y$ of
+  $\RR_{+}$ such that $x\cdot y=1$.
+\item\label{arytm2:15} If $x=1$, then $x\cdot y=y$.
+\item\label{arytm2:16} If $x\in\omega$ and $y\in\omega$, then $y+x\in\omega$.
+\item\label{arytm2:17} Let $A$ be a subset of $\RR_{+}$.
+  Suppose $0\in A$ and for all elements $x$ and $y$ of $\RR_{+}$ with
+  $x\in A$ and $y=1$ satisfy $x+y\in A$.
+  Then $\omega\subset A$.
+\item\label{arytm2:18} Suppose $x\in\omega$.
+  Then for all elements $y$ of $\RR_{+}$, we have $y\in x$ if and only
+  if $y\in\omega$ and $y\neq x$ and $y\leq x$.
+\item\label{arytm2:19} If $x=y+z$, then $z\leq x$.
+\item\label{arytm2:20} $0\in\RR_{+}$ and $1\in\RR_{+}$.
+\item\label{arytm2:21} (Compatibility of multiplication of reals with
+  multiplication of rationals) If $x\in\QQ_{+}$ and $y\in\QQ_{+}$, then there
+  exists elements $x'$ and $y'$ of $\QQ_{+}$ such that $x=x'$ and $y=y'$
+  and $x\cdot y=x'\cdot y'$.
+\end{thm}
+
+\end{document}

@@ -1,0 +1,391 @@
+\documentclass{article}
+
+\title{Arithmetic of Non Negative Rational Numbers (ARYTM-3)}
+\author{Grzegorz Bancerek}
+\date{March 7, 1998}
+\begin{document}
+\maketitle
+
+\begin{definition}
+We define the term \define{one} to be the set equal to
+\begin{defn}
+\item $\mbox{one}:=1$.
+\end{defn}
+\end{definition}
+
+\section{Relative prime numbers and divisibility}
+
+\begin{definition}
+Let $a$ and $b$ be Ordinals.
+We define the predicate, saying $a$ and $b$ are \define{Coprime}
+(Mizar: ``\verb#a,b are_coprime#'') to mean
+\begin{defn}
+\item for all Ordinals $c$, $d_{1}$, $d_{2}$, if $a=c\cdot d_{1}$ and
+  $b=c\cdot d_{2}$, then $c=1$.
+\end{defn}
+Observe this is symmetric (if $a$ is coprime with $b$, then $b$ is
+coprime with $a$).
+\end{definition}
+
+Let $A$, $B$, $C$ be Ordinals. We have the following results:
+\begin{thm}
+\item\label{arytm3:1} $\emptyset$ is not coprime with $\emptyset$.
+\item\label{arytm3:2} $1$ is coprime with $A$.
+\item\label{arytm3:3} If $\emptyset$ is coprime with $A$, then $A=1$.
+\end{thm}
+
+Let $a$ and $b$ be natural ordinals. We have
+the following result:
+\begin{thm}
+\item\label{arytm3:4} If $a\neq\emptyset$ or $b\neq\emptyset$, then
+  there exists natural ordinals $c$, $d_{1}$, $d_{2}$ such that $d_{1}$
+  is coprime with $d_{2}$, $a=c\cdot d_{1}$, and $b=c\cdot d_{2}$.
+\end{thm}
+
+\begin{definition}
+Let $k$, $n$ be Ordinals.
+We define a predicate, saying $k$ \define{divides} $n$
+(Mizar: ``\verb#k divides n#'') to mean
+\begin{defn}
+\item there exists an ordinal $a$ such that $n=k\cdot a$.
+\end{defn}
+Observe this is reflexive (any ordinal divides itself).
+\end{definition}
+
+\begin{remark}
+We will use the conventional notation, writing $k\divides n$ as
+shorthand for ``$k$ divides $n$''.
+\end{remark}
+
+Let $c$, $d$, $\ell$, $m$, $n$ be natural ordinals.
+We have the following results:
+\begin{thm}
+\item\label{arytm3:5} $a$ divides $b$ if and only if there exists a natural
+  ordinal $c$ such that $b=a\cdot c$.
+\item\label{arytm3:6} If $\emptyset\in m$, then $(n\mod{m})\in m$.
+\item\label{arytm3:7} $m$ divides $n$ if and only if $n=m\cdot(n\div m)$.
+\item\label{arytm3:8} If $n$ divides $m$, and if $m$ divides $n$, then $m=n$.
+\item\label{arytm3:9} $n$ divides $\emptyset$, and $1$ divides $n$.
+\item\label{arytm3:10} If $\emptyset\in m$ and $n$ divides $m$, then
+  $n\subset m$.
+\item\label{arytm3:11} If $n$ divides $m$, and $n$ divdies $m+\ell$,
+  then $n$ divides $\ell$.
+\end{thm}
+
+\begin{definition}
+Let $k$, $n$ be natural ordinals.
+We define the term the \define{least common multiple} of $k$ and $n$ (Mizar:
+``\verb#k lcm n#'') to be the element of $\omega$, denoted $\lcm(k,n)$,
+satisfying
+\begin{defn}
+\item $k$ divides $\lcm(k,n)$, and $n$ divides $\lcm(k,n)$, and for all
+  natural ordinals $m$ such that $k$ divides $m$ and $n$ divides $m$,
+  then $\lcm(k,n)$ divides $m$.
+\end{defn}
+Observe this commutative (i.e., $\lcm(k,n)=\lcm(n,k)$).
+\end{definition}
+
+We can prove the following two propositions:
+\begin{thm}
+\item\label{arytm3:12} $\lcm(m,n)$ divides $m\cdot n$.
+\item\label{arytm3:13} If $n\neq 0$, then $m\cdot n\div\lcm(m,n)$
+  divides $m$.
+\end{thm}
+
+\begin{definition}
+Let $k$, $n$ be natural ordinals.
+We define the \define{Highest Common Factor} of $k$ and $n$ (Mizar:
+``\verb#k hcf n#'') to be the element of $\omega$ denoted $\hcf(k,n)$
+satisfying
+\begin{defn}
+\item $\hcf(k,n)$ divides $k$, $\hcf(k,n)$ divides $n$, and all
+  ordinals $m$ such that $m$ divides $k$ and $m$ divides $n$ also
+  satisfies $m$ divides $\hcf(k,n)$.
+\end{defn}
+Observe this is commutative (i.e., $\hcf(k,n)=\hcf(n,k)$).
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{arytm3:14} $\hcf(a,\emptyset)=a$ and $\lcm(a,\emptyset)=\emptyset$.
+\item\label{arytm3:15} If $\hcf(a,b)=\emptyset$, then $a=\emptyset$.
+\item\label{arytm3:16} $\hcf(a,a)=a$ and $\lcm(a,a)=a$.
+\item\label{arytm3:17} $\hcf(a\cdot c,b\cdot c)=(\hcf(a,b))\cdot c$.
+\item\label{arytm3:18} If $b\neq\emptyset$, then
+  $\hcf(a,b)\neq\emptyset$ and $b\div\hcf(a,b)\neq\emptyset$.
+\item\label{arytm3:19} If $a\neq\emptyset$ or $b\neq\emptyset$, then
+  $a\div\hcf(a,b)$ is coprime with $b\div\hcf(a,b)$.
+\item\label{arytm3:20} $a$ is coprime with $b$ if and only if $\hcf(a,b)=1$.
+\end{thm}
+
+\begin{definition}
+Let $a$, $b$ be natural ordinals.
+We define the term $\RED(a,b)$ (Mizar: ``\verb#RED(a,b)#'') to be the
+element of $\omega$ equal to
+\begin{defn}
+\item $\RED(a,b) := a\div\hcf(a,b)$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{arytm3:21} $\RED(a,b)\cdot\hcf(a,b)=a$.
+\item\label{arytm3:22} If $a\neq\emptyset$ and $b\neq\emptyset$, then
+  $\RED(a,b)$ is coprime with $\RED(b,a)$.
+\item\label{arytm3:23} If $a$ is coprime with $b$, then $\RED(a,b)=a$.
+\item\label{arytm3:24} $\RED(a,1)=a$ and $\RED(1,a)=1$.
+\item\label{arytm3:25} If $b\neq\emptyset$, then $\RED(b,a)\neq\emptyset$.
+\item\label{arytm3:26} $\RED(\emptyset,a)=\emptyset$, and if $a\neq\emptyset$
+  then $\RED(a,\emptyset)=1$.
+\item\label{arytm3:27} If $a\neq\emptyset$, then $\RED(a,a)=1$.
+\item\label{arytm3:28} If $c\neq\emptyset$, then $\RED(a\cdot c,b\cdot c)=\RED(a,b)$.
+\end{thm}
+
+\begin{definition}
+We define the term $\QQ_{+}$ (Mizar: ``\verb#RAT+#'') to be the set
+equal to
+\begin{defn}
+\item $\QQ_{+}:=\bigl(\{(i,j)\in\omega\times\omega\mid i\mbox{ is coprime with }j,j\neq\emptyset\}\setminus\{(k,1)\in\omega\times\omega\}\bigr)\cup\omega$
+\end{defn}
+\end{definition}
+
+\begin{remark}
+Observe this is the usual definition of rational numbers, restricted to
+the positive values, but using reduced fractions as the equivalence
+class representatives. We ``surgically remove'' the representatives for
+the natural numbers, then we ``implant'' $\omega$ (i.e., $\NN$) as their
+replacements. 
+\end{remark}
+
+Let $x$, $y$, $z$ be elements of $\QQ_{+}$. We have the following results:
+\begin{thm}
+\item\label{arytm3:29} $x\in\omega$; or there exists natural ordinals
+  $i$ and $j$ suchthat $x=(i,j)$, and $i$ is coprime with $j$, and
+  $j\neq\emptyset$, and $j\neq1$.
+\item\label{arytm3:30} There does not exist sets $i$, $j$ such that
+  $(i,j)$ is an Ordinal.
+\item\label{arytm3:31} If $A\in\QQ_{+}$, then $A\in\omega$.
+\item\label{arytm3:32} There are no objects $i$, $j$ such that $(i,j)\in\omega$.
+\item\label{arytm3:33} $(i,j)\in\QQ_{+}$ if and only if $i$ is coprime
+  with $j$ and $j\neq\emptyset$ and $j\neq1$.
+\end{thm}
+
+\begin{definition}
+Let $x$ be an element of $\QQ_{+}$.
+We define the term \define{numerator} of $x$ (Mizar: ``\verb#numerator x#'')
+to be the element of $\omega$ satisfying
+\begin{defn}
+\item the numerator of $x$ is equal to $x$ if $x\in\omega$; otherwise
+  there exists a natural ordinal $a$ such that $x=(\mbox{numerator of }x,a)$.
+\end{defn}
+We define the term \define{denominator} of $x$ (Mizar:
+``\verb#denominator x#'') to be the element of $\omega$ satisfying
+\begin{defn}
+\item the denominator of $x$ is equal to $1$ if $x\in\omega$; otherwise
+  there exists a natural ordinal $a$ such that $x=(a,\mbox{denominator of }x)$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{arytm3:34} The numerator of $x$ is coprime with the
+  denominator of $x$.
+\item\label{arytm3:35} The denominator of $x$ is nonzero.
+\item\label{arytm3:36} If $x\notin\omega$, then
+  $x=(\mbox{numerator }x,\mbox{denominator }x)$ and the denominator of
+  $x$ is not equal to $1$.
+\item\label{arytm3:37} $x\neq0$ if and only if the numerator of $x$ is
+  nonzero.
+\item\label{arytm3:38} $x\in\omega$ if and only if the denominator of
+  $x$ is equal to $1$.
+\end{thm}
+
+\begin{definition}
+Let $i$, $j$ be natural ordinals.
+We define the term $i/j$ (Mizar: ``\verb#i / j#'')
+to be the element of $\QQ_{+}$ satisfing
+\begin{defn}
+\item \begin{itemize}
+\item $i/j := 0$ if $j=0$;
+\item $i/j := \RED(i,j)$ if $\RED(j,i)=1$;
+\item otherwise, $i/j := (\RED(i,j), \RED(j,i))$.
+\end{itemize}
+\end{defn}
+\end{definition}
+
+\begin{notation}
+Let $i$, $j$ be natural ordinals. We define the term $\quotient(i,j)$ as
+a synonym for $i/j$.
+\end{notation}
+
+We have the following results:
+\begin{thm}
+\item\label{arytm3:39} $\numerator(x)/\denominator(x)=x$.
+\item\label{arytm3:40} $0/b=0$ and $a/1=a$.
+\item\label{arytm3:41} If $a\neq0$, then $a/a=1$.
+\item\label{arytm3:42} If $b\neq0$, then $\numerator(a/b)=\RED(a,b)$ and $\denominator(a/b)=\RED(b,a)$.
+\item\label{arytm3:43} If $i$ and $j$ are coprime, and $j\neq0$, then
+  $\numerator(i/j)=i$ and $\denominator(i/j)=j$.
+\item\label{arytm3:44} If $c\neq0$, then $(a\cdot c)/(b\cdot c)=a/b$.
+\end{thm}
+
+Let $i$, $j$, $k$ be natural ordinals. We can prove the following proposition:
+\begin{thm}
+\item\label{arytm3:45} If $j\neq0$ and $\ell\neq0$, then $i/j=k/\ell$
+  iff $i\cdot\ell=j\cdot k$.
+\end{thm}
+
+\begin{definition}
+Let $x$, $y$ be elements of $\QQ_{+}$.
+We define the term $x + y$ (Mizar: ``\verb#x + y#'') to be the element of $\QQ_{+}$ equal to
+\begin{defn}
+\item $\displaystyle{ x+y :=\frac{\numerator(x)\cdot\denominator(y)+\numerator(y)\cdot\denominator(x)}{\denominator(x)\cdot\denominator(x)}}$.
+\end{defn}
+Observe this is commutative (i.e., $x+y=y+x$).
+
+We define the term $x\cdot y$ (Mizar: ``\verb#x *' y#'') to be the
+element of $\QQ_{+}$ equal to
+\begin{defn}
+\item $\displaystyle{x\cdot y :=\frac{\numerator(x)\cdot\numerator(y)}{\denominator(x)\cdot\denominator(y)}}$.
+\end{defn}
+Observe this is commutative (i.e., $x\cdot y=y\cdot x$).
+\end{definition}
+
+We can prove the following results:
+\begin{thm}
+\item\label{arytm3:46} If $j\neq0$ and $\ell\neq0$, then
+  $(i/j)+(k/\ell)=(i\cdot\ell+j\cdot k)/(j\cdot\ell)$.
+\item\label{arytm3:47} If $k/\neq0$, then $(i/k)+(j/k)=(i+j)/k$.
+\end{thm}
+
+\begin{definition}
+We redefine the type of $\emptyset$ to be an element of $\QQ_{+}$.
+We redefine the type of one to be a nonempty ordinal element of $\QQ_{+}$.
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{arytm3:48} $x\cdot0=0$.
+\item\label{arytm3:49} $(i/j)\cdot(k/\ell)=(i\cdot k)/(j\cdot\ell)$.
+\item\label{arytm3:50} $x+0=x$.
+\item\label{arytm3:51} (Associativity) $(x+y)+z=x+(y+z)$
+\item\label{arytm3:52} (Associativity) $(x\cdot y)\cdot z=x\cdot(y\cdot z)$.
+\item\label{arytm3:53} $x\cdot1=x$.
+\item\label{arytm3:54} If $x\neq0$, then there exists an element $y$ of
+  $\QQ_{+}$ such that $x\cdot y=1$.
+\item\label{arytm3:55} If $x\neq0$, then there exists an element $z$ of
+  $\QQ_{+}$ such that $x\cdot z=y$.
+\item\label{arytm3:56} If $x\neq0$ and $x\cdot y=x\cdot z$,
+  then $y=z$.
+\item\label{arytm3:57} (Distributivity) $x\cdot(y+z)=(x\cdot y)+(x\cdot z)$.
+\item\label{arytm3:58} (Compatibility of addition of ordinals and
+  rationals) For all ordinal elements $i$, $j$ of $\QQ_{+}$,
+  we have $i+j=i+j$ (Mizar: ``\verb#i + j = i +^ j#'')
+\item\label{arytm3:59} (Compatibility of multiplication of ordinals and
+  rationals) For all ordinal elements $i$, $j$ of $\QQ_{+}$,
+  we have $i\cdot j=i\cdot j$ (Mizar: ``\verb#i *' j = i *^ j#'')
+\item\label{arytm3:60} There exists an element $y$ of $\QQ_{+}$ such
+  that $x=y+y$.
+\end{thm}
+
+\begin{definition}
+Let $x$, $y$ be elements of $\QQ_{+}$.
+We define the predicate $x\leq y$ (Mizar: ``\verb#x <=' y#'') to mean
+\begin{defn}
+\item There exists an element $z$ of $\QQ_{+}$ such that $y=x+z$.
+\end{defn}
+Observe this is connected (i.e., for all elements $x$ and $y$ of
+$\QQ_{+}$, either $x\leq y$ or $y\leq x$).
+\end{definition}
+
+\begin{notation}
+Let $x$, $y$ be elements of $\QQ_{+}$.
+We define the predicate $y < x$ (Mizar: ``\verb#y < x#'') as the antonym for $x\leq y$.
+\end{notation}
+
+Let $r$, $s$, $t$ be elements of $\QQ_{+}$. We have the following results:
+\begin{thm}
+\item\label{arytm3:61} There is no object $y$ such that $(0,y)\in\QQ_{+}$.
+\item\label{arytm3:62} If $s+t=r+t$, then $s=r$.
+\item\label{arytm3:63} If $r+s=0$, then $r=0$.
+\item\label{arytm3:64} $0\leq s$.
+\item\label{arytm3:65} If $s\leq0$, then $s=0$.
+\item\label{arytm3:66} If $r\leq s$ and $s\leq r$, then $r=s$.
+\item\label{arytm3:67} (Transitivity) If $r\leq s$ and $s\leq t$, then
+  $r\leq t$.
+\item\label{arytm3:68} $r<s$ if and only if $r\leq s$ and $r\neq s$.
+\item\label{arytm3:69} If either $r<s$ and $s\leq t$, or $r\leq s$ and $s<t$,
+  then $r<t$.
+\item\label{arytm3:70} (Transitivity) If $r<s$ and $s<t$, then $r<t$.
+\item\label{arytm3:71} If $x\in\omega$ and $x+y\in\omega$, then $y\in\omega$.
+\item\label{arytm3:72} Let $i$ be an ordinal element of $\QQ_{+}$.
+  If $i<x$ and $x<i+1$, then $x\notin\omega$.
+\item\label{arytm3:73} If $t\neq0$, then there exists an element $r$ of
+  $\QQ_{+}$ such that $r < t$ and $r\notin\omega$.
+\item\label{arytm3:74} $\{s\in\QQ_{+}\mid s<t\}\in\QQ_{+}$ if and only
+  if $t=0$.
+\item\label{arytm3:75} Let $A$ be a subset of $\QQ_{+}$.
+  Suppose there exists some element $t$ of $\QQ_{+}$ such that $t\in A$
+  and $t\neq0$.
+  Then for all elements $r$, $s$ of $\QQ_{+}$ with $r\in A$ and $s\leq r$,
+  we have $s\in A$ and there exists elements $r_{1}$, $r_{2}$, $r_{3}$
+  of $\QQ_{+}$ such that $r_{1}\in A$, $r_{2}\in A$, $r_{3}\in A$, and
+  $r_{1}\neq r_{2}$ and $r_{2}\neq r_{3}$ and $r_{3}\neq r_{1}$.
+\item\label{arytm3:76} $s+t\leq r+t$ if and only if $s\leq r$.
+\item\label{arytm3:77} $s\leq s+t$.
+\item\label{arytm3:78} If $r\cdot s=0$, then either $r=0$ or $s=0$.
+\item\label{arytm3:79} If $r\leq s\cdot t$, then there exists an element
+  $t_{0}$ of $\QQ_{+}$ such that $r=s\cdot t_{0}$ and $t_{0}\leq t$.
+\item\label{arytm3:80} If $t\neq0$ and $s\cdot t\leq r\cdot t$, then
+  $s\leq r$.
+\item\label{arytm3:81} Let $r_{1}$, $r_{2}$, $s_{1}$, $s_{2}$ be
+  elements of $\QQ_{+}$. If $r_{1}+r_{2}=s_{1}+s_{2}$, then $r_{1}\leq s_{1}$
+  or $r_{2}\leq s_{2}$.
+\item\label{arytm3:82} If $s\leq r$, then $s\cdot t\leq r\cdot t$.
+\item\label{arytm3:83} Let $r_{1}$, $r_{2}$, $s_{1}$, $s_{2}$ be
+  elements of $\QQ_{+}$. If $s_{1}+t_{1}=s_{2}+t_{2}$, then $r_{1}\leq s_{1}$
+  or $r_{2}\leq s_{2}$.
+\item\label{arytm3:84} $r=0$ if and only if $r+s=s$.
+\item\label{arytm3:85} Let $r_{1}$, $r_{2}$, $s_{1}$, $s_{2}$ be
+  elements of $\QQ_{+}$. If $s_{1}+t_{1}=s_{2}+t_{2}$ and $s_{1}\leq s_{2}$,
+  then $t_{2}\leq t_{1}$.
+\item\label{arytm3:86} If $r\leq s$ and $s\leq r+t$, then there exists
+  an element $t_{0}$ of $\QQ_{+}$ such that $s=r+t_{0}$ and $t_{0}\leq t$.
+\item\label{arytm3:87} If $r<s$ and $r<t$, then there exists
+  an element $t_{0}$ of $\QQ_{+}$ such that $r=s_{0}+t_{0}$ and
+  $s_{0}\leq s$ and $t_{0}\leq t$.
+\item\label{arytm3:88} If $r<s$ and $r<t$, then there exists
+  an element $t_{0}$ of $\QQ_{+}$ such that $t_{0}\leq s$ and $t_{0}\leq t$
+  and $r<t_{0}$.
+\item\label{arytm3:89} If $r\leq s\leq t$ and $s\neq t$, then $r\neq t$.
+\item\label{arytm3:90} If $s<r+t$ and $t\neq0$, then there exists
+  elements $r_{0}$ and $t_{0}$ of $\QQ_{+}$ such that $s=r_{0}+t_{0}$
+  and $r_{0}\leq r$ and $t_{0}\leq t$ and $t_{0}\neq t$.
+\item\label{arytm3:91} Let $A$ be a nonempty subset of $\QQ_{+}$ such
+  that $A\in\QQ_{+}$. Then there exists an element $s$ of $\QQ_{+}$ such
+  that $s\in A$ and every $r\in A$ satisfies $r\leq s$.
+\item\label{arytm3:92} There exists an element $t$ of $\QQ_{+}$ such
+  that $r+t=s$ or $s+t=r$.
+\item\label{arytm3:93} If $r<s$, then there exists an element $t$ of $\QQ_{+}$
+  such that $r<t$ and $t<s$.
+\item\label{arytm3:94} There exists an element $s$ of $\QQ_{+}$ such
+  that $r<s$.
+\item\label{arytm3:95} If $t\neq0$, then there exists an element $s$ of
+  $\QQ_{+}$ such that $s\in\omega$ and $r\leq s\cdot t$.
+\end{thm}
+
+\begin{scheme}[DisNat]
+Let $\mathcal{N}_{1}$, $\mathcal{N}_{2}$, $\mathcal{N}_{3}$ be elements
+of $\QQ_{+}$, and let $\mathcal{P}[-]$ be a unary predicate of sets.
+There exists an element $s$ of $\QQ_{+}$ such that $s\in\omega$ and
+$\mathcal{P}[s]$ but not $\mathcal{P}[s+\mathcal{N}_{1}]$, provided:
+\begin{enumerate}
+\item $\mathcal{N}_{1}=1$ and
+\item $\mathcal{N}_{0}=0$ and
+\item $\mathcal{N}_{2}\in\omega$ and
+\item $\mathcal{P}[\mathcal{N}_{0}]$ and
+\item not $\mathcal{P}[\mathcal{N}_{2}]$.
+\end{enumerate}
+\end{scheme}
+
+\end{document}

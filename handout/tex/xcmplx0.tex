@@ -1,0 +1,98 @@
+\documentclass{article}
+\title{Complex Numbers --- Basic Definitions (XCMPLX-0)}
+\author{Library Committee}
+\date{March 7, 2003}
+\begin{document}
+\maketitle
+
+\begin{definition}
+We define the term $\I$ to be the number equal to
+\begin{defn}
+\item $\I := (0,1)\constantto(0,1)$
+\end{defn}
+Let $c$ be a Number.
+We define the attribute $c$ is \define{complex} to mean
+\begin{defn}
+\item $c\in\CC$.
+\end{defn}
+\end{definition}
+
+Observe $\I$ is complex. Observe there exist complex numbers (and
+complex Numbers).
+
+\begin{definition}
+We define the mode, a \define{Complex} is a complex Number.
+\end{definition}
+
+Observe Complex is a set.
+
+\skipdefn
+
+\begin{definition}
+Let $x$, $y$ be Complex.
+We define the term $x + y$ (Mizar: ``\verb#x + y#'') to be the number satisfying
+\begin{defn}[start=4]
+\item There exists elements $x_{1}$, $x_{2}$, $y_{1}$, $y_{2}$ of $\RR$
+  such that $x=(x_{1},x_{2})$, $y=(y_{1},y_{2})$, and $x+y=(+(x_{1},y_{1}),+(x_{2},y_{2}))$.
+\end{defn}
+Observe this is commutative (i.e., $x+y=y+x$).
+
+We define the term $x\cdot y$ (Mizar: ``\verb#x * y#'') to be the number
+satisfying
+\begin{defn}
+\item There exists elements $x_{1}$, $x_{2}$, $y_{1}$, $y_{2}$ of $\RR$
+  such that $x=(x_{1},x_{2})$, $y=(y_{1},y_{2})$, and $x+y=(+(\times(x_{1},y_{1}),-(x_{2},y_{2})),+(\times(x_{1},y_{2}),\times(x_{2},y_{1})))$.
+\end{defn}
+Observe this is commutative (i.e., $x\cdot y=y\cdot x$).
+\end{definition}
+
+Observe for any Complex $z$, $z'$, we have $z+z'$ is complex and $z\cdot z'$
+is complex.
+
+\begin{definition}
+Let $z$ be Complex.
+We define the term $-z$ (Mizar: ``\verb#- z#'') to be the Complex satisfying
+\begin{defn}
+\item $z + (-z)=0$.
+\end{defn}
+Observe this is involutive (i.e., $-(-z)=z$).
+
+We define the term $z^{-1}$ (Mizar: ``\verb#z "#'') to be the Complex
+satisfying
+\begin{defn}
+\item $z\cdot(z^{-1})=1$ if $z\neq0$, otherwise $z^{-1}=0$.
+\end{defn}
+Observe this is involutive (i.e., $(z^{-1})^{-1}=z$).
+\end{definition}
+
+\begin{definition}
+Let $x$, $y$ be Complex.
+We define the term $x - y$ (Mizar: ``\verb#x - y#'') to be the number
+equal to
+\begin{defn}
+\item $x - y := x + (-y)$.
+\end{defn}
+We define the term $x/y$ (Mizar: ``\verb#x / y#'') to be the number
+equal to
+\begin{defn}
+\item $x/y := x\cdot(y^{-1})$.
+\end{defn}
+\end{definition}
+
+Observe for any Complex $x$ and $y$, we have $x-y$ is complex and $x/y$
+is complex.
+
+Observe, if an object is natural, then it is automatically complex.
+
+We observe there exists a zero Complex, and a nonzero Complex.
+
+Observe when $x$ is a nonzero Complex, that $-x$ and $x^{-1}$ are both nonzero.
+Further, when $y$ is a nonzero Complex, that $x\cdot y$ is nonzero and
+$x/y$ is nonzero.
+
+Observe any element of $\RR$ is automatically complex, and any element
+of $\CC$ is automatically complex.
+
+When we have a Complex $z$, we reduce $\In{z}{\CC}$ to $z$ automatically.
+
+\end{document}

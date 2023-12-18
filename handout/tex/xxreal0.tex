@@ -1,0 +1,203 @@
+\documentclass{article}
+
+\title{Introduction to Arithmetic of Extended Real Numbers (XXREAL-0)}
+\author{Library Committee}
+\date{January 4, 2006}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $x$ be an object.
+We define the attribute, saying $x$ is \define{ext-real} to mean
+\begin{defn}
+\item $x\in\ExtRR$.
+\end{defn}
+\end{definition}
+
+Observe there exists an ext-real object, there also exists an ext-real
+number. We observe elements of $\ExtRR$ are automatically ext-real.
+
+\begin{definition}
+We define the mode, an \define{Extended Real} (Mizar: ``\verb#ExtReal#'') is an ext-real Number.
+\end{definition}
+
+We can check the sethood property holds for the extended reals.
+
+\begin{definition}\index{$+\infty$}\index{Infinity}%
+We define the term $+\infty$ (Mizar: ``\verb#+infty#'') to be an object
+equal to
+\begin{defn}
+\item $+\infty := \RR$.
+\end{defn}
+We define the term $-\infty$ (Mizar: ``\verb#-infty#'') to be an object
+equal to
+\begin{defn}
+\item $-\infty := (0,\RR)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+We redefine the term $\ExtRR$ to be equal to
+\begin{defn}
+\item $\ExtRR := \RR\cup\{+\infty,-\infty\}$.
+\end{defn}
+\end{definition}
+
+Observe $+\infty$ is ext-real, and $-\infty$ is ext-real.
+
+\begin{definition}
+Let $x$ and $y$ be extended reals.
+We define the predicate $x\leq y$ (Mizar: ``\verb#x <= y#'') to mean
+\begin{defn}
+\item \begin{itemize}
+\item If $x\in\RR_{+}$ and $y\in\RR_{+}$: There exists $x'$, $y'$ being
+  elements of $\RR_{+}$ such that $x=x'$, $y=y'$, and $x'\leq y'$;
+\item If $x\in\{0\}\times\RR_{+}$ and $y\in\{0\}\times\RR_{+}$: There
+  exists elements $x'$, $y'$ of $\RR_{+}$ such that $x=(0,x')$,
+  $y=(0,y')$ and $y'\leq x'$;
+\item Otherwise: either $y\in\RR_{+}$ and $x\in\{0\}\times\RR_{+}$,
+  or $x=-\infty$ or $y=+\infty$.
+\end{itemize}
+\end{defn}
+Observe this predicate is reflexive (i.e., $x\leq x$) and connected
+(i.e., for any extended reals $x$ and $y$ either $x\leq y$ or $y\leq x$).
+\end{definition}
+
+\begin{notation}
+Let $a$, $b$ be extended reals.
+We use the notation $b\geq a$ as a synonym for $a\leq b$.
+We introduce the notation $b<a$ as an antonym for $a\leq b$,
+and the notation $a>b$ as an antonym for $a\leq b$.
+\end{notation}
+
+Let $a$, $b$, $c$, $d$ be extended reals.
+We have the following results:
+\begin{thm}
+\item\label{xxreal0:1} If $a\leq b$ and $b\leq a$, then $a=b$.
+\item\label{xxreal0:2} If $a\leq b$ and $b\leq c$, then $a\leq c$.
+\item\label{xxreal0:3} $a\leq+\infty$.
+\item\label{xxreal0:4} If $+\infty\leq a$, then $a=+\infty$.
+\item\label{xxreal0:5} $a\geq-\infty$.
+\item\label{xxreal0:6} If $-\infty\geq a$, then $a=-\infty$.
+\item\label{xxreal0:7} $-\infty < +\infty$.
+\item\label{xxreal0:8} $+\infty\notin\RR$.
+\item\label{xxreal0:9} If $a\in\RR$, then $+\infty>a$.
+\item\label{xxreal0:10} If $a\in\RR$ and $b\geq a$, then $b\in\RR$ or $b=+\infty$.
+\item\label{xxreal0:11} $-\infty\notin\RR$.
+\item\label{xxreal0:12} If $a\in\RR$, then $-\infty<a$.
+\item\label{xxreal0:13} If $a\in\RR$ and $b\leq a$, then either
+  $b\in\RR$ or $b=-\infty$.
+\item\label{xxreal0:14} Either $a\in\RR$ or $a=+\infty$ or $a=-\infty$.
+\end{thm}
+
+\section{Positive and Negative}
+
+Observe any natural object is automatically ext-real.
+
+\begin{definition}
+Let $a$ be an extended real.
+We define the attribute, saying $a$ is \define{positive} to mean
+\begin{defn}
+\item $a>0$.
+\end{defn}
+We define the attribute, saying $a$ is \define{negative} to mean
+\begin{defn}
+\item $a<0$.
+\end{defn}
+\end{definition}
+
+Observe, for extended reals, positive implies nonnegative nonzero and
+vice-versa, negative implies nonpositive nonzero and vice-versa, zero
+implies nonnegative and nonpositive (and vice-versa).
+
+Observe $+\infty$ is positive, $-\infty$ is negative.
+
+We can observe there exists a positive extended real, a negative
+extended real, and a zero extended real.
+
+\section{Min and Max}
+
+\begin{definition}
+Let $a$ and $b$ be extended reals.
+We define the term $\min(a,b)$ (Mizar: ``\verb#min(a,b)#'') to be the
+extended real equal to
+\begin{defn}
+\item $a$ if $a\leq b$, otherwise $b$.
+\end{defn}
+Observe this is commutative (i.e., $\min(a,b)=\min(b,a)$) and idempotent
+(i.e., $\min(x,x)=x$).
+
+We define the term $\max(a,b)$ (Mizar: ``\verb#max(a,b)#'') to be the
+extended real equal to
+\begin{defn}
+\item $a$ if $b\leq a$, otherwise $b$.
+\end{defn}
+This is also commutative and idempotent.
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{xxreal0:15} $\min(a,b)=a$ or $\min(a,b)=b$
+\item\label{xxreal0:16} $\max(a,b)=a$ or $\max(a,b)=b$
+\item\label{xxreal0:17} $\min(a,b)\leq a$.
+\item\label{xxreal0:18} If $a\leq b$ and $c\leq d$, then $\min(a,c)\leq\min(b,d)$.
+\item\label{xxreal0:19} If $a<b$ and $c<d$, then $\min(a,c)<\min(b,d)$.
+\item\label{xxreal0:20} If $a\leq b$ and $a\leq c$, then $a\leq\min(b,c)$.
+\item\label{xxreal0:21} If $a<b$ and $a<c$, then $a<\min(b,c)$.
+\item\label{xxreal0:22} If $a\leq\min(b,c)$, then $a\leq b$.
+\item\label{xxreal0:23} If $a<\min(b,c)$, then $a<b$.
+\item\label{xxreal0:24} Suppose $c\leq a$ and $c\leq b$.
+  If every $d$ with $d\leq a$ and $d\leq b$ satisfies $d\leq c$,
+  then $c=\min(a,b)$.
+\item\label{xxreal0:25} $a\leq\max(a,b)$.
+\item\label{xxreal0:26} If $a\leq b$ and $c\leq d$, then $\max(a,c)\leq\max(b,d)$.
+\item\label{xxreal0:27} If $a<b$ and $c<d$, then $\max(a,c)<\max(b,d)$.
+\item\label{xxreal0:28} If $b\leq a$ and $c\leq a$, then $\max(b,c)\leq a$.
+\item\label{xxreal0:29} If $b<a$ and $c<a$, then $\max(b,c)<a$.
+\item\label{xxreal0:30} If $\max(b,c)\leq a$, then $b\leq a$.
+\item\label{xxreal0:31} If $\max(b,c)<a$, then $b<a$.
+\item\label{xxreal0:32} Suppose $a\leq c$ and $b\leq c$.
+  If every $d$ with $a\leq d$ and $b\leq d$ satisfies $c\leq d$, then $c=\max(a,b)$.
+\item\label{xxreal0:33} $\min(\min(a,b),c)=\min(a,\min(b,c))$.
+\item\label{xxreal0:34} $\max(\max(a,b),c)=\max(a,\max(b,c))$.
+\item\label{xxreal0:35} $\min(\max(a,b),b)=b$.
+\item\label{xxreal0:36} $\max(\min(a,b),b)=b$.
+\item\label{xxreal0:37} If $a\leq c$, then $\max(a,\min(b,c))=\min(\max(a,b),c)$.
+\item\label{xxreal0:38} $\min(a,\max(b,c))=\max(\min(a,b),\min(a,c))$.
+\item\label{xxreal0:39} $\max(a,\min(b,c)) = \min(\max(a,b),\max(a,c))$
+\item\label{xxreal0:40} $\max(\max(\min(a,b),\min(b,c)),\min(c,a)) = \min(\min(\max(a,b),\max(b,c)),\max(c,a))$
+\item\label{xxreal0:41} $\max(a,+\infty)=+\infty$.
+\item\label{xxreal0:42} $\min(a,+\infty)=a$.
+\item\label{xxreal0:43} $\max(a,-\infty)=a$
+\item\label{xxreal0:44} $\min(a,-\infty)=-\infty$.
+\end{thm}
+\section{}
+\begin{thm}
+\item\label{xxreal0:45} If $a\in\RR$, $c\in\RR$, $a\leq b$, and $b\leq c$,
+  then $c\in\RR$.
+\item\label{xxreal0:46} If $a\in\RR$, $a\leq b$, $b<c$, then $b\in\RR$.
+\item\label{xxreal0:47} If $c\in\RR$, $a<b$, $b\leq c$, then $b\in\RR$.
+\item\label{xxreal0:48} If $a<b$ and $b<c$, then $b\in\RR$.
+\end{thm}
+
+\begin{definition}
+Let $x$, $y$ be extended reals, let $a$, $b$ be objects.
+We define $\IFGT{x}{y}{a}{b}$ (Mizar: ``\verb#IFGT(x,y,a,b)#'') to be
+the object equal to
+\begin{defn}
+\item $a$ if $x>y$, otherwise $b$.
+\end{defn}
+\end{definition}
+
+Observe when $x$ and $y$ are extended reals, and $a$ and $b$ are natural
+numbers, that $\IFGT{x}{y}{a}{b}$ is natural.
+
+We have the following results:
+\begin{thm}
+\item\label{xxreal0:49} If $\max(a,b)\leq a$, then $\max(a,b)=a$.
+\item\label{xxreal0:50} If $a\leq\min(a,b)$, then $\min(a,b)=a$.
+\end{thm}
+
+Let $x$ be an extended real. Note that $\In{x}{\ExtRR}$ reduces to $x$.
+
+\end{document}

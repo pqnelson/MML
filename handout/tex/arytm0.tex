@@ -1,0 +1,121 @@
+\documentclass{article}
+
+\title{Introduction to Arithmetics (ARYTM-0)}
+\author{Andrzej Trybulec}
+\date{January 9, 2003}
+\begin{document}
+\maketitle
+
+We have the following results:
+\begin{thm}
+\item\label{arytm0:1} $\RR_{+}\subset\RR$
+\item\label{arytm0:2} Let $x$ be an element of $\RR_{+}$. If $x\neq0$,
+  then $(0,x)\in\RR$.
+\item\label{arytm0:3} Let $y$ be a set. If $(0,y)\in\RR$, then $y\neq0$.
+\item\label{arytm0:4} Let $x$, $y$ be elements of $\RR_{+}$. Then $x-y\in\RR$.
+\item\label{arytm0:5} $\RR_{+}$ misses $\{0\}\times\RR_{+}$.
+\item\label{arytm0:6} Let $x$, $y$ be elements of $\RR_{+}$. If $x-y=0$,
+  then $x=y$.
+\item\label{arytm0:7} Let $x$, $y$, $z$ be elements of $\RR_{+}$.
+  If $x\neq0$ and $x\cdot y=x\cdot z$, then $y=z$.
+\end{thm}
+
+\begin{definition}
+Let $x$ and $y$ be elements of $\RR$.
+We define the term $+(x,y)$ (Mizar: ``\verb#+(x,y)#'') to be the element
+of $\RR$ satisfying:
+\begin{defn}
+\item \begin{itemize}
+\item If $x\in\RR_{+}$ and $y\in\RR_{+}$: There exists elements $x'$,
+  $y'$ of $\RR_{+}$ such that $x=x'$, $y=y'$, and $+(x,y)=x'+y'$;
+\item If $x\in\RR_{+}$ and $y\in\{0\}\times\RR_{+}$: There exists
+  elements $x'$, $y'$ of $\RR_{+}$ such that $x=x'$, $y=(0,y')$, and $+(x,y)=x'-y'$;
+\item If $x\in\{0\}\times\RR_{+}$ and $y\in\RR_{+}$: There exists
+  elements $x'$, $y'$ of $\RR_{+}$ such that $x=(0,x')$, $y=y'$, and $+(x,y)=y'-x'$;
+\item Otherwise: There exists elements $x'$, $y'$ of $\RR_{+}$ such that $x=(0,x')$, $y=(0,y')$, and
+  $+(x,y) = (0, x'+y')$.
+\end{itemize}
+\end{defn}
+Observe this is commutative (i.e., $+(x,y)=+(y,x)$).
+
+We define the term $\times(x,y)$ (Mizar: ``\verb#*(x,y)#'') to be the
+element of $\RR$ satisfying:
+\begin{defn}
+\item \begin{itemize}
+\item If $x\in\RR_{+}$ and $y\in\RR_{+}$: There exists elements $x'$,
+  $y'$ of $\RR_{+}$ such that $x=x'$, $y=y'$, and $\times(x,y)=x'\cdot y'$;
+\item If $x\in\RR_{+}$ and $y\in\{0\}\times\RR_{+}$ and $x\neq0$: There exists elements $x'$,
+  $y'$ of $\RR_{+}$ such that $x=x'$, $y=(0,y')$, and $\times(x,y)=(0,x'\cdot y')$;
+\item If $x\in\{0\}\times\RR_{+}$ and $y\in\RR_{+}$ and $y\neq0$: There exists elements $x'$,
+  $y'$ of $\RR_{+}$ such that $x=(0,x')$, $y=y'$, and $\times(x,y)=(0,x'\cdot y')$;
+\item If $x\in\{0\}\times\RR_{+}$ and $y\in\{0\}\times\RR_{+}$: There exists elements $x'$,
+  $y'$ of $\RR_{+}$ such that $x=(0,x')$, $y=(0,y')$, and $\times(x,y)=x'\cdot y'$;
+\item Otherwise: $\times(x,y)=0$.
+\end{itemize}
+\end{defn}
+Observe this is commutative (i.e., $\times(x,y)=\times(y,x)$).
+\end{definition}
+
+\begin{definition}
+Let $x$ be an element of $\RR$.
+We define the term $-x$ (Mizar: ``\verb#opp x#'') to be the element of
+$\RR$ satisfying
+\begin{defn}
+\item $+(x,-x)=0$.
+\end{defn}
+Observe this is involutive (i.e., $-(-x)=x$).
+
+We define the term $x^{-1}$ (Mizar: ``\verb#inv x#'') to be the element
+of $\RR$ satisfying
+\begin{defn}
+\item $\times(x,x^{-1})=1$ if $x\neq0$, otherwise $x^{-1}=0$.
+\end{defn}
+Observe this is involutive (i.e., $(x^{-1})^{-1}=x$).
+\end{definition}
+
+Let $a$, $b$ be elements of $\RR$. We can prove the following proposition:
+\begin{thm}
+\item\label{arytm0:8} $((0,1)\constantto(a,b))\notin\RR$
+\end{thm}
+
+\begin{definition}
+Let $x$, $y$ be elements of $\RR$.
+We define the term $(x,y)$ (Mizar: ``\verb#[* x, y *]#'') to be the
+element of $\CC$ equal to
+\begin{defn}
+\item $x$ if $y=0$, otherwise $(0,1)\constantto(x,y)$.
+\end{defn}
+\end{definition}
+
+Let $x$, $y$, $a$, $b$ be elements of $\RR$. Let $i$, $j$, $k$ be
+elements of $\NN$.
+
+We have the following results:
+\begin{thm}
+\item\label{arytm0:9} Let $c$ be an elements of $\CC$.
+  There exists elements $r$, $s$ of $\RR$ such that $c=(r,s)$.
+\item\label{arytm0:10} Let $x_{1}$, $x_{2}$, $y_{1}$, $y_{2}$ be
+  elements of $\RR$. If $(x_{1},x_{2})=(y_{1},y_{2})$, then
+  $x_{1}=y_{1}$ and $x_{2}=y_{2}$.
+\item\label{arytm0:11} Let $x$, $y$ be elements of $\RR$. If $y=0$, then $+(x,y)=x$.
+\item\label{arytm0:12} Let $x$, $y$ be elements of $\RR$. If $y=0$, then $\times(x,y)=0$.
+\item\label{arytm0:13} Let $x$, $y$, $z$ be elements of $\RR$.
+  Then $\times(x,\times(y,z))=\times(\times(x,y),z)$.
+\item\label{arytm0:14} Let $x$, $y$, $z$ be elements of $\RR$.
+  Then $\times(x,+(y,z))=+(\times(x,y),\times(x,z))$.
+\item\label{arytm0:15} $\times(-x,y)=-\times(x,y)$
+\item\label{arytm0:16} $\times(x,x)\in\RR_{+}$.
+\item\label{arytm0:17} If $+(\times(x,x),\times(y,y))=0$, then $x=0$.
+\item\label{arytm0:18} If $x\neq0$, $\times(x,y)=1$, and
+  $\times(x,z)=1$, then $y=z$.
+\item\label{arytm0:19} If $y=1$, then $\times(x,y)=x$.
+\item\label{arytm0:20} If $y\neq0$, then $\times(\times(x,y),y^{-1})=x$.
+\item\label{arytm0:21} If $\times(x,y)=0$, then either $x=0$ or $y=0$.
+\item\label{arytm0:22} $(\times(x,y))^{-1}=\times(x^{-1},y^{-1})$.
+\item\label{arytm0:23} $+(x,+(y,z))=+(+(x,y),z)$.
+\item\label{arytm0:24} If $(x,y)\in\RR$ (Mizar: ``\verb#[*x,y*] in REAL#'')
+  then $y=0$.
+\item\label{arytm0:25} $-(+(x,y))=+(-x,-y)$.
+\end{thm}
+
+\end{document}
