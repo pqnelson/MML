@@ -1,0 +1,74 @@
+\documentclass{article}
+
+\title{Some Properties of Functions Modul and Signum (ABSVALUE)}
+\author{Jan Popio{\l}ek}
+\date{June 21, 1989}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $x$ be Real. We redefine the term $\abs{x}$ to equal
+\begin{defn}
+\item $\displaystyle{\abs{x}:=\begin{cases}x & \mbox{if }0\leq x\\
+-x & \mbox{otherwise}
+  \end{cases}}$
+\end{defn}
+\end{definition}
+
+Let $x$ be a nonnegative Real. We can reduce $\abs{x}$ to $x$.
+
+Let $x$, $y$, $z$, $t$ be Real. We have the following results:
+\begin{thm}
+\item\label{absvalue:1} $\abs{x}=x$ or $\abs{x}=-x$
+\item\label{absvalue:2} $x=0$ if and only if $\abs{x}=0$
+\item\label{absvalue:3} If $\abs{x}=-x$ and $x\neq0$, then $x<-$
+\item\label{absvalue:4} $-\abs{x}\leq x\leq\abs{x}$
+\item\label{absvalue:5} $-y\leq x\leq y$ if and only if $\abs{x}\leq y$
+\item\label{absvalue:6} If $x\neq0$, then $\abs{x}\cdot\abs{1/x}=1$
+\item\label{absvalue:7} $\abs{1/x}=1/\abs{x}$
+\item\label{absvalue:8} If $0\leq x\cdot y$, then $\sqrt{x\cdot y}=\sqrt{\abs{x}}\cdot\sqrt{\abs{y}}$.
+\item\label{absvalue:9} If $\abs{x}\leq z$ and $\abs{y}\leq t$, then
+  $\abs{x+y}\leq z+t$
+\item\label{absvalue:10} If $0<x/y$, then $\sqrt{x/y}=\sqrt{\abs{x}}/\sqrt{\abs{y}}$.
+\item\label{absvalue:11} If $0\leq x\cdot y$, then $\abs{x+y}=\abs{x}+\abs{y}$.
+\item\label{absvalue:12} If $\abs{x+y}=\abs{x}+\abs{y}$, then $0\leq x\cdot y$
+\item\label{absvalue:13} $\abs{x+y}/(1+\abs{x+y})\leq\abs{x}/(1+\abs{x})+\abs{y}/(1+\abs{y})$.
+\end{thm}
+
+\begin{definition}
+Let $x$ be a Real.
+We define $\sgn(x)$ (Mizar: ``\verb#sgn x#'') to be the Real equal to
+\begin{defn}
+\item $\displaystyle{\sgn(x):=\begin{cases}
+  1 & \mbox{if } 0<x\\
+  -1 & \mbox{if } x < 0\\
+  0 & \mbox{otherwise}
+  \end{cases}}$
+\end{defn}
+Observe this is projective (i.e., $\sgn(\sgn(x))=\sgn(x)$).
+\end{definition}
+
+Observe $\sgn(x)$ is integer.
+
+We can prove the following results:
+\begin{thm}
+\item\label{absvalue:14} If $\sgn(x)=1$, then $0<x$
+\item\label{absvalue:15} If $\sgn(x)=-1$, then $x<0$
+\item\label{absvalue:16} If $\sgn(x)=0$, then $x=0$
+\item\label{absvalue:17} $x=\abs{x}\cdot\sgn(x)$
+\item\label{absvalue:18} $\sgn(x\cdot y)=\sgn(x)\cdot\sgn(y)$
+\item\label{absvalue:19} (Cancelled)
+\item\label{absvalue:20} $\sgn(x+y)\leq\sgn(x)+\sgn(y)+1$
+\item\label{absvalue:21} If $x\neq0$, then $\sgn(x)\cdot\sgn(1/x)=1$
+\item\label{absvalue:22} $1/\sgn(x)=\sgn(1/x)$
+\item\label{absvalue:23} $\sgn(x)+\sgn(y)-1\leq\sgn(x+y)$
+\item\label{absvalue:24} $\sgn(x)=\sgn(1/x)$
+\item\label{absvalue:25} $\sgn(x/y)=\sgn(x)/\sgn(y)$
+\item\label{absvalue:26} $0\leq x+\abs{x}$
+\item\label{absvalue:27} $0\leq-x+\abs{x}$
+\item\label{absvalue:28} If $\abs{x}=\abs{y}$, then either $x=y$ or $x=-y$
+\item\label{absvalue:29} Let $m$ be a Nat. Then $m=\abs{m}$.
+\item\label{absvalue:30} If $x\leq0$, then $\abs{x}=-x$.
+\end{thm}
+
+\end{document}

@@ -1,0 +1,145 @@
+\documentclass{article}
+
+\title[Some Properties of Real Numbers (SQUARE-1)]{Some Properties of Real Numbers. Operations: min, max, square, and square root (SQUARE-1)}
+\author{Andrzej Trybulec and Czes{\l}aw Byli\'nski}
+\date{November 16, 1989}
+\begin{document}
+\maketitle
+
+\begin{scheme}[RealContinuity]
+Let $\mathcal{P}[-]$ and $\mathcal{Q}[-]$ be unary predicates of objects.
+There exists a Real $z$ such that for all Reals $x$ and $y$, if
+$\mathcal{P}[x]$ and $\mathcal{Q}[y]$, then $x\leq z\leq y$; provided
+\begin{enumerate}
+\item for all Reals $x$ and $y$, if $\mathcal{P}[x]$ and $\mathcal{Q}[y]$,
+  then $x\leq y$.
+\end{enumerate}
+\end{scheme}
+
+Let $a$, $b$, $c$, $x$, $y$, $z$ be Reals. Then we have the following results:
+\begin{thm}
+\item\label{square1:1} $\min(x,y)+\max(x,y)=x+y$
+\item\label{square1:2} If $0\leq x$ and $0\leq y$, then $\max(x,y)\leq x+y$.
+\end{thm}
+
+\begin{definition}
+Let $x$ be Complex.
+We define the term $x^{2}$ (Mizar: ``\verb#x ^2#'') to be the number
+equal to
+\begin{defn}
+\item $x^{2} := x\cdot c$.
+\end{defn}
+\end{definition}
+
+Observe when $x$ is Complex, $x^{2}$ is complex. When $x$ is Real,
+$x^{2}$ is real.
+
+\begin{definition}
+Let $x$ be an element of $\CC$.
+We redefine the type of term $x^{2}$ to be an element of $\CC$.
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{square1:3} Let $a$ be Complex. Then $a^{2}=(-a)^{2}$.
+\item\label{square1:4} Let $a$, $b$ be Complex. Then
+  $(a+b)^{2}=a^{2}+2\cdot a\cdot b+b^{2}$
+\item\label{square1:5} Let $a$, $b$ be Complex. Then
+  $(a-b)^{2}=a^{2}-2\cdot a\cdot b+b^{2}$
+\item\label{square1:6} Let $a$ be Complex. Then $(a+1)^{2}=a^{2}+2\cdot a+1$
+\item\label{square1:7} Let $a$ be Complex. Then $(a-1)^{2}=a^{2}-2\cdot a+1$
+\item\label{square1:8} Let $a$, $b$ be Complex. Then
+  $(a-b)\cdot(a+b)=a^{2}-b^{2}$
+\item\label{square1:9} Let $a$, $b$ be Complex. Then
+  $(a\cdot b)^{2}=(a^{2})\cdot(b^{2})$
+\item\label{square1:10} Let $a$, $b$ be Complex. If $a^{2}-b^{2}\neq0$,
+  then $1/(a+b)=(a-b)/(a^{2}-b^{2})$.
+\item\label{square1:11} Let $a$, $b$ be Complex. If $a^{2}-b^{2}\neq0$,
+  then $1/(a-b)=(a+b)/(a^{2}-b^{2})$
+\item\label{square1:12} If $a\neq0$, then $0<a^{2}$
+\item\label{square1:13} If $0<a<1$, then $a^{2}<a$
+\item\label{square1:14} If $1<a$, then $a<a^{2}$
+\item\label{square1:15} If $0\leq x\leq y$, then $x^{2}\leq y^{2}$
+\item\label{square1:16} If $0\leq x<y$, then $x^{2}<y^{2}$
+\end{thm}
+
+\begin{definition}
+Let $a$ be Real. Assume $0\leq a$.
+Then we define the term $\sqrt{a}$ (Mizar: ``\verb#sqrt a#'') to be the
+Real satisfying
+\begin{defn}
+\item $0\leq\sqrt{a}$ and $(\sqrt{a})^{2}=a$.
+\end{defn}
+\end{definition}
+
+We have the following two results:
+\begin{thm}
+\item\label{square1:17} $\sqrt{0}=0$
+\item\label{square1:18} $\sqrt{1}=1$.
+\end{thm}
+We can then reduce $\sqrt{0}$ to $0$, and $\sqrt{1}$ to $1$ automatically.
+
+We have the following results:
+\begin{thm}
+\item\label{square1:19} $1<\sqrt{2}$
+\item\label{square1:20} $\sqrt{4}=2$
+\item\label{square1:21} $\sqrt{2}<2$
+\item\label{square1:22} If $0\leq a$, then $\sqrt{a^{2}}=a$
+\item\label{square1:23} If $a\leq0$, then $\sqrt{a^{2}}=-a$.
+\item\label{square1:24} If $0\leq a$ and $\sqrt{a}=0$, then $a=0$
+\item\label{square1:25} If $0<a$, then $0<\sqrt{a}$
+\item\label{square1:26} If $0\leq x\leq y$, then $\sqrt{x}\leq\sqrt{y}$
+\item\label{square1:27} If $0\leq x<y$, then $\sqrt{x}<\sqrt{y}$
+\item\label{square1:28} If $0\leq x$, $0\leq y$, and $\sqrt{x}=\sqrt{y}$,
+  then $x=y$.
+\item\label{square1:29} If $0\leq a$ and $0\leq b$,
+  then $\sqrt{a\cdot b}=\sqrt{a}\cdot\sqrt{b}$
+\item\label{square1:30} If $0\leq a$ and $0\leq b$,
+  then $\sqrt{a/b} = \sqrt{a}/\sqrt{b}$
+\item\label{square1:31} Suppose $0\leq a$ and $0\leq b$.
+  Then $\sqrt{a+b}=0$ if and only if $a=b=0$.
+\item\label{square1:32} If $0<a$, then $\sqrt{1/a}=1/\sqrt{a}$.
+\item\label{square1:33} If $0<a$, then $\sqrt{a}/a=1/\sqrt{a}$
+\item\label{square1:34} If $0<a$, then $a/\sqrt{a}=\sqrt{a}$
+\item\label{square1:35} If $0\leq a$ and $0\leq b$,
+  then $(\sqrt{a}-\sqrt{b})\cdot(\sqrt{a}+\sqrt{b})=a-b$
+\item\label{square1:36} If $0\leq a$, $0\leq b$, and $a\neq b$,
+  then $1/(\sqrt{a}+\sqrt{b})=(\sqrt{a}-\sqrt{b})/(a-b)$
+\item\label{square1:37} If $0\leq b<a$, then
+  $1/(\sqrt{a}+\sqrt{b})=(\sqrt{a}-\sqrt{b})/(a-b)$
+\item\label{square1:38} If $0\leq a$ and $0\leq b$, then
+  $1/(\sqrt{a}-\sqrt{b})=(\sqrt{a}+\sqrt{b})/(a-b)$.
+\item\label{square1:39} If $0\leq b<a$, then
+  $1/(\sqrt{a}-\sqrt{b})=(\sqrt{a}+\sqrt{b})/(a-b)$.
+\item\label{square1:40} Let $x$, $y$ be Complex. If $x^{2}=y^{2}$,
+  then either $x=y$ or $x=-y$.
+\item\label{square1:41} Let $x$ be Complex. If $x^{2}=1$, then either
+  $x=-1$ or $x=1$.
+\item\label{square1:42} If $0\leq x\leq1$, then $x^{2}\leq x$
+\item\label{square1:43} If $x^{2}-1\leq0$, then $-1\leq x\leq1$.
+\item\label{square1:44} If $x<a\leq0$, then $x^{2}>a^{2}$.
+\item\label{square1:45} If $-1\geq a$, then $-a\leq a^{2}$
+\item\label{square1:46} If $-1>a$, then $-a<a^{2}$
+\item\label{square1:47} If $b^{2}\leq a^{2}$ and $a\geq0$, then $-a\leq b\leq a$
+\item\label{square1:48} If $b^{2}<a^{2}$ and $a\geq0$, then $-a<b<a$
+\item\label{square1:49} If $-a\leq b\leq a$, then $b^{2}\leq a^{2}$
+\item\label{square1:50} If $-a<b<a$, then $b^{2}<a^{2}$
+\item\label{square1:51} If $a^{2}\leq1$, then $-1\leq a\leq 1$
+\item\label{square1:52} If $a^{2}<1$, then $-1<a<1$
+\item\label{square1:53} If $-1\leq a\leq 1$ and $-1\leq b\leq 1$, then
+  $(a^{2})\cdot(b^{2})\leq1$
+\item\label{square1:54} If $a\geq0$ and $b\geq0$, then
+  $a\cdot\sqrt{b}=\sqrt{a^{2}\cdot b}$.
+\item\label{square1:55} If $-1\leq a\leq1$ and $-1\leq b\leq1$,
+  then $-b\cdot\sqrt{1+a^{2}}\leq\sqrt{1+b^{2}}$ and
+  $-\sqrt{1+b^{2}}\leq b\cdot\sqrt{1+a^{2}}$.
+\item\label{square1:56} If $-1\leq a\leq1$ and $-1\leq b\leq 1$,
+  then $b\cdot\sqrt{1+a^{2}}\leq\sqrt{1+b^{2}}$
+\item\label{square1:57} If $a\geq b$, then $a\cdot\sqrt{1+b^{2}}\geq b\cdot\sqrt{1+a^{2}}$
+\item\label{square1:58} If $a\geq0$, then $\sqrt{a+b^{2}}\geq b$
+\item\label{square1:59} If $0\leq a$ and $0\leq b$,
+  then $\sqrt{a+b}\leq\sqrt{a}+\sqrt{b}$.
+\end{thm}
+
+
+\end{document}

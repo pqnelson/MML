@@ -1,0 +1,471 @@
+\documentclass{article}
+\title{The Fundamental Properties of Natural Numbers (NAT-1)}
+\author{Grzegorz Bancerek}
+\date{January 11, 1989}
+\begin{document}
+\maketitle
+
+Observe there exists a natural object.
+
+Let $x$ be Real, let $p$, $k$, $n$ be natural number,
+let $X$ be a subset of $\RR$.
+We have the following result:
+\begin{thm}
+\item\label{nat1:1} Suppose every Real $x\in X$ satisfies $x+1\in X$.
+  If $0\in X$, then any natural number $n$ satisfies $n\in X$.
+\end{thm}
+
+Let $n$, $k$ be natural Numbers. We observe that $n+k$ is natural.
+
+\begin{definition}
+Let $n$ be a natural Number, let $k$ be an element of $\NN$.
+We redefine the type of $n+k$ to be an element of $\NN$.
+\end{definition}
+
+\skipscheme
+
+\textsc{The Principle of Mathematical Induction:}\index{Induction}\index{Mathematical Induction}\index{Proof!by Induction}%
+\begin{scheme}[NatInd]
+Let $\mathcal{P}[-]$ be a unary predicate of Nat.
+For all Nat $k$ we have $\mathcal{P}[k]$, provided:
+\begin{enumerate}
+\item $\mathcal{P}[0]$ and
+\item for all $k$ being Nat, if $\mathcal{P}[k]$, then $\mathcal{P}[k+1]$.
+\end{enumerate}
+\end{scheme}
+
+Observe for any natural Numbers $n$ and $k$, $n\cdot k$ is natural.
+
+\begin{definition}
+Let $n$, $k$ be element of $\NN$.
+We redefine the type of $n\cdot k$ to be an element of $\NN$.
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{nat1:2} Let $i$ be a natural Number. Then $0\leq i$.
+\item\label{nat1:3} Let $i$ be a natural Number. If $0\neq i$, then $0<i$.
+\item\label{nat1:4} Let $i$, $j$, $h$ be natural Numbers.
+  If $i\leq j$, then $i\cdot h\leq j\cdot h$.
+\item\label{nat1:5} Let $i$ be a natural Number. Then $0<i+1$.
+\item\label{nat1:6} Let $i$ be a natural Number.
+  Then either $i=0$ or there exists a Nat $k$ such that $i=k+1$.
+\item\label{nat1:7} Let $i$, $j$ be natural Numbers.
+  If $i+j=0$, then $i=j=0$
+\end{thm}
+
+Observe there exists a zero natural object, and a nonzero natural
+object.
+
+Let $m$ be a natural Number, let $n$ be a nonzero natural Number.
+Observe $m+n$ and $n+m$ are nonzero.
+
+\begin{scheme}[DefbyInd]
+Let $\mathcal{N}$ be Nat, $\mathcal{F}(-,-)$ be a Nat parametrized by
+two nats, let $\mathcal{P}[-,-]$ be a binary predicate of Nats.
+\begin{enumerate*}[label=(\alph*)]
+\item For each Nat $k$ there exists a Nat $n$ such that $\mathcal{P}[k,n]$,
+  and
+\item For all Nats $k$, $m$, and $n$, if $\mathcal{P}[k,n]$ and
+  $\mathcal{P}[k,m]$, then $n=m$; 
+\end{enumerate*}
+provided
+\begin{enumerate}
+\item For all Nats $k$ and $n$, we have $\mathcal{P}[k,n]$ if and only
+  either $k=0$ and $n=\mathcal{N}$, or there exists Nats $m$ and $\ell$
+  such that $k=m+1$ and $\mathcal{P}[m,\ell]$ and $n=\mathcal{F}(k,\ell)$.
+\end{enumerate}
+\end{scheme}
+
+We have the following results:
+\begin{thm}
+\item\label{nat1:8} Let $i$, $j$ be natural Numbers.
+  If $i\leq j+1$, then $i\leq j$ or $i=j+1$.
+\item\label{nat1:9} Let $i$, $j$ be natural Numbers.
+  If $i\leq j\leq i+1$, then $i=j$ or $j=i+1$.
+\item\label{nat1:10} Let $i$, $j$ be natural Numbers.
+  If $i\leq j$, then there exists a Nat $k$ such that $j=i+k$.
+\item\label{nat1:11} Let $i$, $j$ be natural Numbers. Then $i\leq i+j$.
+\end{thm}
+
+\begin{scheme}[CompInd]
+Let $\mathcal{P}[-]$ be a unary predicate of Nats.
+For all nats $k$, we have $\mathcal{P}[k]$; provided
+\begin{enumerate}
+\item For all Nat $k$, when every Nat $n<k$ satisfies $\mathcal{P}[n]$,
+  satisfies $\mathcal{P}[k]$
+\end{enumerate}
+\end{scheme}
+
+\textsc{Principle of Minimum:}\index{Principle of Minimum}%
+\begin{scheme}[Min]
+Let $\mathcal{P}[-]$ be a unary predicate of Nats.
+There exists a Nat $k$ such that $\mathcal{P}[k]$ and every Nat $n$ such
+that $\mathcal{P}[n]$ satisfies $k\leq n$; provided
+\begin{enumerate}
+\item There exists a Nat $k$ such that $\mathcal{P}[k]$.
+\end{enumerate}
+\end{scheme}
+
+\textsc{Principle of Maximum:}\index{Principle of Maximum}%
+\begin{scheme}[Max]
+Let $\mathcal{P}[-]$ be a unary predicate of Nats, let $\mathcal{N}$ be
+a Nat.
+There exists a Nat $k$ such that $\mathcal{P}[k]$ and every Nat $n$ such
+that $\mathcal{P}[n]$ satisfies $n\leq k$; provided
+\begin{enumerate}
+\item For all Nats $k$ such that $\mathcal{P}[k]$ satisfies $k\leq\mathcal{N}$;
+and
+\item There exists a Nat $k$ such that $\mathcal{P}[k]$.
+\end{enumerate}
+\end{scheme}
+
+We have the following five results:
+\begin{thm}
+\item\label{nat1:12} Let $i$, $j$, $h$ be natural Numbers.
+  If $i\leq j$, then $i\leq j+h$.
+\item\label{nat1:13} Let $i$, $j$ be natural Numbers.
+  Then $i<j+1$ if and only if $i\leq j$.
+\item\label{nat1:14} Let $i$ be a natural Number.
+  If $i<1$, then $i=0$.
+\item\label{nat1:15} Let $i$, $j$ be natural Numbers.
+  If $i\cdot j=1$, then $i=1$.
+\item\label{nat1:16} Let $n$, $k$ be natural Numbers.
+  If $k\neq0$, then $n<n+k$.
+\end{thm}
+
+\begin{scheme}[Regr]
+Let $\mathcal{P}[-]$ be a unary predicate of Nats.
+Then $\mathcal{P}[0]$, provided:
+\begin{enumerate}
+\item There exists a Nat $k$ such that $\mathcal{P}[k]$; and
+\item For all nats $k\neq0$, if $\mathcal{P}[k]$, then there exists a
+  Nat $n$ such that $n<k$ and $\mathcal{P}[n]$.
+\end{enumerate}
+\end{scheme}
+
+\section{Exact division and rest of division}
+
+Let $m$ be a Nat.
+We have the following two results:
+\begin{thm}
+\item\label{nat1:17} If $0<m$, then for all Nats $n$ there exist Nats
+  $k$ and $t$ such that $n=(m\cdot k)+t$ and $t<m$.
+\item\label{nat1:18} Let $n$, $m$, $k$, $t$, $k_{1}$, $t_{1}$ be natural
+  Numbers.
+  If $n=m\cdot k+t$, $t<m$, $n=m\cdot k_{1}+t_{1}$, and $t_{1}<m$,
+  then $k=k_{1}$ and $t=t_{1}$.
+\end{thm}
+
+Observe natural Numbers are ordinal. Observe there exists a nonempty
+ordinal subset of $\RR$.
+
+We have the following results:
+\begin{thm}
+\item\label{nat1:19} Let $k$, $n$ be natural Numbers.
+  Then $k<k+n$ if and only if $1\leq n$.
+\item\label{nat1:20} Let $k$, $n$ be natural Numbers.
+  If $k<n$, then $n-1$ is an element of $\NN$.
+\item\label{nat1:21} Let $k$, $n$ be natural Numbers.
+  If $k\leq n$, then $n-k$ is an element of $\NN$.
+\item\label{nat1:22} Let $m$, $n$ be natural Numbers.
+  If $m<n+1$, then either $m<n$ or $m=n$.
+\item\label{nat1:23} Let $k$ be a natural Number.
+  If $k<2$, then either $k=0$ or $k=1$.
+\end{thm}
+
+Observe there exists a nonzero element of $\NN$. Nats are
+nonnegative. Natural Numbers are nonnegative.
+
+We have the following result:
+\begin{thm}
+\item\label{nat1:24} Let $i$, $j$, $h$ be natural Numbers.
+  If $i\neq0$ and $h=j\cdot i$, then $j\leq h$.
+\end{thm}
+
+\begin{scheme}[Ind1]
+Let $\mathcal{M}$ be a Nat, let $\mathcal{P}[-]$ be a unary predicate of
+Nats. For all nats $i$, if $\mathcal{M}\leq i$, then $\mathcal{P}[i]$;
+provided
+\begin{enumerate}
+\item $\mathcal{P}[\mathcal{M}]$; and
+\item for all Nats $j$ with $\mathcal{M}\leq j$, if $\mathcal{P}[j]$,
+  then $\mathcal{P}[j+1]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[CompInd1]
+Let $\mathcal{A}$ be a Nat, let $\mathcal{P}[-]$ be unary predicate of Nats.
+For all Nats $k\geq\mathcal{A}$ we have $\mathcal{P}[k]$; provided
+\begin{enumerate}
+\item for all Nats $k$ if $k\geq\mathcal{A}$ and every Nat $n\geq\mathcal{A}$
+  with $n<k$ satisfies $\mathcal{P}[n]$, then $\mathcal{P}[k]$. 
+\end{enumerate}
+\end{scheme}
+
+We have the following result:
+\begin{thm}
+\item\label{nat1:25} For all natural Numbers $n$, if $n\leq1$, then
+  either $n=0$ or $n=1$.
+\end{thm}
+
+\begin{scheme}[Indfrom1]
+Let $\mathcal{P}[-]$ be a unary predicate of Nats.
+For all nonzero Nats $k$, we have $\mathcal{P}[k]$; provided
+\begin{enumerate}
+\item $\mathcal{P}[1]$; and
+\item for all nonzero Nats $k$, if $\mathcal{P}[k]$, then $\mathcal{P}[k+1]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{definition}
+Let $A$ be a set.
+We define the term $\min^{*}(A)$ (Mizar: ``\verb#min* A#'') to be the
+element of $\NN$ satisfying
+\begin{defn}
+\item \begin{itemize}
+\item (If $A$ is nonempty subset of $\NN$) $\min^{*}(A)\in A$ and for all Nats $k$, if $k\in A$, then
+  $\min^{*}(A)\leq k$
+\item (otherwise) $\min^{*}(A)=0$
+\end{itemize}
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{nat1:26} (Cancelled)
+\item\label{nat1:27} (Cancelled)
+\item\label{nat1:28} (Cancelled)
+\item\label{nat1:29} (Cancelled)
+\item\label{nat1:30} (Cancelled)
+\item\label{nat1:31} (Cancelled)
+\item\label{nat1:32} (Cancelled)
+\item\label{nat1:33} (Cancelled)
+\item\label{nat1:34} (Cancelled)
+\item\label{nat1:35} (Cancelled)
+\item\label{nat1:36} (Cancelled)
+\item\label{nat1:37} (Cancelled)
+\item\label{nat1:38} Let $n$ be a Nat. Then $\succ(\Segm(n))=\Segm(n+1)$.
+\item\label{nat1:39} $n\leq m$ if and only if $\Segm(n)\subset\Segm(m)$.
+\item\label{nat1:40} $\card{\Segm(n)}\subset\card{\Segm(m)}$ if and only
+  if $n\leq m$.
+\item\label{nat1:41} $\card{\Segm(n)}\in\card{\Segm(m)}$ if and only
+  if $n<m$.
+\item\label{nat1:42} $\nextcard{\card{\Segm(n)}}=\card{\Segm(n+1)}$
+\item\label{nat1:43} Let $X$, $Y$ be finite sets.
+  If $X\subset Y$, then $\card{X}\leq\card{Y}$.
+\item\label{nat1:44} Let $k$, $n$ be natural Numbers.
+  Then $k\in\Segm(n)$ if and only if $k<n$.
+\item\label{nat1:45} Let $n$ be a natural Number. Then $n\in\Segm(n+1)$.
+\item\label{nat1:46} (Cancelled)
+\end{thm}
+
+\skipdefn
+\begin{definition}
+Let $X$ be a set.
+We define the mode, a \define{sequence of $X$} (Mizar:
+``\verb#sequence of X#'') to be a Function from $\NN$ to $X$.
+\end{definition}
+
+\begin{scheme}[LambdaRecEx]
+Let $\mathcal{A}$ be an object, let $\mathcal{G}(-,-)$ be an object
+parametrized by a pair of objects.
+There exists a function $f$ such that $\dom(f)=\NN$, $f(0)=\mathcal{A}$,
+and every Nat $n$ satisfies $f(n+1)=\mathcal{G}(n,f(n))$.
+\end{scheme}
+
+\begin{scheme}[LambdaRecExD]
+Let $\mathcal{D}$ be a nonempty set, let $\mathcal{A}$ be an element of
+$\mathcal{D}$, let $\mathcal{G}(-,-)$ be an element of $\mathcal{D}$
+parametrized by a pair of objects.
+There exists a sequence $f$ of $\mathcal{D}$ such that
+$f(0)=\mathcal{A}$ and every Nat $n$ satisfies $f(n+1)=\mathcal{G}(n,f(n))$.
+\end{scheme}
+
+\begin{scheme}[RecUn]
+Let $\mathcal{A}$ be an object, let $\mathcal{F}$ and $\mathcal{G}$ be
+functions, let $\mathcal{P}[-,-,-]$ be a predicate of three objects.
+We have $\mathcal{F}=\mathcal{G}$, provided:
+\begin{enumerate}
+\item $\dom(\mathcal{F})=\NN$;
+\item $\mathcal{F}(0)=\mathcal{A}$;
+\item for all Nat $n$, $\mathcal{P}[n,\mathcal{F}(n),\mathcal{F}(n+1)]$;
+\item $\dom(\mathcal{G})=\NN$;
+\item $\mathcal{G}(0)=\mathcal{A}$;
+\item for all Nat $n$, $\mathcal{P}[n,\mathcal{G}(n),\mathcal{G}(n+1)]$;
+  and
+\item for all Nat $n$, for all sets $x$, $y_{1}$, $y_{2}$,
+  if $\mathcal{P}[n,x,y_{1}]$ and $\mathcal{P}[n,x,y_{2}]$,
+  then $y_{1}=y_{2}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[RecUnD]
+Let $\mathcal{D}$ be a nonempty set, let $\mathcal{A}$ be an element of
+$\mathcal{D}$, let $\mathcal{P}[-,-,-]$ be a predicate of objects, let
+$\mathcal{F}$ and $\mathcal{G}$ be sequences of $\mathcal{D}$.
+We have $\mathcal{F}=\mathcal{G}$, provided
+\begin{enumerate}
+\item $\mathcal{F}(0)=\mathcal{A}$;
+\item for all Nats $n$, $\mathcal{P}[n,\mathcal{F}(n),\mathcal{F}(n+1)]$;
+\item $\mathcal{G}(0)=\mathcal{A}$;
+\item for all Nats $n$, $\mathcal{P}[n,\mathcal{G}(n),\mathcal{G}(n+1)]$;
+\item for all Nats $n$, for all elements $x$, $y_{1}$, $y_{2}$ being
+  elements of $\mathcal{D}$, if $\mathcal{P}[n,x,y_{1}]$ and
+  $\mathcal{P}[n,x,y_{2}]$, then $y_{1}=y_{2}$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[LambdaRecUn]
+Let $\mathcal{A}$ be an object, let $\mathcal{R}(-,-)$ be an object
+parametrized by a pair of objects, let $\mathcal{F}$ and $\mathcal{G}$
+be functions.
+We have $\mathcal{F}=\mathcal{G}$, provided:
+\begin{enumerate}
+\item $\dom(\mathcal{F})=\NN$;
+\item $\mathcal{F}(0)=\mathcal{A}$;
+\item for all Nats $n$, $\mathcal{F}(n+1)=\mathcal{R}(n,\mathcal{F}(n))$;
+\item $\dom(\mathcal{G})=\NN$;
+\item $\mathcal{G}(0)=\mathcal{A}$; and
+\item for all Nats $n$, $\mathcal{G}(n+1)=\mathcal{R}(n,\mathcal{G}(n))$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[LambdaRecUnD]
+Let $\mathcal{D}$ be a nonempty set, let $\mathcal{A}$ be an element of
+$\mathcal{D}$, let $\mathcal{R}(-,-)$ be an element of $\mathcal{D}$
+parametrized by a pair of objects, let $\mathcal{F}$ and $\mathcal{G}$
+be sequences of $\mathcal{D}$.
+We have $\mathcal{F}=\mathcal{G}$, provided:
+\begin{enumerate}
+\item $\mathcal{F}(0)=\mathcal{A}$;
+\item for all Nats $n$, we have $\mathcal{F}(n+1)=\mathcal{R}(n,\mathcal{F}(n))$;
+\item $\mathcal{G}(0)=\mathcal{A}$; and
+\item for all Nats $n$, we have $\mathcal{G}(n+1)=\mathcal{R}(n,\mathcal{G}(n))$.
+\end{enumerate}
+\end{scheme}
+
+Let $x$, $y$ be natural Numbers. Then $\min(x,y)$ is natural, and
+$\max(x,y)$ is natural.
+
+\begin{definition}
+Let $x$, $y$ be elements of $\NN$.
+We redefine the type of $\min(x,y)$ to be an element of $\NN$.
+We redefine the type of $\max(x,y)$ to be an element of $\NN$.
+\end{definition}
+
+\begin{scheme}[MinIndex]
+Let $\mathcal{F}(-)$ be a Nat parametrized by a Nat.
+There exists a Nat $k$ such that $\mathcal{F}(k)=0$ and for all Nats $n$
+with $\mathcal{F}(n)=0$ satisfies $k\leq n$; provided
+\begin{enumerate}
+\item for all Nats $k$, we have either $\mathcal{F}(k+1)<\mathcal{F}(k)$
+  ir $\mathcal{F}(k)=0$.
+\end{enumerate}
+\end{scheme}
+
+\begin{definition}
+Let $s$ be a many-sorted set of $\NN$, let $k$ be a natural Number.
+We define the term $s^\frown k$ (Mizar: ``\verb#s ^\ k#'') to be the
+many-sorted set of $\NN$ satisfying
+\begin{defn}
+\item for all nats $n$, we have $(s^\frown k)(n)=s(n+k)$.
+\end{defn}
+\end{definition}
+
+Let $X$ be a nonempty set, let $s$ be an $X$-valued many-sorted set of
+$\NN$, let $k$ be a natural number. We observe that $s^\frown k$ is $X$-valued.
+
+\begin{definition}
+Let $X$ be a nonempty set, let $s$ be a sequence of $X$, let $k$ be a Nat.
+We redefine the type of $s^\frown k$ to be a sequence of $X$.
+\end{definition}
+
+Let $X$ be a nonempty set, let $s$ be a sequence of $X$. We have the
+following results:
+\begin{thm}
+\item\label{nat1:47} $s^\frown0=s$
+\item\label{nat1:48} $(s^\frown k)\frown m=s^\frown(k+m)$
+\item\label{nat1:49} $(s^\frown k)^\frown m=(s^\frown m)^\frown k$.
+\end{thm}
+
+Let $N$ be a sequence of $\NN$, we observe $s\circ N$ is total Function-like
+$\NN$-defined $X$-valued.
+
+We have the following results:
+\begin{thm}
+\item\label{nat1:50} Let $N$ be a sequence of $\NN$. Then $(s\circ N)^{\frown}k=s\circ(N^{\frown}k)$.
+\item\label{nat1:51} $s(n)\in\rng(s)$
+\item\label{nat1:52} Suppose all Nats $n$ satisfy $s(n)\in Y$.
+  Then $\rng(s)\subset Y$.
+\item\label{nat1:53} Let $n$ be a natural Number.
+  If $n$ is nonzero, then $n=1$ or $n>1$.
+\item\label{nat1:54} $\succ(\Segm(n))=\{\ell\in\NN\mid\ell\leq n\}$.
+\end{thm}
+
+Let $n$ be a natural Number. We reduce $\In{n}{\NN}$ to $n$.
+
+\begin{scheme}[MinPred]
+Let $\mathcal{F}(-)$ be a Nat parametrized by Nats, let $\mathcal{P}[-]$
+be a unary predicate of objects. There exists a Nat $k$ such that
+$\mathcal{P}[k]$ and every Nat $n$ with $\mathcal{P}[n]$ satisfies
+$k\leq n$; provided
+\begin{enumerate}
+\item for all Nats $k$, either $\mathcal{F}(k+1)<\mathcal{F}(k)$ or $\mathcal{P}[k]$.
+\end{enumerate}
+\end{scheme}
+
+Let $k$ be Ordinal, $x$ be an object. Observe $k\constantto x$ is Sequence-like.
+
+We have the following results:
+\begin{thm}
+\item\label{nat1:55} Let $s$ be a many-sorted set of $\NN$, let $k$ be a
+  natural Number. We have $\rng(s^{\frown}k)\subset\rng(s)$.
+\item\label{nat1:56} (Cancelled)
+\item\label{nat1:57} (Cancelled)
+\item\label{nat1:58} (Cancelled)
+\item\label{nat1:59} Let $X$ be a finite set with $1<\card{X}$. Then
+  there exists sets $x_{1}\in X$ and $x_{2}\in X$ such that $x_{1}\neq x_{2}$.
+\item\label{nat1:60} If $k\leq n$, then $k=0$ or \dots or $k=n$.
+\item\label{nat1:61} If $x\in\Segm(n+1)$, then $x=0$ or \dots or $x=n$
+\item\label{nat1:62} If $m\leq i$ and $i\leq m+k$, then $i=m+0$ or \dots
+  or $i=m+k$.
+\end{thm}
+
+\begin{definition}
+Let $D$ be a set, let $s$ be a sequence of $D$, let $n$ be a natural Number.
+We redefine the type of $s(n)$ to be an element of $D$.
+\end{definition}
+
+Observe zero natural Numbers are nonpositive.
+Observe empty sets are zero, and nonzero sets are nonempty.
+
+\begin{definition}
+Let $G$ be a nonempty set, let $B\colon G\times\NN\to G$, let $g$ be an
+element of $G$, let $i$ be a Nat.
+We redefine the type of $B(g,i)$ to be an element of $G$.
+\end{definition}
+
+\begin{definition}
+Let $G$ be a nonempty set, let $B\colon G\times\NN\to G$, let $i$ be a Nat,
+let $g$ be an element of $G$.
+We redefine the type of $B(i,g)$ to be an element of $G$.
+\end{definition}
+
+\begin{scheme}[SeqEx2D]
+Let $\mathcal{X}$ and $\mathcal{Z}$ be nonempty sets, let
+$\mathcal{P}[-,-,-]$ be a predicate of sets.
+There exists a function $f\colon\mathcal{X}\times\NN\to\mathcal{Z}$
+such that for all elements $x$ of $\mathcal{X}$ and $y$ of $\NN$ we have
+$\mathcal{P}[x,y,f(x,y)]$; provided
+\begin{enumerate}
+\item for all elements $x$ of $\mathcal{X}$ and $y$ of $\NN$, there
+  exists an element $z$ of $\mathcal{Z}$ such that $\mathcal{P}[x,y,z]$.
+\end{enumerate}
+\end{scheme}
+
+We have the following result:
+\begin{thm}
+\item\label{nat1:63} for all Nats $n$, we have $\Segm(n)\subset\Segm(n+1)$.
+\end{thm}
+
+\end{document}

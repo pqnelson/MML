@@ -1,0 +1,235 @@
+\documentclass{article}
+\title{Divisibility of Natural Numbers (NAT-D)}
+\author{Grzegorz Bancerek}
+\date{January 3, 2007}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $k$, $\ell$ be natural Numbers.
+We redefine the term $k\div\ell$ to be the Nat satisfying
+\begin{defn}
+\item Either $\ell=0$ and $l\div\ell=0$, or
+  there exists a Nat $t$ such that $k=\ell\cdot(k\div\ell) + t$ and $t<\ell$. 
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $k$, $\ell$ be a natural Number.
+We redefine the term $k\mod{\ell}$ to be the Nat satisfying
+\begin{defn}
+\item Either $\ell=0$ and $k\mod{\ell}=0$,
+  or there exists a Nat $t$ such that $k=\ell\cdot t+k\mod{\ell}$ and $k\mod{\ell}<\ell$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $k$, $\ell$ be Nats.
+We redefine the type of $k\div\ell$ to be an element of $\NN$.
+We redefine the type of $k\mod{\ell}$ to be an element of $\NN$.
+\end{definition}
+
+Let $i$, $j$ be Nats. We have the following two results:
+\begin{thm}
+\item\label{natd:1} If $0<i$, then $j\mod{i}<i$
+\item\label{natd:2} If $0<i$, then $j=i\cdot(j\div i)+(j\mod{i})$.
+\end{thm}
+
+\begin{definition}
+Let $k$, $\ell$ be natural Numbers.
+We redefine the predicate ``$k$ divides $\ell$'' to mean
+\begin{defn}
+\item There exists a Nat $t$ such that $\ell=k\cdot t$.
+\end{defn}
+This is reflexive (i.e., every natural Number divides itself).
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{natd:3} $j$ divides $i$ if and only if $i=j\cdot(i\div j)$
+\item\label{natd:4} If $i$ divides $j$ and $j$ divides $h$, then $i$
+  divides $h$
+\item\label{natd:5} If $i$ divides $j$ and $j$ divides $i$, then $i=j$
+\item\label{natd:6} $i$ divides $0$, and $1$ divides $i$ 
+\item\label{natd:7} If $0<j$ and $i$ divides $j$, then $i\leq j$
+\item\label{natd:8} If $i$ divides $j$ and $i$ divides $h$, then $i$
+  divides $j+h$
+\item\label{natd:9} If $i$ divides $j$, then $i$ divides $j\cdot h$
+\item\label{natd:10} If $i$ divides $j$, and $i$ divides $j+h$, then $i$
+  divides $h$
+\item\label{natd:11} If $i$ divides both $j$ and $h$, then $i$ divides $(j\mod{h})$
+\end{thm}
+
+\section{The least common multiple and the greatest common divisor}
+
+\begin{definition}
+Let $k$, $n$ be natural Numbers.
+We redefine the term $\lcm(k,n)$ to mean
+\begin{defn}
+\item $k$ divides $\lcm(k,n)$, and $n$ divides $\lcm(k,n)$, and  every
+  Nat $m$ for which $k$ divides $m$ and $n$ divides $m$ satisfies
+  $\lcm(k,n)$ divides $m$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $k$, $n$ be Nat.
+We redefine the type of $\lcm(k,n)$ to be an element of $\NN$.
+\end{definition}
+
+\begin{definition}
+Let $k$, $n$ be a natural Number.
+We redefine the term $\gcd(k,n)$ to mean
+\begin{defn}
+\item $\gcd(k,n)$ divides $n$, $\gcd(k,n)$ divides $k$, and for all Nat
+  $m$ which divides both $k$ and $n$ also divides $\gcd(k,n)$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $k$, $n$ be Nat.
+We redefine the type of $\gcd(k,n)$ to be an element of $\NN$.
+\end{definition}
+
+Euclid's algorithm:
+\begin{scheme}[Euclid]\index{Euclid's Algorithm}%
+Let $\mathcal{Q}(-)$ be a Nat parametrized by Nats, let $\mathcal{A}$
+and $\mathcal{B}$ be Nats.
+There exists a Nat $n$ such that $\mathcal{Q}(n)=\gcd(\mathcal{A},\mathcal{B})$
+and $\mathcal{Q}(n+1)=0$; provided
+\begin{enumerate}
+\item $0<\mathcal{B}<\mathcal{A}$; and
+\item $\mathcal{Q}(0)=\mathcal{A}$ and $\mathcal{Q}(1)=\mathcal{B}$; and
+\item for each Nat $n$, we have $\mathcal{Q}(n+2)=\mathcal{Q}(n)\mod{\mathcal{Q}(n+1)}$.
+\end{enumerate}
+\end{scheme}
+
+We have the following results:
+\begin{thm}
+\item\label{natd:12} $n\mod2=0$ or $n\mod2=1$.
+\item\label{natd:13} $(k\cdot n)\mod{k}=0$
+\item\label{natd:14} If $k>1$, then $1\mod{k}=1$
+\item\label{natd:15} If $k\mod{n}=0$ and $\ell=k-m\cdot n$, then $\ell\mod{n}=0$
+\item\label{natd:16} If $n\neq0$ and $k\mod{n}=0$ and $\ell<n$, then $k+\ell\mod{n}=\ell$
+\item\label{natd:17} If $k\mod{n}=0$, then $k+\ell\mod{n}=\ell\mod{n}$
+\item\label{natd:18} If $k\neq0$, then $(k\cdot n)\div k=n$.
+\item\label{natd:19} If $k\mod{n}=0$, then $(k+\ell)\div n=(k\div n)+(\ell\div n)$
+\item\label{natd:20} (Cancelled)
+\item\label{natd:21} $m\mod{n}=(n\cdot k+m)\mod{n}$
+\item\label{natd:22} $(p+s)\mod{n}=((p\mod{n})+s)\mod{n}$
+\item\label{natd:23} $(p+s)\mod{n}=(p+(s\mod{n}))\mod{n}$
+\item\label{natd:24} If $k<n$, then $k\mod{n}=k$
+\item\label{natd:25} $n\mod{n}=0$
+\item\label{natd:26} $0=0\mod{n}$
+\item\label{natd:27} If $i<j$, then $i\div j=0$
+\item\label{natd:28} If $m>0$, then $\gcd(n,m)=\gcd(m,n\mod{m})$
+\end{thm}
+
+\begin{scheme}[INDI]
+Let $\mathcal{K}$ and $\mathcal{N}$ be elements of $\NN$,
+let $\mathcal{P}[-]$ be a predicate of sets.
+We have $\mathcal{P}[\mathcal{N}]$, provided:
+\begin{enumerate}
+\item $\mathcal{P}[0]$; and
+\item $\mathcal{K}>0$; and
+\item for all Nats $i$ and $j$,
+  if $\mathcal{P}[\mathcal{K}\cdot i]$ and $j\neq0$ and $j<\mathcal{K}$,
+  then $\mathcal{P}[\mathcal{K}\cdot i+j]$.
+\end{enumerate}
+\end{scheme}
+
+We have the following results:
+\begin{thm}
+\item\label{natd:29} $i\cdot j=\lcm(i,j)\cdot\gcd(i,j)$
+\item\label{natd:30} Let $i\geq0$, $j\geq0$ be Integers. Then $\gcd(i,j)=\gcd(j,i\mod{j})$
+\item\label{natd:31} $\lcm(i,i)=i$
+\item\label{natd:32} $\gcd(i,i)=i$
+\item\label{natd:33} If $i<j$ and $i\neq j$, then $i/j$ is not an Integer.
+\end{thm}
+
+\begin{definition}
+Let $i$, $j$ be Nats.
+We redefine the type of term $i-j$ (Mizar: ``\verb#i -' j#'') to be an
+element of $\NN$.
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{natd:34} $i+j-j=i$
+\item\label{natd:35} $a-b\leq a$
+\item\label{natd:36} If $n-i=0$, then $n\leq i$.
+\item\label{natd:37} If $i\leq j$, then $j+k-i=j+k-i$ (Mizar: \verb#j+k-'i=j+k-i#)
+\item\label{natd:38} If $i\leq j$, then $j+k-i=j-i+k$ (Mizar: \verb#j+k-'i=j-'i+k#)
+\item\label{natd:39} If $i-i_{1}\geq1$ (Mizar: \verb#i-'i1>=1#) or
+  $i-i_{1}\geq1$ (Mizar: \verb#i-i1>=1#), then $i-i_{1}=i-i_{1}$ (Mizar: \verb#i-'i1=i-i1#)
+\item\label{natd:40} $n-0=n$ (Mizar: \verb#n-'0=n#'')
+\item\label{natd:41} If $i_{1}\leq i_{2}$, then $n-i_{2}\leq n-i_{1}$
+\item\label{natd:42} If $i_{1}\leq i_{2}$, then $i_{1}-n\leq i_{2}-n$
+\item\label{natd:43} (Compatibility of subtraction)
+  If $i-i_{1}\geq1$ (Mizar: \verb#i-'i1>=1#) or $i-i_{1}\geq1$
+  (Mizar: \verb#i-i1>=1#), then $i-i_{1}=i-i_{1}$
+  (Mizar: \verb#i-'i1=i-i1#)
+\item\label{natd:44} If $i_{1}\leq i_{2}$, then $i_{1}-1\leq i_{2}$
+\item\label{natd:45} $i-2=i-1-1$
+\item\label{natd:46} If $i_{1}+1\leq i_{2}$, then
+  $i_{1}-1\leq i_{2}$ and $i_{1}-2<i_{2}$ and $i_{1}\leq i_{2}$
+\item\label{natd:47} If $i_{1}+2\leq i_{2}$ or $i_{1}+1+1\leq i_{2}$,
+  then $i_{1}+1<i_{2}$ and $i_{1}+1-'1<i_{2}$ (Mizar: \verb#i1+1-'1<i2#) and
+  $i_{1}+1-'2<i_{2}$ (Mizar: \verb#i1+1-'2<i2#)
+  and $i_{1}+1\leq i_{2}$ and
+  $i_{1}-1+1<i_{2}$ and $i_{1}-1+1-1<i_{2}$ and
+  $i_{1}<i_{2} and i_{1}-1<i_{2}$ and
+  $i_{1}-2<i_{2}$ and $i_{1}\leq i_{2}$
+\item\label{natd:48} If $i_{1}\leq i_{2}$ (Mizar: \verb#i1<=i2-1#) or $i_{1}\leq i_{2}-1$
+  (Mizar: \verb#i1<=i2-'1#), then
+  $i_{1}<i_{2}+1$ and
+  $i_{1}\leq i_{2}+1$ and $i_{1}<i_{2}+1+1$ and
+  $i_{1}\leq i_{2}+1+1$ and $i_{1}<i_{2}+2$ and $i_{1}\leq i_{2}+2$
+\item\label{natd:49} If $i_{1}<i_{2}$ or $i_{1}+1\leq i_{2}$,
+  then $i_{1}\leq i_{2}-1$
+\item\label{natd:50} If $i\geq i_{1}$, then $i\geq i_{1}-i_{2}$
+\item\label{natd:51} If $1\leq i$ and $1\leq i_{1}-i$, then $i_{1}-i\leq i_{1}$
+\item\label{natd:52} If $i-k\leq j$, then $i\leq j+k$
+\item\label{natd:53} If $i\leq j+k$, then $i-k\leq j$
+\item\label{natd:54} If $i\leq j-k$ and $k\leq j$, then $i+k\leq j$
+\item\label{natd:55} If $j+k\leq i$, then $k\leq i-j$
+\item\label{natd:56} If $k\leq i<j$, then $i-k<j-k$
+\item\label{natd:57} If $i<k$ and $k<j$, then $i-k<j-k$
+\item\label{natd:58} If $i\leq j$, then $j-(j-i)=i$
+\item\label{natd:59} If $n<k$, then $k-(n+1)+1=k-n$
+\item\label{natd:60} Let $A$ be a finite set.
+  Then $A$ is trivial if and only if $\card{A}<2$
+\item\label{natd:61} Let $n$, $k$, $a$ be Integers. Suppose $n\neq0$.
+  Then $(a+n\cdot k)\div n=(a\div n)+k$ and $(a+n\cdot k)\mod{n}=a\mod{n}$.
+\item\label{natd:62} Let $n>0$ be a natural Number, let $a$ be an Integer.
+  Then $a\mod{n}\geq0$ and $a\mod{n}<n$.
+\item\label{natd:63} Let $a$, $n$ be Integers. Then
+  \begin{enumerate}[label=(\roman*)]
+  \item If $0\leq a<n$, then $a\mod{n}=a$; and
+  \item If $0>a\geq-n$, then $a\mod{n}=n+a$.
+  \end{enumerate}
+\item\label{natd:64} Let $a$, $b$, $n$ be Integers.
+  \begin{enumerate}[label=(\roman*)]
+  \item If $n\neq0$ and $a\mod{n}=b\mod{n}$, then $\CongMod{a}{b}{n}$; and
+  \item If $\CongMod{a}{b}{n}$, then $a\mod{n}=b\mod{n}$.
+  \end{enumerate}
+\item\label{natd:65} Let $n$ be a natural Number, let $a$ be an Integer.
+  Then $(a\mod{n})\mod{n}=a\mod{n}$
+\item\label{natd:66} Let $n$, $a$, $b$ be Integers.
+  Then $(a+b)\mod{n}=((a\mod{n})+(b\mod{n}))\mod{n}$
+\item\label{natd:67} Let $n$, $a$, $b$ be Integers.
+  Then $(a\cdot b)\mod{n}=((a\mod{n})\cdot(b\mod{n}))\mod{n}$.
+\item\label{natd:68} (\textsc{B\'{e}zout's Identity}\index{B\'{e}zout's Identity})
+  Let $a$, $b$ be Integers. There exists Integers $s$ and $t$ such that
+  $\gcd(a,b)=s\cdot a+t\cdot b$.
+\item\label{natd:69} If $n\mod{k}=k-1$, then $(n+1)\mod{k}=0$.
+\item\label{natd:70} If $n\mod{k}<k-1$, then $(n+1)\mod{k}=(n\mod{k})+1$
+\item\label{natd:71} Let $i$ be an Integer, let $n$ be a Nat.
+  Then $(i\cdot n)\mod{n}=0$.
+\item\label{natd:72} If $m-n\geq0$, then $m-n+n=m$
+\item\label{natd:73} Let $m$, $n$ be Integers.
+  Then $(m\mod{n})\mod{n}=m\mod{n}$.
+\end{thm}
+
+
+\end{document}

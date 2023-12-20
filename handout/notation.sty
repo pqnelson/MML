@@ -108,7 +108,7 @@
 \def\mod#1{\,\,{\operator@font mod}\,\,#1}
 
 % CARD1
-\def\card#1{|#1|}
+\def\card#1{\lvert#1\rvert}
 \def\nextcard#1{#1^{+}}
 
 % CLASSES1
@@ -193,6 +193,12 @@
 % XXREAL0
 \newcommand\IFGT[4]{\operatorname{IFGT}(#1,#2,#3,#4)}
 
+% COMPLEX1
+\newcommand\abs[1]{\lvert#1\rvert}
+
+% ABSVALUE
+\DeclareMathOperator\sgn{sgn}
+
 % STRUCT0
 \def\carrier#1{\operatorname{the\ carrier\ of\ }#1}
 \DeclareMathOperator\NonZero{NonZero}
@@ -204,6 +210,12 @@
 
 % XCMPLX0
 \def\I{\mathrm{i}}
+
+% INT1
+\newcommand\CongMod[3]{#1\equiv#2\pmod{#3}}
+\newcommand\floor[1]{\lfloor #1 \rfloor}
+\newcommand\ceil[1]{\lceil #1 \rceil}
+\DeclareMathOperator{\fracpart}{frac}
 
 % GROUP1
 \DeclareMathOperator{\ord}{ord}

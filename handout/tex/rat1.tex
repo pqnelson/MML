@@ -1,0 +1,138 @@
+\documentclass{article}
+\title{Basic Properties of Rational Numbers (RAT-1)}
+\author{Andrzej Kondracki}
+\date{July 10, 1990}
+\begin{document}
+\maketitle
+
+\begin{definition}
+We redefine the term $\QQ$ to mean
+\begin{defn}
+\item $x\in\QQ$ if and only if there exists Integers $m$ and $n$ such
+  that $x=m/n$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $r$ be an object.
+We define the attribute, saying $r$ is \define{rational} to mean
+\begin{defn}
+\item $r\in\QQ$.
+\end{defn}
+\end{definition}
+
+Observe there exists a rational Real, there exists a rational number.
+
+\begin{definition}
+We define the mode, a \define{Rational} is a rational Number.
+\end{definition}
+
+Let $x$ be an object, let $a$ and $b$ be Reals, let $m$, $n$ be Integers.
+Let $k$, $i$, $j$ be Nats.
+Now we have the following results:
+\begin{thm}
+\item\label{rat1:1} If $x\in\QQ$, then there exists Integers $m$ and $n$
+  such that $n\neq0$ and $x=m/n$.
+\item\label{rat1:2} If $x$ is rational, then there exists Integers $m$ and $n$
+  such that $n\neq0$ and $x=m/n$.
+\item\label{rat1:3} $m/n$ is rational.
+\end{thm}
+
+Observe rational objects are real, integer objects are rational.
+
+Let $p$, $q$ be Rationals. We observe $p\cdot q$, $p+q$, $p-q$, $p/q$
+are rational. We also observe $-p$ and $p^{-1}$ are rational.
+
+Let $p$, $q$ be Rationals.
+We have the following results:
+\begin{thm}
+\item\label{rat1:4} (Cancelled)
+\item\label{rat1:5} (Cancelled)
+\item\label{rat1:6} (Cancelled)
+\item\label{rat1:7} If $a<b$, then there exists a Rational $p$ such that
+  $a<p<b$.
+\item\label{rat1:8} There exists an Integer $m$ and Nat $k$ such that
+  $k\neq0$ and $p=m/k$.
+\item\label{rat1:9} There exists an Integer $m$ and Nat $k$ such that
+  $k\neq0$, $p=m/k$ and for any Integer $w\neq0$ and Nat $n$ with
+  $p=n/w$ we have $k\leq w$.
+\end{thm}
+
+\begin{definition}
+Let $p$ be a Rational.
+We define the term $\denominator(p)$ (Mizar: ``\verb#denominator(p)#'')
+to be the Nat satisfying
+\begin{defn}
+\item \begin{enumerate}[label=(\roman*)]
+\item $\denominator(p)\neq0$, and
+\item there exists an Integer $m$ such that $p=m/\denominator(p)$, and
+\item for all Integers $n$ and Nats $k\neq0$, if $p=n/k$, then
+  $\denominator(p)\leq k$.
+\end{enumerate}
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $p$ be a Rational.
+We define the term $\numerator(p)$ (Mizar: ``\verb#numerator(p)#'') to
+be the Integer equal to
+\begin{defn}
+\item $\numerator(p) := \denominator(p)\cdot p$.
+\end{defn}
+\end{definition}
+
+\begin{thm}
+\item\label{rat1:10} $0<\denominator(p)$ (and we register the fact
+  $\denominator(p)$ is positive).
+\item\label{rat1:11} $1\leq\denominator(p)$
+\item\label{rat1:12} $0<\denominator(p)^{-1}$
+\item\label{rat1:13} $1\geq\denominator(p)^{-1}$
+\item\label{rat1:14} $\numerator(p)=0$ if and only if $p=0$
+\item\label{rat1:15} $p=\numerator(p)/\denominator(p)$ and $p=\numerator(p)\cdot\denominator(p)^{-1}$.
+\item\label{rat1:16} If $p\neq0$, then $\denominator(p)=\numerator(p)/p$
+\item\label{rat1:17} If $p$ is an Integer, then $\denominator(p)=1$ and $\numerator(p)=p$
+\item\label{rat1:18} If either $\numerator(p)=p$ or $\denominator(p)=1$,
+  then $p$ is an Integer.
+\item\label{rat1:19} $\numerator(p)=p$ if and only if $\denominator(p)=1$.
+\item\label{rat1:20} If $0\leq p$ and either $\numerator(p)=p$ or
+  $\denominator(p)=1$, then $p$ is an element of $\NN$.
+\item\label{rat1:21} $1<\denominator(p)$ if and only if $p$ is not an Integer.
+\item\label{rat1:22} $1>\denominator(p)^{-1}$ if and only if $p$ is not
+  an Integer.
+\item\label{rat1:23} $\numerator(p)=\denominator(p)$ if and only if $p=1$.
+\item\label{rat1:24} $\numerator(p)=-\denominator(p)$ if and only if $p=-1$
+\item\label{rat1:25} $-\numerator(p)=\denominator(p)$ if and only if $p=-1$
+\item\label{rat1:26} If $m\neq0$, then $p=(m\cdot\numerator(p))/(m\cdot\denominator(p))$.
+\item\label{rat1:27} If $k\neq0$ and $p=m/k$, there exists a Nat $w$
+  such that $m=w\cdot\numerator(p)$ and $k=w\cdot\denominator(p)$
+\item\label{rat1:28} If $p=m/n$ and $n\neq0$, then there exists an
+  Integer $m_{1}$ such that $m=m_{1}\cdot\numerator(p)$ and $n=m_{1}\cdot\denominator(p)$.
+\item\label{rat1:29} There is no Nat $w$ such that $1<w$ and there
+  exists an Integer $m$ and Nat $k$ such that $\numerator(p)=m\cdot w$
+  and $\denominator(p)=k\cdot w$.
+\item\label{rat1:30} Let $p=m/k$, $k\neq0$. Suppose there is no Nat $w$ such that $1<w$ and there
+  exists an Integer $m_{1}$ and Nat $k_{1}$ such that $m=m_{1}\cdot w$
+  and $k=k_{1}\cdot w$.
+  Then $k=\denominator(p)$ and $m=\numerator(p)$.
+\item\label{rat1:31} $p<-1$ if and only if $\numerator(p)<-\denominator(p)$ 
+\item\label{rat1:32} $p\leq-1$ if and only if $\numerator(p)\leq-\denominator(p)$
+\item\label{rat1:33} $p<-1$ if and only if $\denominator(p)<-\numerator(p)$.
+\item\label{rat1:34} $p\leq-1$ if and only if $\denominator(p)\leq-\numerator(p)$
+\item\label{rat1:35} $p<1$ if and only if $\numerator(p)<\denominator(p)$
+\item\label{rat1:36} $p\leq1$ if and only if $\numerator(p)\leq\denominator(p)$
+\item\label{rat1:37} $p<0$ if and only if $\numerator(p)<0$
+\item\label{rat1:38} $p\leq0$ if and only if $\numerator(p)\leq0$
+\item\label{rat1:39} $a<p$ if and only if $a\cdot\denominator(p)<\numerator(p)$
+\item\label{rat1:40} $a\leq p$ if and only if
+  $a\cdot\denominator(p)\leq\numerator(p)$
+\item\label{rat1:41} If $\denominator(p)=\denominator(q)$ and $\numerator(p)=\numerator(q)$,
+  then $p=q$
+\item\label{rat1:42} $p<q$ if and only if $\numerator(p)\cdot\denominator(q)<\numerator(q)\cdot\denominator(p)$
+\item\label{rat1:43} $\denominator(-p)=\denominator(p)$ and $\numerator(-p)=-\numerator(p)$.
+\item\label{rat1:44} $0<p$ and $q=1/p$ if and only if
+  $\numerator(q)=\denominator(p)$ and $\denominator(q)=\numerator(p)$
+\item\label{rat1:45} $p<0$ and $q=1/p$ if and only if
+  $\numerator(q)=-\denominator(p)$ and $\denominator(q)=-\numerator(p)$.
+\end{thm}
+
+\end{document}

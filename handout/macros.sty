@@ -70,12 +70,15 @@
 %\renewcommand\thethmi{(\ifx\mizart\relax\else\mizart:\fi\arabic{thmi})}
 %\renewcommand\thedefni{(Def.~\arabic{defni})}
 
+
+\newtheorem{scheme}{Scheme}
+
 \newcommand\skipdefn{\stepcounter{defni}Definition \thedefni\ was cancelled.}
 %    {\stepcounter{defni}}%\addtocounter{}{}}
+\newcommand\skipscheme{\stepcounter{scheme}Scheme \thescheme\ was cancelled.}
 
 \newtheorem{axiom}{Axiom}
 
-\newtheorem{scheme}{Scheme}
 
 \theoremstyle{definition}
 \newtheorem*{definition}{Definition}

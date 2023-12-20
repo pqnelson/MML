@@ -1,0 +1,397 @@
+\documentclass{article}
+\title{Integers (INT-1)}
+\author{Micha{\l} J. Trybulec}
+\date{February 7, 1990}
+\begin{document}
+\maketitle
+
+\begin{definition}
+We redefine the term $\ZZ$ to mean
+\begin{defn}
+\item $x\in\ZZ$ if and only if there exists a Nat $k$ such that either
+  $x=k$ or $x=-k$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $i$ be a Number.
+We define the attribute $i$ is \define{integer} (Mizar: ``\verb#integer#'')
+to mean
+\begin{defn}
+\item $i\in\ZZ$.
+\end{defn}
+\end{definition}
+
+Observe there exists an integer Real, there exists an integer number.
+Observe elements of $\ZZ$ are integer.
+
+\begin{definition}
+We define the mode, a \define{Integer} (Mizar: ``\verb#Integer#'') is an
+integer Number.
+\end{definition}
+
+Let $r$ be Real, let $k$ be a Nat.
+We have the following two results:
+\begin{thm}
+\item\label{int1:1} Let $k$ be a natural Number. If $r=k$ or $r=-k$,
+  then $r$ is Integer.
+\item\label{int1:2} If $r$ is Integer, then there exists a Nat $k$ such
+  that $r=k$ or $r=-k$.
+\end{thm}
+
+Observe natural objects are integer. Observe integer objects are real.
+Let $i_{0}$ be an Integer, then $-i_{0}$ is integer.
+Let $i_{1}$, $i_{2}$ be Integers, then $i_{1}+i_{2}$ and $i_{1}\cdot i_{2}$
+and $i_{1}-i_{2}$ are all integers.
+
+Let $i_{0}$, $i_{1}$, \dots, $i_{9}$ be Integers, let $j$ be an Integer.
+We have the following results:
+\begin{thm}
+\item\label{int1:3} If $0\leq i_{0}$, then $i_{0}\in\NN$.
+\item\label{int1:4} If $r$ is Integer, then $r+1$ is Integer and $r-1$
+  is Integer.
+\item\label{int1:5} If $i_{2}\leq i_{1}$, then $i_{1}-i_{2}\in\NN$.
+\item\label{int1:6} If $i_{1}+k=i_{2}$, then $i_{1}\leq i_{2}$.
+\item\label{int1:7} If $i_{0}<i_{1}$, then $i_{0}+1\leq i_{1}$.
+\item\label{int1:8} If $i_{1}<0$, then $i_{1}\leq-1$.
+\item\label{int1:9} $i_{1}\cdot i_{2}=1$ if and only if $i_{1}=i_{2}=1$
+  or $i_{1}=i_{2}=-1$.
+\item\label{int1:10} $i_{1}\cdot i_{2}=1$ if and only if either
+  $i_{1}=-1$ and $i_{2}=1$ or $i_{1}=1$ and $i_{2}=-1$.
+\end{thm}
+
+\begin{scheme}[SepInt]
+Let $\mathcal{P}[-]$ be a unary predicate of Integers.
+There exists a subset $X$ of $\ZZ$ such that for each Integer $x$, we
+have $x\in X$ if and only if $\mathcal{P}[x]$.
+\end{scheme}
+
+\begin{scheme}[IntIndUp]
+Let $\mathcal{F}$ be an Integer, let $\mathcal{P}[-]$ be a predicate of
+Integers. For each Integer $i_{0}$ with $\mathcal{F}\leq i_{0}$
+satisfies $\mathcal{P}[i_{0}]$, provided:
+\begin{enumerate}
+\item $\mathcal{P}[\mathcal{F}]$; and
+\item for each Integer $i_{2}\geq\mathcal{F}$, if $\mathcal{P}[i_{2}]$,
+  then $\mathcal{P}[i_{2}+1]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[IntIndDown]
+Let $\mathcal{F}$ be an Integer, let $\mathcal{P}[-]$ be a unary
+predicate of Integers.
+For each Integer $i_{0}\geq\mathcal{F}$, we have $\mathcal{P}[i_{0}]$,
+provided:
+\begin{enumerate}
+\item $\mathcal{P}[\mathcal{F}]$; and
+\item for each Integer $i_{2}\geq\mathcal{F}$, if $\mathcal{P}[i_{2}]$,
+  then $\mathcal{P}[i_{2}-1]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[IntIndFull]
+Let $\mathcal{F}$ be an Integer, let $\mathcal{P}[-]$ be a unary
+predicate of Integers. For all Integers $i_{0}$, we have $\mathcal{P}[i_{0}]$,
+provided:
+\begin{enumerate}
+\item $\mathcal{P}[\mathcal{F}]$; and
+\item for each Integer $i_{2}$, if $\mathcal{P}[i_{2}]$, then
+  $\mathcal{P}[i_{2}-1]$ and $\mathcal{P}[i_{2}+1]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[IntMin]
+Let $\mathcal{F}$ be an Integer, let $\mathcal{P}[-]$ be a unary
+predicate of Integers.
+There exists an Integer $i_{0}$ such that $\mathcal{P}[i_{0}]$ and every
+Integer $i_{1}$ such that $\mathcal{P}[i_{1}]$ satisfies $i_{0}\leq i_{1}$;
+provided
+\begin{enumerate}
+\item for each Integer $i_{1}$, if $\mathcal{P}[i_{1}]$, then
+  $\mathcal{F}\leq i_{1}$; and
+\item there exists an Integer $i_{1}$ such that $\mathcal{P}[i_{1}]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[IntMax]
+Let $\mathcal{F}$ be an Integer, let $\mathcal{P}[-]$ be a unary
+predicate of Integers.
+There exists an Integer $i_{0}$ such that $\mathcal{P}[i_{0}]$ and for
+all Integers $i_{1}$ with $\mathcal{P}[i_{1}]$ satisfies $i_{1}\leq i_{0}$,
+provided:
+\begin{enumerate}
+\item for each Integer $i_{1}$, if $\mathcal{P}[i_{1}]$, then
+  $i_{1}\leq\mathcal{F}$; and
+\item there exists an Integer $i_{1}$ such that $\mathcal{P}[i_{1}]$.
+\end{enumerate}
+\end{scheme}
+
+\section{The divisibility relation}
+
+\begin{definition}
+Let $i_{1}$, $i_{2}$ be Integers.
+We define the predicate $i_{1}$ \define{divides} $i_{2}$ to mean
+\begin{defn}
+\item There exists an Integer $i_{3}$ such that $i_{2}=i_{1}\cdot i_{3}$.
+\end{defn}
+Observe this is reflexive (every Integer $x$ divides itself).
+\end{definition}
+
+\begin{definition}
+Let $i_{1}$, $i_{2}$, $i_{3}$ be Integers.
+We define the predicate $\CongMod{i_{1}}{i_{2}}{i_{3}}$ (Mizar:
+``\verb#i1, i2 are_congruent_mod i3#'') to mean
+\begin{defn}
+\item $i_{3}$ divides $i_{1}-i_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $i_{1}$, $i_{2}$, $i_{3}$ be Integers.
+We redefine the predicate $\CongMod{i_{1}}{i_{2}}{i_{3}}$ (Mizar:
+``\verb#i1, i2 are_congruent_mod i3#'') to mean
+\begin{defn}
+\item There exists an Integer $i_{4}$ such that $i_{3}\cdot i_{4}=i_{1}-i_{2}$.
+\end{defn}
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{int1:11} $\CongMod{i_{1}}{i_{1}}{i_{2}}$
+\item\label{int1:12} $\CongMod{i_{1}}{0}{i_{1}}$ and $\CongMod{0}{i_{1}}{i_{1}}$
+\item\label{int1:13} $\CongMod{i_{1}}{i_{2}}{1}$
+\item\label{int1:14} If $\CongMod{i_{1}}{i_{2}}{i_{3}}$, then
+  $\CongMod{i_{2}}{i_{1}}{i_{3}}$
+\item\label{int1:15} If $\CongMod{i_{1}}{i_{2}}{i_{5}}$
+  and $\CongMod{i_{2}}{i_{3}}{i_{5}}$,
+  then $\CongMod{i_{1}}{i_{3}}{i_{5}}$
+\item\label{int1:16} If $\CongMod{i_{1}}{i_{2}}{i_{5}}$
+  and $\CongMod{i_{3}}{i_{4}}{i_{5}}$,
+  then $\CongMod{i_{1}+i_{3}}{i_{2}+i_{4}}{i_{5}}$
+\item\label{int1:17} If $\CongMod{i_{1}}{i_{2}}{i_{5}}$
+  and $\CongMod{i_{3}}{i_{4}}{i_{5}}$,
+  then $\CongMod{i_{1}-i_{3}}{i_{2}-i_{4}}{i_{5}}$
+\item\label{int1:18} If $\CongMod{i_{1}}{i_{2}}{i_{5}}$
+  and $\CongMod{i_{3}}{i_{4}}{i_{5}}$,
+  then $\CongMod{i_{1}\cdot i_{3}}{i_{2}\cdot i_{4}}{i_{5}}$
+\item\label{int1:19} $\CongMod{i_{1}+i_{2}}{i_{3}}{i_{5}}$ if and only if
+  $\CongMod{i_{1}}{i_{3}-i_{2}}{i_{5}}$
+\item\label{int1:20} Suppose $i_{4}\cdot i_{5}=i_{3}$.
+  If $\CongMod{i_{1}}{i_{2}}{i_{3}}$, then $\CongMod{i_{1}}{i_{2}}{i_{4}}$
+\item\label{int1:21} $\CongMod{i_{1}}{i_{2}}{i_{5}}$ if and only if
+  $\CongMod{i_{1}+i_{5}}{i_{2}}{i_{5}}$
+\item\label{int1:22} $\CongMod{i_{1}}{i_{2}}{i_{5}}$ if and only if
+  $\CongMod{i_{1}-i_{5}}{i_{2}}{i_{5}}$
+\item\label{int1:23} If $i_{1}\leq r$, $r-1<i_{1}$, $i_{2}\leq r$, and
+  $r-1<i_{2}$, then $i_{1}=i_{2}$.
+\item\label{int1:24} If $r\leq i_{1}$, $i_{1}<r+1$, $r\leq i_{2}$,
+  and $i_{2}<r+1$, then $i_{1}=i_{2}$.
+\end{thm}
+
+\begin{definition}
+Let $r$ be a Real. We define the term $\floor{r}$ (Mizar: ``\verb#[\ r /]#'')
+to be the Integer satisfying
+\begin{defn}
+\item $\floor{r}\leq r$ and $r-1<\floor{r}$.
+\end{defn}
+Observe this is projective (i.e., $\floor{(\floor{r})}=\floor{r}$).
+\end{definition}
+
+We can prove the following result:
+\begin{thm}
+\item\label{int1:25} $\floor{r}=r$ if and only if $r$ is an Integer.
+\end{thm}
+
+Let $i$ be an Integer, we can reduce $\floor{i}$ to $i$.
+
+We have the following result:
+\begin{thm}
+\item\label{int1:26} $\floor{r}<r$ if and only if $r$ is not an Integer.
+\item\label{int1:27} $\floor{r}-1<r$ and $\floor{r}<r+1$.
+\item\label{int1:28} $\floor{r}+i_{0}=\floor{r+i_{0}}$
+\item\label{int1:29} $r<\floor{r}+1$
+\end{thm}
+
+\begin{definition}
+Let $r$ be a Real.
+We define the term $\ceil{r}$ (Mizar: ``\verb#[/ r \]#'') to be the
+Integer satisfying
+\begin{defn}
+\item $r\leq\ceil{r}<r+1$. 
+\end{defn}
+Observe this is projective ($\ceil{(\ceil{r})}=\ceil{r}$).
+\end{definition}
+
+We have the following result:
+\begin{thm}
+\item\label{int1:30} $\ceil{r}=r$ if and only if $r$ is an Integer.
+\end{thm}
+
+Let $i$ be an Integer. We can reduce $\ceil{i}$ to $i$.
+
+We can continue proving the following results:
+\begin{thm}
+\item\label{int1:31} $r<\ceil{r}$ if and only if $r$ is not an Integer
+\item\label{int1:32} $r-1<\ceil{r}$ and $r<\ceil{r}+1$
+\item\label{int1:33} $\ceil{r}+i_{0}=\ceil{r+i_{0}}$
+\item\label{int1:34} $\floor{r}=\ceil{r}$ if and only if $r$ is an Integer.
+\item\label{int1:35} $\floor{r}<\ceil{r}$ if and only if $r$ is not an Integer.
+\item\label{int1:36} $\floor{r}\leq\ceil{r}$
+\item\label{int1:37} $\floor{\ceil{r}}=\ceil{r}$
+\item\label{int1:38} (Cancelled)
+\item\label{int1:39} (Cancelled)
+\item\label{int1:40} $\ceil{\floor{r}}=\floor{r}$
+\item\label{int1:41} $\floor{r}=\ceil{r}$ if and only if $\floor{r}+1\neq\ceil{r}$
+\end{thm}
+
+\begin{definition}
+Let $r$ be a Real.
+We define the term $\fracpart(r)$ (Mizar: ``\verb#frac r#'') to be the
+number equal to
+\begin{defn}
+\item $\fracpart(r):=r-\floor{r}$.
+\end{defn}
+\end{definition}
+
+Let $r$ be a Real. Observe $\fracpart(r)$ is real.
+
+We have the following results:
+\begin{thm}
+\item\label{int1:42} $r=\floor{r}+\fracpart(r)$
+\item\label{int1:43} $0\leq\fracpart(r)<1$
+\item\label{int1:44} $\floor{\fracpart(r)}=0$
+\item\label{int1:45} $\fracpart(r)=0$ if and only if $r$ is integer.
+\item\label{int1:46} $0<\fracpart(r)$ if and only if $r$ is not integer.
+\end{thm}
+
+\section{Functions div and mod}
+
+\begin{definition}
+Let $i_{1}$, $i_{2}$ be Integers.
+We define the term $i_{1}\div i_{2}$ (Mizar: ``\verb#i1 div i2#'') to be
+the Integer equal to
+\begin{defn}
+\item $i_{1}\div i_{2}:=\floor{i_{1}/i_{2}}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $i_{1}$, $i_{2}$ be Integers.
+We define the term $i_{1}\mod{i_{2}}$ (Mizar: ``\verb#i1 mod i2#'') to
+be the Integer equal to
+\begin{defn}
+\item $\displaystyle{i_{1}\mod{i_{2}}:=\begin{cases}
+  i_{1}-(i_{1}\div i_{2})\cdot i_{2} &\mbox{if }i_{2}\neq0\\
+  0 & \mbox{otherwise}.
+  \end{cases}}$
+  \end{defn}
+\end{definition}
+
+We have the following two results:
+\begin{thm}
+\item\label{int1:47} Let $r\neq0$ be a Real. Then $\floor{r/r}=1$.
+\item\label{int1:48} Let $i$ be an Integer. Then $i\div0=0$.
+\end{thm}
+
+Let $i$ be an Integer. We reduce $i\div0$ to $0$, and $0\div i$ reduces
+to $0$.
+
+We have the following results:
+\begin{thm}
+\item\label{int1:49} Let $i\neq0$ be an Integer. Then $i\div i=1$.
+\item\label{int1:50} Let $i$ be an Integer. Then $i\mod{i}=0$.
+\item\label{int1:51} Let $i$, $k$ be Integers.
+  If $k<i$, then there exists an element $j$ of $\NN$ such that $j=i-k$
+  and $1\leq j$.
+\item\label{int1:52} Let $a$, $b$ be Integers. If $a<b$, then $a\leq b-1$.
+\item\label{int1:53} Let $r\geq0$ be a Real. Then $\floor{r}\geq0$,
+  $\ceil{r}\geq0$, and $\floor{r}$ and $\ceil{r}$ are both elements of $\NN$.
+\item\label{int1:54} Let $i$ be an Integer, let $r$ be a Real. If $i\leq r$,
+  Then $i\leq\floor{r}$.
+\item\label{int1:55} Let $m$ and $n$ be Nats. Then $0\leq m\div n$.
+\item\label{int1:56} If $0<i$ and $1<j$, then $i\div j<1$.
+\item\label{int1:57} If $i_{2}\geq0$, then $i_{1}\mod{i_{2}}\geq0$.
+\item\label{int1:58} If $i_{2}>0$, then $i_{1}\mod{i_{2}}<i_{2}$.
+\item\label{int1:59} If $i_{2}\neq0$, then $i_{1}=(i_{1}\div i_{2})\cdot i_{2} + (i_{1}\mod{i_{2}})$
+\item\label{int1:60} Let $m$, $n$ be Integers. Then $\CongMod{m\cdot j}{0}{m}$
+\item\label{int1:61} If $i\geq0$, $j\geq0$, then $i\div j\geq0$
+\item\label{int1:62} Let $n$ be an Integer.
+  Suppose $n>0$. For all Integers $a$, we have $a\mod{n}=0$ if and only
+  if $n$ divides $a$.
+\end{thm}
+
+Let $r$, $s$ be Reals. We have the following results:
+\begin{thm}
+\item\label{int1:63} If $r/s$ is not an Integer,
+  then $-\floor{r/s}=\floor{(-r)/s}+1$
+\item\label{int1:64} If $r/s$ is an Integer,
+  then $-\floor{r/s}=\floor{(-r)/s}$.
+\item\label{int1:65} If $r\leq i$, then $\ceil{r}\leq i$.
+\end{thm}
+
+\begin{scheme}[FinInd]
+Let $\mathcal{M}$ and $\mathcal{N}$ be elements of $\NN$, let
+$\mathcal{P}[-]$ be a unary predicate of Nats.
+For all elements $i$ of $\NN$, if $\mathcal{M}\leq i\leq\mathcal{N}$,
+then $\mathcal{P}[i]$, provided:
+\begin{enumerate}
+\item $\mathcal{P}[\mathcal{M}]$; and
+\item for all elements $j$ of $\NN$, if $\mathcal{M}\leq j<\mathcal{N}$
+  and $\mathcal{P}[j]$, then $\mathcal{P}[j+1]$.
+\end{enumerate}
+\end{scheme}
+
+\begin{scheme}[FindInd2]
+Let $\mathcal{M}$ and $\mathcal{N}$ be elements of $\NN$, let $\mathcal{P}[-]$
+be a unary predicate of Nats.
+For all elements $i$ of $\NN$, if $\mathcal{M}\leq i\leq\mathcal{N}$,
+then $\mathcal{P}[i]$; provided
+\begin{enumerate}
+\item $\mathcal{P}[\mathcal{M}]$; and
+\item for all elements $j$ of $\NN$ with $\mathcal{M}\leq j<\mathcal{N}$,
+  if every element $j'$ of $\NN$ with $\mathcal{M}\leq j'\leq j$
+  satisfies $\mathcal{P}[j']$,
+  then $\mathcal{P}[j]$.
+\end{enumerate}
+\end{scheme}
+
+Let $i$ be an Integer, let $a$, $b$, $r$, $s$ be Reals. We have the
+following results:
+\begin{thm}
+\item\label{int1:66} $\fracpart(r+i)=\fracpart(r)$.
+\item\label{int1:67} If $r\leq a<\floor{r}+1$, then $\floor{a}=\floor{r}$.
+\item\label{int1:68} If $r\leq a<\floor{r}+1$, then $\fracpart(r)\leq\fracpart(a)$.
+\item\label{int1:69} If $r<a<\floor{r}+1$, then $\fracpart(r)<\fracpart(a)$.
+\item\label{int1:70} If $\floor{r}+1\leq a\leq r+1$, then $\floor{a}=\floor{r}+1$
+\item\label{int1:71} If $\floor{r}+1\leq a<r+1$, then $\fracpart(a)<\fracpart(r)$
+\item\label{int1:72} If $r\leq a<r+1$ and $r\leq b<r+1$ and
+  $\fracpart(a)=\fracpart(b)$, then $a=b$.
+\end{thm}
+
+Let $i$ be an Integer, then we can reduce $\In{i}{\ZZ}$ to $i$.
+
+\begin{definition}
+Let $x$ be a Number. We define the attribute $x$ is \define{dim-like} to
+mean
+\begin{defn}
+\item $x=-1$ or $x$ is natural.
+\end{defn}
+\end{definition}
+
+We observe natural objects are dim-like, and dim-like objects are integer.
+We observe $-1$ is dim-like.
+Observe there exists a dim-like set.
+When $d$ is a dim-like object, $d+1$ is natural.
+When $k$ is a dim-like object and $n$ is a nonzero natural Number, $k+n$
+is natural.
+
+We can prove the following three results:
+\begin{thm}
+\item\label{int1:73} Let $i$ be an Integer. Then $0=0\mod{i}$.
+\item\label{int1:74} Let $n$ be a nonzero Nat. Then $n-1$ is Nat, and
+  $1\leq n$.
+\item\label{int1:75} Let $m$, $n$ be natural Numbers.
+  If $m^{2}\leq n < (m+1)^{2}$, then $\floor{\sqrt{n}}=m$.
+\end{thm}
+
+\end{document}

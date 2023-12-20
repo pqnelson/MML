@@ -1,0 +1,337 @@
+\documentclass{article}
+\title{On the Sets Inhabited by Numbers (MEMBERED)}
+\author{Andrzej Trybulec}
+\date{August 23, 2003}
+\begin{document}
+
+Let $x$ be an object, let $X$ and $F$ be sets.
+\begin{definition}
+Let $X$ be a set.
+We define the attribute $X$ is \define{complex-membered} meaning
+\begin{defn}
+\item If $x\in X$, then $x$ is complex.
+\end{defn}
+We define the attribute $X$ is \define{ext-real-membered} meaning
+\begin{defn}
+\item If $x\in X$, then $x$ is ext-real
+\end{defn}
+We define the attribute $X$ is \define{real-membered} meaning
+\begin{defn}
+\item If $x\in X$, then $x$ is real.
+\end{defn}
+We define the attribute $X$ is \define{rational-membered} meaning
+\begin{defn}
+\item If $x\in X$, then $x$ is rational.
+\end{defn}
+We define the attribute $X$ is \define{integer-membered} meaning
+\begin{defn}
+\item If $x\in X$, then $x$ is integer.
+\end{defn}
+We define the attribute $X$ is \define{natural-membered} meaning
+\begin{defn}
+\item If $x\in X$, then $x$ is natural.
+\end{defn}
+\end{definition}
+
+Observe natural-membered sets are integer-membered, integer-membered
+sets are rational-membered, rational-membered sets are real-membered,
+real-membered sets are ext-real-membered, and ext-real-membered sets are
+complex-membered.
+There exists a nonempty natural-membered set.
+Observe $\CC$ is complex-membered, $\ExtRR$ is ext-real-membered, $\RR$
+is real-membered, $\QQ$ is rational-membered, $\ZZ$ is integer-membered,
+and $\NN$ is natural-membered.
+
+We have the following results:
+\begin{thm}
+\item\label{membered:1} If $X$ is complex-membered, then $X\subset\CC$
+\item\label{membered:2} If $X$ is ext-real-membered, then $X\subset\ExtRR$
+\item\label{membered:3} If $X$ is real-membered, then $X\subset\RR$
+\item\label{membered:4} If $X$ is rational-membered, then $X\subset\QQ$
+\item\label{membered:5} If $X$ is integer-membered, then $X\subset\ZZ$
+\item\label{membered:6} If $X$ is natural-membered, then $X\subset\NN$
+\end{thm}
+
+Observe elements of complex-membered sets are complex, elements
+ext-real-membered sets are ext-real, elements of real-membered sets are
+real, elements of rational-membered sets are rational,
+elements of integer-membered sets are integer, and elements of
+natural-membered sets are natural.
+
+Let $c$ be Complex, $e$ be an Extended Real, $r$ be a Real, $w$ be a
+Rational, $i$ be an Integer, and $n$ a Nat. We have the following results:
+\begin{thm}
+\item\label{membered:7} Let $X$ be a nonempty complex-membered set.
+  There exists a Complex $c$ such that $c\in X$.
+\item\label{membered:8} Let $X$ be a nonempty ext-real-membered set.
+  There exists an Extended Real $e$ such that $e\in X$.
+\item\label{membered:9} Let $X$ be a nonempty real-membered set.
+  There exists a Real $r$ such that $r\in X$.
+\item\label{membered:10} Let $X$ be a nonempty rational-membered set.
+  There exists a Rational $w$ such that $w\in X$.
+\item\label{membered:11} Let $X$ be a nonempty integer-membered set.
+  There exists an Integer $i$ such that $i\in X$.
+\item\label{membered:12} Let $X$ be a nonempty natural-membered set.
+  There exists a Nat $n$ such that $n\in X$.
+\item\label{membered:13} Let $X$ be complex-membered set.
+  If every Complex $c$ satisfies $c\in X$, then $X=\CC$.
+\item\label{membered:14} Let $X$ be an ext-real-membered set.
+  If every Extended Real $e$ satisfies $e\in X$, then $X=\ExtRR$.
+\item\label{membered:15} Let $X$ be a real-membered set.
+  If every Real $r$ satisfies $r\in X$, then $X=\RR$.
+\item\label{membered:16} Let $X$ be a rational-membered set.
+  If every Rational $w$ satisfies $w\in X$, then $X=\QQ$.
+\item\label{membered:17} Let $X$ be an integer-membered set.
+  If every Integer $i$ satisfies $i\in X$, then $X=\ZZ$.
+\item\label{membered:18} Let $X$ be a natural-membered set.
+  If every Nat $n$ satisfies $n\in X$, then $X=\NN$.
+\item\label{membered:19} Let $Y$ be a complex-membered set.
+  If $X\subset Y$, then $X$ is complex-membered.
+\item\label{membered:20} Let $Y$ be an ext-real-membered set.
+  If $X\subset Y$, then $X$ is ext-real-membered.
+\item\label{membered:21} Let $Y$ be a real-membered set,
+  If $X\subset Y$, then $X$ is real-membered.
+\item\label{membered:22} Let $Y$ be a rational-membered set.
+  If $X\subset Y$, then $X$ is rational-membered.
+\item\label{membered:23} Let $Y$ be an integer-membered set.
+  If $X\subset Y$, then $X$ is integer-membered.
+\item\label{membered:24} Let $Y$ be a natural-membered set.
+  If $X\subset Y$, then $X$ is natural-membered.
+\end{thm}
+
+These last six propositions are registered (Subsets of a $V$-membered
+set are $V$-membered). Observe unions, intersections, differences, and
+symmetric differences of two $V$-membered sets
+are $V$-membered
+
+\begin{definition}
+Let $X$ be a complex-membered set, let $Y$ be any set.
+We redefine the predicate $X\subset Y$ means
+\begin{defn}
+\item For all Complex $c$, if $c\in X$, then $c\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a ext-real-membered set, let $Y$ be any set.
+We redefine the predicate $X\subset Y$ means
+\begin{defn}
+\item For all Extended Reals $e$, if $e\in X$, then $e\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a real-membered set, let $Y$ be any set.
+We redefine the predicate $X\subset Y$ means
+\begin{defn}
+\item For all Reals $r$, if $r\in X$, then $r\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a rational-membered set, let $Y$ be any set.
+We redefine the predicate $X\subset Y$ means
+\begin{defn}
+\item For all Rationals $w$, if $w\in X$, then $w\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be an integer-membered set, let $Y$ be any set.
+We redefine the predicate $X\subset Y$ means
+\begin{defn}
+\item For all Integers $i$, if $i\in X$, then $i\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$ be a natural-membered set, let $Y$ be any set.
+We redefine the predicate $X\subset Y$ means
+\begin{defn}
+\item For all Nats $n$, if $n\in X$, then $n\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be complex-membered sets.
+We redefine the predicate $X=Y$ to mean
+\begin{defn}
+\item For all Complex $c$, we have $c\in X$ if and only if $c\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be ext-real-membered sets.
+We redefine the predicate $X=Y$ to mean
+\begin{defn}
+\item For all Extended Real $e$, we have $e\in X$ if and only if $e\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be real-membered sets.
+We redefine the predicate $X=Y$ to mean
+\begin{defn}
+\item For all Real $r$, we have $r\in X$ if and only if $r\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be rational-membered sets.
+We redefine the predicate $X=Y$ to mean
+\begin{defn}
+\item For all Rationals $w$, we have $w\in X$ if and only if $w\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be integer-membered sets.
+We redefine the predicate $X=Y$ to mean
+\begin{defn}
+\item For all Integers $i$, we have $i\in X$ if and only if $i\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be natural-membered sets.
+We redefine the predicate $X=Y$ to mean
+\begin{defn}
+\item For all Nat $n$, we have $n\in X$ if and only if $n\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be complex-membered sets.
+We redefine the predicate $X$ misses $Y$ to mean
+\begin{defn}
+\item There is no Complex $c$ such that $c\in X$ and $c\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be ext-real-membered sets.
+We redefine the predicate $X$ misses $Y$ to mean
+\begin{defn}
+\item There is no Extended Real $e$ such that $e\in X$ and $e\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be real-membered sets.
+We redefine the predicate $X$ misses $Y$ to mean
+\begin{defn}
+\item There is no Real $r$ such that $r\in X$ and $r\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be rational-membered sets.
+We redefine the predicate $X$ misses $Y$ to mean
+\begin{defn}
+\item There is no Rational $w$ such that $w\in X$ and $w\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be integer-membered sets.
+We redefine the predicate $X$ misses $Y$ to mean
+\begin{defn}
+\item There is no Integer $i$ such that $i\in X$ and $i\in Y$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+Let $X$, $Y$ be natural-membered sets.
+We redefine the predicate $X$ misses $Y$ to mean
+\begin{defn}
+\item There is no Nat $n$ such that $n\in X$ and $n\in Y$.
+\end{defn}
+\end{definition}
+
+Let $F$ be a set.
+We have the following results:
+\begin{thm}
+\item\label{membered:25} Suppose every $X\in F$ is complex-membered.
+  Then $\union F$ is complex-membered.
+\item\label{membered:26} Suppose every $X\in F$ is ext-real-membered.
+  Then $\union F$ is ext-real-membered.
+\item\label{membered:27} Suppose every $X\in F$ is real-membered.
+  Then $\union F$ is real-membered.
+\item\label{membered:28} Suppose every $X\in F$ is rational-membered.
+  Then $\union F$ is rational-membered.
+\item\label{membered:29} Suppose every $X\in F$ is integer-membered.
+  Then $\union F$ is integer-membered.
+\item\label{membered:30} Suppose every $X\in F$ is natural-membered.
+  Then $\union F$ is natural-membered.
+\item\label{membered:31} If $X\in F$ and $X$ is complex-membered,
+  then $\meet F$ is complex-membered.
+\item\label{membered:32} If $X\in F$ and $X$ is ext-real-membered,
+  then $\meet F$ is ext-real-membered.
+\item\label{membered:33} If $X\in F$ and $X$ is real-membered,
+  then $\meet F$ is real-membered.
+\item\label{membered:34} If $X\in F$ and $X$ is rational-membered,
+  then $\meet F$ is rational-membered.
+\item\label{membered:35} If $X\in F$ and $X$ is integer-membered,
+  then $\meet F$ is integer-membered.
+\item\label{membered:36} If $X\in F$ and $X$ is natural-membered,
+  then $\meet F$ is natural-membered.
+\end{thm}
+
+\begin{scheme}[CMSeparation]
+Let $\mathcal{P}[-]$ be a unary predicate of objects.
+There exists a complex-membered set $X$ such that for each Complex $c$,
+we have $c\in X$ if and only if $\mathcal{P}[c]$.
+\end{scheme}
+
+\begin{scheme}[EMSeparation]
+Let $\mathcal{P}[-]$ be a unary predicate of objects.
+There exists a ext-real-membered set $X$ such that for each Extended Real $e$,
+we have $e\in X$ if and only if $\mathcal{P}[e]$.
+\end{scheme}
+
+\begin{scheme}[RMSeparation]
+Let $\mathcal{P}[-]$ be a unary predicate of objects.
+There exists a real-membered set $X$ such that for each Real $r$,
+we have $r\in X$ if and only if $\mathcal{P}[r]$.
+\end{scheme}
+
+\begin{scheme}[WMSeparation]
+Let $\mathcal{P}[-]$ be a unary predicate of objects.
+There exists a rational-membered set $X$ such that for each Rational $w$,
+we have $w\in X$ if and only if $\mathcal{P}[w]$.
+\end{scheme}
+
+\begin{scheme}[IMSeparation]
+Let $\mathcal{P}[-]$ be a unary predicate of objects.
+There exists a integer-membered set $X$ such that for each Integer $i$,
+we have $i\in X$ if and only if $\mathcal{P}[i]$.
+\end{scheme}
+
+\begin{scheme}[NMSeparation]
+Let $\mathcal{P}[-]$ be a unary predicate of objects.
+There exists a natural-membered set $X$ such that for each Nat $n$,
+we have $n\in X$ if and only if $\mathcal{P}[n]$.
+\end{scheme}
+
+Observe there exists a nonempty natural-membered set.
+
+\begin{thm}
+\item\label{membered:37} Let $X\neq\emptyset$ and $Y\neq\emptyset$ be
+  real-membered sets.
+  Suppose for all Reals $a\in X$ and $b\in Y$ we have $a\leq b$.
+  Then there exists a Real $d$ such that every Real $a\in X$ satisfies
+  $a\leq d$, and every Real $b\in Y$ satisfies $d\leq b$.
+\end{thm}
+
+\begin{definition}
+Let $X$ be a set.
+We define the attribute $X$ is \define{add-closed} to mean
+\begin{defn}
+\item For all Complex $x\in X$ and $y\in X$, we have $x+y\in X$.
+\end{defn}
+\end{definition}
+
+Observe empty sets are add-closed; $\CC$, $\RR$, $\QQ$, $\ZZ$, $\NN$ are
+all add-closed; and there exists a nonempty add-closed natural-membered set.
+
+\end{document}

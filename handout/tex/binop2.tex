@@ -1,0 +1,312 @@
+\documentclass{article}
+\title{Binary Operations on Numbers (BINOP-2)}
+\author{Library Committee}
+\date{June 21, 2004}
+\begin{document}
+\maketitle
+
+\begin{scheme}[FuncDefUniq]
+Let $\mathcal{C}$ and $\mathcal{D}$ be nonempty sets,
+let $\mathcal{F}(-)$ be an object parametrized by elements of $\mathcal{C}$.
+For all functions $f_{1},f_{2}\colon\mathcal{C}\to\mathcal{D}$
+such that every element $x$ of $\mathcal{C}$ satisfies $f_{1}(x)=\mathcal{F}(x)$
+and $f_{2}(x)=\mathcal{F}(x)$, then we have $f_{1}=f_{2}$.
+\end{scheme}
+
+\begin{scheme}[BinOpDefuniq]
+Let $\mathcal{A}$ be a nonempty set, let $\mathcal{F}(-,-)$ be an object
+parametrized by a pair of elements of $\mathcal{A}$.
+For all binary operators $f_{1}$, $f_{2}$ of $\mathcal{A}$
+such that all elements $a$, $b$ of $\mathcal{A}$ satisfy
+$f_{1}(a,b)=\mathcal{F}(a,b)$ and $f_{2}(a,b)=\mathcal{F}(a,b)$,
+then $f_{1}=f_{2}$.
+\end{scheme}
+
+\begin{scheme}[CFuncDefUniq]
+Let $\mathcal{F}(-)$ be an object parametrized by Complex.
+For all functions $f_{1},f_{2}\colon\CC\to\CC$ such that every Complex
+$x$ satisfies $f_{1}(x)=\mathcal{F}(x)$ and $f_{2}(x)=\mathcal{F}(x)$,
+then $f_{1}=f_{2}$.
+\end{scheme}
+
+\begin{scheme}[RFuncDefUniq]
+Let $\mathcal{F}(-)$ be an object parametrized by Reals.
+For all functions $f_{1},f_{2}\colon\RR\to\RR$ such that every Real $x$
+satisfies $f_{1}(x)=\mathcal{F}(x)$ and $f_{2}(x)=\mathcal{F}(x)$,
+then $f_{1}=f_{2}$.
+\end{scheme}
+
+Observe every element of $\QQ$ is rational.
+
+\begin{scheme}[WFuncDefUniq]
+Let $\mathcal{F}(-)$ be an object parametrized by Rationals.
+For all functions $f_{1},f_{2}\colon\QQ\to\QQ$ such that every Rational $x$
+satisfies $f_{1}(x)=\mathcal{F}(x)$ and $f_{2}(x)=\mathcal{F}(x)$,
+then $f_{1}=f_{2}$.
+\end{scheme}
+
+\begin{scheme}[IFuncDefUniq]
+Let $\mathcal{F}(-)$ be an object parametrized by Integers.
+For all functions $f_{1},f_{2}\colon\ZZ\to\ZZ$ such that every Integer $x$
+satisfies $f_{1}(x)=\mathcal{F}(x)$ and $f_{2}(x)=\mathcal{F}(x)$,
+then $f_{1}=f_{2}$.
+\end{scheme}
+
+\begin{scheme}[NFuncDefUniq]
+Let $\mathcal{F}(-)$ be an object parametrized by Nats.
+For all functions $f_{1},f_{2}\colon\NN\to\NN$ such that every Nat $x$
+satisfies $f_{1}(x)=\mathcal{F}(x)$ and $f_{2}(x)=\mathcal{F}(x)$,
+then $f_{1}=f_{2}$.
+\end{scheme}
+
+\begin{scheme}[CBinOpDefUniq]
+Let $\mathcal{F}(-,-)$ be an object parametrized by a pair of Complex.
+For all binary operators $f_{1}$ and $f_{2}$ of $\CC$,
+if for all Complex $a$ and $b$ we have $f_{1}(a,b)=\mathcal{F}(a,b)$
+and $f_{2}(a,b)=\mathcal{F}(a,b)$, then $f_{1}=f_{2}$.
+\end{scheme}
+
+\begin{scheme}[RBinOpDefUniq]
+Let $\mathcal{F}(-,-)$ be an object parametrized by a pair of Reals.
+For all binary operators $f_{1}$ and $f_{2}$ of $\RR$,
+if for all Real $a$ and $b$ we have $f_{1}(a,b)=\mathcal{F}(a,b)$
+and $f_{2}(a,b)=\mathcal{F}(a,b)$, then $f_{1}=f_{2}$.
+\end{scheme}
+
+\begin{scheme}[WBinOpDefUniq]
+Let $\mathcal{F}(-,-)$ be an object parametrized by a pair of Rational.
+For all binary operators $f_{1}$ and $f_{2}$ of $\QQ$,
+if for all Rational $a$ and $b$ we have $f_{1}(a,b)=\mathcal{F}(a,b)$
+and $f_{2}(a,b)=\mathcal{F}(a,b)$, then $f_{1}=f_{2}$.
+\end{scheme}
+
+\begin{scheme}[IBinOpDefUniq]
+Let $\mathcal{F}(-,-)$ be an object parametrized by a pair of Integers.
+For all binary operators $f_{1}$ and $f_{2}$ of $\ZZ$,
+if for all Integer $a$ and $b$ we have $f_{1}(a,b)=\mathcal{F}(a,b)$
+and $f_{2}(a,b)=\mathcal{F}(a,b)$, then $f_{1}=f_{2}$.
+\end{scheme}
+
+\begin{scheme}[NBinOpDefUniq]
+Let $\mathcal{F}(-,-)$ be an object parametrized by a pair of Nats.
+For all binary operators $f_{1}$ and $f_{2}$ of $\NN$,
+if for all Nat $a$ and $b$ we have $f_{1}(a,b)=\mathcal{F}(a,b)$
+and $f_{2}(a,b)=\mathcal{F}(a,b)$, then $f_{1}=f_{2}$.
+\end{scheme}
+
+\begin{scheme}[CLambda2D]
+Let $\mathcal{F}(-,-)$ be an Complex parametrized by a pair of Complex.
+There exists a function $f\colon\CC\times\CC\to\CC$
+such that for all Complex $a$ and $b$ we have $f(a,b)=\mathcal{F}(a,b)$.
+\end{scheme}
+
+\begin{scheme}[RLambda2D]
+Let $\mathcal{F}(-,-)$ be an Real parametrized by a pair of Real.
+There exists a function $f\colon\RR\times\RR\to\RR$
+such that for all Real $a$ and $b$ we have $f(a,b)=\mathcal{F}(a,b)$.
+\end{scheme}
+
+\begin{scheme}[WLambda2D]
+Let $\mathcal{F}(-,-)$ be an Rational parametrized by a pair of Rational.
+There exists a function $f\colon\QQ\times\QQ\to\QQ$
+such that for all Rational $a$ and $b$ we have $f(a,b)=\mathcal{F}(a,b)$.
+\end{scheme}
+
+\begin{scheme}[ILambda2D]
+Let $\mathcal{F}(-,-)$ be an Integer parametrized by a pair of Integers.
+There exists a function $f\colon\ZZ\times\ZZ\to\ZZ$
+such that for all Integer $a$ and $b$ we have $f(a,b)=\mathcal{F}(a,b)$.
+\end{scheme}
+
+\begin{scheme}[NLambda2D]
+Let $\mathcal{F}(-,-)$ be a Nat parametrized by a pair of Nats.
+There exists a function $f\colon\NN\times\NN\to\NN$
+such that for all Nat $a$ and $b$ we have $f(a,b)=\mathcal{F}(a,b)$.
+\end{scheme}
+
+%%
+\begin{scheme}[CLambdaD]
+Let $\mathcal{F}(-)$ be an Complex parametrized by a Complex.
+There exists a function $f\colon\CC\to\CC$
+such that for all Complex $a$ we have $f(a)=\mathcal{F}(a)$.
+\end{scheme}
+
+\begin{scheme}[RLambdaD]
+Let $\mathcal{F}(-)$ be an Real parametrized by a Real.
+There exists a function $f\colon\RR\to\RR$
+such that for all Real $a$ we have $f(a)=\mathcal{F}(a)$.
+\end{scheme}
+
+\begin{scheme}[WLambdaD]
+Let $\mathcal{F}(-)$ be an Rational parametrized by a Rational.
+There exists a function $f\colon\QQ\to\QQ$
+such that for all Rational $a$ we have $f(a)=\mathcal{F}(a)$.
+\end{scheme}
+
+\begin{scheme}[ILambdaD]
+Let $\mathcal{F}(-)$ be an Integer parametrized by an Integer.
+There exists a function $f\colon\ZZ\to\ZZ$
+such that for all Integer $a$ we have $f(a)=\mathcal{F}(a)$.
+\end{scheme}
+
+\begin{scheme}[NLambdaD]
+Let $\mathcal{F}(-,-)$ be a Nat parametrized by a Nat.
+There exists a function $f\colon\NN\to\NN$
+such that for all Nat $a$ we have $f(a)=\mathcal{F}(a)$.
+\end{scheme}
+
+\begin{definition}
+We define the term $-_{\CC}$ (Mizar: ``\verb#compcomplex#'') to be the unary
+operator of $\CC$ satisfying
+\begin{defn}
+\item for each Complex $c$, we have $-_{\CC}(c)=-c$.
+\end{defn}
+We define the term $\cdot^{-1}_{\CC}$ (Mizar: ``\verb#invcomplex#'') to
+be the unary operator of $\CC$ satisfying
+\begin{defn}
+\item for each Complex $c$, we have $\cdot^{-1}_{\CC}(c)=c^{-1}$.
+\end{defn}
+We define the term $+_{\CC}$ (Mizar: ``\verb#addcomplex#'') to be the
+binary operator of $\CC$ satisfying
+\begin{defn}
+\item for all Complex $c_{1}$ and $c_{2}$, we have $+_{\CC}(c_{1},c_{2})=c_{1}+c_{2}$.
+\end{defn}
+We define the term $-_{\CC}$ (Mizar: ``\verb#diffcomplex#'') to be the
+binary operator of $\CC$ satisfying
+\begin{defn}
+\item for all Complex $c_{1}$ and $c_{2}$, we have $-_{\CC}(c_{1},c_{2})=c_{1}-c_{2}$.
+\end{defn}
+We define the term $\cdot_{\CC}$ (Mizar: ``\verb#multcomplex#'') to be
+the binary operator of $\CC$ satisfying
+\begin{defn}
+\item for all Complex $c_{1}$ and $c_{2}$, we have $\cdot_{\CC}(c_{1},c_{2})=c_{1}\cdot c_{2}$.
+\end{defn}
+We define the term $\div_{\CC}$ (Mizar: ``\verb#divcomplex#'') to be
+the binary operator of $\CC$ satisfying
+\begin{defn}
+\item for all Complex $c_{1}$ and $c_{2}$, we have $\div_{\CC}(c_{1},c_{2})=c_{1}/c_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+We define the term $-_{\RR}$ (Mizar: ``\verb#compreal#'') to be the unary
+operator of $\RR$ satisfying
+\begin{defn}
+\item for each Real $r$, we have $-_{\RR}(r)=-r$.
+\end{defn}
+We define the term $\cdot^{-1}_{\RR}$ (Mizar: ``\verb#invreal#'')
+\begin{defn}
+\item for each Rational $r$, we have $\cdot^{-1}_{\RR}(r)=r^{-1}$.
+\end{defn}
+We define the term $+_{\RR}$ (Mizar: ``\verb#addreal#'') to be the
+binary operator of $\RR$ satisfying
+\begin{defn}
+\item for all Real $r_{1}$ and $r_{2}$, we have $+_{\RR}(r_{1},r_{2})=r_{1}+r_{2}$.
+\end{defn}
+We define the term $-_{\RR}$ (Mizar: ``\verb#diffreal#'') to be the
+binary operator of $\RR$ satisfying
+\begin{defn}
+\item for all Real $r_{1}$ and $r_{2}$, we have $-_{\RR}(r_{1},r_{2})=r_{1}-r_{2}$.
+\end{defn}
+We define the term $\cdot_{\RR}$ (Mizar: ``\verb#multreal#'') to be
+the binary operator of $\RR$ satisfying
+\begin{defn}
+\item for all Real $r_{1}$ and $r_{2}$, we have $\cdot_{\RR}(r_{1},r_{2})=r_{1}\cdot r_{2}$.
+\end{defn}
+We define the term $\div_{\RR}$ (Mizar: ``\verb#divreal#'') to be
+the binary operator of $\RR$ satisfying
+\begin{defn}
+\item for all Real $r_{1}$ and $r_{2}$, we have $\div_{\RR}(r_{1},r_{2})=r_{1}/r_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+We define the term $-_{\QQ}$ (Mizar: ``\verb#comprat#'') to be the unary
+operator of $\QQ$ satisfying
+\begin{defn}
+\item for each Rational $w$, we have $-_{\QQ}(w)=-w$.
+\end{defn}
+We define the term $\cdot^{-1}_{\QQ}$ (Mizar: ``\verb#invrat#'')
+\begin{defn}
+\item for each Rational $w$, we have $\cdot^{-1}_{\QQ}(w)=w^{-1}$.
+\end{defn}
+We define the term $+_{\QQ}$ (Mizar: ``\verb#addrat#'') to be the
+binary operator of $\QQ$ satisfying
+\begin{defn}
+\item for all Rational $w_{1}$ and $w_{2}$, we have $+_{\QQ}(w_{1},w_{2})=w_{1}+w_{2}$.
+\end{defn}
+We define the term $-_{\QQ}$ (Mizar: ``\verb#diffrat#'') to be the
+binary operator of $\QQ$ satisfying
+\begin{defn}
+\item for all Rational $w_{1}$ and $w_{2}$, we have $-_{\QQ}(w_{1},w_{2})=w_{1}-w_{2}$.
+\end{defn}
+We define the term $\cdot_{\QQ}$ (Mizar: ``\verb#multrat#'') to be
+the binary operator of $\QQ$ satisfying
+\begin{defn}
+\item for all Rational $w_{1}$ and $w_{2}$, we have $\cdot_{\QQ}(w_{1},w_{2})=w_{1}\cdot w_{2}$.
+\end{defn}
+We define the term $\div_{\QQ}$ (Mizar: ``\verb#divrat#'') to be
+the binary operator of $\QQ$ satisfying
+\begin{defn}
+\item for all Rational $w_{1}$ and $w_{2}$, we have $\div_{\QQ}(w_{1},w_{2})=w_{1}/w_{2}$.
+\end{defn}
+\end{definition}
+
+
+\begin{definition}
+We define the term $-_{\ZZ}$ (Mizar ``\verb#compint#'') to be the unary
+operator of $\ZZ$ satisfying
+\begin{defn}
+\item for all Integers $i$ we have $-_{\ZZ}(i)=-i$.
+\end{defn}
+We define the term $+_{\ZZ}$ (Mizar: ``\verb#addint#'') to be the binary
+operator of $\ZZ$ satisfying
+\begin{defn}
+\item for all Integers $i_{1}$, $i_{2}$, we have $+_{\ZZ}(i_{1},i_{2})=i_{1}+i_{2}$.
+\end{defn}
+We define the term $-_{\ZZ}$ (Mizar: ``\verb#diffint#'') to be the binary
+operator of $\ZZ$ satisfying
+\begin{defn}
+\item for all Integers $i_{1}$, $i_{2}$, we have $-_{\ZZ}(i_{1},i_{2})=i_{1}-i_{2}$.
+\end{defn}
+We define the term $\cdot_{\ZZ}$ (Mizar: ``\verb#multint#'') to be the binary
+operator of $\ZZ$ satisfying
+\begin{defn}
+\item for all Integers $i_{1}$, $i_{2}$, we have $\cdot_{\ZZ}(i_{1},i_{2})=i_{1}\cdot i_{2}$.
+\end{defn}
+\end{definition}
+
+\begin{definition}
+We define the term $+_{\NN}$ (Mizar: ``\verb#addnat#'') to be the binary
+operator of $\NN$ satisfying
+\begin{defn}
+\item for all Nats $n_{1}$, $n_{2}$, we have $+_{\NN}(n_{1},n_{2})=n_{1}+n_{2}$.
+\end{defn}
+We define the term $\cdot_{\NN}$ (Mizar: ``\verb#multnat#'') to be the binary
+operator of $\NN$ satisfying
+\begin{defn}
+\item for all Nats $n_{1}$, $n_{2}$, we have $\cdot_{\NN}(n_{1},n_{2})=n_{1}\cdot n_{2}$.
+\end{defn}
+\end{definition}
+
+We observe $+_{\CC}$, $\cdot_{\CC}$, $+_{\RR}$, $\cdot_{\RR}$, 
+$+_{\QQ}$, $\cdot_{\QQ}$, $+_{\ZZ}$, $\cdot_{\ZZ}$, $+_{\NN}$, $\cdot_{\NN}$
+are all commutative associative and have a unity.
+
+We can prove the following results:
+\begin{thm}
+\item The unity with respect to $+_{\CC}$ is $0$.
+\item The unity with respect to $+_{\RR}$ is $0$.
+\item The unity with respect to $+_{\QQ}$ is $0$.
+\item The unity with respect to $+_{\ZZ}$ is $0$.
+\item The unity with respect to $+_{\NN}$ is $0$.
+\item The unity with respect to $\cdot_{\CC}$ is $1$.
+\item The unity with respect to $\cdot_{\RR}$ is $1$.
+\item The unity with respect to $\cdot_{\QQ}$ is $1$.
+\item The unity with respect to $\cdot_{\ZZ}$ is $1$.
+\item The unity with respect to $\cdot_{\NN}$ is $1$.
+\end{thm}
+\end{document}
+
+Let $f$ be a real-valued function, let $a$ and $b$ be objects. We
+observe $f(a,b)$ is real.

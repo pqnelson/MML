@@ -1,96 +1,24 @@
 \documentclass{article}
-\title{Tarski--Grothendieck Axioms}
+
+\title{Strong arithmetic of real numbers (AXIOMS)}
 \author{Andrzej Trybulec}
-%% \makeatletter
-%% \@ifclassloaded{combine}
-%%   {\let\@begindocumenthook\@empty}
-%%   {}
-%% \makeatother
+\date{January 1, 1989}
 \begin{document}
 \maketitle
-No one refers to these axioms explicitly, but I would like to review
-them here. They specify the behaviour of the two predicates:
-\begin{enumerate}
-\item Equality, defined for any objects $x$ and $y$, we have $x=y$ be primitive
-\item Set membership $x\in X$ defined for any object $x$ and set $X$.
-\end{enumerate}
-The first axiom is implicit in ZF set theory, that Mizar makes
-explicit: 
 
-\begin{axiom}[Set axiom]
-Every object $x$ is a set.
-\end{axiom}
+Let $x$, $y$, $z$ be Reals. We have the following results:
+\begin{thm}
+\item Let $X$, $Y$ be Subsets of $\RR$.
+  Suppose all Reals $x$ and $y$ with $x\in X$ and $y\in Y$ satisfy
+  $x\leq y$.
+  Then there exists a Real $z$ such that all Reals $x\in X$ and $y\in Y$
+  satisfy $x\leq z\leq y$.
+\item If $x\in\NN$ and $y\in\NN$, then $x+y\in\NN$
+\item Let $A$ be a Subset of $\RR$.
+  Suppose $0\in A$ and every Real $x\in A$ satisfies $x+1\in A$.
+  Then $\NN\subset A$.
+\item Let $k$ be a natural number.
+  Then $k=\{i\in\NN\mid i<k\}$.
+\end{thm}
 
-\noindent The next 4 axioms are in ZF.
-
-\begin{axiom}[Extensionality]
-Let $X$, $Y$ be sets.
-If, for every object $x$ we have $x\in X$ if and only if $x\in Y$,
-then $X=Y$.
-\end{axiom}
-
-\begin{axiom}[Pair]
-Let $x$, $y$ be any object.
-There exists a set $Z$ such that for any object $a$,
-$a\in Z$ if and only if either $a=x$ or $a=y$.
-\end{axiom}
-
-\begin{axiom}[Union]
-Let $\mathcal{F}$ be a set.
-There exists a set $Z$ such that for any object $x$,
-$x\in Z$ if and only if there exists some set $X$ such that $x\in X$ and $X\in\mathcal{F}$.
-\end{axiom}
-
-%% theorem :: TARSKI_0:5
-%%   for x being object
-%%   for X being set st x in X holds
-%%   ex Y being set st
-%%   (Y in X & ( for x being object holds
-%%               ( not x in X or not x in Y ) ) ) ;
-
-\begin{axiom}[Regularity]
-Let $X$ be a set. For any object $x$ such that $x\in X$,
-there exists a set $Y$ such that $Y\in X$ and there is no object $z$
-such that $z\in Y$ and $z\in X$.
-\end{axiom}
-
-\begin{axiom}[Schema of Replacement]
-Let $P[-,-]$ be a binary predicate, and $\mathcal{F}_{1}$ be a set.
-Provided:
-\begin{itemize}
-\item For any objects $x$, $y$, $z$, if $P[x,y]$ and $P[x,z]$, then $y=z$;
-\end{itemize}
-Then there exists a set $X$ such that for any object $x$, $x\in X$ if
-and only if there exists some object $y$ such that $y\in\mathcal{F}_{1}$
-and $P[y,x]$.
-\end{axiom}
-
-\noindent The last axiom implies the missing axioms from ZFC (including, yes, choice).
-
-\begin{axiom}[Universe]
-``Every set is contained in a Grothendieck universe.''
-  Let $N$ be a set. Then there exists a set $U$ such that:
-  \begin{enumerate}
-  \item $N\in U$;
-  \item For any sets $X$ and $Y$ such that $X\in N$ and $Y\subset X$,
-    we have $Y\in U$;
-  \item For any set $X$ such that $X\in U$ there exists a set $Z$ such that $Z\in U$ and
-    every set $Y$ for which $Y\subset X$ has $Y\in Z$;
-  \item For any set $X$, if $X\subset U$, then either $X$ is equipotent
-    to $U$ or else $X\in U$.
-  \end{enumerate}
-\end{axiom}
-
-\begin{definition}
-  We define equality on any two objects $x$, $y$ as a predicate $x=y$.
-  We take equality to be reflexive (for any object $x$, we always have $x=x$)
-and symmetric (for any objects $x$ and $y$, if $x=y$, then $y=x$).
-
-We define $x\neq y$ as the antonym of $x=y$.
-\end{definition}
-
-\begin{notation}
-We use the \textbf{informal notation} $x\notin X$ for $\neg(x\in X)$. This is
-later formally defined in \hyperlink{notation:xboole0:nin}{XBOOLE-0}.
-\end{notation}
 \end{document}

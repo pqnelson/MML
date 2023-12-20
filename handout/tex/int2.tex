@@ -1,0 +1,153 @@
+\documentclass{article}
+\title{The Divisibility of Integers and Integer Relatively Primes (INT-2)}
+\author{Rafa{\l} Kwiatek and Grzegorz Zwara}
+\date{July 10, 1990}
+\begin{document}
+\maketitle
+
+\begin{definition}
+Let $a$ be an Integer.
+We redefine the type of $\abs{a}$ to be an element of $\NN$.
+\end{definition}
+
+Let $a$, $b$, $c$ be Integers. We have the following results:
+\begin{thm}
+\item\label{int2:1} If $a$ divides $b$, and $a$ divides $b+c$,
+  then $a$ divides $c$.
+\item\label{int2:2} If $a$ divides $b$, then $a$ divides $b\cdot c$
+\item\label{int2:3} $0$ divides $a$ if and only if $a=0$.
+\end{thm}
+
+\begin{definition}\index{Least Common Multiple}\index{$\lcm(a,b)$}%
+Let $a$ and $b$ be Integers.
+We define the term $\lcm(a,b)$ (Mizar: ``\verb#a lcm b#'') to be the Nat
+satisfying
+\begin{defn}
+\item $a$ divides $\lcm(a,b)$, $b$ divides $\lcm(a,b)$, and for all
+  Integers $m$ such that $a$ divides $m$ and $b$ divides $m$ we have
+  $\lcm(a,b)$ divides $m$.
+\end{defn}
+Observe this is commutative (i.e., $\lcm(a,b)=\lcm(b,a)$).
+\end{definition}
+
+We have the following result:
+\begin{thm}
+\item\label{int2:4} $a=0$ or $b=0$ if and only if $\lcm(a,b)=0$.
+\end{thm}
+
+\begin{definition}
+Let $a$, $b$ be Integers.
+We define the term $\gcd(a,b)$ (Mizar: ``\verb#a gcd b#'') to be the Nat
+satisfying
+\begin{defn}
+\item $\gcd(a,b)$ divides $a$, $\gcd(a,b)$ divides $b$, and for each
+  Integer $m$ such that $m$ divides $a$ and $m$ divides $b$ we have $m$
+  divides $\gcd(a,b)$.
+\end{defn}
+Observe this is commutative (i.e., $\gcd(a,b)=\gcd(b,a)$).
+\end{definition}
+
+Let $n$ be a Nat. Let $a$, $b$, $c$, $d$ be Integers. We have:
+\begin{thm}
+\item\label{int2:5} $a=b=0$ if and only if $\gcd(a,b)=0$.
+\item\label{int2:6} $-n$ is Element of $\NN$ if and only if $n=0$.
+\item\label{int2:7} $-1$ is not an element of $\NN$
+\item\label{int2:8} $a$ divides $-a$, and $-a$ divides $a$.
+\item\label{int2:9} If $a$ divides $b$, and $b$ divides $c$, then $a$
+  divides $c$
+\item\label{int2:10} \begin{enumerate}[label=(\roman*)]
+\item $a$ divides $b$ if and only if $a$ divides $-b$; and
+\item $a$ divides $b$ if and only if $-a$ divides $b$.
+\end{enumerate}
+\item\label{int2:11} If $a$ divides $b$, and $b$ divides $a$, then $a=b$
+  or $a=-b$.
+\item\label{int2:12} $a$ divides $0$, $1$ divides $a$, and $-1$ divides $a$.
+\item\label{int2:13} If $a$ divides $1$ or $a$ divides $-1$, then $a=1$
+  or $a=-1$
+\item\label{int2:14} If $a=-1$ or $a=1$, then $a$ divides $1$ or $a$
+  divides $-1$
+\item\label{int2:15} $\CongMod{a}{b}{c}$ if and only if $c$ divides $a-b$.
+\item\label{int2:16} $a$ divides $b$ if and only if $\abs{a}$ divides $\abs{b}$
+\item\label{int2:17} $\lcm(a,b)$ is an element of $\NN$
+\item\label{int2:18} $a$ divides $\lcm(a,b)$
+\item\label{int2:19} If $a$ divides $c$ and $b$ divides $c$, then
+  $\lcm(a,b)$ divides $c$.
+\item\label{int2:20} $\gcd(a,b)$ is an element of $\NN$
+\item\label{int2:21} $\gcd(a,b)$ divides $a$
+\item\label{int2:22} If $c$ divides $a$ and $c$ divides $b$, then $c$
+  divides $\gcd(a,b)$.
+\end{thm}
+\section{Relatively prime numbers}
+
+\begin{definition}\index{Coprime}\index{Relatively prime}%
+Let $a$, $b$ be Integers.
+We define the predicate, saying $a$ and $b$ are coprime, (Mizar: ``\verb#a,b are_coprime#'')
+to mean
+\begin{defn}
+\item $\gcd(a,b)=1$.
+\end{defn}
+Observe this is symmetric (i.e., $a$ and $b$ are coprime if and only if
+$b$ and $a$ are coprime).
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{int2:23} If $a\neq0$ or $b\neq0$, then there exists some
+  Integers $a_{1}$, $b_{1}$ such that $a=a_{1}\cdot\gcd(a,b)$ and
+  $b=b_{1}\cdot\gcd(a,b)$ and $a_{1}$ is coprime with $b_{1}$.
+\item\label{int2:24} If $a$ is coprime with $b$, then $\gcd(c\cdot a,c\cdot b)=\abs{c}$
+  and $\gcd(c\cdot a,b\cdot c)=\abs{c}$,
+  and $\gcd(a\cdot c,c\cdot b)=\abs{c}$,
+  and $\gcd(a\cdot c,b\cdot c)=\abs{c}$.
+\item\label{int2:25} If $c$ divides $a\cdot b$, and $a$ is coprime with
+  $c$,
+  then $c$ divides $b$.
+\item\label{int2:26} If $a$ is coprime with $c$, and $b$ is coprime with $c$,
+  then $a\cdot b$ is coprime with $c$.
+\end{thm}
+
+\section{Prime numbers}
+
+\begin{definition}
+Let $p$ be an Integer.
+We define the attribute, saying $p$ is \define{prime} to mean
+\begin{defn}
+\item $p>1$ and every Nat $n$ which divides $p$ satisfies $n=1$ or $n=p$.
+\end{defn}
+\end{definition}
+
+Observe, prime Integers are natural.
+
+We have the following results:
+\begin{thm}
+\item\label{int2:27} If $0<b$ and $a$ divides $b$, then $a\leq b$.
+\item\label{int2:28} $2$ is prime.
+\item\label{int2:29} $4$ is not prime.
+\end{thm}
+
+Observe there exists a prime Nat, and there exists a nonzero nonprime
+Nat.
+
+\begin{definition}
+We define the mode, a \define{Prime} is a prime Nat.
+\end{definition}
+
+\begin{remark}
+A list of proven prime numbers may be found in the \texttt{XPRIMES}
+series of articles.
+\end{remark}
+
+Let $p$, $q$, $\ell$ be Nats.
+We have the following results:
+\begin{thm}
+\item\label{int2:30} If $p$ and $q$ are prime, then either $p$ is
+  coprime with $q$ or $p=q$
+\item\label{int2:31} If $\ell\geq2$, then there exists an element $p$ of
+  $\NN$ such that $p$ is prime and $p$ divides $\ell$.
+\item\label{int2:32} Let $i\geq0$ and $j\geq0$ be Integers.
+  Then $\abs{i}\mod{\abs{j}}=i\mod{j}$, and $\abs{i}\div\abs{j}=i\div j$.
+\item\label{int2:33} $\lcm(a,b)=\lcm(\abs{a},\abs{b})$
+\item\label{int2:34} $\gcd(a,b)=\gcd(\abs{a},\abs{b})$
+\end{thm}
+
+\end{document}

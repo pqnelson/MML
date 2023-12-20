@@ -2,7 +2,7 @@
 
 \title{Non negative real numbers. Part II (ARYTM-1)}
 \author{Andrzej Trybulec}
-\title{March 7, 1998}
+\date{March 7, 1998}
 \begin{document}
 \maketitle
 
@@ -18,7 +18,7 @@ Let $x$, $y$, $z$ be elements of $\RR_{+}$. We can prove the following:
 \item\label{arytm1:8} If $x\leq y$, then $x\cdot z\leq y\cdot z$.
 \end{thm}
 
-\begin{definition}
+\begin{definition}\index{\texttt{-\textquotesingle}}\index{Subtraction!of Positive Reals}\index{Subtraction!\texttt{-\textquotesingle}}%
 Let $x$, $y$ be elements of $\RR_{+}$.
 We define the term $x-y$ (Mizar: ``\verb#x -' y#'') to be the element of
 $\RR_{+}$ satisfying
@@ -26,6 +26,13 @@ $\RR_{+}$ satisfying
 \item $(x-y)+y=x$ if $y\leq x$; otherwise $x-y:=0$.
 \end{defn}
 \end{definition}
+
+\begin{remark}
+In Mizar, it is idiomatic to use \verb#-'# for subtraction between
+positive numbers. We will have, in future articles, theorems
+establishing ``compatibility'' of this subtraction with the ``usual''
+subtraction operator. 
+\end{remark}
 
 We have the following results
 \begin{thm}

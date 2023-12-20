@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \title{Subsets of Complex Numbers (NUMBERS)}
-\title{Andrzej Trybulec}
+\author{Andrzej Trybulec}
 \date{November 7, 2003}
 \begin{document}
 \maketitle
@@ -37,6 +37,22 @@ For the rationals and integers, we interpret $(0,x)$ as $-x$.
 For the complex numbers, we interpret $z_{0}+z_{1}\cdot\sqrt{-1}$
 as a function $z\colon\{0,1\}\to\RR$.
 We ``surgically remove'' subsets to make sure $\NN\subset\ZZ\subset\QQ\subset\RR\subset\CC$.
+\end{remark}
+
+\begin{remark}\index{Number!Naming conventions}\index{Idiom!Number names}%
+It is idiomatic Mizar to use \texttt{SCREAMING CAP CASE} for sets of
+numbers, and \texttt{PascalCase} for the type of numbers. For example,
+in the article \texttt{QUATERNI}, the set of Quaternions is defined as
+\texttt{QUATERNION} and the type is \texttt{Quaternion}.
+
+The only exception to this rule is the extended reals, whose set is
+\verb#ExtREAL#. The set of extended naturals (found in the
+\verb#COUNTERS# article) follows this pattern of prefixing \verb#Ext# to
+the set name (\verb#ExtNAT# for the set of extended natural numbers).
+
+It will be useful to define attributes for \verb#Number# to reflect the
+type of number it is (real, ext-real, complex, rational, etc.). These
+attributes are in \texttt{kebab-lower-case}.
 \end{remark}
 
 \begin{definition}

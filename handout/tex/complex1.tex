@@ -1,0 +1,210 @@
+\documentclass{article}
+\title{The Complex Numbers (COMPLEX1)}
+\author{Czes{\l}aw Byli\'nski}
+\date{March 1, 1990}
+\begin{document}
+\maketitle
+
+\begin{thm}
+\item\label{complex1:1} Let $a$, $b$ be Reals.
+  If $a^{2}+b^{2}=0$, then $a=0$.
+\end{thm}
+
+\begin{definition}
+Let $z$ be Complex.
+We define the term $\Re(z)$ (Mizar: ``\verb#Re z#'') to be the number
+satisfying
+\begin{defn}
+\item $\Re(z)=z$ if $z$ is real; otherwise, there exists a function
+  $f\colon\mathbf{2}\to\RR$ such that $z=f$ and $\Re(z)=f(0)$.
+\end{defn}
+We define the term $\Im(z)$ (Mizar: ``\verb#Im z#'') to be the number
+satisfying
+\begin{defn}
+\item $\Im(z)=0$ if $z$ is real; otherwise, there exists a function
+  $f\colon\mathbf{2}\to\RR$ such that $z=f$ and $\Im(z)=f(1)$.
+\end{defn}
+\end{definition}
+
+Let $z$ be Complex. Observe $\Re(z)$ is real, and $\Im(z)$ is real.
+
+\begin{definition}
+Let $z$ be Complex.
+We redefine the type of $\Re(z)$ to be an element of $\RR$.
+We redefine the type of $\Im(z)$ to be an element of $\RR$.
+\end{definition}
+
+Let $r$ be Real. Then $\Im(r)$ is zero.
+
+Let $z$, $z_{1}$, $z_{2}$ be Complex.
+We have the following results:
+\begin{thm}
+\item\label{complex1:2} For any function $f\colon\mathbf{2}\to\RR$,
+  there exists elements $a$ and $b$ of $\RR$  such that
+  $f = (0,1)\constantto(a,b)$.
+\item\label{complex1:3} If $\Re(z_{1})=\Re(z_{2})$ and $\Im(z_{1})=\Im(z_{2})$,
+  then $z_{1}=z_{2}$.
+\end{thm}
+
+\begin{definition}
+Let $z_{1}$, $z_{2}$ be Complex.
+We redefine the predicate $z_{1}=z_{2}$ to mean
+\begin{defn}
+\item $\Re(z_{1})=\Re(z_{2})$ and $\Im(z_{1})=\Im(z_{2})$.
+\end{defn}
+\end{definition}
+
+\begin{notation}
+We introduce the notation $0_{\CC}$ (Mizar: ``\verb#0c#'') as a synonym for $0$.
+\end{notation}
+
+\begin{definition}
+We redefine the type of $0_{\CC}$ to be an element of $\CC$.
+\end{definition}
+
+\begin{definition}
+We define the term $1_{\CC}$ (Mizar: ``\verb#1r#'') to be the element of
+$\CC$ equal to
+\begin{defn}
+\item $1_{\CC}:=1$.
+\end{defn}
+We redefine the type of $\I$ to be an element of $\CC$.
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{complex1:4} $\Re(0)=0$ and $\Im(0)=0$.
+\item\label{complex1:5} $z=0$ if and only if $(\Re(z))^{2}+(\Im(z))^{2}=0$
+\item\label{complex1:6} $\Re(1_{\CC})=1$ and $\Im(1_{\CC})=0$.
+\item\label{complex1:7} $\Re(\I)=0$ and $\Im(\I)=1$.
+\item\label{complex1:8} $\Re(z_{1}+z_{2})=\Re(z_{1})+\Re(z_{2})$ and $\Im(z_{1}+z_{2})=\Im(z_{1})+\Im(z_{2})$.
+\item\label{complex1:9} $\Re(z_{1}\cdot z_{2})=\Re(z_{1})\cdot\Re(z_{2})-\Im(z_{1})\cdot\Im(z_{2})$
+  and $\Im(z_{1}\cdot z_{2})=\Re(z_{1})\cdot\Im(z_{2})+\Im(z_{1})\cdot\Re(z_{2})$.
+\item\label{complex1:10} Let $a$ be Real. Then $\Re(a\cdot\I)=0$.
+\item\label{complex1:11} Let $a$ be Real. Then $\Im(a\cdot\I)=a$.
+\item\label{complex1:12} $\Re(a+b\cdot\I)=a$ and $\Im(a+b\cdot\I)=b$.
+\item\label{complex1:13} $\Re(z)+\Im(z)\cdot\I=z$.
+\item\label{complex1:14} If $\Im(z_{1})=\Im(z_{2})=0$, then
+  $\Re(z_{1}\cdot z_{2})=\Re(z_{1})\cdot\Re(z_{2})$ and $\Im(z_{1}\cdot z_{2})=0$
+\item\label{complex1:15} If $\Re(z_{1})=\Re(z_{2})=0$, then
+  $\Re(z_{1}\cdot z_{2})=-\Im(z_{1})\cdot\Im(z_{2})$ and $\Im(z_{1}\cdot z_{2})=0$
+\item\label{complex1:16} $\Re(z\cdot z)=(\Re(z))^{2}-(\Im(z))^{2}$
+  and $\Im(z\cdot z)=2\cdot\Re(z)\cdot\Im(z)$.
+\item\label{complex1:17} $\Re(-z)=-\Re(z)$ and $\Im(-z)=-\Im(z)$
+\item\label{complex1:18} $\I\cdot\I=-1_{\CC}$
+\item\label{complex1:19} $\Re(z_{1}-z_{2})=\Re(z_{1})-\Re(z_{2})$
+  and $\Im(z_{1}-z_{2})=\Im(z_{1})-\Im(z_{2})$.
+\item\label{complex1:20} $\Re(z^{-1})=\Re(z)/((\Re(z))^{2}+(\Im(z))^{2})$
+  and $\Im(z^{-1})=-\Im(z)/((\Re(z))^{2}+(\Im(z))^{2})$
+\item\label{complex1:21} $\I^{-1}=-\I$
+\item\label{complex1:22} If $\Re(z)\neq0$ and $\Im(z)=0$, then
+  $\Re(z^{-1})=(\Re(z))^{-1}$ and $\Im(z^{-1})=0$.
+\item\label{complex1:23} If $\Re(z)=0$ and $\Im(z)\neq0$,
+  then $\Re(z^{-1})=0$ and $\Im(z^{-1})=-(\Im(z))^{-1}$.
+\item\label{complex1:24} $\Re(z_{1}/z_{2})=(\Re(z_{1})\cdot\Re(z_{2})+\Im(z_{1})\cdot\Im(z_{2}))/((\Re(z_{2}))^{2}+(\Im(z_{2}))^{2})$
+  and $\Im(z_{1}/z_{2})=(\Im(z_{1})\cdot\Re(z_{2})-\Re(z_{1})\cdot\Im(z_{2}))/((\Re(z_{2}))^{2}+(\Im(z_{2}))^{2})$
+\item\label{complex1:25} If $\Im(z_{1})=\Im(z_{2})=0$ and $\Re(z_{2})\neq0$,
+  then $\Re(z_{1}/z_{2})=\Re(z_{1})/\Re(z_{2})$ and $\Im(z_{1}/z_{2})=0$.
+\item\label{complex1:26} If $\Re(z_{1})=\Re(z_{2})=0$ and $\Im(z_{2})\neq0$,
+  then $\Re(z_{1}/z_{2})=\Im(z_{1})/\Im(z_{2})$ and $\Im(z_{1}/z_{2})=0$.
+\end{thm}
+
+Definitions 5 through 10 were cancelled.
+
+\begin{definition}
+Let $z$ be Complex.
+We define the term $z^{*}$ (Mizar: ``\verb#z *'#''), called the
+\define{Complex Conjugate} of $z$, to be the Complex
+equal to
+\begin{defn}[start=11]
+\item $z^{*}:=\Re(z)-\Im(z)\cdot\I$.
+\end{defn}
+Observe this is involutive (i.e., $(z^{*})^{*}=z$).
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{complex1:27} $\Re(z^{*})=\Re(z)$ and $\Im(z^{*})=-\Im(z)$
+\item\label{complex1:28} $0^{*}=0$
+\item\label{complex1:29} If $z^{*}=0$, then $z=0$.
+\item\label{complex1:30} $1_{\CC}^{*}=1_{\CC}$
+\item\label{complex1:31} $\I^{*}=-\I$
+\item\label{complex1:32} $(z_{1}+z_{2})^{*}=z_{1}^{*}+z_{2}^{*}$
+\item\label{complex1:33} $(-z)^{*}=-(z^{*})$
+\item\label{complex1:34} $(z_{1}-z_{2})^{*}=z_{1}^{*}-z_{2}^{*}$
+\item\label{complex1:35} $(z_{1}\cdot z_{2})^{*}=(z_{1}^{*})\cdot(z_{2}^{*})$.
+\item\label{complex1:36} $(z^{-1})^{*}=(z^{*})^{-1}$.
+\item\label{complex1:37} $(z_{1}/z_{2})^{*}=(z_{1}^{*})/(z_{2}^{*})$
+\item\label{complex1:38} If $\Im(z)=0$, then $z^{*}=z$.
+\end{thm}
+
+Let $r$ be Real, we reduce $r^{*}$ to $r$.
+
+We continue with the results:
+\begin{thm}
+\item\label{complex1:39} If $\Re(z)=0$, then $z^{*}=-z$.
+\item\label{complex1:40} $\Re(z\cdot z^{*})=(\Re(z))^{2}+(\Im(z))^{2}$
+  and $\Im(z\cdot z^{*})=0$
+\item\label{complex1:41} $\Re(z+z^{*})=2\cdot\Re(z)$ and $\Im(z+z^{*})=0$
+\item\label{complex1:42} $\Re(z-z^{*})=0$ and $\Im(z-z^{*})=2\cdot\Im(z)$.
+\end{thm}
+
+\begin{definition}
+Let $z$ be Complex.
+We define the term $\abs{z}$ (Mizar: ``\verb#|. z .|#'') to be the Real
+equal to
+\begin{defn}
+\item $\abs{z} := \sqrt{(\Re(z))^{2}+(\Im(z))^{2}}$.
+\end{defn}
+Observe this is projective (i.e., $\abs{(\abs{z})}=\abs{z}$).
+\end{definition}
+
+We have the following results:
+\begin{thm}
+\item\label{complex1:43} If $a\geq0$, then $\abs{a}=a$.
+\item\label{complex1:44} $\abs{0}=0$
+\item\label{complex1:45} If $\abs{z}=0$, then $z=0$
+\item\label{complex1:46} $0\leq\abs{z}$
+\item\label{complex1:47} $z\neq0$ if and only if $0<\abs{z}$
+\item\label{complex1:48} $\abs{1_{\CC}}=1$
+\item\label{complex1:49} $\abs{\I}=1$
+\item\label{complex1:50} If $\Im(z)=0$, then $\abs{z}=\abs{\Re(z)}$
+\item\label{complex1:51} If $\Re(z)=0$, then $\abs{z}=\abs{\Im(z)}$
+\item\label{complex1:52} $\abs{-z}=\abs{z}$
+\item\label{complex1:53} $\abs{z^{*}}=\abs{z}$
+\item\label{complex1:54} $\Re(z)\leq\abs{z}$
+\item\label{complex1:55} $\Im(z)\leq\abs{z}$
+\item\label{complex1:56} $\abs{z_{1}+z_{2}}\leq\abs{z_{1}}+\abs{z_{2}}$
+\item\label{complex1:57} $\abs{z_{1}-z_{2}}\leq\abs{z_{1}}+\abs{z_{2}}$
+\item\label{complex1:58} $\abs{z_{1}}-\abs{z_{2}}\leq\abs{z_{1}+z_{2}}$
+\item\label{complex1:59} $\abs{z_{1}}-\abs{z_{2}}\leq\abs{z_{1}-z_{2}}$
+\item\label{complex1:60} $\abs{z_{1}-z_{2}}=\abs{z_{2}-z_{1}}$
+\item\label{complex1:61} $\abs{z_{1}-z_{2}}=0$ if and only if $z_{1}=z_{2}$.
+\item\label{complex1:62} $z_{1}\neq z_{2}$ if and only if $0<\abs{z_{1}-z_{2}}$
+\item\label{complex1:63} (Triangle inequality) $\abs{z_{1}-z_{2}}\leq\abs{z_{1}-z}+\abs{z-z_{2}}$
+\item\label{complex1:64} $\abs{\abs{z_{1}}-\abs{z_{2}}}\leq\abs{z_{1}-z_{2}}$
+\item\label{complex1:65} $\abs{z_{1}\cdot z_{2}}=\abs{z_{1}}\cdot\abs{z_{2}}$
+\item\label{complex1:66} $\abs{z^{-1}}=\abs{z}^{-1}$
+\item\label{complex1:67} $\abs{z_{1}}/\abs{z_{2}}=\abs{z_{1}/z_{2}}$
+\item\label{complex1:68} $\abs{z\cdot z}=(\Re(z))^{2}+(\Im(z))^{2}$
+\item\label{complex1:69} $\abs{z\cdot z}=\abs{z\cdot z^{*}}$
+\item\label{complex1:70} If $a\leq0$, then $\abs{a}=-a$
+\item\label{complex1:71} $\abs{a}=a$ or $\abs{a}=-a$
+\item\label{complex1:72} $\sqrt{a^{2}}=\abs{a}$
+\item\label{complex1:73} $\min(a,b)=(a+b-\abs{a-b})/2$
+\item\label{complex1:74} $\max(a,b)=(a+b+\abs{a-b})/2$
+\item\label{complex1:75} $\abs{a}^{2}=a^{2}$
+\item\label{complex1:76} $-\abs{a}\leq a\leq\abs{a}$
+\item\label{complex1:77} If $a+b\cdot\I=c+d\cdot\I$, then $a=c$ and $b=d$
+\item\label{complex1:78} $\sqrt{a^{2}+b^{2}}\leq\abs{a}+\abs{b}$
+\item\label{complex1:79} $\abs{a}\leq\sqrt{a^{2}+b^{2}}$
+\item\label{complex1:80} $\abs{1/z_{1}}=1/\abs{z_{1}}$
+\item\label{complex1:81} $z_{1}+z_{2}=\Re(z_{1})+\Re(z_{2})+(\Im(z_{1})+\Im(z_{2}))\cdot\I$
+\item\label{complex1:82} $z_{1}\cdot z_{2}=\Re(z_{1})\cdot\Re(z_{2})-\Im(z_{1})\cdot\Im(z_{2})+(\Re(z_{1})\cdot\Im(z_{2})+\Im(z_{1})\cdot\Re(z_{2}))\cdot\I$
+\item\label{complex1:83} $-z=-\Re(z)+(-\Im(z))\cdot\I$
+\item\label{complex1:84} $z_{1}-z_{2}=\Re(z_{1})-\Re(z_{2})+(\Im(z_{1})-\Im(z_{2}))\cdot\I$
+\item\label{complex1:85} $z^{-1}=(\Re(z)/(\Re(z)^{2}+\Im(z)^{2}))+(-\Im(z)/(\Re(z)^{2}+\Im(z)^{2}))\cdot\I$
+\item\label{complex1:86} $z_{1}/z_{2}=((\Re(z_{1})\cdot\Re(z_{2})+\Im(z_{1})\cdot\Im(z_{2}))/(\Re(z_{2})^{2}+\Im(z_{2})^{2})) + ((\Re(z_{2})\cdot\Im(z_{1})-\Re(z_{1})\cdot\Im(z_{2}))/(\Re(z_{2})^{2}+\Im(z_{2})^{2}))\cdot\I$
+\end{thm}
+
+\end{document}
